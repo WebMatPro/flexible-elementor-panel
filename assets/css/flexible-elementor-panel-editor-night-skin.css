@@ -1,0 +1,331 @@
+/*-----------------------------------------------------------------------------------
+1 - Panel
+2 - Header
+3 - Switcher / Input / textarea / label
+4 - Elements
+5 - Search
+6 - Options menu panel
+7 - Options
+8 - History / Revision
+9 - Navigator
+10 - Finder
+11 - Popup options
+-----------------------------------------------------------------------------------*/
+/* color purple : #d30c5c (main) for .nightmode-pink */
+/* color orange : #ff7800 (main) for .nightmode-orange */
+/* dark color : #313131 */
+/* soft dark color : #383838 */
+/* grey color : #535353 */
+/* text color : #e4e4e4 */
+/* other text color : #a4afb7 */
+/*--------------------------------------------------------------------------------------
+1 - Panel
+--------------------------------------------------------------------------------------*/
+.nightmode .elementor-panel#elementor-panel, .nightmode .elementor-panel .elementor-control {
+    background: #535353;
+    color: #e4e4e4;
+}
+
+.nightmode.nightmode-orange .elementor-panel .ui-resizable-all {
+    border-color: #ff7800;
+}
+
+.nightmode .elementor-panel a {
+    color: #a4afb7;
+}
+
+.nightmode .elementor-panel .fep-exit-wrapper a, .nightmode .elementor-panel .fep-exit-wrapper a:hover {
+    color: inherit;
+}
+.nightmode .elementor-panel-heading {
+    border-bottom: 1px solid #e6e9ec33;
+}
+.nightmode .elementor-control.elementor-control-separator-before:before {
+    background-color: #d5dadf33;
+}
+.nightmode .elementor-panel-heading-title {
+    font-weight: 400;
+}
+.nightmode .elementor-control.elementor-control-type-heading .elementor-control-title {
+    font-weight: 500;
+}
+
+/*--------------------------------------------------------------------------------------
+2 - Header
+--------------------------------------------------------------------------------------*/
+.nightmode #elementor-panel-header {
+    background-color: #484848;
+}
+
+.nightmode .elementor-panel .elementor-panel-navigation {
+    background-color: #383838;
+}
+
+.nightmode.nightmode-pink .elementor-panel .elementor-panel-navigation .elementor-panel-navigation-tab.elementor-active {
+    background: #212121;
+    border-bottom: 3px solid #d30c5c;
+}
+
+.nightmode.nightmode-orange .elementor-panel .elementor-panel-navigation .elementor-panel-navigation-tab.elementor-active {
+    background: #212121;
+    border-bottom: 3px solid #ff7800;
+}
+
+.nightmode .elementor-panel .elementor-panel-navigation .elementor-panel-navigation-tab a {
+    color: #e4e4e4;
+}
+
+/*--------------------------------------------------------------------------------------
+3 - Switcher / Input / textarea / label
+--------------------------------------------------------------------------------------*/
+.nightmode .elementor-control-type-switcher .elementor-switch {
+    background-color: transparent;
+}
+.nightmode .elementor-control-type-switcher .elementor-switch-label {
+    background: #383838;
+}
+
+.nightmode.nightmode-pink .elementor-control-type-switcher .elementor-switch-input:checked~.elementor-switch-label {
+    background: #d30c5c;
+}
+
+.nightmode.nightmode-orange .elementor-control-type-switcher .elementor-switch-input:checked~.elementor-switch-label {
+    background: #ff7800;
+}
+
+.nightmode .elementor-control.elementor-control-type-select .elementor-control-input-wrapper select,
+.nightmode .select2-container--default .select2-selection--single,
+.nightmode .select2-dropdown,
+.nightmode .select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #e4e4e4;
+    background-color: #383838;
+}
+
+.nightmode .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 25px;
+}
+
+.nightmode .elementor-input-style,
+.nightmode input,
+.nightmode select,
+.nightmode textarea,
+.media-frame .search,
+.media-frame input[readonly] {
+    color: #ffffff;
+    background-color: #383838;
+}
+
+.nightmode .elementor-panel .elementor-choices input:checked+.elementor-choices-label {
+    background: #212121;
+}
+
+.nightmode .elementor-panel .elementor-choices input:not(:checked)+.elementor-choices-label {
+    background-color: #383838;
+    color: #e4e4e4;
+}
+
+.nightmode .elementor-panel #elementor-mode-switcher {
+    background-color: #383838;
+}
+
+.nightmode.nightmode-pink .elementor-panel #elementor-mode-switcher:hover {
+    background-color: #d30c5c;
+}
+
+.nightmode.nightmode-orange .elementor-panel #elementor-mode-switcher:hover {
+    background-color: #ff7800;
+}
+
+.nightmode .elementor-control-responsive-switchers .elementor-responsive-switcher,
+.nightmode.elementor-device-desktop #elementor-panel .elementor-controls-stack:not(.elementor-responsive-switchers-open) .elementor-responsive-switcher {
+    background: #383838;
+}
+
+.nightmode.nightmode-pink .elementor-control-responsive-switchers .elementor-responsive-switcher:hover {
+    background: #d30c5c;
+}
+
+.nightmode.nightmode-orange .elementor-control-responsive-switchers .elementor-responsive-switcher:hover {
+    background: #ff7800;
+}
+
+.nightmode.elementor-device-mobile .elementor-responsive-switcher-mobile,
+.nightmode.elementor-device-tablet .elementor-responsive-switcher-tablet {
+    background: #212121;
+}
+
+.nightmode .wp-picker-container.wp-picker-active,
+.nightmode .wp-picker-container .iris-picker {
+    background-color: #383838;
+    border-color: #383838;
+}
+.nightmode .select2-selection__rendered li {
+    list-style: none;
+    color: #535353;
+}
+.nightmode .select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #212121;
+}
+.nightmode .ace-tm .ace_constant {
+    color: rgb(241, 148, 148);
+}
+.nightmode.nightmode-pink .elementor-control-type-popover_toggle .elementor-control-popover-toggle-toggle:checked+.elementor-control-popover-toggle-toggle-label {
+    color: #d30c5c;
+}
+.nightmode.nightmode-orange .elementor-control-type-popover_toggle .elementor-control-popover-toggle-toggle:checked+.elementor-control-popover-toggle-toggle-label {
+    color: #ff7800;
+}
+
+.nightmode .elementor-control.elementor-control-type-divider .elementor-control-content {
+    background-color: unset;
+}
+
+
+/*--------------------------------------------------------------------------------------
+4 - Elements
+--------------------------------------------------------------------------------------*/
+.nightmode .elementor-panel .elementor-element {
+    background-color: #383838;
+}
+
+.nightmode .elementor-panel .elementor-element:hover {
+    box-shadow: 0 2px 6px rgba(255, 255, 255, .2);
+}
+
+.nightmode .elementor-panel .elementor-element .icon, .nightmode .elementor-panel .elementor-element .title {
+    color: #a4afb7;
+}
+
+.nightmode .elementor-panel .elementor-element:hover .icon, .nightmode .elementor-panel .elementor-element:hover .title {
+    color: #e4e4e4;
+}
+
+/*--------------------------------------------------------------------------------------
+5 - Search
+--------------------------------------------------------------------------------------*/
+.nightmode .elementor-panel #elementor-panel-elements-search-input {
+    border: 1px solid #777;
+    background-color: transparent;
+}
+
+/*--------------------------------------------------------------------------------------
+6 - Options menu panel
+--------------------------------------------------------------------------------------*/
+.nightmode .elementor-panel .elementor-panel-menu-item {
+    background-color: #383838;
+}
+
+.nightmode.nightmode-pink .elementor-panel .elementor-panel-menu-item:hover {
+    background-color: #d30c5c;
+    color: #f4f4f4;
+}
+
+.nightmode.nightmode-orange .elementor-panel .elementor-panel-menu-item:hover {
+    background-color: #ff7800;
+    color: #f4f4f4;
+}
+
+/*--------------------------------------------------------------------------------------
+7 - Options
+--------------------------------------------------------------------------------------*/
+.nightmode .elementor-panel .elementor-panel-heading-title, .nightmode .elementor-panel .elementor-panel-heading-toggle {
+    color: #e4e4e4;
+}
+
+.nightmode .elementor-panel .elementor-control-type-tab.elementor-tab-active {
+    background: #212121;
+}
+
+.nightmode .elementor-panel .elementor-control-type-dimensions li .elementor-link-dimensions {
+    background: #383838;
+}
+
+.nightmode .elementor-panel .elementor-controls-popover {
+    background: #383838;
+}
+
+.nightmode .elementor-panel .elementor-control-type-structure .elementor-control-structure-title {
+    color: #e4e4e4;
+}
+
+.nightmode .elementor-panel .elementor-control-type-structure .elementor-control-structure-title:before {
+    background-color: #535353;
+}
+
+.nightmode .elementor-panel .elementor-control-type-structure .elementor-control-structure-preset path {
+    fill: #313131;
+}
+
+/*--------------------------------------------------------------------------------------
+8 - History / Revision
+--------------------------------------------------------------------------------------*/
+.nightmode .elementor-panel .elementor-panel-scheme-buttons, .nightmode .elementor-panel .elementor-panel-box {
+    background: #383838;
+}
+
+.nightmode.nightmode-orange .elementor-revision-item__wrapper .elementor-revision-item__tools-current {
+    color: #ff7800;
+}
+
+.nightmode .elementor-panel .elementor-history-item-current, .nightmode .elementor-panel .elementor-revision-current-preview {
+    background: #212121;
+}
+
+/*--------------------------------------------------------------------------------------
+9 - Navigator
+--------------------------------------------------------------------------------------*/
+.nightmode #elementor-navigator #elementor-navigator__header {
+    background-color: #212121;
+    color: #e4e4e4;
+}
+
+#elementor-navigator__inner {
+    background-color: #929292;
+}
+
+.nightmode #elementor-navigator .elementor-navigator__element-section {
+    background-color: #383838;
+    color: #e4e4e4;
+}
+
+.nightmode.nightmode-pink #elementor-navigator .elementor-navigator__element:not(.elementor-navigator__element--hidden)>.elementor-navigator__item.elementor-editing {
+    background-color: #d30c5c;
+}
+
+.nightmode.nightmode-orange #elementor-navigator .elementor-navigator__element:not(.elementor-navigator__element--hidden)>.elementor-navigator__item.elementor-editing {
+    background-color: #ff7800;
+}
+
+.nightmode #elementor-navigator .elementor-navigator__element-column {
+    background-color: #535353;
+}
+
+.nightmode #elementor-navigator #elementor-navigator__footer {
+    background-color: #535353;
+}
+
+.nightmode #elementor-navigator .elementor-navigator__element:not(.elementor-navigator__element--hidden)>.elementor-navigator__item .elementor-navigator__element__toggle {
+    color: #ffffff;
+}
+
+/*--------------------------------------------------------------------------------------
+10 - Finder
+--------------------------------------------------------------------------------------*/
+.nightmode .elementor-templates-modal .dialog-header {
+    color: #e4e4e4;
+    background-color: #535353;
+}
+
+/*--------------------------------------------------------------------------------------
+11 - Popup options
+--------------------------------------------------------------------------------------*/
+.nightmode #elementor-theme-builder-conditions .elementor-theme-builder-conditions-repeater-row-controls .elementor-control:not(:first-child) select {
+    background-color: #383838;
+}
+.nightmode #elementor-theme-builder-conditions .elementor-control-type-select .elementor-control-input-wrapper:after {
+    color: #e4e4e4;
+}
+
+.nightmode  #elementor-theme-builder-conditions .select2-selection__placeholder {
+    color: #e4e4e4;
+}

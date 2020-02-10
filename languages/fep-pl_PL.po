@@ -1,0 +1,156 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
+"|| n%100>14) ? 1 : 2);\n"
+"Project-Id-Version: Flexible Elementor Panel\n"
+"POT-Creation-Date: 2018-11-10 11:06+0700\n"
+"PO-Revision-Date: 2018-11-13 08:20+0100\n"
+"Language-Team: WebMat <contact@webmat.pro>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: flexible-elementor-panel.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: pl_PL\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: flexible-elementor-panel.php:57
+msgid ""
+"Flexible Elementor Panel is not working because you are using an old version "
+"of Elementor."
+msgstr ""
+"Flexible Elementor Panel nie działa ponieważ używasz starej wersji Elementora"
+
+#: flexible-elementor-panel.php:58
+msgid "Update Elementor Now"
+msgstr "Zaaktualizuj Elementor teraz"
+
+#: inc/settings/manager.php:119 inc/settings/model.php:41
+#: inc/settings/model.php:154
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: inc/settings/model.php:27
+msgid "FEP Settings"
+msgstr "Ustawienia FEP"
+
+#: inc/settings/model.php:45
+msgid "Panel settings"
+msgstr "Ustawienia panelu"
+
+#: inc/settings/model.php:47
+msgid ""
+"Click the right mouse button on the panel to collapse all categories of "
+"widgets"
+msgstr "Kliknij prawy przycisk myszki aby zwinąć wszystkie kategorie"
+
+#: inc/settings/model.php:51
+msgid "you can detach and move panel"
+msgstr "możesz odpiąć i przemieścić panel"
+
+#: inc/settings/model.php:52
+msgid "Draggable panel"
+msgstr "Draggable panel"
+
+#: inc/settings/model.php:54 inc/settings/model.php:62
+#: inc/settings/model.php:105 inc/settings/model.php:118
+msgid "On"
+msgstr "On"
+
+#: inc/settings/model.php:55 inc/settings/model.php:63
+#: inc/settings/model.php:106 inc/settings/model.php:119
+msgid "Off"
+msgstr "Off"
+
+#: inc/settings/model.php:60
+msgid "Minimize UX"
+msgstr ""
+
+#: inc/settings/model.php:65
+msgid ""
+"click the right mouse button on the panel to collapse all categories of "
+"widgets"
+msgstr "kliknij prawy przycisk myszki aby zwinąć wszystkie kategorie"
+
+#: inc/settings/model.php:77
+msgid "Editor skins"
+msgstr "Skórki edytora"
+
+#: inc/settings/model.php:80
+msgid "Dark"
+msgstr "Ciemna"
+
+#: inc/settings/model.php:81
+msgid "Light"
+msgstr "Standardowa"
+
+#: inc/settings/model.php:86
+msgid "Exit to dashboard options"
+msgstr ""
+
+#: inc/settings/model.php:91
+msgid "Exit point"
+msgstr ""
+
+#: inc/settings/model.php:94
+msgid "Page front"
+msgstr ""
+
+#: inc/settings/model.php:95
+msgid "Page edit"
+msgstr ""
+
+#: inc/settings/model.php:96
+msgid "Page list"
+msgstr ""
+
+#: inc/settings/model.php:97
+msgid "Admin dashboard"
+msgstr ""
+
+#: inc/settings/model.php:98
+msgid "Elementor library"
+msgstr ""
+
+#: inc/settings/model.php:103
+msgid "Open in new tab"
+msgstr "Otwórz w nowej karcie"
+
+#: inc/settings/model.php:111
+msgid "Accordion widget options"
+msgstr ""
+
+#: inc/settings/model.php:116
+msgid "First tab closed"
+msgstr "Pierwszy tab złożony"
+
+#. Plugin Name of the plugin/theme
+msgid "Flexible Elementor Panel"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/flexible-elementor-panel"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This is an add-on for popular page builder Elementor. Makes Elementor "
+"Widgets Panel flexible, draggable and folding that more space and "
+"opportunities."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Creative Web Solution"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://creativewebsolution.pl/"
+msgstr ""

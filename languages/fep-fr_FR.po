@@ -1,0 +1,398 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Flexible Elementor Panel\n"
+"POT-Creation-Date: 2020-02-06 11:54+0100\n"
+"PO-Revision-Date: 2020-02-06 11:56+0100\n"
+"Last-Translator: WebMat <contact@webmat.pro>\n"
+"Language-Team: WebMat <contact@webmat.pro>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: flexible-elementor-panel.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/api.settings.php:374
+msgid "Choose File"
+msgstr "Choisissez un fichier"
+
+#. Plugin Name of the plugin/theme
+#: admin/settings.php:37 admin/settings.php:115
+#: flexible-elementor-panel.php:247 flexible-elementor-panel.php:270
+#: flexible-elementor-panel.php:294 flexible-elementor-panel.php:319
+msgid "Flexible Elementor Panel"
+msgstr "Flexible Elementor Panel"
+
+#: admin/settings.php:38 inc/settings/model.php:23
+msgid "FEP Settings"
+msgstr "Réglages FEP"
+
+#: admin/settings.php:53 inc/settings/manager.php:90
+msgid "Settings"
+msgstr "Paramètres"
+
+#: admin/settings.php:73
+msgid "Informations"
+msgstr "Informations"
+
+#: admin/settings.php:79
+msgid "How to configure it?"
+msgstr "Comment le configurer ?"
+
+#: admin/settings.php:85
+msgid "Divers"
+msgstr "Divers"
+
+#: admin/settings.php:116
+msgid ""
+"Makes the Elementor editor panel flexible, draggable, resizable, folding and "
+"more opportunities."
+msgstr ""
+"Rend le panneau d'édition Elementor flexible, déplaçable, redimensionnable, "
+"pliable et encore plus."
+
+#: admin/settings.php:135
+msgid "Your settings have been saved."
+msgstr "Vos réglages ont été enregistrés."
+
+#: admin/settings/tabs/divers.php:24
+msgid "Reset the position/size of Editor Panel Elementor"
+msgstr "Réinitialiser la position/taille du panneau éditeur d'Elementor"
+
+#: admin/settings/tabs/divers.php:25
+msgid "The position/size of the editor panel Elementor is reset!"
+msgstr ""
+"La position/taille du panneau éditeur d'Elementor a été réinitialisée !"
+
+#: admin/settings/tabs/divers.php:31
+msgid "Reset Editor Panel"
+msgstr "Réinitialiser Panneau Editeur"
+
+#: admin/settings/tabs/how-to-configure.php:24
+msgid ""
+"We have placed the options for FEP directly in the Elementor editor for "
+"greater ease of use."
+msgstr ""
+"Nous avons placé les options pour FEP directement dans l'éditeur Elementor "
+"pour une plus grande facilitée d'utilisation."
+
+#: admin/settings/tabs/how-to-configure.php:25
+msgid "All options is disabled by default, are you ready to enable them?"
+msgstr ""
+"Toutes les options sont désactivées par défaut, êtes-vous prêt à les "
+"activer ?"
+
+#: admin/settings/tabs/informations.php:28
+msgid ""
+"Thanks to use our plugin, we make it free for the users of Wordpress and "
+"Elementor."
+msgstr ""
+"Merci d'utiliser notre plugin, nous l'avons rendu gratuit pour les "
+"utilisateurs de WordPress et Elementor."
+
+#: admin/settings/tabs/informations.php:29
+msgid "After used it, do you will can take 5 minutes of your time for help us?"
+msgstr ""
+"Après l'avoir utilisé, est-ce que vous pourriez prendre 5 minutes de votre "
+"temps pour nous aider ?"
+
+#: admin/settings/tabs/informations.php:30
+msgid ""
+"https://wordpress.org/support/plugin/flexible-elementor-panel/reviews/?"
+"filter=5/#new-post"
+msgstr ""
+"https://fr.wordpress.org/support/plugin/flexible-elementor-panel/reviews/?"
+"filter=5/#new-post"
+
+#: admin/settings/tabs/informations.php:30
+msgid "Write your rating directly in plugin repository Wordpress"
+msgstr ""
+"Écrivez votre note directement dans le répertoire d'extension WordPress"
+
+#: admin/settings/tabs/informations.php:31
+msgid ""
+"Don't forget, we are open to any subjection on our <a href=\"https://"
+"wordpress.org/support/plugin/flexible-elementor-panel/\" target=\"_blank"
+"\">support forum.</a>"
+msgstr ""
+"N'oubliez pas, nous sommes ouverts à toutes subjections sur notre <a href="
+"\"https://fr.wordpress.org/support/plugin/flexible-elementor-panel/\" target="
+"\"_blank\">forum support.</a>"
+
+#: flexible-elementor-panel.php:246
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr "\"%1$s\" nécessite \"%2$s\" pour être installé et activé."
+
+#: flexible-elementor-panel.php:248 flexible-elementor-panel.php:271
+msgid "Elementor"
+msgstr "Elementor"
+
+#: flexible-elementor-panel.php:269 flexible-elementor-panel.php:293
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr "\"%1$s\" requis \"%2$s\" en version %3$s ou supérieure."
+
+#: flexible-elementor-panel.php:295
+msgid "PHP"
+msgstr "PHP"
+
+#: flexible-elementor-panel.php:318
+#, php-format
+msgid "Thanks you to use our plugin %1$s, %2$s"
+msgstr "Merci d'utiliser notre plugin %1$s, %2$s"
+
+#: flexible-elementor-panel.php:320
+msgid "go to the information page for understand how to configure it"
+msgstr ""
+"rendez-vous sur la page d'informations pour comprendre comment le configurer"
+
+#: flexible-elementor-panel.php:405
+msgid "Exit"
+msgstr "Quitter"
+
+#: inc/settings/model.php:33
+msgid "Reset Panel Position/Size"
+msgstr "Réinitialiser la position/taille du panneau"
+
+#: inc/settings/model.php:35
+msgid "Pro version is coming soon, get the information now on:"
+msgstr ""
+"La version Pro est bientôt disponible, obtenez plus d'informations "
+"maintenant sur :"
+
+#: inc/settings/model.php:42
+msgid "Panel settings"
+msgstr "Paramètres du panneau"
+
+#: inc/settings/model.php:45
+msgid "Draggable panel"
+msgstr "Panneau déplaçable"
+
+#: inc/settings/model.php:46
+msgid ""
+"hold down the left click on title of panel for move it (put it in the corner "
+"left and click on the title for back to origin style)"
+msgstr ""
+"maintenez le clic gauche sur le titre du panneau pour le déplacer (mettez-le "
+"dans le coin à gauche et cliquez sur le titre pour revenir au style "
+"d'origine)"
+
+#: inc/settings/model.php:48 inc/settings/model.php:57
+#: inc/settings/model.php:66 inc/settings/model.php:85
+#: inc/settings/model.php:93 inc/settings/model.php:106
+#: inc/settings/model.php:126 inc/settings/model.php:140
+#: inc/settings/model.php:149 inc/settings/model.php:158
+#: inc/settings/model.php:171
+msgid "On"
+msgstr "Oui"
+
+#: inc/settings/model.php:49 inc/settings/model.php:58
+#: inc/settings/model.php:67 inc/settings/model.php:86
+#: inc/settings/model.php:94 inc/settings/model.php:107
+#: inc/settings/model.php:127 inc/settings/model.php:141
+#: inc/settings/model.php:150 inc/settings/model.php:159
+#: inc/settings/model.php:172
+msgid "Off"
+msgstr "Non"
+
+#: inc/settings/model.php:54
+msgid "Use FLEX GRID for widgets"
+msgstr "Utilisez FLEX GRID pour les widgets"
+
+#: inc/settings/model.php:55
+msgid "This reduce the size of widgets in the editor and styling them"
+msgstr "Cela réduit la taille des widgets dans l'éditeur et leur style"
+
+#: inc/settings/model.php:63
+msgid "Minimize all categories with right click"
+msgstr "Minimiser toutes les catégories avec un clic droit"
+
+#: inc/settings/model.php:64
+msgid ""
+"click the right mouse button on the panel to collapse all categories of "
+"widgets"
+msgstr ""
+"cliquez sur le bouton droit de la souris sur le panneau pour réduire toutes "
+"les catégories de widgets"
+
+#: inc/settings/model.php:73
+msgid "Editor skins"
+msgstr "Coloris de l'éditeur"
+
+#: inc/settings/model.php:76
+msgid "Dark Pink"
+msgstr "Rose sombre"
+
+#: inc/settings/model.php:77
+msgid "Dark Orange"
+msgstr "Orange sombre"
+
+#: inc/settings/model.php:78
+msgid "Default"
+msgstr "Défaut"
+
+#: inc/settings/model.php:83
+msgid "Display the vertical collaspe icon in header panel"
+msgstr "Afficher l'icône verticale de collaspe dans le panneau d'en-tête"
+
+#: inc/settings/model.php:91
+msgid "Display the reset panel icon in header panel"
+msgstr ""
+"Afficher l'icône du panneau de réinitialisation dans le panneau d'en-tête"
+
+#: inc/settings/model.php:101
+msgid "Exit button options"
+msgstr "Options du bouton quitter"
+
+#: inc/settings/model.php:104
+msgid "Display the exit icon in footer panel"
+msgstr "Afficher l'icône de sortie dans le pied du panneau"
+
+#: inc/settings/model.php:112
+msgid "Exit point"
+msgstr "Point de sortie"
+
+#: inc/settings/model.php:115
+msgid "View"
+msgstr "Voir"
+
+#: inc/settings/model.php:116
+msgid "Edition"
+msgstr "Édition"
+
+#: inc/settings/model.php:117
+msgid "List Page/Post"
+msgstr "Liste Page/Article"
+
+#: inc/settings/model.php:118
+msgid "Admin dashboard"
+msgstr "Panneau d'administration"
+
+#: inc/settings/model.php:119
+msgid "Elementor library"
+msgstr "Bibliothèque d'éléments"
+
+#: inc/settings/model.php:124
+msgid "Open in new tab"
+msgstr "Ouvrir dans un nouvel onglet"
+
+#: inc/settings/model.php:134
+msgid "Responsive options"
+msgstr "Options Responsive"
+
+#: inc/settings/model.php:137
+msgid "Hide Elements Responsive"
+msgstr "Masquer les éléments responsive"
+
+#: inc/settings/model.php:138
+msgid ""
+"Completely hides elements that are set to hide in responsive modes. They "
+"will only appear if they are not set to hide"
+msgstr ""
+
+#: inc/settings/model.php:146
+msgid "Disable \"Obscured\" Elements Responsive"
+msgstr ""
+
+#: inc/settings/model.php:147
+msgid ""
+"Disable Responsive \"Obscured\" Elements inside the Editor and allow the "
+"edition of elements"
+msgstr ""
+
+#: inc/settings/model.php:155
+msgid "Maintain \"Obscured\" Elements Responsive"
+msgstr ""
+
+#: inc/settings/model.php:156
+msgid ""
+"Maintain Responsive \"Obscured\" Elements but allows to edit inside sections"
+msgstr ""
+
+#: inc/settings/model.php:166
+msgid "Accordion widget options"
+msgstr "Options de widget Accordéon"
+
+#: inc/settings/model.php:169
+msgid "First tab closed (only in editor)"
+msgstr "Premier onglet fermé (uniquement dans l'éditeur)"
+
+#: inc/settings/model.php:179
+msgid "Tools & Informations"
+msgstr "Outils et informations"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/flexible-elementor-panel"
+msgstr "https://fr.wordpress.org/plugins/flexible-elementor-panel"
+
+#. Description of the plugin/theme
+msgid ""
+"This is an add-on for popular page builder Elementor. Makes Elementor "
+"Widgets Panel flexible, draggable and folding that more space and "
+"opportunities."
+msgstr ""
+"Il s'agit d'une extension pour le populaire constructeur de page Elementor. "
+"Permet d'avoir le panneau d'édition d'Elementor flexible, déplaçable ainsi "
+"que pliable pour plus d'espace et de possibilités."
+
+#. Author of the plugin/theme
+msgid "Flexible-Elementor-Panel.com"
+msgstr "Flexible-Elementor-Panel.com"
+
+#. Author URI of the plugin/theme
+msgid "https://flexible-elementor-panel.com"
+msgstr "https://flexible-elementor-panel.com"
+
+#~ msgid "Light"
+#~ msgstr "Claire"
+
+#~ msgid "Front"
+#~ msgstr "Afficher"
+
+#~ msgid "Page front"
+#~ msgstr "Voir la page"
+
+#~ msgid "Page edit"
+#~ msgstr "Édition de la page"
+
+#~ msgid "Page list"
+#~ msgstr "Liste des pages"
+
+#~ msgid "The Ultimate Backend Solution for Elementor"
+#~ msgstr "La solution ultime pour l'éditeur Elementor"
+
+#~ msgid "Flexible Elementor Panel Settings"
+#~ msgstr "Paramètres Flexible Elementor Panel"
+
+#~ msgid ""
+#~ "Flexible Elementor Panel is not working because you are using an old "
+#~ "version of Elementor."
+#~ msgstr ""
+#~ "Le panneau Elementer flexible ne fonctionnera pas car vous utilisez une "
+#~ "ancienne version de Elementer."
+
+#~ msgid "Update Elementor Now"
+#~ msgstr "Mettre à jour Elementor maintenant"
+
+#~ msgid "you can detach and move panel"
+#~ msgstr "vous pouvez détacher et déplacer le panneau"
+
+#~ msgid ""
+#~ "Click the right mouse button on the panel to collapse all categories of "
+#~ "widgets"
+#~ msgstr ""
+#~ "Cliquez sur le bouton droit de la souris sur le panneau pour réduire "
+#~ "toutes les catégories de widgets"
+
+#~ msgid "Minimize UX"
+#~ msgstr "Minimiser UX"

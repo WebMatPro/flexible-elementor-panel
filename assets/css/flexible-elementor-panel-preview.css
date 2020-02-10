@@ -1,0 +1,101 @@
+/*-----------------------------------------------------------------------------------
+1 - Responsive Elements
+ 1.1 - Options 1 - Completely hides elements
+ 1.2 - Options 2 - Disable Responsive "Obscured"
+ 1.3 - Options 3 - Maintain Responsive "Obscured"
+
+-----------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------
+
+1 - Responsive Elements
+
+--------------------------------------------------------------------------------------*/
+
+
+    /* 1.1 - Options 1 */
+    /* Elementor 2.8.1 - Completely hides elements that are set to hide in responsive modes. They will only appear if they are not set to hide */
+
+    /* General elements */
+    .hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop,
+    .hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone,
+    .hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet {
+        display: none !important;
+    }
+
+
+
+    /* 1.2 - Options 2 */
+    /* Elementor 2.8.1 - Disable Responsive "Obscured" Elements inside the Editor */
+
+    /* General elements */
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet {
+        background-color: transparent !important;
+    }
+
+    /* Sections:before - this is the guy that blocks you from editing */
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop.elementor-section:before,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone.elementor-section:before,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet.elementor-section:before {
+        display: none !important;
+    }
+
+    /* Sections overlay (handle) */
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop.elementor-section>.elementor-element-overlay,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone.elementor-section>.elementor-element-overlay,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet.elementor-section>.elementor-element-overlay {
+        background-color: transparent !important;
+        mix-blend-mode: normal !important;
+    }
+
+    /* Columns and Widgets */
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop>.elementor-column-wrap,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop>.elementor-widget-container,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone>.elementor-column-wrap,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone>.elementor-widget-container,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet>.elementor-column-wrap,
+    .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet>.elementor-widget-container {
+        -webkit-filter: none !important;
+        filter: none !important;
+    }
+
+
+
+    /* 1.3 - Options 3 */
+    /* Elementor 2.8.1 - Maintain Responsive "Obscured" Elements but allows to edit inside sections */
+
+    /* General elements */
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet {
+        -webkit-filter: opacity(.3) saturate(0);
+        filter: opacity(.3) saturate(0);
+    }
+
+
+    /* Sections:before - this is the guy that blocks you from editing */
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop.elementor-section:before,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone.elementor-section:before,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet.elementor-section:before {
+        display: none !important;
+    }
+
+    /* Sections overlay (handle) */
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop.elementor-section>.elementor-element-overlay,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone.elementor-section>.elementor-element-overlay,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet.elementor-section>.elementor-element-overlay {
+        background-color: transparent !important;
+        mix-blend-mode: normal !important;
+    }
+
+    /* Columns and Widgets */
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop>.elementor-column-wrap,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop>.elementor-widget-container,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone>.elementor-column-wrap,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone>.elementor-widget-container,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet>.elementor-column-wrap,
+    .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet>.elementor-widget-container {
+        -webkit-filter: none !important;
+        filter: none !important;
+    }
