@@ -62,7 +62,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 == Changelog ==
 
 = 2.0.0 =
-* Add: Compatibilty with rtl mode
+* Add: Compatibility with rtl mode
 * Add: News options for responsive mode (thanks @Nicholas)
 * Add: Option for display the reset panel icon
 * Add: Option for display the vertical collapse icon
@@ -74,7 +74,9 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Remove: CMD + P when the vertical panel is reduced
 * Note: Light skin change name for Default
 * Note: All FEP options is enable by default
+* Note: FEP come on Github https://github.com/WebMatPro/flexible-elementor-panel
 * Localization: Update POT/PO language
+* Localization: Update French language
 
 = 1.9.7 =
 * Fix: Use static function of activation fep
@@ -88,15 +90,15 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 = 1.9.5 =
 * Fix: Use correct link option in admin notice when first actived plugin
 * Fix: Hidden elements when preview mode is enable working now (thanks to @nickdgreen)
-* Improve: Better compatibility with Elementor shortcute (ctrl/cmd + p)
+* Improve: Better compatibility with Elementor shortcut (ctrl/cmd + p)
 
 = 1.9.4 =
 * Fix: Reset option exit point (by default "Edition")
-* Fix: Compatibility with Elementor shortcute (ctrl/cmd + p)
+* Fix: Compatibility with Elementor shortcut (ctrl/cmd + p)
 
 = 1.9.3 =
-* Fix: Notice php (thanks to @krut1 and every user)
-* Fix: Some css
+* Fix: Notice PHP (thanks to @krut1 and every user)
+* Fix: Some CSS
 * Fix: Exit point list post type
 * Fix: Freezing (thanks to @kompundi for report)
 * Fix: Clean pointer event when reset panel is used
@@ -124,7 +126,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Improve: Minimum size panel (280x360)
 * Improve: Remove transition panel for more speed
 * Improve: Better button exit and vertical collapse
-* Improve: Clean code of javascript file
+* Improve: Clean code of JavaScript file
 * Fix: back to function first accordion closed (sorry)
 * Fix: Some css for dark skin
 * Tweak: Clean assets /images/
@@ -136,9 +138,9 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Localization: Update POT/PO language
 
 = 1.8.3 =
-* Improve: Better compatibilty with Elementor 2.4+
+* Improve: Better compatibility with Elementor 2.4+
 * Improve: Better performance and security with cleaning plugin
-* Fix: Check and correct css for night mode
+* Fix: Check and correct CSS for night mode
 * Tweak: Requires PHP 5.6 and Elementor 2.4 to minimum
 * Localization: Update POT/PO language
 
@@ -148,7 +150,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 = 1.8.1 =
 * Add: New option for disable the right click for minimize all categories
-* Add: New description for the option draggble panel
+* Add: New description for the option draggle panel
 * Add: New color pink for the dark skin panel
 * Fix: Performance improvements and fix minor bugs
 * Fix: Update translation
@@ -157,7 +159,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Improve: Full compatibility with Elementor 2.3.1
 
 = 1.8.0 =
-* Add: Translation french ready by a native french
+* Add: Translation French ready by a native French
 * Add: Now the enqueues files will use the version of plugin
 * Add: New exit point option "Front page"
 * Add: Re-order all category widget's and save position
@@ -165,7 +167,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Fix: Text domain, now is 'fep' and update pot
 * Fix: Collapse all categories with right click
 * Fix: Performance improvements and fix minor bugs
-* Improve: Clean code of javascript file
+* Improve: Clean code of JavaScript file
 * Improve: Full compatibility with Elementor 2.3.0
 
 = 1.7.0 =
