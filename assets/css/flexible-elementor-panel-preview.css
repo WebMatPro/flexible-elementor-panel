@@ -102,7 +102,7 @@
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-edit-area-active .elementor-widget.elementor-element-edit-mode.elementor-hidden-desktop:hover,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-edit-area-active .elementor-widget.elementor-element-edit-mode.elementor-hidden-tablet:hover,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-edit-area-active .elementor-widget.elementor-element-edit-mode.elementor-hidden-phone:hover {
-    outline: 2px dashed #9400d3 !important;
+    outline: 2px dotted #9400d3 !important;
 }
 
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-element-settings,
