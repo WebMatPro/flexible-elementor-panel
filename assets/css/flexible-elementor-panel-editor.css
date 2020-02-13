@@ -5,20 +5,29 @@
 4 - Exit button
 5 - Tooltip FEP
 -----------------------------------------------------------------------------------*/
+
+
 /*--------------------------------------------------------------------------------------
 
 1 - Panel
 
 --------------------------------------------------------------------------------------*/
+
 .elementor-device-desktop #elementor-preview-responsive-wrapper {
-    min-width: auto; /* cancel min screen if you use on computer under the default 1024 */
+    min-width: auto;
+    /* cancel min screen if you use on computer under the default 1024 */
 }
-#elementor-panel:not(.ui-resizable-resizing), #elementor-preview:not(.ui-resizable-resizing), #elementor-panel, #elementor-preview {
+
+#elementor-panel:not(.ui-resizable-resizing),
+#elementor-preview:not(.ui-resizable-resizing),
+#elementor-panel,
+#elementor-preview {
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
     min-width: 280px;
 }
+
 .elementor-editor-preview .elementor-panel {
     left: -280px;
 }
@@ -40,19 +49,24 @@
 #elementor-panel-saver-button-save-options {
     position: relative;
 }
+
 .ui-resizable-resizing {
     pointer-events: unset;
 }
+
 .disable-option-fep-disable_obscured_elements_responsive .elementor-control-disable_obscured_elements_responsive .elementor-control-content,
-.disable-option-fep-maintain_obscured_elements_responsive .elementor-control-maintain_obscured_elements_responsive .elementor-control-content {
+.disable-option-fep-maintain_obscured_elements_responsive .elementor-control-maintain_obscured_elements_responsive .elementor-control-content,
+.disable-option-fep-alternative_responsive_indicator .elementor-control-alternative_responsive_indicator .elementor-control-content {
     display: none!important;
 }
+
 
 /*--------------------------------------------------------------------------------------
 
 2 - Flex Grid element
 
 --------------------------------------------------------------------------------------*/
+
 .fep-elementor-grid-ruler .elementor-panel .elementor-panel-category-title {
     padding: 20px 0 10px 10px;
 }
@@ -82,16 +96,20 @@
     padding: 0px 2px;
 }
 
+
 /*--------------------------------------------------------------------------------------
 
 3 - Vertical toggle
 
 --------------------------------------------------------------------------------------*/
+
 #elementor-panel-header-wrapper {
     position: relative;
     z-index: 1;
 }
-#fep-collapse-vertical, #fep-reset-panel {
+
+#fep-collapse-vertical,
+#fep-reset-panel {
     width: 40px;
     height: 40px;
     position: relative;
@@ -99,13 +117,17 @@
     -o-transition: all .5s;
     transition: all .5s;
 }
+
 #fep-reset-panel {
     bottom: -1px;
 }
-#fep-collapse-vertical:hover, #fep-reset-panel:hover {
+
+#fep-collapse-vertical:hover,
+#fep-reset-panel:hover {
     color: #d5dadf;
     cursor: pointer;
 }
+
 #fep-collapse-vertical .fep-toggle-panel-icon {
     font-size: 18px;
 }
@@ -114,36 +136,46 @@
     left: 0;
     right: 0;
 }
+
+
 /*--------------------------------------------------------------------------------------
 
 4 - Exit button
 
 --------------------------------------------------------------------------------------*/
+
+
 /* Normal override */
+
 #elementor-mode-switcher.right {
     left: 100%;
     right: unset;
-    -webkit-box-shadow: 3px 1px 5px rgba(0,0,0,.1);
-    box-shadow: 3px 1px 5px rgba(0,0,0,.1);
+    -webkit-box-shadow: 3px 1px 5px rgba(0, 0, 0, .1);
+    box-shadow: 3px 1px 5px rgba(0, 0, 0, .1);
 }
 
 body.elementor-editor-active #elementor-mode-switcher.right #elementor-mode-switcher-preview .eicon:before {
     content: ""
 }
+
 body.elementor-editor-preview #elementor-mode-switcher.right #elementor-mode-switcher-preview .eicon:before {
     content: ""
 }
+
+
 /* RTL */
+
 #elementor-mode-switcher.left {
     right: 100%;
     left: unset;
-    -webkit-box-shadow: -3px 1px 5px rgba(0,0,0,.1);
-    box-shadow: -3px 1px 5px rgba(0,0,0,.1);
+    -webkit-box-shadow: -3px 1px 5px rgba(0, 0, 0, .1);
+    box-shadow: -3px 1px 5px rgba(0, 0, 0, .1);
 }
 
 body.elementor-editor-active #elementor-mode-switcher.left #elementor-mode-switcher-preview .eicon:before {
     content: ""
 }
+
 body.elementor-editor-preview #elementor-mode-switcher.left #elementor-mode-switcher-preview .eicon:before {
     content: ""
 }
@@ -154,10 +186,13 @@ body.elementor-editor-preview #elementor-mode-switcher.left #elementor-mode-swit
 5 - Tooltip FEP
 
 --------------------------------------------------------------------------------------*/
+
 fep-t {
-  font-size: 12px;
-  line-height: 16px;
+    font-size: 12px;
+    line-height: 16px;
 }
+
+
 /*
 .tipsy.fep-content-tooltip .tipsy-inner,
 .tipsy.fep-pro-content-tooltip .tipsy-inner {
