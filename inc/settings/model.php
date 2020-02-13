@@ -167,7 +167,7 @@ class Model extends Elementor_Model {
 						],
 						'alternative_responsive_indicator' => [
 							'label' 			=> __('Alternative Responsive Indicator', 'fep'),
-							'description' 		=> __('Adds an alternative indicator for responsive hidden elements by changing their handle colors and adding a dashed border to each one.', 'fep'),
+							'description' 		=> __('Adds an alternative indicator for responsive hidden elements by changing their handle colors and adding a dashed border to each one when they are hovered or selected.', 'fep'),
 							'type' 				=> \Elementor\Controls_Manager::SWITCHER,
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
