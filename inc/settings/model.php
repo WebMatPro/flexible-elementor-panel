@@ -134,7 +134,7 @@ class Model extends Elementor_Model {
 					'label'     => __('Responsive options', 'fep'),
 					'controls'  => [
 						'fep_settings_responsive_note' => [
-							'type' 				=> Elementor_Controls_Manager::SWITCHER,
+							'type' 				=> Elementor_Controls_Manager::RAW_HTML,
 							'raw' 				=> __( 'These options give you control over how responsive hidden elements appear and behave inside the Elementor editor on each responsive view (Desktop, Tablet or Mobile). Use them carefully to avoid misplacing elements while editing.', 'fep' ),
 							'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-warning',
 						],
