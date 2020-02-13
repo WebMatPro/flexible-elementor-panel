@@ -142,18 +142,27 @@ class Model extends Elementor_Model {
 							'return_value' 		=> 'yes',
 							//'default' 			=> 'yes',
 						],
-						'disable_obscured_elements_responsive' => [
-							'label' 			=> __('Disable "Obscured" Elements Responsive', 'fep'),
-							'description' 		=> __('Disable Responsive "Obscured" Elements inside the Editor and allow the edition of elements', 'fep'),
+						'maintain_obscured_elements_responsive' => [
+							'label' 			=> __('Allow editing inside hidden sections', 'fep'),
+							'description' 		=> __('Allow editing of any element inside hidden Sections or Inner Sections', 'fep'),
 							'type' 				=> \Elementor\Controls_Manager::SWITCHER,
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
 							'return_value' 		=> 'yes',
 							//'default' 			=> 'yes',
 						],
-						'maintain_obscured_elements_responsive' => [
-							'label' 			=> __('Maintain "Obscured" Elements Responsive', 'fep'),
-							'description' 		=> __('Maintain Responsive "Obscured" Elements but allows to edit inside sections', 'fep'),
+						'disable_obscured_elements_responsive' => [
+							'label' 			=> __('Disable responsive indicator effects', 'fep'),
+							'description' 		=> __('Completely disable the responsive indicator overlay pattern from any hidden element and restore their original colors', 'fep'),
+							'type' 				=> \Elementor\Controls_Manager::SWITCHER,
+							'label_on' 			=> __('On', 'fep'),
+							'label_off' 		=> __('Off', 'fep'),
+							'return_value' 		=> 'yes',
+							//'default' 			=> 'yes',
+						],
+						'alternate_obscured_elements_responsive' => [
+							'label' 			=> __('Alternative responsive indicator', 'fep'),
+							'description' 		=> __('This option adds an alternative indication of responsive elements by changing their handle colors and adding a dashed border to each one', 'fep'),
 							'type' 				=> \Elementor\Controls_Manager::SWITCHER,
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
