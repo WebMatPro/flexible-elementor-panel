@@ -34,7 +34,7 @@ function LoadPanelPosition() {
     var in_move = localStorage.getItem('in-move');
 
     //check if all vars exist
-    if ( !panel_size_width ) {
+    if (!panel_size_width) {
         // clean all vars for be sure
         localStorage.removeItem('elementor-panel-size-width'); //remove
         localStorage.removeItem('elementor-panel-size-height'); //remove
@@ -48,13 +48,13 @@ function LoadPanelPosition() {
     }
 
     // do it, if fep is already drag
-    if ( in_move === '1' ) {
+    if (in_move === '1') {
 
         //console.log('do it');
 
 
         // check if the panel is oversize of windows height and panel more up of top windows
-        if ( panel_size_height >= $(window).height() || panel_pos_top < 0 ) {
+        if (panel_size_height >= $(window).height() || panel_pos_top < 0) {
 
             $("#elementor-panel").css({
                 'top': 0,
@@ -103,16 +103,16 @@ function LoadPanelPosition() {
 
     } else {
 
-        $("#elementor-panel").css( 'width', panel_size_width + 'px' ); //set the width of panel editor
+        $("#elementor-panel").css('width', panel_size_width + 'px'); //set the width of panel editor
 
         //check if the panel is in the corner left side to load
-        if ( panel_pos_left == 0 ) {
+        if (panel_pos_left == 0) {
 
             //console.log('left side')
 
             $('#elementor-preview').animate({
-                                                'left': panel_size_width  + 'px',
-                                            }, 150);
+                'left': panel_size_width + 'px',
+            }, 150);
 
             $('#elementor-preview').css('right', 0); // full preview size when panel is in drag to load
             $("#elementor-preview-iframe").contents().find("html").attr('dir', ''); // move the scroll bar to right side
@@ -126,14 +126,14 @@ function LoadPanelPosition() {
             }); // move the panel at the save position
 
 
-        // like 1920 === 1920, this is right side
-        } else if ( panel_pos_right == window.innerWidth ) {
+            // like 1920 === 1920, this is right side
+        } else if (panel_pos_right == window.innerWidth) {
 
             //console.log('right side')
 
             $('#elementor-preview').animate({
-                                                'right': panel_size_width  + 'px',
-                                            }, 150);
+                'right': panel_size_width + 'px',
+            }, 150);
 
             $('#elementor-preview').css('left', 0); // full preview size when panel is in drag to load
             $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // move the scroll bar to left side
@@ -166,7 +166,7 @@ function loadFepSettings() {
 
     //add exit icon
     if (fepConfig.display_exit_icon == 'yes') {
-        if ( $("#fep-exit").length == 0 ) {
+        if ($("#fep-exit").length == 0) {
             exit_panel = '<a id="fep-exit" target="_self" href="#" title="' + fep.exit_tooltip + '" class="fep-exit-link elementor-panel-footer-tool elementor-leave-open fep-tooltip"><i class="fa fa-sign-out"></i></a>';
             $("#elementor-panel-footer-saver-preview").after(exit_panel);
         }
@@ -178,7 +178,7 @@ function loadFepSettings() {
 
     //add collapse icon
     if (fepConfig.display_vertical_collaspe_icon == 'yes') {
-        if ( $("#fep-collapse-vertical").length == 0 ) {
+        if ($("#fep-collapse-vertical").length == 0) {
             collapse_vertical_panel = '<div id="fep-collapse-vertical"><i class="fa fa-arrows-v fep-toggle-panel-icon"></i></div>';
             $("#elementor-panel-header-menu-button").after(collapse_vertical_panel);
         }
@@ -190,7 +190,7 @@ function loadFepSettings() {
 
     //add reset panel icon
     if (fepConfig.display_reset_icon == 'yes') {
-        if ( $("#fep-reset-panel").length == 0 ) {
+        if ($("#fep-reset-panel").length == 0) {
             fep_reset_panel = '<div id="fep-reset-panel" class="reset-fep"><i class="fa fa-arrows-alt tooltip-target"></i></div>';
             $("#elementor-panel-header-title").after(fep_reset_panel);
         }
@@ -268,14 +268,17 @@ function loadFepSettings() {
         // Uncheck
         //$("input[data-setting='disable_obscured_elements_responsive'").prop( "checked", false );
         //$("input[data-setting='maintain_obscured_elements_responsive'").prop( "checked", false );
+        //$("input[data-setting=alternative_responsive_indicator'").prop( "checked", false );
         $("body").addClass("disable-option-fep-disable_obscured_elements_responsive");
         $("body").addClass("disable-option-fep-maintain_obscured_elements_responsive");
+        $("body").addClass("disable-option-fep-alternative_responsive_indicator");
 
     } else {
         $("#elementor-preview-iframe").contents().find("body").removeClass("hide-elements-responsive");
 
         $("body").removeClass("disable-option-fep-disable_obscured_elements_responsive");
         $("body").removeClass("disable-option-fep-maintain_obscured_elements_responsive");
+        $("body").removeClass("disable-option-fep-alternative_responsive_indicator");
     }
     if (fepConfig.disable_obscured_elements_responsive == 'yes') {
         $("#elementor-preview-iframe").contents().find("body").addClass("disable-obscured-elements-responsive");
@@ -286,6 +289,11 @@ function loadFepSettings() {
         $("#elementor-preview-iframe").contents().find("body").addClass("maintain-obscured-elements-responsive");
     } else {
         $("#elementor-preview-iframe").contents().find("body").removeClass("maintain-obscured-elements-responsive");
+    }
+    if (fepConfig.alternative_responsive_indicator == 'yes') {
+        $("#elementor-preview-iframe").contents().find("body").addClass("alternative-responsive-indicator-enabled");
+    } else {
+        $("#elementor-preview-iframe").contents().find("body").removeClass("alternative-responsive-indicator-enabled");
     }
 }
 
@@ -309,17 +317,17 @@ function draggablePanel() {
             $("#elementor-preview").css("pointer-events", "none"); // disable pointer on the preview elementor
 
             //if panel is in not in move
-            if ( ! $("#elementor-panel").hasClass("in-move") ) {
+            if (!$("#elementor-panel").hasClass("in-move")) {
                 panelWidth = $("#elementor-panel").width();
 
                 //check if the panel is in the corner left / top
-                if ( $('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+                if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-                    $("#elementor-preview").css( 'left', panelWidth ); // set
+                    $("#elementor-preview").css('left', panelWidth); // set
 
-                } else if ( $('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+                } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-                    $("#elementor-preview").css( 'right', panelWidth ); // set
+                    $("#elementor-preview").css('right', panelWidth); // set
 
                 }
 
@@ -335,16 +343,16 @@ function draggablePanel() {
             panelHeight = $("#elementor-panel").height();
 
             //if panel is in not in move
-            if ( ! $("#elementor-panel").hasClass("in-move") ) {
+            if (!$("#elementor-panel").hasClass("in-move")) {
 
                 //check if the panel is in the corner left / top
-                if ( $('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+                if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-                    $("#elementor-preview").css( 'left', panelWidth ); // set
+                    $("#elementor-preview").css('left', panelWidth); // set
 
-                } else if ( $('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+                } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-                    $("#elementor-preview").css( 'right', panelWidth ); // set
+                    $("#elementor-preview").css('right', panelWidth); // set
 
                 }
 
@@ -371,20 +379,20 @@ function draggablePanel() {
         start: function() {
 
             $('#elementor-preview').animate({
-                                                'left': 0,
-                                                'right': 0,
-                                            }, 150);
+                'left': 0,
+                'right': 0,
+            }, 150);
 
         },
         stop: function(event, ui) {
 
 
             //check if the panel is in the corner left / top
-            if ( $('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+            if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
                 // remove class "in-move" when panel back in origine position
                 $("#elementor-panel").removeClass("in-move"); // remove
-                localStorage.setItem('in-move', 0);//save
+                localStorage.setItem('in-move', 0); //save
 
                 $("#elementor-panel").css({
                     'top': 0,
@@ -392,11 +400,11 @@ function draggablePanel() {
                     'right': 'auto',
                 }); // move the panel at the save position
 
-            } else if ( $('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+            } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
                 // remove class "in-move" when panel back in origine position
                 $("#elementor-panel").removeClass("in-move"); // remove
-                localStorage.setItem('in-move', 0);//save
+                localStorage.setItem('in-move', 0); //save
 
                 $("#elementor-panel").css({
                     'top': 0,
@@ -442,11 +450,11 @@ function mousedownHeaderTitle() {
     $("#elementor-preview").css("pointer-events", "none"); // disable pointer on the preview elementor
 
     // when start to draggable, do it if the panel still in corner top left
-    if ( $('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+    if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
         $("#elementor-panel").css("height", "65%"); // set panel height 65% of windows
         $("#elementor-panel-content-wrapper").slideDown(150); // transition
-        $("#elementor-panel-footer").slideDown(150);// transition
+        $("#elementor-panel-footer").slideDown(150); // transition
 
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-e"); // remove resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-w"); // remove resizable the left side of panel editor
@@ -459,11 +467,11 @@ function mousedownHeaderTitle() {
         localStorage.setItem('elementor-panel-size-height', panelHeight); //save
         $('#elementor-panel').removeClass('vertical_elementor_panel_toggle-on'); // collapse is off
 
-    } else if ( $('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+    } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
         $("#elementor-panel").css("height", "65%"); // set panel height 65% of windows
         $("#elementor-panel-content-wrapper").slideDown(150); // transition
-        $("#elementor-panel-footer").slideDown(150);// transition
+        $("#elementor-panel-footer").slideDown(150); // transition
 
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-e"); // remove resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-w"); // remove resizable the left side of panel editor
@@ -486,7 +494,7 @@ function mouseupHeaderTitle() {
     $("#elementor-preview").css("pointer-events", "auto"); // active pointer on the preview elementor
 
     // reset position panel to origin when click on title if he is on corner top left
-    if ( $('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+    if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
         // make scroll bar right side
         $("#elementor-preview-iframe").contents().find("html").attr('dir', '');
@@ -497,7 +505,7 @@ function mouseupHeaderTitle() {
         $("#elementor-panel").css("height", $(window).height() + 'px'); // resize full height panel
 
         $("#elementor-panel-content-wrapper").slideDown(150); // transiton
-        $("#elementor-panel-footer").slideDown(150);// transiton
+        $("#elementor-panel-footer").slideDown(150); // transiton
 
         $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-e"); // add resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-all"); // remove resizable all panel editor
@@ -511,10 +519,10 @@ function mouseupHeaderTitle() {
         // replace the preview
         panelWidth = $("#elementor-panel").width(); // get size panel
         $('#elementor-preview').animate({
-                                            'left': panelWidth + 'px',
-                                        }, 150);
+            'left': panelWidth + 'px',
+        }, 150);
 
-    } else if ( $('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+    } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
         // make scroll bar left side
         $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // disable preview
@@ -525,7 +533,7 @@ function mouseupHeaderTitle() {
         $("#elementor-panel").css("height", $(window).height() + 'px'); // resize full height panel
 
         $("#elementor-panel-content-wrapper").slideDown(150); // transiton
-        $("#elementor-panel-footer").slideDown(150);// transiton
+        $("#elementor-panel-footer").slideDown(150); // transiton
 
         $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-w"); // add resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-all"); // remove resizable all panel editor
@@ -539,8 +547,8 @@ function mouseupHeaderTitle() {
         // replace the preview
         panelWidth = $("#elementor-panel").width(); // get size panel
         $('#elementor-preview').animate({
-                                            'right': panelWidth + 'px',
-                                        }, 150);
+            'right': panelWidth + 'px',
+        }, 150);
 
     }
 
@@ -555,7 +563,7 @@ function mouseupHeaderTitle() {
 function vertical_elementor_panel_toggle() {
 
     // if has class vertical_elementor_panel_toggle-on, dont resize
-    if ( $('#elementor-panel').hasClass('vertical_elementor_panel_toggle-on') ) {
+    if ($('#elementor-panel').hasClass('vertical_elementor_panel_toggle-on')) {
 
         $("#elementor-preview-iframe").contents().find("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
         $("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
@@ -564,7 +572,7 @@ function vertical_elementor_panel_toggle() {
         $('#elementor-panel').removeClass('vertical_elementor_panel_toggle-on'); // Important, remove class to panel for understand the collapse is off
 
         // if panel is not in drag
-        if ( !$('#elementor-panel').hasClass('in-move') ) {
+        if (!$('#elementor-panel').hasClass('in-move')) {
 
             $("#elementor-panel").animate({
                 height: $(window).height() + 'px'
@@ -577,18 +585,18 @@ function vertical_elementor_panel_toggle() {
             panelWidth = $("#elementor-panel").width(); // get size panel
 
             // reset position panel to origin when click on title if he is on corner top left
-            if ( $('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+            if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
                 $("#elementor-preview-iframe").contents().find("html").attr('dir', ''); // move the scroll bar to left side
 
                 elementor_switcher_display_block('left'); // show switcher
 
                 $('#elementor-preview').animate({
-                                                    'left': panelWidth + 'px',
-                                                    'right': 0,
-                                                }, 150);
+                    'left': panelWidth + 'px',
+                    'right': 0,
+                }, 150);
 
-            } else if ( $('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+            } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
 
                 $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // move the scroll bar to left side
@@ -596,9 +604,9 @@ function vertical_elementor_panel_toggle() {
                 elementor_switcher_display_block('right'); // show switcher
 
                 $('#elementor-preview').animate({
-                                                    'left': 0,
-                                                    'right': panelWidth + 'px',
-                                                }, 150);
+                    'left': 0,
+                    'right': panelWidth + 'px',
+                }, 150);
 
             }
 
@@ -612,7 +620,7 @@ function vertical_elementor_panel_toggle() {
 
             var panel_size_height = localStorage.getItem('elementor-panel-size-height');
 
-            if ( panel_size_height >= parseInt($("#elementor-panel").css("top")) ) {
+            if (panel_size_height >= parseInt($("#elementor-panel").css("top"))) {
                 $("#elementor-panel").animate({
                     height: panel_size_height
                 }, 150); // add the height px minus the top px
@@ -653,9 +661,9 @@ function vertical_elementor_panel_toggle() {
 
         // set full preview
         $('#elementor-preview').animate({
-                                            'left': 0,
-                                            'right': 0,
-                                        }, 150);
+            'left': 0,
+            'right': 0,
+        }, 150);
 
 
         //alert('resize on');
@@ -791,9 +799,9 @@ function createPositionsCategories() {
 function elementor_switcher_display_block(side) {
 
     //alert(side);
-    if ( side == 'left' ) {
+    if (side == 'left') {
         $("#elementor-mode-switcher").addClass('right').removeClass('left'); // make switcher mode to right side
-    } else if ( side == 'right' ) {
+    } else if (side == 'right') {
         $("#elementor-mode-switcher").addClass('left').removeClass('right'); // make switcher mode to left side
     }
 
@@ -815,7 +823,7 @@ function elementor_switcher_display_none() {
 --------------------------------------------------------------------------------------*/
 function elementor_horizontal_panel() {
 
-    switcher_checkbox = $( '#elementor-mode-switcher-preview-input' ).is(':checked'); // get value checkbox
+    switcher_checkbox = $('#elementor-mode-switcher-preview-input').is(':checked'); // get value checkbox
     //console.log( switcher_checkbox );
 
     panelWidth = $("#elementor-panel").width(); // get size panel
@@ -824,28 +832,28 @@ function elementor_horizontal_panel() {
     //elementor-editor-preview = panel close
 
     // false = panel open
-    if ( switcher_checkbox == false ) {
+    if (switcher_checkbox == false) {
 
         // reset position panel to origin when click on title if he is on corner top left
-        if ( $('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+        if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
             $('#elementor-preview').animate({
-                                                'left': 0,
-                                            }, 150);
+                'left': 0,
+            }, 150);
 
             $('#elementor-panel').animate({
-                                                'left': '-' + panelWidth + 'px',
-                                            }, 150);
+                'left': '-' + panelWidth + 'px',
+            }, 150);
 
-        } else if ( $('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+        } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
             $('#elementor-preview').animate({
-                                                'right': 0,
-                                            }, 150);
+                'right': 0,
+            }, 150);
 
             $('#elementor-panel').animate({
-                                                'right': '-' + panelWidth + 'px',
-                                            }, 150);
+                'right': '-' + panelWidth + 'px',
+            }, 150);
 
         }
 
@@ -859,23 +867,23 @@ function elementor_horizontal_panel() {
     } else {
 
         // reset position panel to origin when click on title if he is on corner top left
-        if ( $('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px' ) {
+        if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
 
             $('#elementor-preview').animate({
-                                                'left': panelWidth + 'px',
-                                            }, 150);
+                'left': panelWidth + 'px',
+            }, 150);
             $('#elementor-panel').animate({
-                                                'left': 0,
-                                            }, 150);
+                'left': 0,
+            }, 150);
 
-        } else if ( $('#elementor-panel').css('right') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px' ) {
+        } else if ($('#elementor-panel').css('right') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
 
             $('#elementor-preview').animate({
-                                                'right': panelWidth + 'px',
-                                            }, 150);
+                'right': panelWidth + 'px',
+            }, 150);
             $('#elementor-panel').animate({
-                                                'right': 0,
-                                            }, 150);
+                'right': 0,
+            }, 150);
 
         }
 
@@ -904,7 +912,7 @@ function reset_fep_panel() {
 
     //$("#elementor-panel").removeAttr('style'); // remove
 
-    if ( FEP.rtl ) {
+    if (FEP.rtl) {
         $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-w"); // add resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-e"); // remove resizable all panel editor
         $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // move the scroll bar to left side
@@ -921,13 +929,13 @@ function reset_fep_panel() {
 
     $('#elementor-panel').removeClass('vertical_elementor_panel_toggle-on'); // collapse is off
 
-    $('#elementor-mode-switcher-preview-input').prop( "disabled", false ); // uncheck
+    $('#elementor-mode-switcher-preview-input').prop("disabled", false); // uncheck
 
     // remove class "in-move" when panel back in origine position
     $("#elementor-panel").removeClass("in-move"); // remove
-    localStorage.setItem('in-move', 0);//save
+    localStorage.setItem('in-move', 0); //save
 
-    if ( FEP.rtl ) {
+    if (FEP.rtl) {
         elementor_switcher_display_block('right'); // show button resize preview
     } else {
         elementor_switcher_display_block('left'); // show button resize preview
@@ -945,23 +953,23 @@ function reset_fep_panel() {
 
 
     // mode rtl
-    if ( FEP.rtl ) {
+    if (FEP.rtl) {
         $('#elementor-preview').animate({
-                                            'right': panelWidth + 'px',
-                                            'left': 0,
-                                        }, 150);
-    // of normal
+            'right': panelWidth + 'px',
+            'left': 0,
+        }, 150);
+        // of normal
     } else {
         $('#elementor-preview').animate({
-                                            'left': panelWidth + 'px',
-                                            'right': 0,
-                                        }, 150);
+            'left': panelWidth + 'px',
+            'right': 0,
+        }, 150);
 
     }
 
     $('#elementor-panel').animate({
-                                        'width': panelWidth + 'px',
-                                    }, 150);
+        'width': panelWidth + 'px',
+    }, 150);
 
     // clean style
     var elementor_panel = document.getElementById("elementor-panel");
@@ -993,12 +1001,12 @@ function reset_fep_panel() {
 function elementor_horizontal_panel_key() {
 
     // if has class vertical_elementor_panel_toggle-on, dont resize
-    if ( $('#elementor-panel').hasClass('vertical_elementor_panel_toggle-on') ) {
+    if ($('#elementor-panel').hasClass('vertical_elementor_panel_toggle-on')) {
         //do nothing
         return false;
     }
 
-    switcher_checkbox = $( '#elementor-mode-switcher-preview-input' ).is(':checked'); // get value checkbox
+    switcher_checkbox = $('#elementor-mode-switcher-preview-input').is(':checked'); // get value checkbox
     //console.log( switcher_checkbox );
 
     panelWidth = $("#elementor-panel").width(); // get size panel
@@ -1007,29 +1015,29 @@ function elementor_horizontal_panel_key() {
     //elementor-editor-preview = panel close
 
     // false = panel open
-    if ( switcher_checkbox == false ) {
+    if (switcher_checkbox == false) {
 
         // if panel is not in drag
-        if ( !$('#elementor-panel').hasClass('in-move') ) {
+        if (!$('#elementor-panel').hasClass('in-move')) {
             $('#elementor-preview').animate({
-                                                'left': 0,
-                                                'right': 0,
-                                            }, 150);
+                'left': 0,
+                'right': 0,
+            }, 150);
 
             // reset position panel to origin when click on title if he is on corner top left
-            if ( $('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+            if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
                 $('#elementor-panel').animate({
-                                                    'left': '-' + panelWidth + 'px',
-                                                    'width': panelWidth + 'px',
-                                                }, 150);
+                    'left': '-' + panelWidth + 'px',
+                    'width': panelWidth + 'px',
+                }, 150);
 
-            } else if ( $('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px' ) {
+            } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
                 $('#elementor-panel').animate({
-                                                    'right': '-' + panelWidth + 'px',
-                                                    'width': panelWidth + 'px',
-                                                }, 150);
+                    'right': '-' + panelWidth + 'px',
+                    'width': panelWidth + 'px',
+                }, 150);
 
             }
 
@@ -1037,8 +1045,8 @@ function elementor_horizontal_panel_key() {
         } else {
 
             $('#elementor-panel').animate({
-                                                'width': panelWidth + 'px',
-                                            }, 150);
+                'width': panelWidth + 'px',
+            }, 150);
             $('#elementor-panel').hide(150);
 
         }
@@ -1052,32 +1060,32 @@ function elementor_horizontal_panel_key() {
     } else {
 
         // if panel is not in drag
-        if ( !$('#elementor-panel').hasClass('in-move') ) {
+        if (!$('#elementor-panel').hasClass('in-move')) {
 
 
 
-                // reset position panel to origin when click on title if he is on corner top left
-                if ( $('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px' ) {
+            // reset position panel to origin when click on title if he is on corner top left
+            if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
 
-                    $('#elementor-preview').animate({
-                                                        'left': panelWidth + 'px',
-                                                    }, 150);
-                    $('#elementor-panel').animate({
-                                                        'left': 0,
-                                                        'width': panelWidth + 'px',
-                                                    }, 150);
+                $('#elementor-preview').animate({
+                    'left': panelWidth + 'px',
+                }, 150);
+                $('#elementor-panel').animate({
+                    'left': 0,
+                    'width': panelWidth + 'px',
+                }, 150);
 
-                } else if ( $('#elementor-panel').css('right') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px' ) {
+            } else if ($('#elementor-panel').css('right') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
 
-                    $('#elementor-preview').animate({
-                                                        'right': panelWidth + 'px',
-                                                    }, 150);
-                    $('#elementor-panel').animate({
-                                                        'right': 0,
-                                                        'width': panelWidth + 'px',
-                                                    }, 150);
+                $('#elementor-preview').animate({
+                    'right': panelWidth + 'px',
+                }, 150);
+                $('#elementor-panel').animate({
+                    'right': 0,
+                    'width': panelWidth + 'px',
+                }, 150);
 
-                }
+            }
 
 
 
@@ -1086,13 +1094,13 @@ function elementor_horizontal_panel_key() {
         } else {
 
             $('#elementor-preview').animate({
-                                                'left': 0,
-                                                'right': 0,
-                                            }, 150);
+                'left': 0,
+                'right': 0,
+            }, 150);
 
             $('#elementor-panel').animate({
-                                                'width': panelWidth + 'px',
-                                            }, 150);
+                'width': panelWidth + 'px',
+            }, 150);
             $('#elementor-panel').show(150);
 
         }
