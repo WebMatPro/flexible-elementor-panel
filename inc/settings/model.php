@@ -135,12 +135,12 @@ class Model extends Elementor_Model {
 					'controls'  => [
 						'fep_settings_responsive_note' => [
 							'type' 				=> \Elementor\Controls_Manager::RAW_HTML,
-							'raw' 				=> __( 'These options give you control over how responsive hidden elements appear and behave inside the Elementor editor by overriding the default grayed out diagonal overlay pattern that appears when you set to hide an element. Use these options carefully to avoid misplacing elements while editing.', 'fep' ),
+							'raw' 				=> __( 'These options give you control over how responsive hidden elements appear and behave inside the Elementor editor on each responsive view (Desktop, Tablet or Mobile). Use them carefully to avoid misplacing elements while editing.', 'fep' ),
 							'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-warning',
 						],
 						'hide_elements_responsive' => [
 							'label' 			=> __('Hide Responsive Elements', 'fep'),
-							'description' 		=> __('Completely hides elements that are set to hide in responsive modes. If you cannot find a specific element, you can always use the Navigator or switch this off. By activating this option you will override any options below.', 'fep'),
+							'description' 		=> __('Completely hides elements that are set to hide in responsive modes.', 'fep'),
 							'type' 				=> \Elementor\Controls_Manager::SWITCHER,
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
@@ -148,8 +148,8 @@ class Model extends Elementor_Model {
 							//'default' 			=> 'yes',
 						],
 						'maintain_obscured_elements_responsive' => [
-							'label' 			=> __('Allow Editing Inside Sections', 'fep'),
-							'description' 		=> __('Allow editing of any elements inside responsive hidden Sections or Inner Sections without having to use the Navigator.', 'fep'),
+							'label' 			=> __('Allow Editing Inside Hidden Sections', 'fep'),
+							'description' 		=> __('Allow editing of elements inside responsive hidden Sections or Inner Sections without having to use the Navigator.', 'fep'),
 							'type' 				=> \Elementor\Controls_Manager::SWITCHER,
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
@@ -158,7 +158,7 @@ class Model extends Elementor_Model {
 						],
 						'disable_obscured_elements_responsive' => [
 							'label' 			=> __('Disable Responsive Overlays', 'fep'),
-							'description' 		=> __('Completely disable the responsive grayed out overlay pattern from any responsive hidden element and restore their original colors.', 'fep'),
+							'description' 		=> __('Remove the grayed out overlay pattern from any responsive hidden element and restore their original colors.', 'fep'),
 							'type' 				=> \Elementor\Controls_Manager::SWITCHER,
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
@@ -167,7 +167,7 @@ class Model extends Elementor_Model {
 						],
 						'alternative_responsive_indicator' => [
 							'label' 			=> __('Alternative Responsive Indicator', 'fep'),
-							'description' 		=> __('Adds an alternative indicator for responsive hidden elements by changing their handle colors and adding a dashed border to each one when they are hovered or selected.', 'fep'),
+							'description' 		=> __('Adds an alternative indicator for responsive hidden elements by changing their handle colors.', 'fep'),
 							'type' 				=> \Elementor\Controls_Manager::SWITCHER,
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
