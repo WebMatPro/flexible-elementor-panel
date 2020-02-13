@@ -134,7 +134,7 @@ class Model extends Elementor_Model {
 					'label'     => __('Responsive options', 'fep'),
 					'controls'  => [
 						'fep_settings_responsive_note' => [
-							'type' 				=> Controls_Manager::RAW_HTML,
+							'type' 				=> \Elementor\Controls_Manager::RAW_HTML,
 							'raw' 				=> __( 'These options give you control over how responsive hidden elements appear and behave inside the Elementor editor by overriding the default grayed out diagonal overlay pattern that appears when you set to hide an element. Use these options carefully to avoid misplacing elements while editing.', 'fep' ),
 							'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-warning',
 						],
