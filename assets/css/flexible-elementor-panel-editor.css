@@ -60,6 +60,11 @@
     display: none!important;
 }
 
+/*css for stop conflict with css elenentor 2.9.0, why it ?*/
+#elementor-panel-fep-settings label {
+    flex-shrink: unset;
+    line-height: 1.4;
+}
 
 /*--------------------------------------------------------------------------------------
 
