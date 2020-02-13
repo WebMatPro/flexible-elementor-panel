@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2020-02-06 11:54+0100\n"
-"PO-Revision-Date: 2020-02-11 09:38+0100\n"
+"POT-Creation-Date: 2020-02-13 11:26+0100\n"
+"PO-Revision-Date: 2020-02-13 11:31+0100\n"
 "Last-Translator: WebMat <contact@webmat.pro>\n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
 "Language: fr_FR\n"
@@ -190,18 +190,18 @@ msgstr ""
 #: inc/settings/model.php:48 inc/settings/model.php:57
 #: inc/settings/model.php:66 inc/settings/model.php:85
 #: inc/settings/model.php:93 inc/settings/model.php:106
-#: inc/settings/model.php:126 inc/settings/model.php:140
-#: inc/settings/model.php:149 inc/settings/model.php:158
-#: inc/settings/model.php:171
+#: inc/settings/model.php:126 inc/settings/model.php:145
+#: inc/settings/model.php:154 inc/settings/model.php:163
+#: inc/settings/model.php:172 inc/settings/model.php:185
 msgid "On"
 msgstr "Oui"
 
 #: inc/settings/model.php:49 inc/settings/model.php:58
 #: inc/settings/model.php:67 inc/settings/model.php:86
 #: inc/settings/model.php:94 inc/settings/model.php:107
-#: inc/settings/model.php:127 inc/settings/model.php:141
-#: inc/settings/model.php:150 inc/settings/model.php:159
-#: inc/settings/model.php:172
+#: inc/settings/model.php:127 inc/settings/model.php:146
+#: inc/settings/model.php:155 inc/settings/model.php:164
+#: inc/settings/model.php:173 inc/settings/model.php:186
 msgid "Off"
 msgstr "Non"
 
@@ -290,50 +290,73 @@ msgstr "Ouvrir dans un nouvel onglet"
 msgid "Responsive options"
 msgstr "Options Responsive"
 
-#: inc/settings/model.php:137
-msgid "Hide Elements Responsive"
-msgstr "Masquer les éléments responsive"
-
 #: inc/settings/model.php:138
 msgid ""
-"Completely hides elements that are set to hide in responsive modes. They "
-"will only appear if they are not set to hide"
+"These options give you control over how responsive hidden elements appear "
+"and behave inside the Elementor editor on each responsive view (Desktop, "
+"Tablet or Mobile). Use them carefully to avoid misplacing elements while "
+"editing."
 msgstr ""
-"Cache complètement les éléments qui sont réglés pour se cacher dans les "
-"modes responsives. Ils n'apparaîtront que s'ils ne sont pas réglé pour être "
-"caché"
+"Ces options vous permettent de contrôler la façon dont les éléments masqués "
+"apparaissent et se comportent dans l'éditeur d'Elementor sur chaque vue "
+"réactive (bureau, tablette ou mobile). Utilisez-les soigneusement pour "
+"éviter de perdre des éléments lors de l'édition."
 
-#: inc/settings/model.php:146
-msgid "Disable \"Obscured\" Elements Responsive"
-msgstr "Désactiver l'effet \"Obscurci\" sur les éléments responsive"
+#: inc/settings/model.php:142
+msgid "Hide Responsive Elements"
+msgstr "Masquer Éléments Responsive"
 
-#: inc/settings/model.php:147
+#: inc/settings/model.php:143
+msgid "Completely hides elements that are set to hide in responsive modes."
+msgstr ""
+"Masque complètement les éléments définis pour se cacher dans les modes "
+"responsive."
+
+#: inc/settings/model.php:151
+msgid "Allow Editing Inside Hidden Sections"
+msgstr "Autoriser la modification à l'intérieur des sections masquées"
+
+#: inc/settings/model.php:152
 msgid ""
-"Disable Responsive \"Obscured\" Elements inside the Editor and allow the "
-"edition of elements"
+"Allow editing of elements inside responsive hidden Sections or Inner "
+"Sections without having to use the Navigator."
 msgstr ""
-"Désactiver l'effet \"Obscurci\" sur les éléments responsive dans l'édition "
-"et permettre d'éditer les éléments"
+"Permet de modifier des éléments dans des sections masquées ou des sections "
+"internes sans avoir à utiliser le navigateur."
 
-#: inc/settings/model.php:155
-msgid "Maintain \"Obscured\" Elements Responsive"
-msgstr "Maintenir les éléments responsive \"Obscurcis\""
+#: inc/settings/model.php:160
+msgid "Disable Responsive Overlays"
+msgstr "Désactiver Superpositions Responsive"
 
-#: inc/settings/model.php:156
+#: inc/settings/model.php:161
 msgid ""
-"Maintain Responsive \"Obscured\" Elements but allows to edit inside sections"
+"Remove the grayed out overlay pattern from any responsive hidden element and "
+"restore their original colors."
 msgstr ""
-"Maintenir les éléments responsive \"Obscurcis\" mais permettre de les éditer"
+"Supprimez le motif de superposition grisé de tous les éléments responsive "
+"masqués et restaurer leurs couleurs d'origine."
 
-#: inc/settings/model.php:166
+#: inc/settings/model.php:169
+msgid "Alternative Responsive Indicator"
+msgstr "Indicateur Responsive Alternatif"
+
+#: inc/settings/model.php:170
+msgid ""
+"Adds an alternative indicator for responsive hidden elements by changing "
+"their handle colors."
+msgstr ""
+"Ajoute un indicateur alternatif pour les éléments responsive cachés en "
+"changeant leur couleur de bordure."
+
+#: inc/settings/model.php:180
 msgid "Accordion widget options"
 msgstr "Options de widget Accordéon"
 
-#: inc/settings/model.php:169
+#: inc/settings/model.php:183
 msgid "First tab closed (only in editor)"
 msgstr "Premier onglet fermé (uniquement dans l'éditeur)"
 
-#: inc/settings/model.php:179
+#: inc/settings/model.php:193
 msgid "Tools & Informations"
 msgstr "Outils et informations"
 
@@ -358,6 +381,26 @@ msgstr "Flexible-Elementor-Panel.com"
 #. Author URI of the plugin/theme
 msgid "https://flexible-elementor-panel.com"
 msgstr "https://flexible-elementor-panel.com"
+
+#~ msgid "Disable \"Obscured\" Elements Responsive"
+#~ msgstr "Désactiver l'effet \"Obscurci\" sur les éléments responsive"
+
+#~ msgid ""
+#~ "Disable Responsive \"Obscured\" Elements inside the Editor and allow the "
+#~ "edition of elements"
+#~ msgstr ""
+#~ "Désactiver l'effet \"Obscurci\" sur les éléments responsive dans "
+#~ "l'édition et permettre d'éditer les éléments"
+
+#~ msgid "Maintain \"Obscured\" Elements Responsive"
+#~ msgstr "Maintenir les éléments responsive \"Obscurcis\""
+
+#~ msgid ""
+#~ "Maintain Responsive \"Obscured\" Elements but allows to edit inside "
+#~ "sections"
+#~ msgstr ""
+#~ "Maintenir les éléments responsive \"Obscurcis\" mais permettre de les "
+#~ "éditer"
 
 #~ msgid "Light"
 #~ msgstr "Claire"

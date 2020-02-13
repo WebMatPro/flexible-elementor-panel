@@ -5,7 +5,7 @@ Tags: flexible elementor panel, elementor addons, elementor flexible, elementor 
 Requires at least: 4.6
 Tested up to: 5.3.2
 Requires PHP: 5.6
-Stable tag: 2.0.0
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,16 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.0.2 =
+* Add: New option "Alternative Responsive Indicator" by @Nicholas
+* Improve: Clean and more comments code by @Nicholas
+* Localization: Update POT/PO language
+* Localization: Update French language
+
+= 2.0.1 =
+* Add: Compatibility with Elementor 2.9.0
+* Fix: Css label option FEP
 
 = 2.0.0 =
 * Add: Compatibility with rtl mode

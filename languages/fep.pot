@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2020-02-11 09:38+0100\n"
+"POT-Creation-Date: 2020-02-13 11:26+0100\n"
 "PO-Revision-Date: 2018-11-10 10:12+0700\n"
 "Last-Translator: \n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
@@ -167,18 +167,18 @@ msgstr ""
 #: inc/settings/model.php:48 inc/settings/model.php:57
 #: inc/settings/model.php:66 inc/settings/model.php:85
 #: inc/settings/model.php:93 inc/settings/model.php:106
-#: inc/settings/model.php:126 inc/settings/model.php:140
-#: inc/settings/model.php:149 inc/settings/model.php:158
-#: inc/settings/model.php:171
+#: inc/settings/model.php:126 inc/settings/model.php:145
+#: inc/settings/model.php:154 inc/settings/model.php:163
+#: inc/settings/model.php:172 inc/settings/model.php:185
 msgid "On"
 msgstr ""
 
 #: inc/settings/model.php:49 inc/settings/model.php:58
 #: inc/settings/model.php:67 inc/settings/model.php:86
 #: inc/settings/model.php:94 inc/settings/model.php:107
-#: inc/settings/model.php:127 inc/settings/model.php:141
-#: inc/settings/model.php:150 inc/settings/model.php:159
-#: inc/settings/model.php:172
+#: inc/settings/model.php:127 inc/settings/model.php:146
+#: inc/settings/model.php:155 inc/settings/model.php:164
+#: inc/settings/model.php:173 inc/settings/model.php:186
 msgid "Off"
 msgstr ""
 
@@ -264,44 +264,61 @@ msgstr ""
 msgid "Responsive options"
 msgstr ""
 
-#: inc/settings/model.php:137
-msgid "Hide Elements Responsive"
-msgstr ""
-
 #: inc/settings/model.php:138
 msgid ""
-"Completely hides elements that are set to hide in responsive modes. They "
-"will only appear if they are not set to hide"
+"These options give you control over how responsive hidden elements appear "
+"and behave inside the Elementor editor on each responsive view (Desktop, "
+"Tablet or Mobile). Use them carefully to avoid misplacing elements while "
+"editing."
 msgstr ""
 
-#: inc/settings/model.php:146
-msgid "Disable \"Obscured\" Elements Responsive"
+#: inc/settings/model.php:142
+msgid "Hide Responsive Elements"
 msgstr ""
 
-#: inc/settings/model.php:147
+#: inc/settings/model.php:143
+msgid "Completely hides elements that are set to hide in responsive modes."
+msgstr ""
+
+#: inc/settings/model.php:151
+msgid "Allow Editing Inside Hidden Sections"
+msgstr ""
+
+#: inc/settings/model.php:152
 msgid ""
-"Disable Responsive \"Obscured\" Elements inside the Editor and allow the "
-"edition of elements"
+"Allow editing of elements inside responsive hidden Sections or Inner "
+"Sections without having to use the Navigator."
 msgstr ""
 
-#: inc/settings/model.php:155
-msgid "Maintain \"Obscured\" Elements Responsive"
+#: inc/settings/model.php:160
+msgid "Disable Responsive Overlays"
 msgstr ""
 
-#: inc/settings/model.php:156
+#: inc/settings/model.php:161
 msgid ""
-"Maintain Responsive \"Obscured\" Elements but allows to edit inside sections"
-msgstr ""
-
-#: inc/settings/model.php:166
-msgid "Accordion widget options"
+"Remove the grayed out overlay pattern from any responsive hidden element and "
+"restore their original colors."
 msgstr ""
 
 #: inc/settings/model.php:169
+msgid "Alternative Responsive Indicator"
+msgstr ""
+
+#: inc/settings/model.php:170
+msgid ""
+"Adds an alternative indicator for responsive hidden elements by changing "
+"their handle colors."
+msgstr ""
+
+#: inc/settings/model.php:180
+msgid "Accordion widget options"
+msgstr ""
+
+#: inc/settings/model.php:183
 msgid "First tab closed (only in editor)"
 msgstr ""
 
-#: inc/settings/model.php:179
+#: inc/settings/model.php:193
 msgid "Tools & Informations"
 msgstr ""
 

@@ -12,7 +12,7 @@
 
             // CTRL + P key event
             $(document).on('keydown', function(event) {
-                if( event.ctrlKey && event.which == 80 ) {
+                if (event.ctrlKey && event.which == 80) {
                     event.preventDefault(); // cancel other actions
                     event.stopPropagation(); // cancel other actions
                     elementor_horizontal_panel_key();
@@ -21,7 +21,7 @@
 
             // conflict !! reload keydown after click in iframe preview
             $(document.getElementById('elementor-preview-iframe').contentWindow.document).on('keydown', function(event) {
-                if( event.ctrlKey && event.which == 80 ) {
+                if (event.ctrlKey && event.which == 80) {
                     event.preventDefault(); // cancel other actions
                     event.stopPropagation(); // cancel other actions
                     elementor_horizontal_panel_key();
@@ -134,15 +134,19 @@
             fepConfig.maintain_obscured_elements_responsive = $(this).is(':checked') ? 'yes' : 'no';
             loadFepSettings();
         });
+        $(document).on('change', "input[data-setting='alternative_responsive_indicator']", function() {
+            fepConfig.alternative_responsive_indicator = $(this).is(':checked') ? 'yes' : 'no';
+            loadFepSettings();
+        });
         /////////////// end reload option
 
         // Reload function when widget accordion is add
-        elementor.hooks.addAction( 'panel/open_editor/widget/accordion', function( panel, model, view ) {
-           setTimeout(
-               "loadFepSettings()",
-               1000
-           ); // wait 1 second
-        } );
+        elementor.hooks.addAction('panel/open_editor/widget/accordion', function(panel, model, view) {
+            setTimeout(
+                "loadFepSettings()",
+                1000
+            ); // wait 1 second
+        });
 
     }); // end load fully editor
 
@@ -152,7 +156,7 @@
 //$(window).on('elementor:init', function() {
 //    elementor.hooks.addFilter('panel/elements/regionViews', function( regionViews ) {
 //        console.log("load");
-        //elementor.enterPreviewMode(true);
+//elementor.enterPreviewMode(true);
 //        return regionViews;
 //    });
 //});
