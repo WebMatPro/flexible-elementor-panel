@@ -14,15 +14,25 @@
 --------------------------------------------------------------------------------------*/
 
 
-/* Begin code  - Keep them in the same order. Do not switch option positions in case you use more than one option.
-* For example, if you use options 2 and 3, make sure the option 2 is placed before the 3. =============> */
+/**
+* Option 1. Hide Responsive Elements
+* @settings reference: 'hide_elements_responsive'
+* @description: Completely hides elements that are set to hide in responsive modes.
+* @since: 2.0.2
+* @compatibility: Elementor 2.8.2+
+**/
+
+.hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop,
+.hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone,
+.hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet {
+    display: none !important;
+}
 
 
 /**
-* Option 2. Allow Editing Inside Sections
+* Option 2. Allow Editing Inside Hidden Sections
 * @settings reference: 'maintain_obscured_elements_responsive'
-* @css order: 1
-* @description: Allow editing of any elements inside responsive hidden Sections or Inner Sections without having to use the Navigator.
+* @description: Allow editing of elements inside responsive hidden Sections or Inner Sections without having to use the Navigator.
 * @since: 2.0.2
 * @compatibility: Elementor 2.8.2+
 **/
@@ -44,8 +54,7 @@
 /**
 * Option 3. Disable Responsive Overlays
 * @settings reference: 'disable_obscured_elements_responsive'
-* @css order: 2
-* @description: Completely disable the responsive grayed out overlay pattern from any responsive hidden element and restore their original colors.
+* @description: Remove the grayed out overlay pattern from any responsive hidden element and restore their original colors.
 * @since: 2.0.2
 * @compatibility: Elementor 2.8.2+
 **/
@@ -84,8 +93,7 @@
 /**
 * Option 4. Alternative Responsive Indicator
 * @settings reference: 'alternative_responsive_indicator'
-* @css order: 3
-* @description: Adds an alternative indicator for responsive hidden elements by changing their handle colors and adding a dashed border to each one when they are hovered or selected.
+* @description: Adds an alternative indicator for responsive hidden elements by changing their handle colors.
 * @since: 2.0.2
 * @compatibility: Elementor 2.8.2+
 **/
@@ -156,20 +164,4 @@
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-element-overlay .elementor-editor-element-setting:last-child:after,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone>.elementor-element-overlay .elementor-editor-element-setting:last-child:after {
     border-left-color: #9400d3 !important;
-}
-
-
-/**
-* Option 1. Hide Responsive Elements
-* @settings reference: 'hide_elements_responsive'
-* @css order: 4
-* @description: Completely hides elements that are set to hide in responsive modes. If you cannot find a specific element, you can always use the Navigator or switch this off. By activating this option you will override any options below.
-* @since: 2.0.2
-* @compatibility: Elementor 2.8.2+
-**/
-
-.hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop,
-.hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone,
-.hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet {
-    display: none !important;
 }
