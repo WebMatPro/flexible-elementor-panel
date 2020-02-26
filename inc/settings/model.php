@@ -32,8 +32,8 @@ class Model extends Elementor_Model {
 
 		$debugger_html = '<button type="button" class="reset-fep elementor-button elementor-button-default">' . __( 'Reset Panel Position/Size', 'fep' ) . '</button>';
 
-		$text_html_pro_version = __( 'Pro version is coming soon, get the information now on:', 'fep' );
-		$html_pro_version_html = '<img src="' . FEP_URL .'/assets/images/banner-fep-pro.jpg"><p>' . $text_html_pro_version .'<br><a href="https://flexible-elementor-panel.com" target="_blank">flexible-elementor-panel.com</a></p>';
+		$text_html_pro_version = __( 'The pro version is currently development,<br> get more information now on:', 'fep' );
+		$html_pro_version_html = '<div class="desc-pro-version"><img src="' . FEP_URL .'/assets/images/banner-fep-pro.jpg"><br><br>' . $text_html_pro_version .'<br><br><a href="https://webmat.pro/flexible-elementor-panel-pro/" target="_blank">webmat.pro/flexible-elementor-panel-pro/</a></div>';
 
 		return [
 

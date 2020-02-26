@@ -1,19 +1,18 @@
 === Flexible Elementor Panel ===
 Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
-Tags: flexible elementor panel, elementor addons, elementor flexible, elementor panel, elementor, flexible panel, page builder, for elementor, flexible, addons for elementor, fep, dark skin elementor, dark mode elementor
+Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.3.2
 Requires PHP: 5.6
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-This is an add-on for the ever popular Elementor Page Builder. Makes Elementor widgets panel flexible, draggable, resizable and folding that more space and opportunities.
-
 == Description ==
 
-The plugin "Elementor Flexible Panel" makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.
+The plugin "Flexible Elementor Panel" makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.
+
 
 = Features =
 * Draggable Elementor panel and save position
@@ -36,7 +35,7 @@ From within WordPress' dashboard:
 
 Manually via FTP:
 
-1. Upload the folder 'flexible-elementor-panel/' into the '/wp-content/plugins/' directory
+1. Upload the folder '/flexible-elementor-panel/' into the '/wp-content/plugins/' directory
 2. Activate the plugin through the *Plugins* tab in WordPress
 
 == Screenshots ==
@@ -60,6 +59,10 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.0.3 =
+* Localization: Update POT/PO language
+* Localization: Update French language
 
 = 2.0.2 =
 * Add: New option "Alternative Responsive Indicator" by @Nicholas

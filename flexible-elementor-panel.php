@@ -1,13 +1,17 @@
 <?php
+
 /**
-Plugin Name: Flexible Elementor Panel
-Plugin URI: https://wordpress.org/plugins/flexible-elementor-panel
-Description: This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
-Version: 2.0.2
-Author: Flexible-Elementor-Panel.com
-Author URI: https://flexible-elementor-panel.com
-Text Domain: fep
-Domain Path: /languages
+ * @wordpress-plugin
+ * Plugin Name: 		Flexible Elementor Panel
+ * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
+ * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
+ * Version: 			2.0.3
+ * Author: 				WebMat
+ * Author URI: 			https://webmat.pro
+ * License: 			GPL-2.0+
+ * License URI: 		http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: 		fep
+ * Domain Path: 		/languages
 **/
 
 if ( ! defined( 'ABSPATH' ) ) {

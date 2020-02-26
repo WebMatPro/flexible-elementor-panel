@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2020-02-13 11:26+0100\n"
+"POT-Creation-Date: 2020-02-20 17:17+0100\n"
 "PO-Revision-Date: 2018-11-10 10:12+0700\n"
 "Last-Translator: \n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
@@ -27,8 +27,8 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 #: admin/settings.php:37 admin/settings.php:115
-#: flexible-elementor-panel.php:247 flexible-elementor-panel.php:270
-#: flexible-elementor-panel.php:294 flexible-elementor-panel.php:319
+#: flexible-elementor-panel.php:251 flexible-elementor-panel.php:274
+#: flexible-elementor-panel.php:298 flexible-elementor-panel.php:323
 msgid "Flexible Elementor Panel"
 msgstr ""
 
@@ -111,34 +111,34 @@ msgid ""
 "\">support forum.</a>"
 msgstr ""
 
-#: flexible-elementor-panel.php:246
+#: flexible-elementor-panel.php:250
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
 msgstr ""
 
-#: flexible-elementor-panel.php:248 flexible-elementor-panel.php:271
+#: flexible-elementor-panel.php:252 flexible-elementor-panel.php:275
 msgid "Elementor"
 msgstr ""
 
-#: flexible-elementor-panel.php:269 flexible-elementor-panel.php:293
+#: flexible-elementor-panel.php:273 flexible-elementor-panel.php:297
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
 
-#: flexible-elementor-panel.php:295
+#: flexible-elementor-panel.php:299
 msgid "PHP"
 msgstr ""
 
-#: flexible-elementor-panel.php:318
+#: flexible-elementor-panel.php:322
 #, php-format
 msgid "Thanks you to use our plugin %1$s, %2$s"
 msgstr ""
 
-#: flexible-elementor-panel.php:320
+#: flexible-elementor-panel.php:324
 msgid "go to the information page for understand how to configure it"
 msgstr ""
 
-#: flexible-elementor-panel.php:405
+#: flexible-elementor-panel.php:409
 msgid "Exit"
 msgstr ""
 
@@ -147,7 +147,8 @@ msgid "Reset Panel Position/Size"
 msgstr ""
 
 #: inc/settings/model.php:35
-msgid "Pro version is coming soon, get the information now on:"
+msgid ""
+"The pro version is currently development,<br> get more information now on:"
 msgstr ""
 
 #: inc/settings/model.php:42
@@ -323,7 +324,7 @@ msgid "Tools & Informations"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://wordpress.org/plugins/flexible-elementor-panel"
+msgid "https://wordpress.org/plugins/flexible-elementor-panel/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -334,9 +335,9 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Flexible-Elementor-Panel.com"
+msgid "WebMat"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://flexible-elementor-panel.com"
+msgid "https://webmat.pro"
 msgstr ""
