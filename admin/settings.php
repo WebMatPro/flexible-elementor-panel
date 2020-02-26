@@ -15,8 +15,6 @@ class FEP_Admin_Settings {
         add_action( 'admin_init', [ $this, 'admin_init' ], 10 );
         add_action( 'admin_menu', [ $this, 'admin_menu' ], 30 );
 
-		add_filter( 'plugin_action_links_' . constant('FEP_BASENAME'), [ $this, 'add_action_links' ] );
-
     }
 
     function admin_init() {
@@ -69,25 +67,35 @@ class FEP_Admin_Settings {
 
             [
 
-                'id'    => 'fep_informations',
-                'title' => esc_html__( 'Informations', 'fep' )
+                'id'     => 'fep_informations',
+                'title'  => esc_html__( 'Informations', 'fep' ),
+				'submit' => false,
 
             ],
 			[
 
-				'id'    => 'fep_how_to_configure',
-				'title' => esc_html__( 'How to configure it?', 'fep' )
+				'id'     => 'fep_how_to_configure',
+				'title'  => esc_html__( 'How to configure it?', 'fep' ),
+				'submit' => false,
 
 			],
+			/*[
+
+				'id'     => 'fep_divers',
+				'title'  => esc_html__( 'Divers', 'fep' ),
+				'submit' => false,
+
+			],*/
 			[
 
-				'id'    => 'fep_divers',
-				'title' => esc_html__( 'Divers', 'fep' )
+				'id'     => 'fep_debug',
+				'title'  => esc_html__( 'Debug', 'fep' ),
+				'submit' => false,
 
 			],
         ];
 
-        return apply_filters('fep_admin_sections', array_merge( $sections ) );
+        return array_merge( $sections );
 
     }
 
@@ -95,13 +103,12 @@ class FEP_Admin_Settings {
 
     function fep_admin_settings() {
 
-
-
 		$settings = FEP_Informations_Tab::section();
 		$settings2 = FEP_HowToConfigure_Tab::section();
-		$settings3 = FEP_Divers_Tab::section();
+		//$settings3 = FEP_Divers_Tab::section();
+		$settings4 = FEP_Debug_Tab::section();
 
-        return apply_filters('fep_admin_settings', array_merge( $settings, $settings2, $settings3 ) );
+        return array_merge( $settings, $settings2, $settings4 );
 
     }
 
@@ -169,6 +176,12 @@ class FEP_Admin_Settings {
 		// scripts
 		wp_enqueue_script( 'fep-functions-admin-js', plugins_url( '/assets/js/fep-functions-admin.js', __FILE__ ), false, constant( 'FEP_VERSION' ), true );
 		wp_enqueue_script( 'flexible-elementor-panel-admin-js', plugins_url( '/assets/js/flexible-elementor-panel-admin.js', __FILE__ ), false, constant( 'FEP_VERSION' ), true );
+
+		wp_localize_script('fep-functions-admin-js', 'ajax_var', array(
+			'url' => admin_url('admin-ajax.php'),
+			'nonce' => wp_create_nonce('fep-nonce-admin')
+			)
+		);
 
 	}
 

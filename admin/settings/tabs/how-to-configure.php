@@ -29,7 +29,7 @@ class FEP_HowToConfigure_Tab {
         $section['fep_how_to_configure'][] = [
 
             'name'               => 'fep_how_to_configure',
-			'class'              => 'fep_how_to_configure',
+			'class'              => 'fep-how-to-configure',
             'desc'               => $html_fep_how_to_configure,
             'type'               => 'html',
 

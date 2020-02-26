@@ -105,7 +105,7 @@ class FEP_Settings_API {
         //register settings sections
         foreach ( $this->settings_sections as $section ) {
             if ( false == get_option( $section['id'] ) ) {
-                add_option( $section['id'] );
+                //add_option( $section['id'] ); //not use it for the moment
             }
 
             if ( isset($section['desc']) && !empty($section['desc']) ) {
@@ -125,6 +125,8 @@ class FEP_Settings_API {
             foreach ( $field as $option ) {
 
                 $name = $option['name'];
+				$label_button = isset( $option['label_button'] ) ? $option['label_button'] : __('Button', 'fep');
+				$after = isset( $option['after'] ) ? $option['after'] : '';
                 $type = isset( $option['type'] ) ? $option['type'] : 'text';
                 $label = isset( $option['label'] ) ? $option['label'] : '';
                 $callback = isset( $option['callback'] ) ? $option['callback'] : array( $this, 'callback_' . $type );
@@ -135,6 +137,8 @@ class FEP_Settings_API {
                     'label_for'         => "{$section}[{$name}]",
                     'desc'              => isset( $option['desc'] ) ? $option['desc'] : '',
                     'name'              => $label,
+					'label_button'      => $label_button,
+					'after'             => $after,
                     'section'           => $section,
                     'size'              => isset( $option['size'] ) ? $option['size'] : null,
                     'options'           => isset( $option['options'] ) ? $option['options'] : '',
@@ -304,6 +308,28 @@ class FEP_Settings_API {
 
         echo $html;
     }
+
+
+	/**
+     * Displays a button for a settings field
+     *
+     * @param array   $args settings field args
+     */
+    function callback_button( $args ) {
+
+		$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
+
+        $html  = '<fieldset>';
+        $html  .= sprintf( '<label for="%1$s">',$args['id'] );
+        $html  .= sprintf( '<button type="button" class="%1$s">%2$s</button>', $args['class'], $args['label_button'] );
+		$html  .= $args['after'];
+    	$html  .= '</label>';
+		$html  .= $this->get_field_description( $args );
+        $html  .= '</fieldset>';
+
+        echo $html;
+    }
+
 
     /**
      * Displays a textarea for a settings field
@@ -535,17 +561,19 @@ class FEP_Settings_API {
             <?php foreach ( $this->settings_sections as $form ) { ?>
                 <div id="<?php echo $form['id']; ?>" class="group" style="display: none;">
                     <form method="post" action="options.php">
-                        <?php
-                        do_action( 'wsa_form_top_' . $form['id'], $form );
-                        settings_fields( $form['id'] );
-                        do_settings_sections( $form['id'] );
-                        do_action( 'wsa_form_bottom_' . $form['id'], $form );
-                        if ( isset( $this->settings_fields[ $form['id'] ] ) ):
-                        ?>
-                        <div style="padding-left: 10px">
-                            <?php //submit_button(); ?>
-                        </div>
-                        <?php endif; ?>
+
+
+                        <?php settings_fields( $form['id'] ); ?>
+
+                        <?php do_settings_sections( $form['id'] ); ?>
+
+                        <?php if ( $form['submit'] == true ) { ?>
+
+	                        <div style="padding-left: 10px">
+	                            <?php submit_button(); ?>
+	                        </div>
+
+                        <?php } ?>
                     </form>
                 </div>
             <?php } ?>
