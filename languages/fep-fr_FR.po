@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2020-02-26 13:52+0100\n"
-"PO-Revision-Date: 2020-02-26 13:57+0100\n"
+"POT-Creation-Date: 2020-02-28 21:38+0100\n"
+"PO-Revision-Date: 2020-02-28 21:38+0100\n"
 "Last-Translator: WebMat <contact@webmat.pro>\n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
 "Language: fr_FR\n"
@@ -23,14 +23,14 @@ msgstr ""
 
 #: admin/api.settings.php:128
 msgid "Button"
-msgstr ""
+msgstr "Bouton"
 
 #: admin/api.settings.php:400
 msgid "Choose File"
 msgstr "Choisissez un fichier"
 
 #. Plugin Name of the plugin/theme
-#: admin/settings.php:35 admin/settings.php:130
+#: admin/settings.php:35 admin/settings.php:122
 #: flexible-elementor-panel.php:251 flexible-elementor-panel.php:274
 #: flexible-elementor-panel.php:298 flexible-elementor-panel.php:323
 msgid "Flexible Elementor Panel"
@@ -40,7 +40,7 @@ msgstr "Flexible Elementor Panel"
 msgid "FEP Settings"
 msgstr "Réglages FEP"
 
-#: admin/settings.php:51 inc/settings/manager.php:90
+#: admin/settings.php:51 inc/settings/manager.php:33
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -49,14 +49,14 @@ msgid "Informations"
 msgstr "Informations"
 
 #: admin/settings.php:78
-msgid "How to configure it?"
-msgstr "Comment le configurer ?"
+msgid "How to configure"
+msgstr "Comment configurer"
 
 #: admin/settings.php:92
 msgid "Debug"
 msgstr "Débogage"
 
-#: admin/settings.php:131
+#: admin/settings.php:123
 msgid ""
 "Makes the Elementor editor panel flexible, draggable, resizable, folding and "
 "more opportunities."
@@ -64,7 +64,7 @@ msgstr ""
 "Rend le panneau d'édition Elementor flexible, déplaçable, redimensionnable, "
 "pliable et encore plus."
 
-#: admin/settings.php:150
+#: admin/settings.php:142
 msgid "Your settings have been saved."
 msgstr "Vos réglages ont été enregistrés."
 
@@ -127,19 +127,19 @@ msgstr ""
 msgid "no value"
 msgstr "aucune valeur"
 
-#: admin/settings/tabs/debug.php:106
+#: admin/settings/tabs/debug.php:96
 msgid "Options FEP not exist in the database"
 msgstr "Pas d'option FEP existant dans la base de données"
 
-#: admin/settings/tabs/debug.php:113
+#: admin/settings/tabs/debug.php:104
 msgid "no"
 msgstr "non"
 
-#: admin/settings/tabs/debug.php:116
+#: admin/settings/tabs/debug.php:107 admin/settings/tabs/debug.php:112
 msgid "with the value"
 msgstr "avec la valeur"
 
-#: admin/settings/tabs/debug.php:126
+#: admin/settings/tabs/debug.php:122
 msgid ""
 "Note: all settings saved, will be print above. If the setting not appear, it "
 "means it is configured by default"
@@ -147,31 +147,31 @@ msgstr ""
 "Remarque : tous les paramètres enregistrés seront imprimés ci-dessus. Si le "
 "paramètre n’apparaît pas, cela signifie qu’il est configuré par défaut"
 
-#: admin/settings/tabs/debug.php:129
+#: admin/settings/tabs/debug.php:125
 msgid "Size of \"Width Panel\""
 msgstr "Taille de \"Largeur du panneau\""
 
-#: admin/settings/tabs/debug.php:130
+#: admin/settings/tabs/debug.php:126
 msgid "Size of \"Height Panel\""
 msgstr "Taille de \"Hauteur du panneau\""
 
-#: admin/settings/tabs/debug.php:131
+#: admin/settings/tabs/debug.php:127
 msgid "Position of \"Top Panel\""
 msgstr "Position du \"Haut du panneau\""
 
-#: admin/settings/tabs/debug.php:132
+#: admin/settings/tabs/debug.php:128
 msgid "Position of \"Left Panel\""
 msgstr "Position de \"Gauche du panneau\""
 
-#: admin/settings/tabs/debug.php:133
+#: admin/settings/tabs/debug.php:129
 msgid "Position of \"Right Panel\""
 msgstr "Position de \"Droite du panneau\""
 
-#: admin/settings/tabs/debug.php:134
+#: admin/settings/tabs/debug.php:130
 msgid "Value of \"Move Panel\""
 msgstr "Valeur de « Déplacement du panneau »"
 
-#: admin/settings/tabs/debug.php:135
+#: admin/settings/tabs/debug.php:131
 msgid ""
 "Note: These value save automatically from your navigator after move and "
 "resize the editor panel"
@@ -188,10 +188,8 @@ msgstr ""
 "pour une plus grande facilitée d'utilisation."
 
 #: admin/settings/tabs/how-to-configure.php:25
-msgid "All options is disabled by default, are you ready to enable them?"
-msgstr ""
-"Toutes les options sont désactivées par défaut, êtes-vous prêt à les "
-"activer ?"
+msgid "All options is enable by default, are you ready to see them?"
+msgstr "Toutes les options sont actives par défaut, êtes-vous prêt à les voir?"
 
 #: admin/settings/tabs/informations.php:28
 msgid ""

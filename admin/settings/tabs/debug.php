@@ -79,41 +79,37 @@ class FEP_Debug_Tab {
 			//$_elementor_fep_settings_html = ''; //start
 
 			$options = [
-				'_elementor_fep_settings' => [
-					'option' => get_option( '_elementor_fep_settings' ),
-				],
-				'fep_informations' => [
-					'option' => get_option( 'fep_informations' ),
-				],
-				'fep_how_to_configure' => [
-					'option' => get_option( 'fep_how_to_configure' ),
-				],
-				'fep_divers' => [
-					'option' => get_option( 'fep_divers' ),
-				],
-				'fep_debug' => [
-					'option' => get_option( 'fep_debug' ),
-				],
+				'_elementor_fep_settings',
+				/*'fep_informations',
+				'fep_how_to_configure',
+				'fep_divers',
+				'fep_debug',*/
 			];
 
 			//echo var_dump($options);
 			//exit;
 
-			foreach ($options as $option => $value) {
+			foreach ($options as $option => $name) {
 
-				if ( !$value['option'] ) {
+				if ( !get_option( $name ) ) {
 
-					$_elementor_fep_settings_html .= '<br>' . __('Options FEP not exist in the database','fep') . ' (' . $option . ')';
+					$_elementor_fep_settings_html .= __('Options FEP not exist in the database','fep') . ' (' . $name . ')<br>';
 
 				} else {
 
-					foreach (get_option( $option ) as $key => $value) {
+					if ( $name == '_elementor_fep_settings' ) {
+						foreach (get_option( $name ) as $key => $value) {
 
-						if ( !$value ) {
-							$value = __('no', 'fep');
+							if ( !$value ) {
+								$value = __('no', 'fep');
+							}
+
+							$_elementor_fep_settings_html .= '<b>(' . $name . ') ' . $key . '</b><small> ' . __('with the value', 'fep') . ' </small><b>' . $value . '</b><br>';
+
 						}
+					} else {
 
-						$_elementor_fep_settings_html .= '<b>' . $key . '</b><small> ' . __('with the value', 'fep') . ' </small><b>' . $value . '</b><br>';
+						$_elementor_fep_settings_html .= '<b>' . $name . '</b><small> ' . __('with the value', 'fep') . ' </small><b>' . get_option( $name ) . '</b><br>';
 
 					}
 
@@ -133,7 +129,7 @@ class FEP_Debug_Tab {
 			$html .= __('Position of "Right Panel"', 'fep') .' <b>'. $panel_pos_right.'</b><br>';
 			$html .= __('Value of "Move Panel"', 'fep') .' <b>'. $in_move .'</b><br><br>';
 			$html .= __('Note: These value save automatically from your navigator after move and resize the editor panel', 'fep') . '<br><br>';
-			$html .= '<center>/********* END DEBUG LOCAL STORAG *********\</center><br><br>';
+			$html .= '<center>/********* END DEBUG LOCAL STORAGE *********\</center><br><br>';
 
 			echo $html;
 

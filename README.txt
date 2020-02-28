@@ -5,7 +5,7 @@ Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.3.2
 Requires PHP: 5.6
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,7 @@ The plugin "Flexible Elementor Panel" makes the Elementor editor panel flexible,
 
 = Features =
 * Draggable Elementor panel and save position
+* Move to right side and switch in RTL mode
 * Vertical collapsible Elementor panel
 * Resize Elementor panel and save size
 * Multiple dark skin for Elementor editor
@@ -23,7 +24,7 @@ The plugin "Flexible Elementor Panel" makes the Elementor editor panel flexible,
 * Sortable widgets category and save position
 * Add exit button in the footer of panel editor
 * Option to close the first tab in Accordion widget
-
+* Add more options for responsive mode
 
 == Installation ==
 From within WordPress' dashboard:
@@ -40,12 +41,13 @@ Manually via FTP:
 
 == Screenshots ==
 1. Draggable Elementor panel anywhere
-2. Collapsible Elementor panel
-3. Resize Elementor panel
-4. Dark skin for Elementor editor
-5. Collapsible widgets category
-6. Sortable widgets category
-7. Exit button in editor footer
+2. Exit button in editor footer
+3. More skin for Elementor editor
+4. Collapsible Elementor panel
+5. More options for responsive mode
+6. Flex and Sortable widgets category
+7. First tab accordion closed
+8. Simple settings in editor panel
 
 == Frequently Asked Questions ==
 
@@ -60,12 +62,23 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 == Changelog ==
 
-= 2.0.3 =
+= 2.1.1 =
+* Fix: All options working again (thanks @community)
+* Fix: Css responsive mode
+* Improve: The "Debug" tab in FEP admin settings
+* Improve: The "How to configure" tab in FEP admin settings
+* Improve: The "Informations" tab in FEP admin settings
+* Improve: Updated the gif in plugin repository
+* Fix: Text in Changelog
+* Localization: Update POT/PO language
+* Localization: Update French language
+
+= 2.1.0 =
 * Add: Debug tab in FEP admin settings
 * Add: Reset options FEP Database
 * Add: Check options FEP SQL / LocalStorage
 * Remove: PHP Filter admin settings FEP
-* Rmove: Divers tab in FEP admin settings
+* Remove: Divers tab in FEP admin settings
 * Localization: Update POT/PO language
 * Localization: Update French language
 

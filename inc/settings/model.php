@@ -133,7 +133,7 @@ class Model extends Elementor_Model {
 				'fep_settings_responsive'  => [
 					'label'     => __('Responsive options', 'fep'),
 					'controls'  => [
-						'fep_settings_responsive_note' => [
+						'settings_responsive_note' => [
 							'type' 				=> Elementor_Controls_Manager::RAW_HTML,
 							'raw' 				=> __( 'These options give you control over how responsive hidden elements appear and behave inside the Elementor editor on each responsive view (Desktop, Tablet or Mobile). Use them carefully to avoid misplacing elements while editing.', 'fep' ),
 							'content_classes' 	=> 'elementor-panel-alert elementor-panel-alert-warning',
@@ -145,7 +145,7 @@ class Model extends Elementor_Model {
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
 							'return_value' 		=> 'yes',
-							//'default' 			=> 'yes',
+							'default' 			=> 'no',
 						],
 						'maintain_obscured_elements_responsive' => [
 							'label' 			=> __('Allow Editing Inside Hidden Sections', 'fep'),
@@ -154,7 +154,7 @@ class Model extends Elementor_Model {
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
 							'return_value' 		=> 'yes',
-							//'default' 			=> 'yes',
+							'default' 			=> 'no',
 						],
 						'disable_obscured_elements_responsive' => [
 							'label' 			=> __('Disable Responsive Overlays', 'fep'),
@@ -163,7 +163,7 @@ class Model extends Elementor_Model {
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
 							'return_value' 		=> 'yes',
-							//'default' 			=> 'yes',
+							'default' 			=> 'no',
 						],
 						'alternative_responsive_indicator' => [
 							'label' 			=> __('Alternative Responsive Indicator', 'fep'),
@@ -172,7 +172,7 @@ class Model extends Elementor_Model {
 							'label_on' 			=> __('On', 'fep'),
 							'label_off' 		=> __('Off', 'fep'),
 							'return_value' 		=> 'yes',
-							//'default' 			=> 'yes',
+							'default' 			=> 'no',
 						],
 					]
 				],
@@ -196,7 +196,7 @@ class Model extends Elementor_Model {
 							'type'  			=> Elementor_Controls_Manager::RAW_HTML,
 							'raw' 				=> $debugger_html,
 						],
-						'fep_note_pro_version' => [
+						'note_pro_version' => [
 							'type' 				=> Elementor_Controls_Manager::RAW_HTML,
 							'raw' 				=> $html_pro_version_html,
 							'content_classes' 	=> 'ee-raw-html ee-raw-html__warning',

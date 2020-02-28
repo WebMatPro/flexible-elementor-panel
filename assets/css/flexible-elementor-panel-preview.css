@@ -25,7 +25,7 @@
 .hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop,
 .hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone,
 .hide-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet {
-    display: none !important;
+    display: none!important;
 }
 
 
@@ -40,14 +40,14 @@
 .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop.elementor-section>.elementor-element-overlay,
 .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet.elementor-section>.elementor-element-overlay,
 .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone.elementor-section>.elementor-element-overlay {
-    background-color: transparent !important;
-    mix-blend-mode: normal !important;
+    background-color: unset;
+    mix-blend-mode: normal;
 }
 
 .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop.elementor-section:before,
 .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet.elementor-section:before,
 .maintain-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone.elementor-section:before {
-    display: none !important;
+    display: none;
 }
 
 
@@ -62,21 +62,21 @@
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=desktop] .elementor-hidden-desktop,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=mobile] .elementor-hidden-phone,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode=tablet] .elementor-hidden-tablet {
-    background: none !important;
-    border: none !important;
+    background-color: unset;
+    border: none;
 }
 
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop.elementor-section>.elementor-element-overlay,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet.elementor-section>.elementor-element-overlay,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone.elementor-section>.elementor-element-overlay {
-    background-color: transparent !important;
-    mix-blend-mode: normal !important;
+    background-color: unset;
+    mix-blend-mode: normal;
 }
 
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop.elementor-section:before,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet.elementor-section:before,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone.elementor-section:before {
-    background-color: transparent !important;
+    background-color: unset;
 }
 
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-widget-container,
@@ -85,8 +85,8 @@
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-column-wrap,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone>.elementor-widget-container,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone>.elementor-column-wrap {
-    -webkit-filter: opacity(1) saturate(1) !important;
-    filter: opacity(1) saturate(1) !important;
+    -webkit-filter: opacity(1) saturate(1);
+    filter: opacity(1) saturate(1);
 }
 
 
@@ -110,7 +110,7 @@
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-edit-area-active .elementor-widget.elementor-element-edit-mode.elementor-hidden-desktop:hover,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-edit-area-active .elementor-widget.elementor-element-edit-mode.elementor-hidden-tablet:hover,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-edit-area-active .elementor-widget.elementor-element-edit-mode.elementor-hidden-phone:hover {
-    outline: 2px dotted #9400d3 !important;
+    outline: 2px dotted #9400d3;
 }
 
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-element-settings,
@@ -125,8 +125,8 @@
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-widget-settings .elementor-editor-element-setting,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-element-overlay .elementor-editor-widget-settings .elementor-editor-element-setting,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="phone"] .elementor-hidden-phone>.elementor-element-overlay .elementor-editor-widget-settings .elementor-editor-element-setting {
-    background-color: #9400d3 !important;
-    background-image: none !important;
+    background-color: #9400d3;
+    background-image: none;
 }
 
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-section-settings .alternative-responsive-indicator-enabled.elementor-editor-element-setting:hover,
@@ -138,30 +138,30 @@
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-widget-settings .elementor-editor-element-setting:hover,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-element-overlay .elementor-editor-widget-settings .elementor-editor-element-setting:hover,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="phone"] .elementor-hidden-phone>.elementor-element-overlay .elementor-editor-widget-settings .elementor-editor-element-setting:hover {
-    background-color: #4b0082 !important;
-    background-image: none !important;
+    background-color: #4b0082;
+    background-image: none;
 }
 
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-element-setting:first-child:before,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-element-overlay .elementor-editor-element-setting:first-child:before,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone>.elementor-element-overlay .elementor-editor-element-setting:first-child:before {
-    border-right-color: #9400d3 !important;
+    border-right-color: #9400d3;
 }
 
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-element-setting:last-child:after,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-element-overlay .elementor-editor-element-setting:last-child:after,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone>.elementor-element-overlay .elementor-editor-element-setting:last-child:after {
-    border-left-color: #9400d3 !important;
+    border-left-color: #9400d3;
 }
 
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-element-setting:first-child:before,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-element-overlay .elementor-editor-element-setting:first-child:before,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone>.elementor-element-overlay .elementor-editor-element-setting:first-child:before {
-    border-right-color: #9400d3 !important;
+    border-right-color: #9400d3;
 }
 
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-element-overlay .elementor-editor-element-setting:last-child:after,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-element-overlay .elementor-editor-element-setting:last-child:after,
 .alternative-responsive-indicator-enabled.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-phone>.elementor-element-overlay .elementor-editor-element-setting:last-child:after {
-    border-left-color: #9400d3 !important;
+    border-left-color: #9400d3;
 }

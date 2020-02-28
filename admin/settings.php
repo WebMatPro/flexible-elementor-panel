@@ -75,7 +75,7 @@ class FEP_Admin_Settings {
 			[
 
 				'id'     => 'fep_how_to_configure',
-				'title'  => esc_html__( 'How to configure it?', 'fep' ),
+				'title'  => esc_html__( 'How to configure', 'fep' ),
 				'submit' => false,
 
 			],

@@ -205,7 +205,7 @@ function loadFepSettings() {
         $(document).on('touchend mouseup', mouseupHeaderTitle);
         $("#elementor-panel-header-title").css("cursor", "move"); // add cursor to the title editor panel
     }
-    if (fepConfig.draggable_panel == 'no') {
+    if (!fepConfig.draggable_panel || fepConfig.draggable_panel == 'no') {
         $("#elementor-panel").draggable("disable");
         $("#elementor-panel-header-title").off('touchstart mousedown', mousedownHeaderTitle);
         //$("#elementor-panel-header-title").off('touchend mouseup', mouseupHeaderTitle); //useless
@@ -265,10 +265,6 @@ function loadFepSettings() {
     if (fepConfig.hide_elements_responsive == 'yes') {
         $("#elementor-preview-iframe").contents().find("body").addClass("hide-elements-responsive");
 
-        // Uncheck
-        //$("input[data-setting='disable_obscured_elements_responsive'").prop( "checked", false );
-        //$("input[data-setting='maintain_obscured_elements_responsive'").prop( "checked", false );
-        //$("input[data-setting=alternative_responsive_indicator'").prop( "checked", false );
         $("body").addClass("disable-option-fep-disable_obscured_elements_responsive");
         $("body").addClass("disable-option-fep-maintain_obscured_elements_responsive");
         $("body").addClass("disable-option-fep-alternative_responsive_indicator");

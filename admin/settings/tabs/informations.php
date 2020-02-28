@@ -32,6 +32,15 @@ class FEP_Informations_Tab {
 			$html_fep_informations .= '</div>';
 		$html_fep_informations .='</div>';
 
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-draggable.gif">';
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-editor-skin.gif">';
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-exit-button.gif">';
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-vertical-toggle.gif">';
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-flex-categories.gif">';
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-responsive-mode.gif">';
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-first-tab-close--accordion.gif">';
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings.gif">';
+
         $section['fep_informations'][] = [
 
             'name'               => 'fep_informations',

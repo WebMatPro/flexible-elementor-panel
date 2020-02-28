@@ -65,7 +65,7 @@ function fep_reset_options_by_admin() {
 --------------------------------------------------------------------------------------*/
 function fep_check_options_by_admin() {
 
-    $('.fep-check-options-notice').css( "height", "auto" ).animate({opacity:1,'margin-top':20},300);
+    $('.fep-check-options-notice').css( "height", "auto" ).animate({opacity:1,'margin-top':20, padding:10},300);
 
 
     // get

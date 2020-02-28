@@ -22,8 +22,8 @@ class FEP_HowToConfigure_Tab {
 
 		$html_fep_how_to_configure = '<div class="content-howtodo">';
 			$html_fep_how_to_configure .= '<p>' . __('We have placed the options for FEP directly in the Elementor editor for greater ease of use.','fep') . '</p>';
-			$html_fep_how_to_configure .= '<p>' . __('All options is disabled by default, are you ready to enable them?','fep') . '</p>';
-			$html_fep_how_to_configure .= '<img src="'. FEP_URL .'admin/assets/images/fep-howtosetting.gif">';
+			$html_fep_how_to_configure .= '<p>' . __('All options is enable by default, are you ready to see them?','fep') . '</p>';
+			$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings.gif" style="max-height: 500px;">';
 		$html_fep_how_to_configure .='</div>';
 
         $section['fep_how_to_configure'][] = [

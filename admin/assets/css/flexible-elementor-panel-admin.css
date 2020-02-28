@@ -85,6 +85,10 @@
 #fep-admin red {
     color: red;
 }
+#fep-admin .fep-gif {
+    max-height: 400px;
+    margin: 15px 10px 15px auto;
+}
 
 /*--------------------------------------------------------------------------------------
 
@@ -112,7 +116,6 @@
 #fep-admin .fep-check-options-notice {
     width: 100%;
     background-color: white;
-    padding: 10px;
     height:0;
     opacity: 0;
 }

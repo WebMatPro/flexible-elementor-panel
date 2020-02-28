@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2020-02-26 13:57+0100\n"
+"POT-Creation-Date: 2020-02-28 21:38+0100\n"
 "PO-Revision-Date: 2018-11-10 10:12+0700\n"
 "Last-Translator: \n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
@@ -30,7 +30,7 @@ msgid "Choose File"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: admin/settings.php:35 admin/settings.php:130
+#: admin/settings.php:35 admin/settings.php:122
 #: flexible-elementor-panel.php:251 flexible-elementor-panel.php:274
 #: flexible-elementor-panel.php:298 flexible-elementor-panel.php:323
 msgid "Flexible Elementor Panel"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "FEP Settings"
 msgstr ""
 
-#: admin/settings.php:51 inc/settings/manager.php:90
+#: admin/settings.php:51 inc/settings/manager.php:33
 msgid "Settings"
 msgstr ""
 
@@ -49,20 +49,20 @@ msgid "Informations"
 msgstr ""
 
 #: admin/settings.php:78
-msgid "How to configure it?"
+msgid "How to configure"
 msgstr ""
 
 #: admin/settings.php:92
 msgid "Debug"
 msgstr ""
 
-#: admin/settings.php:131
+#: admin/settings.php:123
 msgid ""
 "Makes the Elementor editor panel flexible, draggable, resizable, folding and "
 "more opportunities."
 msgstr ""
 
-#: admin/settings.php:150
+#: admin/settings.php:142
 msgid "Your settings have been saved."
 msgstr ""
 
@@ -116,49 +116,49 @@ msgstr ""
 msgid "no value"
 msgstr ""
 
-#: admin/settings/tabs/debug.php:106
+#: admin/settings/tabs/debug.php:96
 msgid "Options FEP not exist in the database"
 msgstr ""
 
-#: admin/settings/tabs/debug.php:113
+#: admin/settings/tabs/debug.php:104
 msgid "no"
 msgstr ""
 
-#: admin/settings/tabs/debug.php:116
+#: admin/settings/tabs/debug.php:107 admin/settings/tabs/debug.php:112
 msgid "with the value"
 msgstr ""
 
-#: admin/settings/tabs/debug.php:126
+#: admin/settings/tabs/debug.php:122
 msgid ""
 "Note: all settings saved, will be print above. If the setting not appear, it "
 "means it is configured by default"
 msgstr ""
 
-#: admin/settings/tabs/debug.php:129
+#: admin/settings/tabs/debug.php:125
 msgid "Size of \"Width Panel\""
 msgstr ""
 
-#: admin/settings/tabs/debug.php:130
+#: admin/settings/tabs/debug.php:126
 msgid "Size of \"Height Panel\""
 msgstr ""
 
-#: admin/settings/tabs/debug.php:131
+#: admin/settings/tabs/debug.php:127
 msgid "Position of \"Top Panel\""
 msgstr ""
 
-#: admin/settings/tabs/debug.php:132
+#: admin/settings/tabs/debug.php:128
 msgid "Position of \"Left Panel\""
 msgstr ""
 
-#: admin/settings/tabs/debug.php:133
+#: admin/settings/tabs/debug.php:129
 msgid "Position of \"Right Panel\""
 msgstr ""
 
-#: admin/settings/tabs/debug.php:134
+#: admin/settings/tabs/debug.php:130
 msgid "Value of \"Move Panel\""
 msgstr ""
 
-#: admin/settings/tabs/debug.php:135
+#: admin/settings/tabs/debug.php:131
 msgid ""
 "Note: These value save automatically from your navigator after move and "
 "resize the editor panel"
@@ -171,7 +171,7 @@ msgid ""
 msgstr ""
 
 #: admin/settings/tabs/how-to-configure.php:25
-msgid "All options is disabled by default, are you ready to enable them?"
+msgid "All options is enable by default, are you ready to see them?"
 msgstr ""
 
 #: admin/settings/tabs/informations.php:28
