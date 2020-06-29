@@ -1,5 +1,7 @@
 <?php
 
+namespace FEP\Admin;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -8,16 +10,18 @@ class FEP_Admin_Settings {
 
     private $settings_tabs;
 
-    function __construct() {
+    public function __construct() {
 
         $this->settings_tabs = new FEP_Settings_API;
 
         add_action( 'admin_init', [ $this, 'admin_init' ], 10 );
         add_action( 'admin_menu', [ $this, 'admin_menu' ], 30 );
 
+		add_filter( 'plugin_action_links_' . constant('FEP_BASENAME'), [ $this, 'add_action_links'] );
+
     }
 
-    function admin_init() {
+    public function admin_init() {
 
         //set the settings
         $this->settings_tabs->set_sections( $this->fep_admin_sections() );
@@ -28,7 +32,7 @@ class FEP_Admin_Settings {
 
     }
 
-    function admin_menu() {
+    public function admin_menu() {
 
         $my_page = add_submenu_page(
             'elementor',
@@ -46,7 +50,7 @@ class FEP_Admin_Settings {
     }
 
 	// Add link to configuration page into plugin
-	function add_action_links ( $links ) {
+	public static function add_action_links( $links ) {
 	    $mylinks = array(
 			'settings' => '<a href="' . admin_url( 'admin.php?page=fep-options' ) . '">' . __( 'Settings', 'fep' ) . '</a>',
 		);
@@ -54,14 +58,13 @@ class FEP_Admin_Settings {
 	}
 
 	// This function is only called when our plugin's page loads!
-    function load_admin_enqueue(){
+    public function load_admin_enqueue(){
 
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_fep_admin' ] );
 
     }
 
-    function fep_admin_sections() {
-
+    private function fep_admin_sections() {
 
         $sections = [
 
@@ -101,7 +104,7 @@ class FEP_Admin_Settings {
 
 
 
-    function fep_admin_settings() {
+    private function fep_admin_settings() {
 
 		$settings = FEP_Informations_Tab::section();
 		$settings2 = FEP_HowToConfigure_Tab::section();
@@ -116,7 +119,7 @@ class FEP_Admin_Settings {
 
 
 
-    function plugin_page() {
+    public function plugin_page() {
 
 		$html_fep_title = '<div class="title">';
 			$html_fep_title .= '<h1>' . __('Flexible Elementor Panel','fep') . '</h1>';
@@ -133,7 +136,7 @@ class FEP_Admin_Settings {
 
     }
 
-    function save_message() {
+    public function save_message() {
 
         if( isset($_GET['settings-updated']) ) { ?>
 
@@ -150,7 +153,7 @@ class FEP_Admin_Settings {
     }
 
 
-    function footer_info() {
+    public function footer_info() {
 
         ?>
 
@@ -179,7 +182,12 @@ class FEP_Admin_Settings {
 
 		wp_localize_script('fep-functions-admin-js', 'ajax_var', array(
 			'url' => admin_url('admin-ajax.php'),
-			'nonce' => wp_create_nonce('fep-nonce-admin')
+			'nonce' => wp_create_nonce('fep-nonce-admin'),
+			)
+		);
+
+		wp_localize_script('flexible-elementor-panel-admin-js', 'text_var', array(
+			'confirm' => __('Do you confirm that action?', 'fep')
 			)
 		);
 

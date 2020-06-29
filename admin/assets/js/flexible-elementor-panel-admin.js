@@ -9,6 +9,12 @@
         // reset panel admin
         $(document).on('click touchstart', 'button.fep-reset-panel', function(event) {
             event.preventDefault(); // cancel other actions
+
+            var be_okay = confirm(text_var.confirm);
+            if (be_okay != true) {
+                return false; //stop there
+            }
+            
             fep_reset_panel_by_admin(); // run function
 
             //if div exist, check again
@@ -24,6 +30,12 @@
         // reset options admin
         $(document).on('click touchstart', 'button.fep-reset-options', function(event) {
             event.preventDefault(); // cancel other actions
+
+            var be_okay = confirm(text_var.confirm);
+            if (be_okay != true) {
+                return false; //stop there
+            }
+
             fep_reset_options_by_admin(); // run function
 
             //if div exist, check again

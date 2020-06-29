@@ -62,6 +62,14 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 == Changelog ==
 
+= 2.1.2 =
+* Add: Compatibility any plugins with use the namespace php for admin
+* Add: Ask confirmation before execute action in debug setting admin
+* Add: Link settings into the list plugin
+* Improve: Set the public/private in Class php
+* Localization: Update POT/PO language
+* Localization: Update French language
+
 = 2.1.1 =
 * Fix: All options working again (thanks @community)
 * Fix: Css responsive mode

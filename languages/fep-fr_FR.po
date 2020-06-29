@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2020-02-28 21:38+0100\n"
-"PO-Revision-Date: 2020-02-28 21:38+0100\n"
+"POT-Creation-Date: 2020-06-29 21:08+0200\n"
+"PO-Revision-Date: 2020-06-29 21:08+0200\n"
 "Last-Translator: WebMat <contact@webmat.pro>\n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
 "Language: fr_FR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: flexible-elementor-panel.php\n"
@@ -21,42 +21,42 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: admin/api.settings.php:128
+#: admin/api.settings.php:130
 msgid "Button"
 msgstr "Bouton"
 
-#: admin/api.settings.php:400
+#: admin/api.settings.php:402
 msgid "Choose File"
 msgstr "Choisissez un fichier"
 
 #. Plugin Name of the plugin/theme
-#: admin/settings.php:35 admin/settings.php:122
+#: admin/settings.php:37 admin/settings.php:123
 #: flexible-elementor-panel.php:251 flexible-elementor-panel.php:274
 #: flexible-elementor-panel.php:298 flexible-elementor-panel.php:323
 msgid "Flexible Elementor Panel"
 msgstr "Flexible Elementor Panel"
 
-#: admin/settings.php:36 inc/settings/model.php:23
+#: admin/settings.php:38 inc/settings/model.php:23
 msgid "FEP Settings"
 msgstr "Réglages FEP"
 
-#: admin/settings.php:51 inc/settings/manager.php:33
+#: admin/settings.php:53 inc/settings/manager.php:33
 msgid "Settings"
 msgstr "Paramètres"
 
-#: admin/settings.php:71
+#: admin/settings.php:72
 msgid "Informations"
 msgstr "Informations"
 
-#: admin/settings.php:78
+#: admin/settings.php:79
 msgid "How to configure"
 msgstr "Comment configurer"
 
-#: admin/settings.php:92
+#: admin/settings.php:93
 msgid "Debug"
 msgstr "Débogage"
 
-#: admin/settings.php:123
+#: admin/settings.php:124
 msgid ""
 "Makes the Elementor editor panel flexible, draggable, resizable, folding and "
 "more opportunities."
@@ -64,34 +64,38 @@ msgstr ""
 "Rend le panneau d'édition Elementor flexible, déplaçable, redimensionnable, "
 "pliable et encore plus."
 
-#: admin/settings.php:142
+#: admin/settings.php:143
 msgid "Your settings have been saved."
 msgstr "Vos réglages ont été enregistrés."
 
-#: admin/settings/tabs/debug.php:33
+#: admin/settings.php:188
+msgid "Do you confirm that action?"
+msgstr "Confirmez-vous cette action ?"
+
+#: admin/settings/tabs/debug.php:35
 msgid "Check what FEP saved"
 msgstr "Vérifiez ce que FEP a enregistré"
 
-#: admin/settings/tabs/debug.php:36
+#: admin/settings/tabs/debug.php:38
 msgid "Check the options used by FEP from the database and local storage"
 msgstr ""
 "Vérifiez les options utilisées par FEP à partir de la base de donnée et du "
 "stockage local"
 
-#: admin/settings/tabs/debug.php:42 admin/settings/tabs/divers.php:31
+#: admin/settings/tabs/debug.php:44 admin/settings/tabs/divers.php:33
 msgid "Reset Editor Panel"
 msgstr "Réinitialiser Panneau Editeur"
 
-#: admin/settings/tabs/debug.php:44 admin/settings/tabs/divers.php:25
+#: admin/settings/tabs/debug.php:46 admin/settings/tabs/divers.php:27
 msgid "The position/size of the editor panel Elementor is reset!"
 msgstr ""
 "La position/taille du panneau éditeur d'Elementor a été réinitialisée !"
 
-#: admin/settings/tabs/debug.php:45 admin/settings/tabs/divers.php:24
+#: admin/settings/tabs/debug.php:47 admin/settings/tabs/divers.php:26
 msgid "Reset the position/size of Editor Panel Elementor"
 msgstr "Réinitialiser la position/taille du panneau éditeur d'Elementor"
 
-#: admin/settings/tabs/debug.php:46
+#: admin/settings/tabs/debug.php:48
 msgid ""
 "FEP use the local storage of your navigator for save the position of your "
 "editor panel Elementor, clean all these with this button."
@@ -100,19 +104,19 @@ msgstr ""
 "position de votre panneau d’éditeur Elementor, nettoyer les tous avec ce "
 "bouton."
 
-#: admin/settings/tabs/debug.php:51
+#: admin/settings/tabs/debug.php:53
 msgid "Reset FEP Options"
 msgstr "Réinitialisez les options FEP"
 
-#: admin/settings/tabs/debug.php:53
+#: admin/settings/tabs/debug.php:55
 msgid "The FEP options has removed from the database!"
 msgstr "Les options FEP ont été supprimées de la base de données !"
 
-#: admin/settings/tabs/debug.php:54
+#: admin/settings/tabs/debug.php:56
 msgid "Delete the options FEP from database"
 msgstr "Supprimer les options FEP de la base de donnée"
 
-#: admin/settings/tabs/debug.php:55
+#: admin/settings/tabs/debug.php:57
 msgid ""
 "FEP save these options with the saving native of Elementor options, delete "
 "these with this button. <red>Save your database before please!</red>"
@@ -121,25 +125,25 @@ msgstr ""
 "Elementor, supprimer les avec ce bouton. <red>Veuillez enregistrer votre "
 "base de données avant !</red>"
 
-#: admin/settings/tabs/debug.php:72 admin/settings/tabs/debug.php:73
 #: admin/settings/tabs/debug.php:74 admin/settings/tabs/debug.php:75
 #: admin/settings/tabs/debug.php:76 admin/settings/tabs/debug.php:77
+#: admin/settings/tabs/debug.php:78 admin/settings/tabs/debug.php:79
 msgid "no value"
 msgstr "aucune valeur"
 
-#: admin/settings/tabs/debug.php:96
+#: admin/settings/tabs/debug.php:98
 msgid "Options FEP not exist in the database"
 msgstr "Pas d'option FEP existant dans la base de données"
 
-#: admin/settings/tabs/debug.php:104
+#: admin/settings/tabs/debug.php:106
 msgid "no"
 msgstr "non"
 
-#: admin/settings/tabs/debug.php:107 admin/settings/tabs/debug.php:112
+#: admin/settings/tabs/debug.php:109 admin/settings/tabs/debug.php:114
 msgid "with the value"
 msgstr "avec la valeur"
 
-#: admin/settings/tabs/debug.php:122
+#: admin/settings/tabs/debug.php:124
 msgid ""
 "Note: all settings saved, will be print above. If the setting not appear, it "
 "means it is configured by default"
@@ -147,31 +151,31 @@ msgstr ""
 "Remarque : tous les paramètres enregistrés seront imprimés ci-dessus. Si le "
 "paramètre n’apparaît pas, cela signifie qu’il est configuré par défaut"
 
-#: admin/settings/tabs/debug.php:125
+#: admin/settings/tabs/debug.php:127
 msgid "Size of \"Width Panel\""
 msgstr "Taille de \"Largeur du panneau\""
 
-#: admin/settings/tabs/debug.php:126
+#: admin/settings/tabs/debug.php:128
 msgid "Size of \"Height Panel\""
 msgstr "Taille de \"Hauteur du panneau\""
 
-#: admin/settings/tabs/debug.php:127
+#: admin/settings/tabs/debug.php:129
 msgid "Position of \"Top Panel\""
 msgstr "Position du \"Haut du panneau\""
 
-#: admin/settings/tabs/debug.php:128
+#: admin/settings/tabs/debug.php:130
 msgid "Position of \"Left Panel\""
 msgstr "Position de \"Gauche du panneau\""
 
-#: admin/settings/tabs/debug.php:129
+#: admin/settings/tabs/debug.php:131
 msgid "Position of \"Right Panel\""
 msgstr "Position de \"Droite du panneau\""
 
-#: admin/settings/tabs/debug.php:130
+#: admin/settings/tabs/debug.php:132
 msgid "Value of \"Move Panel\""
 msgstr "Valeur de « Déplacement du panneau »"
 
-#: admin/settings/tabs/debug.php:131
+#: admin/settings/tabs/debug.php:133
 msgid ""
 "Note: These value save automatically from your navigator after move and "
 "resize the editor panel"
@@ -179,7 +183,7 @@ msgstr ""
 "Remarque : Ces valeurs enregistrent automatiquement à partir de votre "
 "navigateur après le déplacement et redimensionnent le panneau d’éditeur"
 
-#: admin/settings/tabs/how-to-configure.php:24
+#: admin/settings/tabs/how-to-configure.php:26
 msgid ""
 "We have placed the options for FEP directly in the Elementor editor for "
 "greater ease of use."
@@ -187,11 +191,11 @@ msgstr ""
 "Nous avons placé les options pour FEP directement dans l'éditeur Elementor "
 "pour une plus grande facilitée d'utilisation."
 
-#: admin/settings/tabs/how-to-configure.php:25
+#: admin/settings/tabs/how-to-configure.php:27
 msgid "All options is enable by default, are you ready to see them?"
 msgstr "Toutes les options sont actives par défaut, êtes-vous prêt à les voir?"
 
-#: admin/settings/tabs/informations.php:28
+#: admin/settings/tabs/informations.php:30
 msgid ""
 "Thanks to use our plugin, we make it free for the users of Wordpress and "
 "Elementor."
@@ -199,13 +203,13 @@ msgstr ""
 "Merci d'utiliser notre plugin, nous l'avons rendu gratuit pour les "
 "utilisateurs de WordPress et Elementor."
 
-#: admin/settings/tabs/informations.php:29
+#: admin/settings/tabs/informations.php:31
 msgid "After used it, do you will can take 5 minutes of your time for help us?"
 msgstr ""
 "Après l'avoir utilisé, est-ce que vous pourriez prendre 5 minutes de votre "
 "temps pour nous aider ?"
 
-#: admin/settings/tabs/informations.php:30
+#: admin/settings/tabs/informations.php:32
 msgid ""
 "https://wordpress.org/support/plugin/flexible-elementor-panel/reviews/?"
 "filter=5/#new-post"
@@ -213,12 +217,12 @@ msgstr ""
 "https://fr.wordpress.org/support/plugin/flexible-elementor-panel/reviews/?"
 "filter=5/#new-post"
 
-#: admin/settings/tabs/informations.php:30
+#: admin/settings/tabs/informations.php:32
 msgid "Write your rating directly in plugin repository Wordpress"
 msgstr ""
 "Écrivez votre note directement dans le répertoire d'extension WordPress"
 
-#: admin/settings/tabs/informations.php:31
+#: admin/settings/tabs/informations.php:33
 msgid ""
 "Don't forget, we are open to any subjection on our <a href=\"https://"
 "wordpress.org/support/plugin/flexible-elementor-panel/\" target=\"_blank"

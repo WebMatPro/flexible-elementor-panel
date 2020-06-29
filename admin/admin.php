@@ -1,6 +1,6 @@
 <?php
 
-namespace FEP_Admin;
+namespace FEP\Admin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -15,7 +15,7 @@ class FEP_Admin {
     * Run on class construct
     *
     */
-    function __construct() {
+    public function __construct() {
         self::$instance = $this;
 
         add_action( 'init', [ $this, 'admin_init' ] );
@@ -27,14 +27,14 @@ class FEP_Admin {
     }
 
 
-    function admin_init() {
+    public function admin_init() {
 
         // Include all admin files
         $this->admin_includes();
 
     }
 
-    function admin_includes() {
+    private function admin_includes() {
 
         require_once FEP_PATH . 'admin/api.settings.php';
         require_once FEP_PATH . 'admin/settings.php';
