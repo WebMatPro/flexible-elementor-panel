@@ -24,7 +24,15 @@ class FEP_HowToConfigure_Tab {
 		$html_fep_how_to_configure = '<div class="content-howtodo">';
 			$html_fep_how_to_configure .= '<p>' . __('The FEP settings can be found in Elementor. Open Elementor and you will find the FEP settings in the User Preferences.','fep') . '</p>';
 			$html_fep_how_to_configure .= '<p>' . __('All options are enabled by default. Take a look!','fep') . '</p>';
-			$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings-2.2.gif" style="max-height: 500px;">';
+
+			//if Elementor is version 3.0.0 or more
+			if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
+				$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings-2.2.gif" style="max-height: 500px;">';
+			} else {
+				$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings.gif" style="max-height: 500px;">';
+			}
+
+
 		$html_fep_how_to_configure .='</div>';
 
         $section['fep_how_to_configure'][] = [

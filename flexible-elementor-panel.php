@@ -46,7 +46,7 @@ final class Elementor_FEP_Extension {
 	 *
 	 * @var string Minimum Elementor version required to run the plugin.
 	 */
-	const MINIMUM_ELEMENTOR_VERSION = '2.4.0';
+	const MINIMUM_ELEMENTOR_VERSION = '2.8.0';
 
 	/**
 	 * Minimum PHP Version
@@ -173,6 +173,13 @@ final class Elementor_FEP_Extension {
 		// Init setting panel FEP
 		add_action( 'elementor/init', array($this, 'init_panel'), 100, 0 );
 
+		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
+			$options = get_option( '_elementor_fep_settings' );
+			if ( $options !== false ) {
+				$this->run_update_database_user_preferences(get_current_user_id());
+			}
+		}
+
 	}
 
 
@@ -238,7 +245,7 @@ final class Elementor_FEP_Extension {
 		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
 			set_transient( 'fep-admin-notice-update-user-preferences', true, 0 );
 			$options = get_option( '_elementor_fep_settings' );
-			if ( $options ) {
+			if ( $options !== false ) {
 				set_transient( 'fep-admin-notice-update-user-preferences-run', true, 0 );
 			}
 
@@ -279,7 +286,7 @@ final class Elementor_FEP_Extension {
 	 *
 	 * @access public
 	 */
-	public function admin_notice_() {
+	public function admin_notice_minimum_elementor_version() {
 
 		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
 
@@ -346,18 +353,15 @@ final class Elementor_FEP_Extension {
 
 		/* Check transient, if available display notice */
 		if( get_transient( 'fep-admin-notice-update-user-preferences' ) ) {
-			$message = sprintf(
-				esc_html__( 'Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the "User Preferences" of the Elementor editor!', 'fep' ),
-			);
+			$message = __( 'Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the "User Preferences" of the Elementor editor!', 'fep' );
 
 			printf( '<div class="notice notice-info" style="position: relative;"><p>%1$s</p><a class="notice-dismiss" style="text-decoration: unset;" href="?fep-admin-notice-update-user-preferences-dismissed"></a></div>', $message );
 
 		}
+
 		/* Check transient, if available display notice */
 		if( get_transient( 'fep-admin-notice-update-user-preferences-done' ) ) {
-			$message = sprintf(
-				esc_html__( 'FEP settings are correctly updated in the "User Preferences" of the Elementor editor!', 'fep' ),
-			);
+			$message = __( 'FEP settings are correctly updated in the "User Preferences" of the Elementor editor!', 'fep' );
 
 			printf( '<div class="notice notice-info is-dismissible"><p>%1$s</p></div>', $message );
 
@@ -389,9 +393,8 @@ final class Elementor_FEP_Extension {
 			delete_transient( 'fep-admin-notice-update-user-preferences' );
 		}
 
-
-
 	}
+
 
 
 	/**
@@ -404,12 +407,12 @@ final class Elementor_FEP_Extension {
 	public function run_update_database_user_preferences($user_id) {
 
 		$options = get_option( '_elementor_fep_settings' );
-		if ( $options ) { // if old options exist, continues
+		if ( $options !== false ) { // if old options exist, continues
 
 			$settings = get_user_meta( $user_id, 'elementor_preferences', false );
-			if ( $settings ) {
+			if ( $settings !== false ) {
 				delete_user_meta( $user_id, 'elementor_preferences'); // clean meta
-			}			
+			}
 			update_user_meta( $user_id, 'elementor_preferences', $options );
 
 			// delete old options

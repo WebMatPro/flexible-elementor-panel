@@ -5,7 +5,7 @@ Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 2.1.3
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,7 +63,8 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 == Changelog ==
 
 = 2.2.O =
-* Add: Compatibility with Elementor 3
+* Add: Compatibility with Elementor 3.0+
+* Add: Minimum version Elementor 2.8.0 required
 * Improve: The "Settings FEP" is move into "User Preferences" in the editor
 * Improve: The options of Settings FEP is now associated with your user account (except the size/position)
 * Improve: Text in admin Settings FEP (thanks @Dirk)
