@@ -49,6 +49,10 @@
 .nightmode .elementor-control.elementor-control-type-heading .elementor-control-title {
     font-weight: 500;
 }
+.nightmode .elementor-panel .elementor-panel-alert {
+    background-color: #383838;
+    color: white;
+}
 
 /*--------------------------------------------------------------------------------------
 2 - Header

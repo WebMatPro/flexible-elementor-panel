@@ -1,6 +1,5 @@
 <?php
-
-namespace FEP\Admin;
+namespace FEP\Admin\Settings;
 
 /**
  * weDevs Settings API wrapper class

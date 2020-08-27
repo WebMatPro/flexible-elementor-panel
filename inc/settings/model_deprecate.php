@@ -35,7 +35,11 @@ class Model extends BaseModel {
 	 */
 	public function get_panel_page_settings() {
 		return [
-			'title' => e_l10n__( 'User Preferences', 'elementor' ),
+			'title' => __( 'FEP Settings', 'fep' ),
+			'menu' => [
+				'icon' => 'fa fa-arrows-alt',
+				//'beforeItem' => 'elementor-settings',
+			],
 		];
 	}
 
@@ -49,45 +53,6 @@ class Model extends BaseModel {
 		return [
 
 			Controls_Manager::TAB_SETTINGS => [
-				'preferences'  => [
-					'label'     => e_l10n__( 'Preferences', 'elementor' ),
-					'controls'  => [
-						'ui_theme' => [
-							'label' => e_l10n__( 'UI Theme', 'elementor' ),
-							'type' => Controls_Manager::SELECT,
-							'description' => e_l10n__( 'Set light or dark mode, or use Auto Detect to sync it with your OS setting.', 'elementor' ),
-							'default' => 'auto',
-							'options' => [
-								'auto' => e_l10n__( 'Auto Detect', 'elementor' ),
-								'light' => e_l10n__( 'Light', 'elementor' ),
-								'dark' => e_l10n__( 'Dark', 'elementor' ),
-							],
-						],
-						/*'panel_width' => [
-							'label' => e_l10n__( 'Panel Width', 'elementor' ),
-							'type' => Controls_Manager::SLIDER,
-							'range' => [
-								'px' => [
-									'min' => 200,
-									'max' => 680,
-								],
-							],
-							'default' => [
-								'size' => 300,
-							],
-						],*/
-						'edit_buttons' => [
-							'label' => e_l10n__( 'Editing Handles', 'elementor' ),
-							'type' => Controls_Manager::SWITCHER,
-							'description' => e_l10n__( 'Show editing handles when hovering over the element edit button.', 'elementor' ),
-						],
-						'lightbox_in_editor' => [
-							'label' => e_l10n__( 'Enable Lightbox In Editor', 'elementor' ),
-							'type' => Controls_Manager::SWITCHER,
-							'default' => 'yes',
-						]
-					]
-				],
 				'fep_settings_panel'  => [
 					'label'     => __('Panel settings', 'fep'),
 					'controls'  => [

@@ -65,6 +65,11 @@
     flex-shrink: unset;
     line-height: 1.4;
 }
+/*css for stop conflict with css elenentor 3.0.0, why it ?*/
+#elementor-panel-editorPreferences-settings label {
+    flex-shrink: unset;
+    line-height: 1.4;
+}
 
 .desc-pro-version {
     line-height: 1.4;

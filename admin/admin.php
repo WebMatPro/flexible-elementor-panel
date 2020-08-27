@@ -1,6 +1,5 @@
 <?php
-
-namespace FEP\Admin;
+namespace FEP\Admin\Settings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.

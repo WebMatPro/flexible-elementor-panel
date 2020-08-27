@@ -1,6 +1,5 @@
 <?php
-
-namespace FEP\Admin;
+namespace FEP\Admin\Settings\Tabs;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -12,10 +11,10 @@ class FEP_Debug_Tab {
 
         //add_action( 'admin_init', [ $this, 'admin_init' ] );
 
-		add_action ('wp_ajax_fep_get_options', [ $this, 'get_row_sql' ]);
+		add_action('wp_ajax_fep_get_options', [ $this, 'get_row_sql' ]);
 		add_action( 'wp_ajax_nopriv_fep_get_options', [ $this, 'get_row_sql' ]);
 
-		add_action ('wp_ajax_fep_reset_options', [ $this, 'delete_row_sql' ]);
+		add_action('wp_ajax_fep_reset_options', [ $this, 'delete_row_sql' ]);
 		add_action( 'wp_ajax_nopriv_fep_reset_options', [ $this, 'delete_row_sql' ]);
 
     }
@@ -32,10 +31,10 @@ class FEP_Debug_Tab {
             'fep_debug' => [
 				[
 					'name'               => 'fep_check-options',
-					'label' 			 => __( 'Check what FEP saved', 'fep' ),
+					'label' 			 => __( 'Check the user preferences', 'fep' ),
 					'class'              => 'fep-check-options',
 					'after'              => '<pre class="fep-check-options-notice"></pre>',
-					'label_button'       => __( 'Check the options used by FEP from the database and local storage', 'fep' ),
+					'label_button'       => __( 'CHECK THE OPTIONS USED BY FEP FROM THE DATABASE AND LOCAL STORAGE', 'fep' ),
 					//'desc'               => __( '', 'fep' ),
 					'type'               => 'button',
 				],
@@ -43,18 +42,18 @@ class FEP_Debug_Tab {
 					'name'               => 'fep_reset_panel',
 					'label' 			 => __( 'Reset Editor Panel', 'fep' ),
 					'class'              => 'fep-reset-panel',
-					'after'              => '<span class="fep-reset-panel-notice" style="opacity:0">' . __('The position/size of the editor panel Elementor is reset!', 'fep') . '</span>',
-					'label_button'       => __( 'Reset the position/size of Editor Panel Elementor', 'fep' ),
-					'desc'               => __( 'FEP use the local storage of your navigator for save the position of your editor panel Elementor, clean all these with this button.', 'fep' ),
+					'after'              => '<span class="fep-reset-panel-notice" style="opacity:0">' . __('The position/size of the Elementor editor panel has been reset!', 'fep') . '</span>',
+					'label_button'       => __( 'RESET THE POSITION/SIZE OF THE ELEMENTOR EDITOR PANEL.', 'fep' ),
+					'desc'               => __( 'FEP uses the local storage of your navigator to save the position of the Elementor editor panel. Reset to default with this button.', 'fep' ),
 					'type'               => 'button',
 				],
 				[
 					'name'               => 'fep_reset_options',
 					'label' 			 => __( 'Reset FEP Options', 'fep' ),
 					'class'              => 'fep-reset-options',
-					'after'              => '<span class="fep-reset-options-notice" style="opacity:0">' . __('The FEP options has removed from the database!', 'fep') . '</span>',
-					'label_button'       => __( 'Delete the options FEP from database', 'fep' ),
-					'desc'               => __( 'FEP save these options with the saving native of Elementor options, delete these with this button. <red>Save your database before please!</red>', 'fep' ),
+					'after'              => '<span class="fep-reset-options-notice" style="opacity:0">' . __('The FEP options have been removed from the database!', 'fep') . '</span>',
+					'label_button'       => __( 'DELETE THE FEP OPTIONS FROM THE DATABASE.', 'fep' ),
+					'desc'               => __( 'FEP saves these options with the native saving of the Elementor options. Delete FEP options with this button. <red>Please backup your database before deletion of the FEP options.</red>', 'fep' ),
 					'type'               => 'button',
 				],
         	]
@@ -71,6 +70,9 @@ class FEP_Debug_Tab {
 
 		if ( wp_verify_nonce( $nonce, 'fep-nonce-admin' ) ) {
 
+			// init
+			$html = '';
+
 			$panel_size_width 	= $_POST['panel_size_width'] != '' ? $_POST['panel_size_width'] : __('no value','fep');
 			$panel_size_height 	= $_POST['panel_size_height'] != '' ? $_POST['panel_size_height'] : __('no value','fep');
 			$panel_pos_top 		= $_POST['panel_pos_top'] != '' ? $_POST['panel_pos_top'] : __('no value','fep');
@@ -78,13 +80,12 @@ class FEP_Debug_Tab {
 			$panel_pos_right	= $_POST['panel_pos_right'] != '' ? $_POST['panel_pos_right'] : __('no value','fep');
 			$in_move 			= $_POST['in_move'] != '' ? $_POST['in_move'] : __('no value','fep') . $_POST['in_move'];
 
-			//$_elementor_fep_settings_html = ''; //start
+			$_elementor_fep_settings_html = ''; //start
 
 			$options = [
 				'_elementor_fep_settings',
 				/*'fep_informations',
 				'fep_how_to_configure',
-				'fep_divers',
 				'fep_debug',*/
 			];
 
@@ -93,17 +94,13 @@ class FEP_Debug_Tab {
 
 			foreach ($options as $option => $name) {
 
-				if ( !get_option( $name ) ) {
-
-					$_elementor_fep_settings_html .= __('Options FEP not exist in the database','fep') . ' (' . $name . ')<br>';
-
-				} else {
+				if ( get_option( $name ) ) {
 
 					if ( $name == '_elementor_fep_settings' ) {
 						foreach (get_option( $name ) as $key => $value) {
 
 							if ( !$value ) {
-								$value = __('no', 'fep');
+								$value = 'no';
 							}
 
 							$_elementor_fep_settings_html .= '<b>(' . $name . ') ' . $key . '</b><small> ' . __('with the value', 'fep') . ' </small><b>' . $value . '</b><br>';
@@ -118,11 +115,34 @@ class FEP_Debug_Tab {
 				}
 			}
 
+			//echo var_dump(array( 0 => get_option('_elementor_fep_settings')) );
 
-			$html = '<center>/********* START DEBUG SQL *********\</center><br><br>';
-			$html .= $_elementor_fep_settings_html . '<br><br>';
-			$html .= __('Note: all settings saved, will be print above. If the setting not appear, it means it is configured by default', 'fep') . '<br><br>';
-			$html .= '<center>/********* END DEBUG SQL *********\</center><br><br>';
+			$settings = get_user_meta( get_current_user_id(), 'elementor_preferences', false );
+			if ( $settings ) {
+				foreach ($settings[0] as $key => $value) {
+
+					if ( !$value ) {
+						$value = 'no';
+					}
+
+					$elementor_preferences_html .= '<b>user_meta_(elementor_preferences) ' . $key . '</b><small> ' . __('with the value', 'fep') . ' </small><b>' . $value . '</b><br>';
+
+				}
+				$html .= '<center>/********* START DEBUG SQL ELEMENTOR 3.0+ AND FEP 2.2+ *********\</center><br><br>';
+				$html .= $elementor_preferences_html . '<br><br>';
+				$html .= __('Note: all settings saved, will be print above. If the settings not appear, it means it is configured by default', 'fep') . '<br><br>';
+				$html .= '<center>/********* END DEBUG SQL ELEMENTOR 3.0+ AND FEP 2.2+ *********\</center><br><br>';
+
+				//echo var_dump($settings);
+				//exit;
+			}
+
+			if ( !empty($_elementor_fep_settings_html) ) {				
+				$html .= '<center>/********* START DEBUG SQL (Deprecated) *********\</center><br><br>';
+				$html .= $_elementor_fep_settings_html . '<br><br>';
+				$html .= __('Note: all settings saved, will be print above. If the settings not appear, it means it is configured by default', 'fep') . '<br><br>';
+				$html .= '<center>/********* END DEBUG SQL (Deprecated) *********\</center><br><br>';
+			}
 			$html .= '<center>/********* START DEBUG LOCAL STORAGE *********\</center><br><br>';
 			$html .= __('Size of "Width Panel"', 'fep') .' <b>'. $panel_size_width.'</b><br>';
 			$html .= __('Size of "Height Panel"', 'fep') .' <b>'. $panel_size_height.'</b><br>';
@@ -147,11 +167,21 @@ class FEP_Debug_Tab {
 
 	    if ( wp_verify_nonce( $nonce, 'fep-nonce-admin' ) ) {
 
-	        delete_option( '_elementor_fep_settings' ); //options fep settings in editor panel
-			delete_option( 'fep_informations' ); //tab
-			delete_option( 'fep_how_to_configure' ); //tab
-			delete_option( 'fep_divers' ); //tab
-			delete_option( 'fep_debug' ); //tab
+			if( get_option( '_elementor_fep_settings' ) ) {
+				delete_option( '_elementor_fep_settings' ); //options fep settings in editor panel // version old 2.2.0 FEP
+			}
+			if( get_user_meta( get_current_user_id(), 'elementor_preferences', true ) ) {
+				delete_user_meta(get_current_user_id(), 'elementor_preferences'); //options user preferences in editor panel // version up 2.2.0 FEP and Elementor 3.0
+			}
+			if( get_option( 'fep_informations' ) ) {
+				delete_option( 'fep_informations' ); //tab
+			}
+			if( get_option( 'fep_how_to_configure' ) ) {
+				delete_option( 'fep_how_to_configure' ); //tab
+			}
+			if( get_option( 'fep_debug' ) ) {
+				delete_option( 'fep_debug' ); //tab
+			}
 
 	        die; //stop there
 

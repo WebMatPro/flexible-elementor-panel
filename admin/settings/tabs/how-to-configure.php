@@ -1,6 +1,5 @@
 <?php
-
-namespace FEP\Admin;
+namespace FEP\Admin\Settings\Tabs;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -23,9 +22,9 @@ class FEP_HowToConfigure_Tab {
         $section = [];
 
 		$html_fep_how_to_configure = '<div class="content-howtodo">';
-			$html_fep_how_to_configure .= '<p>' . __('We have placed the options for FEP directly in the Elementor editor for greater ease of use.','fep') . '</p>';
-			$html_fep_how_to_configure .= '<p>' . __('All options is enable by default, are you ready to see them?','fep') . '</p>';
-			$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings.gif" style="max-height: 500px;">';
+			$html_fep_how_to_configure .= '<p>' . __('The FEP settings can be found in Elementor. Open Elementor and you will find the FEP settings in the User Preferences.','fep') . '</p>';
+			$html_fep_how_to_configure .= '<p>' . __('All options are enabled by default. Take a look!','fep') . '</p>';
+			$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings-2.2.gif" style="max-height: 500px;">';
 		$html_fep_how_to_configure .='</div>';
 
         $section['fep_how_to_configure'][] = [

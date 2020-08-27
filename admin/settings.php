@@ -1,6 +1,5 @@
 <?php
-
-namespace FEP\Admin;
+namespace FEP\Admin\Settings;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -82,13 +81,6 @@ class FEP_Admin_Settings {
 				'submit' => false,
 
 			],
-			/*[
-
-				'id'     => 'fep_divers',
-				'title'  => esc_html__( 'Divers', 'fep' ),
-				'submit' => false,
-
-			],*/
 			[
 
 				'id'     => 'fep_debug',
@@ -106,12 +98,11 @@ class FEP_Admin_Settings {
 
     private function fep_admin_settings() {
 
-		$settings = FEP_Informations_Tab::section();
-		$settings2 = FEP_HowToConfigure_Tab::section();
-		//$settings3 = FEP_Divers_Tab::section();
-		$settings4 = FEP_Debug_Tab::section();
+		$settings1 = Tabs\FEP_Informations_Tab::section();
+		$settings2 = Tabs\FEP_HowToConfigure_Tab::section();
+		$settings3 = Tabs\FEP_Debug_Tab::section();
 
-        return array_merge( $settings, $settings2, $settings4 );
+        return array_merge( $settings1, $settings2, $settings3 );
 
     }
 

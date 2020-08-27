@@ -7,13 +7,14 @@ use Elementor\Controls_Manager;
 use Elementor\Core\Settings\Base\Manager as BaseManager;
 use Elementor\Core\Settings\Base\Model as BaseModel;
 
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
 class Manager extends BaseManager {
 
-	const META_KEY = 'elementor_preferences';
+	const OPTIONS_KEY = '_elementor_fep_settings';
 
 	/**
 	 * Get model for config.
@@ -30,37 +31,28 @@ class Manager extends BaseManager {
 		return $this->get_model();
 	}
 
+	public function __construct() {
+		parent::__construct();
 
-	/**
-	 * Get manager name.
-	 *
-	 * Retrieve settings manager name.
-	 *
-	 * @since 2.8.0
-	 * @access public
-	 */
-	public function get_name() {
-		return 'editorPreferences';
+		$this->add_panel_tabs();
 	}
 
-	/**
-	 * Get saved settings.
-	 *
-	 * Retrieve the saved settings from the database.
-	 *
-	 * @since 2.8.0
-	 * @access protected
-	 *
-	 * @param int $id.
-	 * @return array
-	 *
-	 */
+	public function get_name() {
+		return 'fep';
+	}
+
+	// add the FEP settings to editor panel
+	private function add_panel_tabs() {
+		Controls_Manager::add_tab( 'fep_settings', __( 'Settings', 'fep' ) );
+	}
+
+	// get saved settings for apply it to load
 	protected function get_saved_settings( $id ) {
 
 		$settings = []; // create the table
 
-		$options = get_user_meta( get_current_user_id(), self::META_KEY, true );
-		if( $options ) {
+		$options = get_option( self::OPTIONS_KEY, null );
+		if( $options !== null ) {
 
 			foreach ( $options as $option => $value) {
 
@@ -73,17 +65,7 @@ class Manager extends BaseManager {
 		return $settings;
 	}
 
-	/**
-	 * Save settings to DB.
-	 *
-	 * Save settings to the database.
-	 *
-	 * @param array $settings Settings.
-	 * @param int $id Post ID.
-	 * @since 2.8.0
-	 * @access protected
-	 *
-	 */
+	// save settings when some option fep is changed
 	protected function save_settings_to_db(array $settings, $id) {
 
 		$model_controls = FEP_Model::get_controls_list();
@@ -117,7 +99,7 @@ class Manager extends BaseManager {
 
 		// Save all settings in one list
 		if ( ! empty( $one_list_settings ) ) {
-			update_user_meta( get_current_user_id(), self::META_KEY, $one_list_settings );
+			update_option( self::OPTIONS_KEY, $one_list_settings ); // update the single option fep and include the table
 		}
 
 	}
@@ -127,8 +109,9 @@ class Manager extends BaseManager {
 
 		$settings = []; // create the table
 
-		$options = get_user_meta( get_current_user_id(), self::META_KEY, true );
-		if( $options ) {
+		$options = get_option( self::OPTIONS_KEY, null );
+
+		if( $options !== null ) {
 
 			foreach ( $options as $option => $value) {
 

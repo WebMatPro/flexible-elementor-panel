@@ -1,6 +1,5 @@
 <?php
-
-namespace FEP\Admin;
+namespace FEP\Admin\Settings\Tabs;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -27,21 +26,21 @@ class FEP_Informations_Tab {
 				$html_fep_informations .= '<img src="'. FEP_URL .'admin/assets/images/review-fep-thanks.png">';
 			$html_fep_informations .= '</div>';
 			$html_fep_informations .= '<div class="col2">';
-				$html_fep_informations .= '<h4>' . __('Thanks to use our plugin, we make it free for the users of Wordpress and Elementor.','fep') . '</h4>';
-				$html_fep_informations .= '<p>' . __('After used it, do you will can take 5 minutes of your time for help us?','fep') . '</p>';
-				$html_fep_informations .= '<p><a href="' . __('https://wordpress.org/support/plugin/flexible-elementor-panel/reviews/?filter=5/#new-post','fep') . '" target="_blank">' . __('Write your rating directly in plugin repository Wordpress','fep') . '</a></p>';
-				$html_fep_informations .= '<p>' . __('Don\'t forget, we are open to any subjection on our <a href="https://wordpress.org/support/plugin/flexible-elementor-panel/" target="_blank">support forum.</a>','fep') . '</p>';
+				$html_fep_informations .= '<h4>' . __('Thanks for using our plugin. It\'s free for all Wordpress and Elementor users.','fep') . '</h4>';
+				$html_fep_informations .= '<p>' . __('Please give us 5 minutes of your time to support us.','fep') . '</p>';
+				$html_fep_informations .= '<p><a href="' . __('https://wordpress.org/support/plugin/flexible-elementor-panel/reviews/?filter=5/#new-post','fep') . '" target="_blank">' . __('Give us a positive rating directly in the Wordpress plugin repository. Thanks!','fep') . '</a></p>';
+				$html_fep_informations .= '<p>' . __('Don\'t forget, we are open to all helpful suggestions on our <a href="https://wordpress.org/support/plugin/flexible-elementor-panel/" target="_blank">support forum.</a>','fep') . '</p>';
 			$html_fep_informations .= '</div>';
 		$html_fep_informations .='</div>';
 
-		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-draggable.gif">';
+		/*$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-draggable.gif">';
 		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-editor-skin.gif">';
 		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-exit-button.gif">';
 		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-vertical-toggle.gif">';
 		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-flex-categories.gif">';
 		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-responsive-mode.gif">';
 		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-first-tab-close--accordion.gif">';
-		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings.gif">';
+		$html_fep_informations .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings.gif">';*/
 
         $section['fep_informations'][] = [
 

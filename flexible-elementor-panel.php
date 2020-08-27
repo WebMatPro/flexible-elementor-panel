@@ -5,7 +5,7 @@
  * Plugin Name: 		Flexible Elementor Panel
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
- * Version: 			2.1.2
+ * Version: 			2.2.0
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
@@ -28,8 +28,7 @@ define( 'FEP_URL', plugins_url( '/', __FILE__ ) );
 define( 'FEP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FEP_BASENAME', plugin_basename(__FILE__) );
 
-use Elementor\Core\Settings\Manager as SettingsManager;
-use FEP\Core\Settings\General\Manager as FEP_Manager;
+use FEP\Inc\Settings\Manager as FEP_Manager;
 
 /**
  * Main Elementor FEP Extension Class
@@ -160,21 +159,19 @@ final class Elementor_FEP_Extension {
 		// Plugin Activation
 		add_action( 'admin_notices', [ $this, 'admin_notice_fep_activation' ] );
 
+		add_action( 'admin_init', [ $this, 'admin_init_fep' ] );
+
 		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'fep_styles_editor' ], 8 ); // Register Styles Editor
 		add_action( 'elementor/preview/enqueue_styles', [ $this, 'fep_styles_preview' ], 8 ); // Register Styles
 
 		// Register Scripts
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'fep_scripts' ], 8 );
 
-
-
 		// Include plugin files
 		$this->includes();
 
 		// Init setting panel FEP
-		$this->init_panel();
-
-		$settings = FEP_Manager::get_settings();
+		add_action( 'elementor/init', array($this, 'init_panel'), 100, 0 );
 
 	}
 
@@ -194,14 +191,21 @@ final class Elementor_FEP_Extension {
 			require_once FEP_PATH . 'admin/admin.php';
 		}
 
-		require_once FEP_PATH . 'inc/settings/manager.php';
-		require_once FEP_PATH . 'inc/settings/model.php';
+		//if Elementor is version 3.0.0 or more
+		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
+			require_once FEP_PATH . 'inc/settings/manager.php';
+			require_once FEP_PATH . 'inc/settings/model.php';
+		} else {
+			require_once FEP_PATH . 'inc/settings/manager_deprecate.php';
+			require_once FEP_PATH . 'inc/settings/model_deprecate.php';
+		}
+
 
 	}
 
 
 	/**
-	 * Scripts
+	 * Init Panel
 	 *
 	 * Register the scripts of plugin FEP
 	 *
@@ -209,10 +213,10 @@ final class Elementor_FEP_Extension {
 	 *
 	 * @access public
 	 */
-	private function init_panel() {
+	public function init_panel() {
 
 		// add the settings from the file /inc/settings/manager.php
-    	SettingsManager::add_settings_manager( new FEP_Manager() );
+    	Elementor\Core\Settings\Manager::add_settings_manager( new FEP_Manager() );
 
     }
 
@@ -229,6 +233,16 @@ final class Elementor_FEP_Extension {
 	public static function fep_activation() {
 
 		set_transient( 'fep-admin-notice-activation', true, 5 );
+
+		//if Elementor is version 3.0.0 or more
+		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
+			set_transient( 'fep-admin-notice-update-user-preferences', true, 0 );
+			$options = get_option( '_elementor_fep_settings' );
+			if ( $options ) {
+				set_transient( 'fep-admin-notice-update-user-preferences-run', true, 0 );
+			}
+
+		}
 
     }
 
@@ -265,7 +279,7 @@ final class Elementor_FEP_Extension {
 	 *
 	 * @access public
 	 */
-	public function admin_notice_minimum_elementor_version() {
+	public function admin_notice_() {
 
 		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
 
@@ -328,6 +342,81 @@ final class Elementor_FEP_Extension {
 
 			/* Delete transient, only display this notice once. */
 			delete_transient( 'fep-admin-notice-activation' );
+		}
+
+		/* Check transient, if available display notice */
+		if( get_transient( 'fep-admin-notice-update-user-preferences' ) ) {
+			$message = sprintf(
+				esc_html__( 'Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the "User Preferences" of the Elementor editor!', 'fep' ),
+			);
+
+			printf( '<div class="notice notice-info" style="position: relative;"><p>%1$s</p><a class="notice-dismiss" style="text-decoration: unset;" href="?fep-admin-notice-update-user-preferences-dismissed"></a></div>', $message );
+
+		}
+		/* Check transient, if available display notice */
+		if( get_transient( 'fep-admin-notice-update-user-preferences-done' ) ) {
+			$message = sprintf(
+				esc_html__( 'FEP settings are correctly updated in the "User Preferences" of the Elementor editor!', 'fep' ),
+			);
+
+			printf( '<div class="notice notice-info is-dismissible"><p>%1$s</p></div>', $message );
+
+			/* Delete transient, only display this notice once. */
+			delete_transient( 'fep-admin-notice-update-user-preferences-done' );
+
+		}
+
+		if( get_transient( 'fep-admin-notice-update-user-preferences-run' ) ) {
+
+			// merge old settings FEP to user preferences of current user
+			$this->run_update_database_user_preferences(get_current_user_id());
+
+		}
+
+	}
+
+
+	/**
+	 * Admin init
+	 *
+	 * @since 2.2.0
+	 *
+	 * @access public
+	 */
+	public function admin_init_fep() {
+
+		if ( isset( $_GET['fep-admin-notice-update-user-preferences-dismissed'] ) ) {
+			delete_transient( 'fep-admin-notice-update-user-preferences' );
+		}
+
+
+
+	}
+
+
+	/**
+	 * Run update database old settings to new user preferences elementor settings
+	 *
+	 * @since 2.2.0
+	 *
+	 * @access public
+	 */
+	public function run_update_database_user_preferences($user_id) {
+
+		$options = get_option( '_elementor_fep_settings' );
+		if ( $options ) { // if old options exist, continues
+
+			$settings = get_user_meta( $user_id, 'elementor_preferences', false );
+			if ( $settings ) {
+				delete_user_meta( $user_id, 'elementor_preferences'); // clean meta
+			}			
+			update_user_meta( $user_id, 'elementor_preferences', $options );
+
+			// delete old options
+			delete_option( '_elementor_fep_settings' );
+
+			set_transient( 'fep-admin-notice-update-user-preferences-done', true, 0 ); // set transient for show notice updated done
+			delete_transient( 'fep-admin-notice-update-user-preferences-run' ); // delete transient for dont run again
 		}
 
 	}
@@ -413,7 +502,6 @@ final class Elementor_FEP_Extension {
 	}
 
 }
-
 Elementor_FEP_Extension::instance();
 
 // Plugin Activation
@@ -468,23 +556,3 @@ if ( ! function_exists( 'epro_l10n_e' ) ) {
 	}
 }
 /* repeat for other l10n function, see wp-includes/l10n.php */
-
-/************ future dev ************/
-/*
-add_action( 'wp_footer', function() {
-	if ( ! defined( 'ELEMENTOR_VERSION' ) ) {
-		return;
-	}
-	?>
-	<script>
-		jQuery( function( $ ) {
-			// Add space for Elementor Menu Anchor link
-			elementor.hooks.addAction( 'panel/elements/categories', function( panel, model, view ) {
-
-			   alert(view);
-			} );
-		} );
-	</script>
-	<?php
-} );
-*/
