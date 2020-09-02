@@ -941,7 +941,7 @@ function reset_fep_panel() {
     //panelWidth = $("#elementor-panel").width(); // get size panel
 
 
-    if (fepConfig.minimize_category_space == 'yes') {
+    if (fepConfig.minimize_category_space == 'yes' || !fepConfig.minimize_category_space) {
         panelWidth = 280; // this is the size with made to the load by Elementor
     } else {
         panelWidth = 362; // this is the size with made to the load by Elementor

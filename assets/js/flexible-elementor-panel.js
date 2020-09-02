@@ -71,7 +71,7 @@
             //console.log('div #elementor-panel-categories created'); // for debugging
 
             // if option checked
-            if (fepConfig.minimize_category_space == 'yes') {
+            if (fepConfig.minimize_category_space == 'yes' || !fepConfig.minimize_category_space ) {
                 collapseCategories(true); // load function collapse categories
             }
 
