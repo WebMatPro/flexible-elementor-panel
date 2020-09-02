@@ -165,7 +165,7 @@ function loadFepSettings() {
     //console.log(fepConfig); // for debugging
 
     //add exit icon
-    if (fepConfig.display_exit_icon == 'yes') {
+    if (fepConfig.display_exit_icon == 'yes' || !fepConfig.display_exit_icon) {
         if ($("#fep-exit").length == 0) {
             exit_panel = '<a id="fep-exit" target="_self" href="#" title="' + fep.exit_tooltip + '" class="fep-exit-link elementor-panel-footer-tool elementor-leave-open fep-tooltip"><i class="fa fa-sign-out"></i></a>';
             $("#elementor-panel-footer-saver-preview").after(exit_panel);
