@@ -5,7 +5,7 @@ Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 2.2.0
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,15 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.2.2 =
+* Fix: Issue with load saved settings FEP
+
+
+= 2.2.1 =
+* Improve: Add Controls FEP with correct action (thanks @Pixify)
+* Localization: Update French language
+
 
 = 2.2.O =
 * Add: Compatibility with Elementor 3.0+

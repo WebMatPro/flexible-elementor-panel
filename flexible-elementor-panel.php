@@ -5,7 +5,7 @@
  * Plugin Name: 		Flexible Elementor Panel
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
- * Version: 			2.2.0
+ * Version: 			2.2.2
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
@@ -29,6 +29,7 @@ define( 'FEP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FEP_BASENAME', plugin_basename(__FILE__) );
 
 use FEP\Inc\Settings\Manager as FEP_Manager;
+use FEP\Inc\Settings\FEP_Controls;
 
 /**
  * Main Elementor FEP Extension Class
@@ -170,15 +171,26 @@ final class Elementor_FEP_Extension {
 		// Include plugin files
 		$this->includes();
 
-		// Init setting panel FEP
-		add_action( 'elementor/init', array($this, 'init_panel'), 100, 0 );
+
+		//if Elementor is version 3.0.0 or more
+		if ( !version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
+			// Init setting panel FEP
+			add_action( 'elementor/init', array($this, 'init_panel'), 100, 0 ); // only for Elementor 2....
+		} else {
+			new FEP\Inc\Settings\FEP_Controls(); // run the class for use the __construct
+		}
+
 
 		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
+
 			$options = get_option( '_elementor_fep_settings' );
 			if ( $options !== false ) {
 				$this->run_update_database_user_preferences(get_current_user_id());
 			}
+
 		}
+
+
 
 	}
 
@@ -200,8 +212,7 @@ final class Elementor_FEP_Extension {
 
 		//if Elementor is version 3.0.0 or more
 		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
-			require_once FEP_PATH . 'inc/settings/manager.php';
-			require_once FEP_PATH . 'inc/settings/model.php';
+			require_once FEP_PATH . 'inc/settings/controls.php';
 		} else {
 			require_once FEP_PATH . 'inc/settings/manager_deprecate.php';
 			require_once FEP_PATH . 'inc/settings/model_deprecate.php';
@@ -425,6 +436,7 @@ final class Elementor_FEP_Extension {
 	}
 
 
+
 	/**
 	 * Styles
 	 *
@@ -474,7 +486,14 @@ final class Elementor_FEP_Extension {
 			$rtl = false;
 		}
 
-		$settings = FEP_Manager::get_settings();
+
+		//if Elementor is version 3.0.0 or more
+		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
+			$settings = FEP_Controls::get_settings();
+		} else {
+			$settings = FEP_Manager::get_settings();
+		}
+
 
 		wp_enqueue_script( 'onmutate-js', plugins_url( '/assets/js/libs/jquery.onmutate.min.js', __FILE__ ), false, '1.4.2', true );
 

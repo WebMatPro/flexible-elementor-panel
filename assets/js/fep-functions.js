@@ -171,56 +171,56 @@ function loadFepSettings() {
             $("#elementor-panel-footer-saver-preview").after(exit_panel);
         }
     }
-    if (fepConfig.display_exit_icon == 'no') {
+    if (fepConfig.display_exit_icon == 'no' || fepConfig.display_exit_icon == '') {
         $("#fep-exit").remove();
     }
 
 
     //add collapse icon
-    if (fepConfig.display_vertical_collaspe_icon == 'yes') {
+    if (fepConfig.display_vertical_collaspe_icon == 'yes' || !fepConfig.display_vertical_collaspe_icon ) {
         if ($("#fep-collapse-vertical").length == 0) {
             collapse_vertical_panel = '<div id="fep-collapse-vertical"><i class="fa fa-arrows-v fep-toggle-panel-icon"></i></div>';
             $("#elementor-panel-header-menu-button").after(collapse_vertical_panel);
         }
     }
-    if (fepConfig.display_vertical_collaspe_icon == 'no') {
+    if (fepConfig.display_vertical_collaspe_icon == 'no' || fepConfig.display_vertical_collaspe_icon == '') {
         $("#fep-collapse-vertical").remove();
     }
 
 
     //add reset panel icon
-    if (fepConfig.display_reset_icon == 'yes') {
+    if (fepConfig.display_reset_icon == 'yes' || !fepConfig.display_reset_icon ) {
         if ($("#fep-reset-panel").length == 0) {
             fep_reset_panel = '<div id="fep-reset-panel" class="reset-fep"><i class="fa fa-arrows-alt tooltip-target"></i></div>';
             $("#elementor-panel-header-title").after(fep_reset_panel);
         }
     }
-    if (fepConfig.display_reset_icon == 'no') {
+    if (fepConfig.display_reset_icon == 'no' || fepConfig.display_reset_icon == '') {
         $("#fep-reset-panel").remove();
     }
 
-    if (fepConfig.draggable_panel == 'yes') {
+    if (fepConfig.draggable_panel == 'yes' || !fepConfig.draggable_panel) {
         $("#elementor-panel").draggable("enable");
         $("#elementor-panel-header-title").on('touchstart mousedown', mousedownHeaderTitle);
         $(document).on('touchend mouseup', mouseupHeaderTitle);
         $("#elementor-panel-header-title").css("cursor", "move"); // add cursor to the title editor panel
     }
-    if (!fepConfig.draggable_panel || fepConfig.draggable_panel == 'no') {
+    if (fepConfig.draggable_panel == 'no' || fepConfig.draggable_panel == '') {
         $("#elementor-panel").draggable("disable");
         $("#elementor-panel-header-title").off('touchstart mousedown', mousedownHeaderTitle);
         //$("#elementor-panel-header-title").off('touchend mouseup', mouseupHeaderTitle); //useless
         $("#elementor-panel-header-title").css("cursor", ""); // remove special cursor to the title editor panel
     }
-    if (fepConfig.minimize_category_space == 'yes') {
+    if (fepConfig.minimize_category_space == 'yes' || !fepConfig.minimize_category_space) {
         $('body').addClass("fep-minimize-category");
     }
-    if (fepConfig.minimize_category_space == 'no') {
+    if (fepConfig.minimize_category_space == 'no' || fepConfig.minimize_category_space == '') {
         $('body').removeClass("fep-minimize-category");
     }
-    if (fepConfig.use_grid_ruler == 'yes') {
+    if (fepConfig.use_grid_ruler == 'yes' || !fepConfig.use_grid_ruler) {
         $('body').addClass("fep-elementor-grid-ruler");
     }
-    if (fepConfig.use_grid_ruler == 'no') {
+    if (fepConfig.use_grid_ruler == 'no' || fepConfig.use_grid_ruler == '') {
         $('body').removeClass("fep-elementor-grid-ruler");
     }
     if (fepConfig.editor_skin == 'dark_pink') {
@@ -234,10 +234,10 @@ function loadFepSettings() {
     if (fepConfig.editor_skin == 'default' || !fepConfig.editor_skin) {
         $('body').removeClass("nightmode nightmode-pink nightmode-orange");
     }
-    if (fepConfig.exit_link_new_tab == 'yes') {
+    if (fepConfig.exit_link_new_tab == 'yes' || !fepConfig.exit_link_new_tab) {
         $(".fep-exit-link").attr("target", "_blank");
     }
-    if (fepConfig.exit_link_new_tab == 'no') {
+    if (fepConfig.exit_link_new_tab == 'no' || fepConfig.exit_link_new_tab == '') {
         $(".fep-exit-link").attr("target", "_self");
     }
     if (fepConfig.exit_link_point == 'front' || !fepConfig.exit_link_point) {
@@ -255,7 +255,7 @@ function loadFepSettings() {
     if (fepConfig.exit_link_point == 'admin_dashboard') {
         $(".fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/');
     }
-    if (fepConfig.accordion_options == 'yes') {
+    if (fepConfig.accordion_options == 'yes' || !fepConfig.accordion_options) {
         $("#elementor-preview-iframe").contents().find('.elementor-tab-title[data-tab="1"]').removeClass('elementor-active');
         $("#elementor-preview-iframe").contents().find('.elementor-tab-content[data-tab="1"]').css('display', 'none').removeClass('elementor-active');
     } else {
