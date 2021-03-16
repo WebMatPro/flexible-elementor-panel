@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2020-08-27 11:56+0200\n"
-"PO-Revision-Date: 2020-08-27 15:58+0200\n"
+"POT-Creation-Date: 2021-03-11 16:01+0100\n"
+"PO-Revision-Date: 2021-03-11 16:02+0100\n"
 "Last-Translator: WebMat <contact@webmat.pro>\n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
 "Language: fr_FR\n"
@@ -30,9 +30,9 @@ msgid "Choose File"
 msgstr "Choisissez un fichier"
 
 #. Plugin Name of the plugin/theme
-#: admin/settings.php:38 admin/settings.php:116
-#: flexible-elementor-panel.php:265 flexible-elementor-panel.php:288
-#: flexible-elementor-panel.php:312 flexible-elementor-panel.php:337
+#: admin/settings.php:38 admin/settings.php:124
+#: flexible-elementor-panel.php:287 flexible-elementor-panel.php:310
+#: flexible-elementor-panel.php:334 flexible-elementor-panel.php:359
 msgid "Flexible Elementor Panel"
 msgstr "Flexible Elementor Panel"
 
@@ -53,10 +53,14 @@ msgid "How to configure"
 msgstr "Comment configurer"
 
 #: admin/settings.php:87
+msgid "Divers"
+msgstr "Divers"
+
+#: admin/settings.php:94
 msgid "Debug"
 msgstr "Débogage"
 
-#: admin/settings.php:117
+#: admin/settings.php:125
 msgid ""
 "Makes the Elementor editor panel flexible, draggable, resizable, folding and "
 "more opportunities."
@@ -64,11 +68,11 @@ msgstr ""
 "Rend le panneau d'édition Elementor flexible, déplaçable, redimensionnable, "
 "pliable et encore plus."
 
-#: admin/settings.php:136
+#: admin/settings.php:144
 msgid "Your settings have been saved."
 msgstr "Vos réglages ont été enregistrés."
 
-#: admin/settings.php:181
+#: admin/settings.php:188
 msgid "Do you confirm that action?"
 msgstr "Confirmez-vous cette action ?"
 
@@ -131,16 +135,12 @@ msgstr ""
 msgid "no value"
 msgstr "aucune valeur"
 
-#: admin/settings/tabs/debug.php:99
-msgid "Options FEP not exist in the database"
-msgstr "Pas d'option FEP existant dans la base de données"
-
-#: admin/settings/tabs/debug.php:110 admin/settings/tabs/debug.php:115
-#: admin/settings/tabs/debug.php:132
+#: admin/settings/tabs/debug.php:106 admin/settings/tabs/debug.php:111
+#: admin/settings/tabs/debug.php:128
 msgid "with the value"
 msgstr "avec la valeur"
 
-#: admin/settings/tabs/debug.php:137 admin/settings/tabs/debug.php:146
+#: admin/settings/tabs/debug.php:133 admin/settings/tabs/debug.php:143
 msgid ""
 "Note: all settings saved, will be print above. If the settings not appear, "
 "it means it is configured by default"
@@ -149,37 +149,41 @@ msgstr ""
 "paramètres n’apparaissent pas, cela signifie qu’ils sont configurés par "
 "défaut"
 
-#: admin/settings/tabs/debug.php:149
+#: admin/settings/tabs/debug.php:147
 msgid "Size of \"Width Panel\""
 msgstr "Taille de \"Largeur du panneau\""
 
-#: admin/settings/tabs/debug.php:150
+#: admin/settings/tabs/debug.php:148
 msgid "Size of \"Height Panel\""
 msgstr "Taille de \"Hauteur du panneau\""
 
-#: admin/settings/tabs/debug.php:151
+#: admin/settings/tabs/debug.php:149
 msgid "Position of \"Top Panel\""
 msgstr "Position du \"Haut du panneau\""
 
-#: admin/settings/tabs/debug.php:152
+#: admin/settings/tabs/debug.php:150
 msgid "Position of \"Left Panel\""
 msgstr "Position de \"Gauche du panneau\""
 
-#: admin/settings/tabs/debug.php:153
+#: admin/settings/tabs/debug.php:151
 msgid "Position of \"Right Panel\""
 msgstr "Position de \"Droite du panneau\""
 
-#: admin/settings/tabs/debug.php:154
+#: admin/settings/tabs/debug.php:152
 msgid "Value of \"Move Panel\""
 msgstr "Valeur de « Déplacement du panneau »"
 
-#: admin/settings/tabs/debug.php:155
+#: admin/settings/tabs/debug.php:153
 msgid ""
 "Note: These value save automatically from your navigator after move and "
 "resize the editor panel"
 msgstr ""
 "Remarque : Ces valeurs enregistrent automatiquement à partir de votre "
 "navigateur après le déplacement et redimensionnement du panneau d’éditeur"
+
+#: admin/settings/tabs/divers.php:29
+msgid "Check to close the first tab on all Elementor accordions"
+msgstr "Côcher pour fermer le premier onglet sur tous les accordéons Elementor"
 
 #: admin/settings/tabs/how-to-configure.php:25
 msgid ""
@@ -230,35 +234,35 @@ msgstr ""
 "<a href=\"https://fr.wordpress.org/support/plugin/flexible-elementor-panel/"
 "\" target=\"_blank\">forum de soutien.</a>"
 
-#: flexible-elementor-panel.php:264
+#: flexible-elementor-panel.php:286
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
 msgstr "\"%1$s\" nécessite \"%2$s\" pour être installé et activé."
 
-#: flexible-elementor-panel.php:266 flexible-elementor-panel.php:289
+#: flexible-elementor-panel.php:288 flexible-elementor-panel.php:311
 msgid "Elementor"
 msgstr "Elementor"
 
-#: flexible-elementor-panel.php:287 flexible-elementor-panel.php:311
+#: flexible-elementor-panel.php:309 flexible-elementor-panel.php:333
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr "\"%1$s\" requis \"%2$s\" en version %3$s ou supérieure."
 
-#: flexible-elementor-panel.php:313
+#: flexible-elementor-panel.php:335
 msgid "PHP"
 msgstr "PHP"
 
-#: flexible-elementor-panel.php:336
+#: flexible-elementor-panel.php:358
 #, php-format
 msgid "Thanks you to use our plugin %1$s, %2$s"
 msgstr "Merci d'utiliser notre plugin %1$s, %2$s"
 
-#: flexible-elementor-panel.php:338
+#: flexible-elementor-panel.php:360
 msgid "go to the information page for understand how to configure it"
 msgstr ""
 "rendez-vous sur la page d'informations pour comprendre comment le configurer"
 
-#: flexible-elementor-panel.php:350
+#: flexible-elementor-panel.php:371
 msgid ""
 "Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now "
 "available in the \"User Preferences\" of the Elementor editor!"
@@ -267,7 +271,7 @@ msgstr ""
 "maintenant disponibles dans les « préférences d'utilisateur » de l’éditeur "
 "Elementor !"
 
-#: flexible-elementor-panel.php:359
+#: flexible-elementor-panel.php:382
 msgid ""
 "FEP settings are correctly updated in the \"User Preferences\" of the "
 "Elementor editor!"
@@ -275,30 +279,37 @@ msgstr ""
 "Les paramètres FEP sont correctement mis à jour dans les « Préférences "
 "utilisateur » de l’éditeur Elementor !"
 
-#: flexible-elementor-panel.php:498
+#: flexible-elementor-panel.php:530
 msgid "Exit"
 msgstr "Quitter"
 
-#: inc/settings/model.php:44 inc/settings/model_deprecate.php:48
+#: inc/settings/controls.php:47 inc/settings/model_deprecate.php:48
 msgid "Reset Panel Position/Size"
 msgstr "Réinitialiser la position/taille du panneau"
 
-#: inc/settings/model.php:46 inc/settings/model_deprecate.php:50
+#: inc/settings/controls.php:49 inc/settings/model_deprecate.php:50
 msgid ""
 "The pro version is currently development,<br> get more information now on:"
 msgstr ""
 "La version Pro est en cours de développement,<br> obtenez plus "
 "d'informations maintenant sur :"
 
-#: inc/settings/model.php:92 inc/settings/model_deprecate.php:57
+#: inc/settings/controls.php:52
+msgid ""
+"You can set the option to closed the first tabs accordion in frontend there:"
+msgstr ""
+"Vous pouvez définir l’option de fermer le premier onglet des accordéons sur "
+"votre site ici :"
+
+#: inc/settings/controls.php:58 inc/settings/model_deprecate.php:57
 msgid "Panel settings"
 msgstr "Paramètres du panneau"
 
-#: inc/settings/model.php:95 inc/settings/model_deprecate.php:60
+#: inc/settings/controls.php:61 inc/settings/model_deprecate.php:60
 msgid "Draggable panel"
 msgstr "Panneau déplaçable"
 
-#: inc/settings/model.php:96 inc/settings/model_deprecate.php:61
+#: inc/settings/controls.php:62 inc/settings/model_deprecate.php:61
 msgid ""
 "hold down the left click on title of panel for move it (put it in the corner "
 "left and click on the title for back to origin style)"
@@ -307,12 +318,12 @@ msgstr ""
 "dans le coin à gauche et cliquez sur le titre pour revenir au style "
 "d'origine)"
 
-#: inc/settings/model.php:98 inc/settings/model.php:107
-#: inc/settings/model.php:116 inc/settings/model.php:135
-#: inc/settings/model.php:143 inc/settings/model.php:156
-#: inc/settings/model.php:176 inc/settings/model.php:195
-#: inc/settings/model.php:204 inc/settings/model.php:213
-#: inc/settings/model.php:222 inc/settings/model.php:235
+#: inc/settings/controls.php:64 inc/settings/controls.php:73
+#: inc/settings/controls.php:82 inc/settings/controls.php:101
+#: inc/settings/controls.php:109 inc/settings/controls.php:122
+#: inc/settings/controls.php:142 inc/settings/controls.php:161
+#: inc/settings/controls.php:170 inc/settings/controls.php:179
+#: inc/settings/controls.php:188 inc/settings/controls.php:201
 #: inc/settings/model_deprecate.php:63 inc/settings/model_deprecate.php:72
 #: inc/settings/model_deprecate.php:81 inc/settings/model_deprecate.php:100
 #: inc/settings/model_deprecate.php:108 inc/settings/model_deprecate.php:121
@@ -322,12 +333,12 @@ msgstr ""
 msgid "On"
 msgstr "Oui"
 
-#: inc/settings/model.php:99 inc/settings/model.php:108
-#: inc/settings/model.php:117 inc/settings/model.php:136
-#: inc/settings/model.php:144 inc/settings/model.php:157
-#: inc/settings/model.php:177 inc/settings/model.php:196
-#: inc/settings/model.php:205 inc/settings/model.php:214
-#: inc/settings/model.php:223 inc/settings/model.php:236
+#: inc/settings/controls.php:65 inc/settings/controls.php:74
+#: inc/settings/controls.php:83 inc/settings/controls.php:102
+#: inc/settings/controls.php:110 inc/settings/controls.php:123
+#: inc/settings/controls.php:143 inc/settings/controls.php:162
+#: inc/settings/controls.php:171 inc/settings/controls.php:180
+#: inc/settings/controls.php:189 inc/settings/controls.php:202
 #: inc/settings/model_deprecate.php:64 inc/settings/model_deprecate.php:73
 #: inc/settings/model_deprecate.php:82 inc/settings/model_deprecate.php:101
 #: inc/settings/model_deprecate.php:109 inc/settings/model_deprecate.php:122
@@ -337,19 +348,19 @@ msgstr "Oui"
 msgid "Off"
 msgstr "Non"
 
-#: inc/settings/model.php:104 inc/settings/model_deprecate.php:69
+#: inc/settings/controls.php:70 inc/settings/model_deprecate.php:69
 msgid "Use FLEX GRID for widgets"
 msgstr "Utilisez FLEX GRID pour les widgets"
 
-#: inc/settings/model.php:105 inc/settings/model_deprecate.php:70
+#: inc/settings/controls.php:71 inc/settings/model_deprecate.php:70
 msgid "This reduce the size of widgets in the editor and styling them"
 msgstr "Cela réduit la taille des widgets dans l'éditeur et leur style"
 
-#: inc/settings/model.php:113 inc/settings/model_deprecate.php:78
+#: inc/settings/controls.php:79 inc/settings/model_deprecate.php:78
 msgid "Minimize all categories with right click"
 msgstr "Minimiser toutes les catégories avec un clic droit"
 
-#: inc/settings/model.php:114 inc/settings/model_deprecate.php:79
+#: inc/settings/controls.php:80 inc/settings/model_deprecate.php:79
 msgid ""
 "click the right mouse button on the panel to collapse all categories of "
 "widgets"
@@ -357,72 +368,72 @@ msgstr ""
 "cliquez sur le bouton droit de la souris sur le panneau pour réduire toutes "
 "les catégories de widgets"
 
-#: inc/settings/model.php:123 inc/settings/model_deprecate.php:88
+#: inc/settings/controls.php:89 inc/settings/model_deprecate.php:88
 msgid "Editor skins"
 msgstr "Coloris de l'éditeur"
 
-#: inc/settings/model.php:126 inc/settings/model_deprecate.php:91
+#: inc/settings/controls.php:92 inc/settings/model_deprecate.php:91
 msgid "Dark Pink"
 msgstr "Rose sombre"
 
-#: inc/settings/model.php:127 inc/settings/model_deprecate.php:92
+#: inc/settings/controls.php:93 inc/settings/model_deprecate.php:92
 msgid "Dark Orange"
 msgstr "Orange sombre"
 
-#: inc/settings/model.php:128 inc/settings/model_deprecate.php:93
+#: inc/settings/controls.php:94 inc/settings/model_deprecate.php:93
 msgid "Default"
 msgstr "Défaut"
 
-#: inc/settings/model.php:133 inc/settings/model_deprecate.php:98
+#: inc/settings/controls.php:99 inc/settings/model_deprecate.php:98
 msgid "Display the vertical collaspe icon in header panel"
 msgstr "Afficher l'icône verticale de collaspe dans le panneau d'en-tête"
 
-#: inc/settings/model.php:141 inc/settings/model_deprecate.php:106
+#: inc/settings/controls.php:107 inc/settings/model_deprecate.php:106
 msgid "Display the reset panel icon in header panel"
 msgstr ""
 "Afficher l'icône du panneau de réinitialisation dans le panneau d'en-tête"
 
-#: inc/settings/model.php:151 inc/settings/model_deprecate.php:116
+#: inc/settings/controls.php:117 inc/settings/model_deprecate.php:116
 msgid "Exit button options"
 msgstr "Options du bouton quitter"
 
-#: inc/settings/model.php:154 inc/settings/model_deprecate.php:119
+#: inc/settings/controls.php:120 inc/settings/model_deprecate.php:119
 msgid "Display the exit icon in footer panel"
 msgstr "Afficher l'icône de sortie dans le pied du panneau"
 
-#: inc/settings/model.php:162 inc/settings/model_deprecate.php:127
+#: inc/settings/controls.php:128 inc/settings/model_deprecate.php:127
 msgid "Exit point"
 msgstr "Point de sortie"
 
-#: inc/settings/model.php:165 inc/settings/model_deprecate.php:130
+#: inc/settings/controls.php:131 inc/settings/model_deprecate.php:130
 msgid "View"
 msgstr "Voir"
 
-#: inc/settings/model.php:166 inc/settings/model_deprecate.php:131
+#: inc/settings/controls.php:132 inc/settings/model_deprecate.php:131
 msgid "Edition"
 msgstr "Édition"
 
-#: inc/settings/model.php:167 inc/settings/model_deprecate.php:132
+#: inc/settings/controls.php:133 inc/settings/model_deprecate.php:132
 msgid "List Page/Post"
 msgstr "Liste Page/Article"
 
-#: inc/settings/model.php:168 inc/settings/model_deprecate.php:133
+#: inc/settings/controls.php:134 inc/settings/model_deprecate.php:133
 msgid "Admin dashboard"
 msgstr "Panneau d'administration"
 
-#: inc/settings/model.php:169 inc/settings/model_deprecate.php:134
+#: inc/settings/controls.php:135 inc/settings/model_deprecate.php:134
 msgid "Elementor library"
 msgstr "Bibliothèque d'éléments"
 
-#: inc/settings/model.php:174 inc/settings/model_deprecate.php:139
+#: inc/settings/controls.php:140 inc/settings/model_deprecate.php:139
 msgid "Open in new tab"
 msgstr "Ouvrir dans un nouvel onglet"
 
-#: inc/settings/model.php:184 inc/settings/model_deprecate.php:149
+#: inc/settings/controls.php:150 inc/settings/model_deprecate.php:149
 msgid "Responsive options"
 msgstr "Options Responsive"
 
-#: inc/settings/model.php:188 inc/settings/model_deprecate.php:153
+#: inc/settings/controls.php:154 inc/settings/model_deprecate.php:153
 msgid ""
 "These options give you control over how responsive hidden elements appear "
 "and behave inside the Elementor editor on each responsive view (Desktop, "
@@ -434,21 +445,21 @@ msgstr ""
 "réactive (bureau, tablette ou mobile). Utilisez-les soigneusement pour "
 "éviter de perdre des éléments lors de l'édition."
 
-#: inc/settings/model.php:192 inc/settings/model_deprecate.php:157
+#: inc/settings/controls.php:158 inc/settings/model_deprecate.php:157
 msgid "Hide Responsive Elements"
 msgstr "Masquer Éléments Responsive"
 
-#: inc/settings/model.php:193 inc/settings/model_deprecate.php:158
+#: inc/settings/controls.php:159 inc/settings/model_deprecate.php:158
 msgid "Completely hides elements that are set to hide in responsive modes."
 msgstr ""
 "Masque complètement les éléments définis pour se cacher dans les modes "
 "responsive."
 
-#: inc/settings/model.php:201 inc/settings/model_deprecate.php:166
+#: inc/settings/controls.php:167 inc/settings/model_deprecate.php:166
 msgid "Allow Editing Inside Hidden Sections"
 msgstr "Autoriser la modification à l'intérieur des sections masquées"
 
-#: inc/settings/model.php:202 inc/settings/model_deprecate.php:167
+#: inc/settings/controls.php:168 inc/settings/model_deprecate.php:167
 msgid ""
 "Allow editing of elements inside responsive hidden Sections or Inner "
 "Sections without having to use the Navigator."
@@ -456,11 +467,11 @@ msgstr ""
 "Permet de modifier des éléments dans des sections masquées ou des sections "
 "internes sans avoir à utiliser le navigateur."
 
-#: inc/settings/model.php:210 inc/settings/model_deprecate.php:175
+#: inc/settings/controls.php:176 inc/settings/model_deprecate.php:175
 msgid "Disable Responsive Overlays"
 msgstr "Désactiver Superpositions Responsive"
 
-#: inc/settings/model.php:211 inc/settings/model_deprecate.php:176
+#: inc/settings/controls.php:177 inc/settings/model_deprecate.php:176
 msgid ""
 "Remove the grayed out overlay pattern from any responsive hidden element and "
 "restore their original colors."
@@ -468,11 +479,11 @@ msgstr ""
 "Supprimez le motif de superposition grisé de tous les éléments responsive "
 "masqués et restaurer leurs couleurs d'origine."
 
-#: inc/settings/model.php:219 inc/settings/model_deprecate.php:184
+#: inc/settings/controls.php:185 inc/settings/model_deprecate.php:184
 msgid "Alternative Responsive Indicator"
 msgstr "Indicateur Responsive Alternatif"
 
-#: inc/settings/model.php:220 inc/settings/model_deprecate.php:185
+#: inc/settings/controls.php:186 inc/settings/model_deprecate.php:185
 msgid ""
 "Adds an alternative indicator for responsive hidden elements by changing "
 "their handle colors."
@@ -480,15 +491,15 @@ msgstr ""
 "Ajoute un indicateur alternatif pour les éléments responsive cachés en "
 "changeant leur couleur de bordure."
 
-#: inc/settings/model.php:230 inc/settings/model_deprecate.php:195
+#: inc/settings/controls.php:196 inc/settings/model_deprecate.php:195
 msgid "Accordion widget options"
 msgstr "Options de widget Accordéon"
 
-#: inc/settings/model.php:233 inc/settings/model_deprecate.php:198
+#: inc/settings/controls.php:199 inc/settings/model_deprecate.php:198
 msgid "First tab closed (only in editor)"
 msgstr "Premier onglet fermé (uniquement dans l'éditeur)"
 
-#: inc/settings/model.php:243 inc/settings/model_deprecate.php:208
+#: inc/settings/controls.php:213 inc/settings/model_deprecate.php:208
 msgid "Tools & Informations"
 msgstr "Outils et informations"
 
@@ -513,6 +524,9 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://webmat.pro"
 msgstr ""
+
+#~ msgid "Options FEP not exist in the database"
+#~ msgstr "Pas d'option FEP existant dans la base de données"
 
 #~ msgid "Check the options used by FEP"
 #~ msgstr "Vérifiez les options utilisées par FEP"
@@ -541,9 +555,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Nous avons placé les options pour FEP directement dans l'éditeur "
 #~ "Elementor pour une plus grande facilitée d'utilisation."
-
-#~ msgid "Divers"
-#~ msgstr "Divers"
 
 #~ msgid "Flexible-Elementor-Panel.com"
 #~ msgstr "Flexible-Elementor-Panel.com"

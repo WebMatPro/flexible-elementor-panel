@@ -3,9 +3,9 @@ Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
 Tags: elementor, elementor addons, fep
 Requires at least: 4.6
-Tested up to: 5.5
+Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 2.2.2
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,18 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.3.1 =
+* HotFix: Remove dependence to elementor-editor script fep
+
+= 2.3.0 =
+* Add: Compatibility with Wordpress 5.7+
+* Add: Compatibility with Elementor 3.2+
+* Fix: Edit css flex grid for compatibility (thanks @momo-fr)
+* Improve: Change minimum editor panel min width 280px to 300px
+* Add: Option for close the first tab accordion in frontend
+* Localization: Update POT/PO language
+* Localization: Update French language
 
 = 2.2.2 =
 * Fix: Issue with load saved settings FEP

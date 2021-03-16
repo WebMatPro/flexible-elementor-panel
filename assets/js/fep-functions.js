@@ -85,8 +85,8 @@ function LoadPanelPosition() {
 
         }
 
-        $('#elementor-preview').css('right', 0); // full preview size when panel is in drag to load
-        $('#elementor-preview').css('left', 0); // full preview size when panel is in drag to load
+        $('#elementor-preview, .e-responsive-bar').css('right', 0); // full preview size when panel is in drag to load
+        $('#elementor-preview, .e-responsive-bar').css('left', 0); // full preview size when panel is in drag to load
 
         $("#elementor-panel").addClass("in-move"); // add class to panel for say he is in drag
 
@@ -110,11 +110,11 @@ function LoadPanelPosition() {
 
             //console.log('left side')
 
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'left': panel_size_width + 'px',
             }, 150);
 
-            $('#elementor-preview').css('right', 0); // full preview size when panel is in drag to load
+            $('#elementor-preview, .e-responsive-bar').css('right', 0); // full preview size when panel is in drag to load
             $("#elementor-preview-iframe").contents().find("html").attr('dir', ''); // move the scroll bar to right side
             elementor_switcher_display_block('left'); // show button right side resize preview
             $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-e").removeClass("ui-resizable-w"); // resize right side
@@ -131,11 +131,11 @@ function LoadPanelPosition() {
 
             //console.log('right side')
 
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'right': panel_size_width + 'px',
             }, 150);
 
-            $('#elementor-preview').css('left', 0); // full preview size when panel is in drag to load
+            $('#elementor-preview, .e-responsive-bar').css('left', 0); // full preview size when panel is in drag to load
             $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // move the scroll bar to left side
             elementor_switcher_display_block('right'); // show button left side resize preview
             $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-w").removeClass("ui-resizable-e"); // resize left side
@@ -160,7 +160,7 @@ function LoadPanelPosition() {
 --------------------------------------------------------------------------------------*/
 
 // Load the settings FEP
-function loadFepSettings() {
+function LoadFepSettings() {
 
     //console.log(fepConfig); // for debugging
 
@@ -300,10 +300,10 @@ function loadFepSettings() {
 
 --------------------------------------------------------------------------------------*/
 // Make Elementor Panel draggable
-function draggablePanel() {
+function DraggablePanel() {
 
     $("#elementor-panel").resizable({
-        minWidth: 280,
+        minWidth: 300,
         minHeight: 360,
         //delay: 0,
         //handles: "all",
@@ -374,10 +374,11 @@ function draggablePanel() {
         snapTolerance: 25,
         start: function() {
 
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'left': 0,
                 'right': 0,
             }, 150);
+
 
         },
         stop: function(event, ui) {
@@ -514,7 +515,7 @@ function mouseupHeaderTitle() {
 
         // replace the preview
         panelWidth = $("#elementor-panel").width(); // get size panel
-        $('#elementor-preview').animate({
+        $('#elementor-preview, .e-responsive-bar').animate({
             'left': panelWidth + 'px',
         }, 150);
 
@@ -542,7 +543,7 @@ function mouseupHeaderTitle() {
 
         // replace the preview
         panelWidth = $("#elementor-panel").width(); // get size panel
-        $('#elementor-preview').animate({
+        $('#elementor-preview, .e-responsive-bar').animate({
             'right': panelWidth + 'px',
         }, 150);
 
@@ -587,7 +588,7 @@ function vertical_elementor_panel_toggle() {
 
                 elementor_switcher_display_block('left'); // show switcher
 
-                $('#elementor-preview').animate({
+                $('#elementor-preview, .e-responsive-bar').animate({
                     'left': panelWidth + 'px',
                     'right': 0,
                 }, 150);
@@ -599,7 +600,7 @@ function vertical_elementor_panel_toggle() {
 
                 elementor_switcher_display_block('right'); // show switcher
 
-                $('#elementor-preview').animate({
+                $('#elementor-preview, .e-responsive-bar').animate({
                     'left': 0,
                     'right': panelWidth + 'px',
                 }, 150);
@@ -656,7 +657,7 @@ function vertical_elementor_panel_toggle() {
 
 
         // set full preview
-        $('#elementor-preview').animate({
+        $('#elementor-preview, .e-responsive-bar').animate({
             'left': 0,
             'right': 0,
         }, 150);
@@ -674,13 +675,9 @@ function vertical_elementor_panel_toggle() {
 
 --------------------------------------------------------------------------------------*/
 // Close all categories in panel with the right click
-function collapseCategories(delay) {
+function collapseCategories() {
 
-    if (delay) {
-        delay = 0; // remove transition
-    } else {
-        delay = 280; // add delay for smoothing
-    }
+    delay = 300; // add delay for smoothing
 
     //alert(localStorage.getItem("cat-closed")); // for debugging
 
@@ -833,7 +830,7 @@ function elementor_horizontal_panel() {
         // reset position panel to origin when click on title if he is on corner top left
         if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'left': 0,
             }, 150);
 
@@ -843,7 +840,7 @@ function elementor_horizontal_panel() {
 
         } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'right': 0,
             }, 150);
 
@@ -865,7 +862,7 @@ function elementor_horizontal_panel() {
         // reset position panel to origin when click on title if he is on corner top left
         if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
 
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'left': panelWidth + 'px',
             }, 150);
             $('#elementor-panel').animate({
@@ -874,7 +871,7 @@ function elementor_horizontal_panel() {
 
         } else if ($('#elementor-panel').css('right') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
 
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'right': panelWidth + 'px',
             }, 150);
             $('#elementor-panel').animate({
@@ -942,21 +939,21 @@ function reset_fep_panel() {
 
 
     if (fepConfig.minimize_category_space == 'yes' || !fepConfig.minimize_category_space) {
-        panelWidth = 280; // this is the size with made to the load by Elementor
+        panelWidth = 300; // this is the size with made to the load by Elementor
     } else {
-        panelWidth = 362; // this is the size with made to the load by Elementor
+        panelWidth = 382; // this is the size with made to the load by Elementor
     }
 
 
     // mode rtl
     if (FEP.rtl) {
-        $('#elementor-preview').animate({
+        $('#elementor-preview, .e-responsive-bar').animate({
             'right': panelWidth + 'px',
             'left': 0,
         }, 150);
         // of normal
     } else {
-        $('#elementor-preview').animate({
+        $('#elementor-preview, .e-responsive-bar').animate({
             'left': panelWidth + 'px',
             'right': 0,
         }, 150);
@@ -1015,7 +1012,7 @@ function elementor_horizontal_panel_key() {
 
         // if panel is not in drag
         if (!$('#elementor-panel').hasClass('in-move')) {
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'left': 0,
                 'right': 0,
             }, 150);
@@ -1063,7 +1060,7 @@ function elementor_horizontal_panel_key() {
             // reset position panel to origin when click on title if he is on corner top left
             if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
 
-                $('#elementor-preview').animate({
+                $('#elementor-preview, .e-responsive-bar').animate({
                     'left': panelWidth + 'px',
                 }, 150);
                 $('#elementor-panel').animate({
@@ -1073,7 +1070,7 @@ function elementor_horizontal_panel_key() {
 
             } else if ($('#elementor-panel').css('right') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
 
-                $('#elementor-preview').animate({
+                $('#elementor-preview, .e-responsive-bar').animate({
                     'right': panelWidth + 'px',
                 }, 150);
                 $('#elementor-panel').animate({
@@ -1089,7 +1086,7 @@ function elementor_horizontal_panel_key() {
 
         } else {
 
-            $('#elementor-preview').animate({
+            $('#elementor-preview, .e-responsive-bar').animate({
                 'left': 0,
                 'right': 0,
             }, 150);

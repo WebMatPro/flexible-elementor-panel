@@ -25,11 +25,27 @@
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
-    min-width: 280px;
+    min-width: 300px;
+}
+
+#elementor-panel {
+    z-index: 2; /* over everything */
+}
+
+#elementor-preview,
+.e-responsive-bar {
+    width: auto; /* override width Elementor 3.2 */
+}
+
+.e-responsive-bar,
+.e-responsive-bar:not(.ui-resizable-resizing) {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
 }
 
 .elementor-editor-preview .elementor-panel {
-    left: -280px;
+    left: -300px;
 }
 
 .elementor-panel .ui-resizable-all {
@@ -86,19 +102,13 @@
 }
 
 .fep-elementor-grid-ruler .elementor-panel .elementor-panel-category-items {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
+    display: inline-block;
 }
 
 .fep-elementor-grid-ruler .elementor-panel .elementor-element-wrapper {
-    max-width: 90px;
+    width: 90px;
     padding: 3px;
+    float: left;
 }
 
 .fep-elementor-grid-ruler .elementor-panel .elementor-element .icon {

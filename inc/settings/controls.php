@@ -49,6 +49,8 @@ class FEP_Controls {
         $text_html_pro_version = __( 'The pro version is currently development,<br> get more information now on:', 'fep' );
         $html_pro_version_html = '<div class="desc-pro-version"><img src="' . FEP_URL .'/assets/images/banner-fep-pro.jpg"><br><br>' . $text_html_pro_version .'<br><br><a href="https://webmat.pro/flexible-elementor-panel-pro/" target="_blank">webmat.pro/flexible-elementor-panel-pro/</a></div>';
 
+		$html_accordion_frontend = __( 'You can set the option to closed the first tabs accordion in frontend there:') . '<br><br><a href="' . get_admin_url() . 'admin.php?page=fep-options" target="_blank">' . get_admin_url() . 'admin.php?page=fep-options</a>';
+
         return [
 
             Controls_Manager::TAB_SETTINGS => [
@@ -201,7 +203,11 @@ class FEP_Controls {
                             'return_value' 		=> 'yes',
                             'default' 			=> 'yes',
                         ],
-                    ]
+						'accordion_options_frontend' => [
+                            'type'  			=> Controls_Manager::RAW_HTML,
+                            'raw' 				=> $html_accordion_frontend,
+                        ],
+                    ],
                 ],
                 'fep_settings_other'  => [
                     'label'     => __('Tools & Informations', 'fep'),

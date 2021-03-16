@@ -5,7 +5,7 @@
  * Plugin Name: 		Flexible Elementor Panel
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
- * Version: 			2.2.2
+ * Version: 			2.3.1
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
@@ -162,11 +162,15 @@ final class Elementor_FEP_Extension {
 
 		add_action( 'admin_init', [ $this, 'admin_init_fep' ] );
 
-		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'fep_styles_editor' ], 8 ); // Register Styles Editor
-		add_action( 'elementor/preview/enqueue_styles', [ $this, 'fep_styles_preview' ], 8 ); // Register Styles
+		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'fep_styles_editor' ]); // Register Styles Editor
+		add_action( 'elementor/preview/enqueue_styles', [ $this, 'fep_styles_preview' ]); // Register Styles
 
-		// Register Scripts
-		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'fep_scripts' ], 8 );
+		// Register Scripts Editor
+		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'fep_scripts_editor' ]);
+
+		// Register Scripts Frontend
+		add_action( 'elementor/frontend/before_enqueue_scripts', [ $this, 'fep_scripts_frontend' ]);
+
 
 		// Include plugin files
 		$this->includes();
@@ -353,7 +357,7 @@ final class Elementor_FEP_Extension {
 			$message = sprintf(
 				esc_html__( 'Thanks you to use our plugin %1$s, %2$s', 'fep' ),
 				'<strong>' . esc_html__( 'Flexible Elementor Panel', 'fep' ) . '</strong>',
-				'<a href="'.site_url().'/wp-admin/admin.php?page=fep-options">' . esc_html__( 'go to the information page for understand how to configure it', 'fep' ) . '</a>'
+				'<a href="'. get_admin_url() . '/admin.php?page=fep-options">' . esc_html__( 'go to the information page for understand how to configure it', 'fep' ) . '</a>'
 			);
 
 			printf( '<div class="notice notice-info is-dismissible"><p>%1$s</p></div>', $message );
@@ -366,7 +370,10 @@ final class Elementor_FEP_Extension {
 		if( get_transient( 'fep-admin-notice-update-user-preferences' ) ) {
 			$message = __( 'Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the "User Preferences" of the Elementor editor!', 'fep' );
 
-			printf( '<div class="notice notice-info" style="position: relative;"><p>%1$s</p><a class="notice-dismiss" style="text-decoration: unset;" href="?fep-admin-notice-update-user-preferences-dismissed"></a></div>', $message );
+			echo '<div class="notice notice-info" style="position: relative;"><p>';
+				echo $message;
+				echo '</p><a class="notice-dismiss" style="text-decoration: unset;" href="'.get_admin_url().'?fep-admin-notice-update-user-preferences-dismissed"></a>';
+			echo '</div>';
 
 		}
 
@@ -448,8 +455,8 @@ final class Elementor_FEP_Extension {
 	 */
 	public function fep_styles_editor() {
 
-		wp_enqueue_style( 'flexible-elementor-panel-editor', plugins_url( '/assets/css/flexible-elementor-panel-editor.css', __FILE__ ), false, constant( 'FEP_VERSION' ), 'all' );
-		wp_enqueue_style( 'flexible-elementor-panel-editor-night-skin', plugins_url( '/assets/css/flexible-elementor-panel-editor-night-skin.css', __FILE__ ), false, constant( 'FEP_VERSION' ), 'all' );
+		wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . '/assets/css/flexible-elementor-panel-editor.css', false, FEP_VERSION, 'all' );
+		wp_enqueue_style( 'flexible-elementor-panel-editor-night-skin', FEP_URL . '/assets/css/flexible-elementor-panel-editor-night-skin.css', false, FEP_VERSION, 'all' );
 
 	}
 
@@ -464,7 +471,7 @@ final class Elementor_FEP_Extension {
 	 */
 	public function fep_styles_preview() {
 
-		wp_enqueue_style( 'flexible-elementor-panel-preview', plugins_url( '/assets/css/flexible-elementor-panel-preview.css', __FILE__ ), false, constant( 'FEP_VERSION' ), 'all' );
+		wp_enqueue_style( 'flexible-elementor-panel-preview', FEP_URL . '/assets/css/flexible-elementor-panel-preview.css', false, FEP_VERSION, 'all' );
 
 	}
 
@@ -478,7 +485,8 @@ final class Elementor_FEP_Extension {
 	 *
 	 * @access public
 	 */
-	public function fep_scripts() {
+	public function fep_scripts_editor() {
+
 
 		if ( is_rtl() ) {
 			$rtl = true;
@@ -494,24 +502,28 @@ final class Elementor_FEP_Extension {
 			$settings = FEP_Manager::get_settings();
 		}
 
+		// fix notice if settings is empty
+		if ( !$settings ) {
+			$settings = array();
+		}
 
-		wp_enqueue_script( 'onmutate-js', plugins_url( '/assets/js/libs/jquery.onmutate.min.js', __FILE__ ), false, '1.4.2', true );
+		//wp_register_script( 'fep-functions', FEP_URL . '/assets/js/fep-functions.js', array('elementor-editor'), FEP_VERSION, true );
+		wp_register_script( 'fep-functions', FEP_URL . '/assets/js/fep-functions.js', false, FEP_VERSION, true );
 
-		wp_register_script( 'fep-functions-js', plugins_url( '/assets/js/fep-functions.js', __FILE__ ), false, constant( 'FEP_VERSION' ), true );
-
-		wp_localize_script( 'fep-functions-js', 'FEP', array(
+		wp_localize_script( 'fep-functions', 'FEP', array(
 			'Permalink' => get_permalink(),
 			'PostType' => get_post_type( get_the_ID() ),
 			'rtl' => $rtl,
 		));
 
 
-		wp_localize_script( 'fep-functions-js', 'fepConfig', $settings );
-		wp_enqueue_script( 'fep-functions-js' );
+		wp_localize_script( 'fep-functions', 'fepConfig', $settings );
+		wp_enqueue_script( 'fep-functions' );
 
-		wp_register_script( 'flexible-elementor-panel-js', plugins_url( '/assets/js/flexible-elementor-panel.js', __FILE__ ), false, constant( 'FEP_VERSION' ), true );
-		wp_localize_script( 'flexible-elementor-panel-js', 'fepConfig', $settings );
-		wp_enqueue_script( 'flexible-elementor-panel-js' );
+		//wp_register_script( 'flexible-elementor-panel', FEP_URL . '/assets/js/flexible-elementor-panel.js', array('elementor-editor'), FEP_VERSION, true );
+		wp_register_script( 'flexible-elementor-panel', FEP_URL . '/assets/js/flexible-elementor-panel.js', false, FEP_VERSION, true );
+		wp_localize_script( 'flexible-elementor-panel', 'fepConfig', $settings );
+		wp_enqueue_script( 'flexible-elementor-panel' );
 
 
 
@@ -519,7 +531,32 @@ final class Elementor_FEP_Extension {
 		$translation_array = array(
 			'exit_tooltip' => __( 'Exit', 'fep' ),
 		);
-		wp_localize_script( 'flexible-elementor-panel-js', 'fep', $translation_array );
+		wp_localize_script( 'flexible-elementor-panel', 'fep', $translation_array );
+
+	}
+
+
+	/**
+	 * Scripts
+	 *
+	 * Register the scripts frontend Elementor of plugin FEP
+	 *
+	 * @since 2.2.3
+	 *
+	 * @access public
+	 */
+	public function fep_scripts_frontend() {
+
+		// fix notice if settings is empty
+		$fep_frondent_accordion_close = get_option('fep_divers')['fep_frontend_accordion_close'];
+		if ( $fep_frondent_accordion_close == 'on' ) {
+
+			// load with localize in future for others options
+
+			wp_register_script( 'fep-frontend', FEP_URL . '/assets/js/fep-frontend.js', array('elementor-frontend'), FEP_VERSION, true );
+			wp_enqueue_script( 'fep-frontend' );
+
+		}
 
 	}
 

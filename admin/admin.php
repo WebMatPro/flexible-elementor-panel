@@ -41,7 +41,7 @@ class FEP_Admin {
         //tabs
         require_once FEP_PATH . 'admin/settings/tabs/informations.php';
 		require_once FEP_PATH . 'admin/settings/tabs/how-to-configure.php';
-		//require_once FEP_PATH . 'admin/settings/tabs/divers.php';
+		require_once FEP_PATH . 'admin/settings/tabs/divers.php';
 		require_once FEP_PATH . 'admin/settings/tabs/debug.php';
 
     }
