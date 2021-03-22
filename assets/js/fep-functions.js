@@ -568,6 +568,7 @@ function vertical_elementor_panel_toggle() {
 
         $('#elementor-panel').removeClass('vertical_elementor_panel_toggle-on'); // Important, remove class to panel for understand the collapse is off
 
+
         // if panel is not in drag
         if (!$('#elementor-panel').hasClass('in-move')) {
 

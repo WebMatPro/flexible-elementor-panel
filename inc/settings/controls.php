@@ -111,6 +111,21 @@ class FEP_Controls {
                             'return_value' 		=> 'yes',
                             'default' 			=> 'yes',
                         ],
+						/*'opacity_editor_panel' => [
+                            'label' 			=> __('Opacity of Editor Panel', 'fep'),
+                            'type'  			=> Controls_Manager::SLIDER,
+							'range' => [
+									'%' => [
+										'min' => 50,
+										'max' => 100,
+									],
+								],
+                            'size_units' => [ '%' ],
+							'default' => [
+								'unit' => '%',
+								'size' => 100,
+							],
+                        ],*/
                     ]
                 ],
                 'fep_settings_exit'  => [

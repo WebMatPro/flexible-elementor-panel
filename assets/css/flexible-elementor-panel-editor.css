@@ -33,7 +33,9 @@
 .e-responsive-bar {
     width: auto; /* override width Elementor 3.2 */
 }
-
+.e-responsive-bar {
+    z-index: 0; /* change z-index for display the editor panel on it (z-index 1) */
+}
 .e-responsive-bar,
 .e-responsive-bar:not(.ui-resizable-resizing) {
     -webkit-transition: none;

@@ -167,6 +167,7 @@ final class Elementor_FEP_Extension {
 
 		// Register Scripts Editor
 		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'fep_scripts_editor' ]);
+		//add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'fep_scripts_editor' ], 8); // old priority
 
 		// Register Scripts Frontend
 		add_action( 'elementor/frontend/before_enqueue_scripts', [ $this, 'fep_scripts_frontend' ]);
@@ -455,8 +456,8 @@ final class Elementor_FEP_Extension {
 	 */
 	public function fep_styles_editor() {
 
-		wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . '/assets/css/flexible-elementor-panel-editor.css', false, FEP_VERSION, 'all' );
-		wp_enqueue_style( 'flexible-elementor-panel-editor-night-skin', FEP_URL . '/assets/css/flexible-elementor-panel-editor-night-skin.css', false, FEP_VERSION, 'all' );
+		wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . 'assets/css/flexible-elementor-panel-editor.css', false, FEP_VERSION, 'all' );
+		wp_enqueue_style( 'flexible-elementor-panel-editor-night-skin', FEP_URL . 'assets/css/flexible-elementor-panel-editor-night-skin.css', false, FEP_VERSION, 'all' );
 
 	}
 
@@ -471,7 +472,7 @@ final class Elementor_FEP_Extension {
 	 */
 	public function fep_styles_preview() {
 
-		wp_enqueue_style( 'flexible-elementor-panel-preview', FEP_URL . '/assets/css/flexible-elementor-panel-preview.css', false, FEP_VERSION, 'all' );
+		wp_enqueue_style( 'flexible-elementor-panel-preview', FEP_URL . 'assets/css/flexible-elementor-panel-preview.css', false, FEP_VERSION, 'all' );
 
 	}
 
@@ -507,8 +508,8 @@ final class Elementor_FEP_Extension {
 			$settings = array();
 		}
 
-		//wp_register_script( 'fep-functions', FEP_URL . '/assets/js/fep-functions.js', array('elementor-editor'), FEP_VERSION, true );
-		wp_register_script( 'fep-functions', FEP_URL . '/assets/js/fep-functions.js', false, FEP_VERSION, true );
+		//wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions.js', array('elementor-editor'), FEP_VERSION, true );
+		wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions.js', false, FEP_VERSION, true );
 
 		wp_localize_script( 'fep-functions', 'FEP', array(
 			'Permalink' => get_permalink(),
@@ -520,8 +521,8 @@ final class Elementor_FEP_Extension {
 		wp_localize_script( 'fep-functions', 'fepConfig', $settings );
 		wp_enqueue_script( 'fep-functions' );
 
-		//wp_register_script( 'flexible-elementor-panel', FEP_URL . '/assets/js/flexible-elementor-panel.js', array('elementor-editor'), FEP_VERSION, true );
-		wp_register_script( 'flexible-elementor-panel', FEP_URL . '/assets/js/flexible-elementor-panel.js', false, FEP_VERSION, true );
+		//wp_register_script( 'flexible-elementor-panel', FEP_URL . 'assets/js/flexible-elementor-panel.js', array('elementor-editor'), FEP_VERSION, true );
+		wp_register_script( 'flexible-elementor-panel', FEP_URL . 'assets/js/flexible-elementor-panel.js', false, FEP_VERSION, true );
 		wp_localize_script( 'flexible-elementor-panel', 'fepConfig', $settings );
 		wp_enqueue_script( 'flexible-elementor-panel' );
 
@@ -555,7 +556,7 @@ final class Elementor_FEP_Extension {
 
 					// load with localize in future for others options
 
-					wp_register_script( 'fep-frontend', FEP_URL . '/assets/js/fep-frontend.js', array('elementor-frontend'), FEP_VERSION, true );
+					wp_register_script( 'fep-frontend', FEP_URL . 'assets/js/fep-frontend.js', array('elementor-frontend'), FEP_VERSION, true );
 					wp_enqueue_script( 'fep-frontend' );
 
 				}

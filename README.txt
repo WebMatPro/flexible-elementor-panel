@@ -64,6 +64,8 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 = 2.3.3 =
 * Fix: Notice php fep_frontend_accordion_close
+* Improve: Make the editor panel upper the responsive bar (elementor 3.2)
+* Improve: Performance load js, any FEP javascript will load after elementor fully loaded
 
 = 2.3.2 =
 * Fix: Notice fep_frontend_accordion_close empty string
