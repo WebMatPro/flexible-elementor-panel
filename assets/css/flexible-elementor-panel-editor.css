@@ -28,9 +28,6 @@
     min-width: 300px;
 }
 
-#elementor-panel {
-    z-index: 2; /* over everything */
-}
 
 #elementor-preview,
 .e-responsive-bar {

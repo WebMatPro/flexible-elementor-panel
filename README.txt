@@ -5,7 +5,7 @@ Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 2.3.1
+Stable tag: 2.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,14 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.3.3 =
+* Fix: Notice php fep_frontend_accordion_close
+
+= 2.3.2 =
+* Fix: Notice fep_frontend_accordion_close empty string
+* Fix: Issue with css z-index @thanks community
+* Note: With the new design responsive mode from Elementor 3.2, when click on arrow for collapse the editor panel, the panel will be under the grey bar, click on it for back the display.
 
 = 2.3.1 =
 * HotFix: Remove dependence to elementor-editor script fep

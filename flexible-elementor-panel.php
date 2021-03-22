@@ -5,7 +5,7 @@
  * Plugin Name: 		Flexible Elementor Panel
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
- * Version: 			2.3.1
+ * Version: 			2.3.3
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
@@ -547,16 +547,21 @@ final class Elementor_FEP_Extension {
 	 */
 	public function fep_scripts_frontend() {
 
-		// fix notice if settings is empty
-		$fep_frondent_accordion_close = get_option('fep_divers')['fep_frontend_accordion_close'];
-		if ( $fep_frondent_accordion_close == 'on' ) {
 
-			// load with localize in future for others options
+		if ( get_option('fep_divers') ) {
+			$fep_frondent_accordion_close = get_option('fep_divers')['fep_frontend_accordion_close'];
+			if ( $fep_frondent_accordion_close ) {
+				if ( $fep_frondent_accordion_close == 'on' ) {
 
-			wp_register_script( 'fep-frontend', FEP_URL . '/assets/js/fep-frontend.js', array('elementor-frontend'), FEP_VERSION, true );
-			wp_enqueue_script( 'fep-frontend' );
+					// load with localize in future for others options
 
+					wp_register_script( 'fep-frontend', FEP_URL . '/assets/js/fep-frontend.js', array('elementor-frontend'), FEP_VERSION, true );
+					wp_enqueue_script( 'fep-frontend' );
+
+				}
+			}
 		}
+
 
 	}
 
