@@ -29,13 +29,37 @@
 }
 
 
+/* For Elementor 3.2 */
+/* Since FEP 2.3.4 */
+#elementor-preview {
+    background-color: #333;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border: 0;
+}
 #elementor-preview,
 .e-responsive-bar {
-    width: auto; /* override width Elementor 3.2 */
+    width: auto;
 }
-.e-responsive-bar {
-    z-index: 0; /* change z-index for display the editor panel on it (z-index 1) */
+.elementor-panel {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    margin: 0;
 }
+
+#elementor-preview-responsive-wrapper .ui-resizable-e,
+#elementor-preview-responsive-wrapper .ui-resizable-s,
+#elementor-preview-responsive-wrapper .ui-resizable-w,
+#elementor-responsive-bar {
+    z-index: 0!important; /* change z-index for display the editor panel on it (z-index 1) */
+}
+/* End Elementor 3.2 */
+
+
 .e-responsive-bar,
 .e-responsive-bar:not(.ui-resizable-resizing) {
     -webkit-transition: none;

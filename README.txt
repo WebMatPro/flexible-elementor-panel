@@ -5,7 +5,7 @@ Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 2.3.3
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 == Changelog ==
 
+= 2.3.4 =
+* Add: Compatibility with Elementor 3.2+ (3.2.0-beta1)
+
 = 2.3.3 =
 * Fix: Notice php fep_frontend_accordion_close
 * Improve: Make the editor panel upper the responsive bar (elementor 3.2)
@@ -77,7 +80,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 = 2.3.0 =
 * Add: Compatibility with Wordpress 5.7+
-* Add: Compatibility with Elementor 3.2+
+* Add: Compatibility with Elementor 3.2+ (3.2.0-dev8)
 * Fix: Edit css flex grid for compatibility (thanks @momo-fr)
 * Improve: Change minimum editor panel min width 280px to 300px
 * Add: Option for close the first tab accordion in frontend
