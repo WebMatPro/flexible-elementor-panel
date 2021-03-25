@@ -1,0 +1,105 @@
+# Translation of Plugins - Flexible Elementor Panel - Stable (latest release) in Russian
+# This file is distributed under the same license as the Plugins - Flexible Elementor Panel - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-11-13 12:24:31+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: ru\n"
+"Project-Id-Version: Plugins - Flexible Elementor Panel - Stable (latest release)\n"
+
+#: inc/settings/controls.php:132 inc/settings/model_deprecate.php:116
+msgid "Exit button options"
+msgstr "Опции кнопки \"Выйти\""
+
+#: inc/settings/controls.php:70 inc/settings/model_deprecate.php:69
+msgid "Use FLEX GRID for widgets"
+msgstr "Включить FLEX GRID для виджетов"
+
+#: inc/settings/controls.php:211 inc/settings/model_deprecate.php:195
+msgid "Accordion widget options"
+msgstr "Опции виджета \"Аккордеон\""
+
+#: inc/settings/controls.php:61 inc/settings/model_deprecate.php:60
+msgid "Draggable panel"
+msgstr "Перемещаемая панель"
+
+#: inc/settings/controls.php:58 inc/settings/model_deprecate.php:57
+msgid "Panel settings"
+msgstr "Настройки панели"
+
+#: inc/settings/controls.php:80 inc/settings/model_deprecate.php:79
+msgid "click the right mouse button on the panel to collapse all categories of widgets"
+msgstr "нажмите правую кнопку мышки чтобы свернуть все категории виджетов"
+
+#: inc/settings/controls.php:150 inc/settings/model_deprecate.php:134
+msgid "Elementor library"
+msgstr "Библиотека Elementor"
+
+#: inc/settings/controls.php:65 inc/settings/controls.php:74
+#: inc/settings/controls.php:83 inc/settings/controls.php:102
+#: inc/settings/controls.php:110 inc/settings/controls.php:138
+#: inc/settings/controls.php:158 inc/settings/controls.php:177
+#: inc/settings/controls.php:186 inc/settings/controls.php:195
+#: inc/settings/controls.php:204 inc/settings/controls.php:217
+#: inc/settings/model_deprecate.php:64 inc/settings/model_deprecate.php:73
+#: inc/settings/model_deprecate.php:82 inc/settings/model_deprecate.php:101
+#: inc/settings/model_deprecate.php:109 inc/settings/model_deprecate.php:122
+#: inc/settings/model_deprecate.php:142 inc/settings/model_deprecate.php:161
+#: inc/settings/model_deprecate.php:170 inc/settings/model_deprecate.php:179
+#: inc/settings/model_deprecate.php:188 inc/settings/model_deprecate.php:201
+msgid "Off"
+msgstr "Выкл."
+
+#: inc/settings/controls.php:64 inc/settings/controls.php:73
+#: inc/settings/controls.php:82 inc/settings/controls.php:101
+#: inc/settings/controls.php:109 inc/settings/controls.php:137
+#: inc/settings/controls.php:157 inc/settings/controls.php:176
+#: inc/settings/controls.php:185 inc/settings/controls.php:194
+#: inc/settings/controls.php:203 inc/settings/controls.php:216
+#: inc/settings/model_deprecate.php:63 inc/settings/model_deprecate.php:72
+#: inc/settings/model_deprecate.php:81 inc/settings/model_deprecate.php:100
+#: inc/settings/model_deprecate.php:108 inc/settings/model_deprecate.php:121
+#: inc/settings/model_deprecate.php:141 inc/settings/model_deprecate.php:160
+#: inc/settings/model_deprecate.php:169 inc/settings/model_deprecate.php:178
+#: inc/settings/model_deprecate.php:187 inc/settings/model_deprecate.php:200
+msgid "On"
+msgstr "Вкл."
+
+#: inc/settings/controls.php:149 inc/settings/model_deprecate.php:133
+msgid "Admin dashboard"
+msgstr "Консоль WP"
+
+#: inc/settings/controls.php:143 inc/settings/model_deprecate.php:127
+msgid "Exit point"
+msgstr "Точка выхода"
+
+#: inc/settings/controls.php:89 inc/settings/model_deprecate.php:88
+msgid "Editor skins"
+msgstr "Скины редактора"
+
+#: admin/settings.php:39 inc/settings/model_deprecate.php:38
+msgid "FEP Settings"
+msgstr "FEP настройки"
+
+#: inc/settings/controls.php:155 inc/settings/model_deprecate.php:139
+msgid "Open in new tab"
+msgstr "Открыть в новой вкладке"
+
+#: admin/settings.php:54 inc/settings/manager_deprecate.php:46
+msgid "Settings"
+msgstr "Настройки"
+
+#. Description of the plugin
+msgid "This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities."
+msgstr "Это аддон к популярному конструктору страниц Elementor. Этот аддон делает  панель виджетов Elementor гибкой, перетаскиваемой и сворачиваемой, давая больше места и возможностей."
+
+#. Plugin Name of the plugin
+#: flexible-elementor-panel.php:288 flexible-elementor-panel.php:311
+#: flexible-elementor-panel.php:335 flexible-elementor-panel.php:360
+#: admin/settings.php:38 admin/settings.php:124
+msgid "Flexible Elementor Panel"
+msgstr "Flexible Elementor Panel"

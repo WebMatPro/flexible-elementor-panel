@@ -35,8 +35,8 @@ class FEP_Admin_Settings {
 
         $my_page = add_submenu_page(
             'elementor',
-            __( 'Flexible Elementor Panel', 'fep' ),
-    		__( 'FEP Settings', 'fep' ),
+            __( 'Flexible Elementor Panel', 'flexible-elementor-panel' ),
+    		__( 'FEP Settings', 'flexible-elementor-panel' ),
             'manage_options',
             'fep-options',
             [ $this, 'plugin_page' ]
@@ -51,7 +51,7 @@ class FEP_Admin_Settings {
 	// Add link to configuration page into plugin
 	public static function add_action_links( $links ) {
 	    $mylinks = array(
-			'settings' => '<a href="' . admin_url( 'admin.php?page=fep-options' ) . '">' . __( 'Settings', 'fep' ) . '</a>',
+			'settings' => '<a href="' . admin_url( 'admin.php?page=fep-options' ) . '">' . __( 'Settings', 'flexible-elementor-panel' ) . '</a>',
 		);
 	    return array_merge( $links, $mylinks );
 	}
@@ -70,28 +70,28 @@ class FEP_Admin_Settings {
             [
 
                 'id'     => 'fep_informations',
-                'title'  => esc_html__( 'Informations', 'fep' ),
+                'title'  => esc_html__( 'Informations', 'flexible-elementor-panel' ),
 				'submit' => false,
 
             ],
 			[
 
 				'id'     => 'fep_how_to_configure',
-				'title'  => esc_html__( 'How to configure', 'fep' ),
+				'title'  => esc_html__( 'How to configure', 'flexible-elementor-panel' ),
 				'submit' => false,
 
 			],
 			[
 
 				'id'     => 'fep_divers',
-				'title'  => esc_html__( 'Divers', 'fep' ),
+				'title'  => esc_html__( 'Divers', 'flexible-elementor-panel' ),
 				'submit' => true,
 
 			],
 			[
 
 				'id'     => 'fep_debug',
-				'title'  => esc_html__( 'Debug', 'fep' ),
+				'title'  => esc_html__( 'Debug', 'flexible-elementor-panel' ),
 				'submit' => false,
 
 			],
@@ -121,8 +121,8 @@ class FEP_Admin_Settings {
     public function plugin_page() {
 
 		$html_fep_title = '<div class="title">';
-			$html_fep_title .= '<h1>' . __('Flexible Elementor Panel','fep') . '</h1>';
-			$html_fep_title .= '<h3>' . __('Makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.','fep') . '</h3>';
+			$html_fep_title .= '<h1>' . __('Flexible Elementor Panel','flexible-elementor-panel') . '</h1>';
+			$html_fep_title .= '<h3>' . __('Makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.','flexible-elementor-panel') . '</h3>';
 		$html_fep_title .='</div>';
 
         echo '<div class="wrap" id="fep-admin">';
@@ -141,7 +141,7 @@ class FEP_Admin_Settings {
 
             <div class="updated notice is-dismissible">
 
-                <p><strong><?php esc_html_e('Your settings have been saved.', 'fep') ?></strong></p>
+                <p><strong><?php esc_html_e('Your settings have been saved.', 'flexible-elementor-panel') ?></strong></p>
 
             </div>
 
@@ -158,7 +158,7 @@ class FEP_Admin_Settings {
 
         <div class="fep-options-footer-info">
 
-			<p><?php //_e('footer text', 'fep'); ?></p>
+			<p><?php //_e('footer text', 'flexible-elementor-panel'); ?></p>
 
         </div>
 
@@ -185,7 +185,7 @@ class FEP_Admin_Settings {
 
 		wp_enqueue_script( 'flexible-elementor-panel-admin', FEP_URL . '/admin/assets/js/flexible-elementor-panel-admin.js', false, FEP_VERSION, true );
 		wp_localize_script('flexible-elementor-panel-admin', 'text_var', array(
-			'confirm' => __('Do you confirm that action?', 'fep')
+			'confirm' => __('Do you confirm that action?', 'flexible-elementor-panel')
 			)
 		);
 

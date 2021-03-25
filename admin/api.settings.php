@@ -126,7 +126,7 @@ class FEP_Settings_API {
             foreach ( $field as $option ) {
 
                 $name = $option['name'];
-				$label_button = isset( $option['label_button'] ) ? $option['label_button'] : __('Button', 'fep');
+				$label_button = isset( $option['label_button'] ) ? $option['label_button'] : __('Button', 'flexible-elementor-panel');
 				$after = isset( $option['after'] ) ? $option['after'] : '';
                 $type = isset( $option['type'] ) ? $option['type'] : 'text';
                 $label = isset( $option['label'] ) ? $option['label'] : '';

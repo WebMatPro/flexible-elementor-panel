@@ -5,12 +5,12 @@
  * Plugin Name: 		Flexible Elementor Panel
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
- * Version: 			2.3.4
+ * Version: 			2.3.5
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
  * License URI: 		http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: 		fep
+ * Text Domain: 		flexible-elementor-panel
  * Domain Path: 		/languages
 **/
 
@@ -118,7 +118,7 @@ final class Elementor_FEP_Extension {
 	 */
 	public function i18n() {
 
-		load_plugin_textdomain( 'fep', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+		load_plugin_textdomain( 'flexible-elementor-panel', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 	}
 
@@ -284,9 +284,9 @@ final class Elementor_FEP_Extension {
 		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
 
 		$message = sprintf(
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'fep' ),
-			'<strong>' . esc_html__( 'Flexible Elementor Panel', 'fep' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'fep' ) . '</strong>'
+			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'flexible-elementor-panel' ),
+			'<strong>' . esc_html__( 'Flexible Elementor Panel', 'flexible-elementor-panel' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'flexible-elementor-panel' ) . '</strong>'
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -307,9 +307,9 @@ final class Elementor_FEP_Extension {
 		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
 
 		$message = sprintf(
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'fep' ),
-			'<strong>' . esc_html__( 'Flexible Elementor Panel', 'fep' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'fep' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'flexible-elementor-panel' ),
+			'<strong>' . esc_html__( 'Flexible Elementor Panel', 'flexible-elementor-panel' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'flexible-elementor-panel' ) . '</strong>',
 			 self::MINIMUM_ELEMENTOR_VERSION
 		);
 
@@ -331,9 +331,9 @@ final class Elementor_FEP_Extension {
 		if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
 
 		$message = sprintf(
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'fep' ),
-			'<strong>' . esc_html__( 'Flexible Elementor Panel', 'fep' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'fep' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'flexible-elementor-panel' ),
+			'<strong>' . esc_html__( 'Flexible Elementor Panel', 'flexible-elementor-panel' ) . '</strong>',
+			'<strong>' . esc_html__( 'PHP', 'flexible-elementor-panel' ) . '</strong>',
 			 self::MINIMUM_PHP_VERSION
 		);
 
@@ -356,9 +356,9 @@ final class Elementor_FEP_Extension {
 		/* Check transient, if available display notice */
 		if( get_transient( 'fep-admin-notice-activation' ) ) {
 			$message = sprintf(
-				esc_html__( 'Thanks you to use our plugin %1$s, %2$s', 'fep' ),
-				'<strong>' . esc_html__( 'Flexible Elementor Panel', 'fep' ) . '</strong>',
-				'<a href="'. get_admin_url() . '/admin.php?page=fep-options">' . esc_html__( 'go to the information page for understand how to configure it', 'fep' ) . '</a>'
+				esc_html__( 'Thanks you to use our plugin %1$s, %2$s', 'flexible-elementor-panel' ),
+				'<strong>' . esc_html__( 'Flexible Elementor Panel', 'flexible-elementor-panel' ) . '</strong>',
+				'<a href="'. get_admin_url() . '/admin.php?page=fep-options">' . esc_html__( 'go to the information page for understand how to configure it', 'flexible-elementor-panel' ) . '</a>'
 			);
 
 			printf( '<div class="notice notice-info is-dismissible"><p>%1$s</p></div>', $message );
@@ -369,7 +369,7 @@ final class Elementor_FEP_Extension {
 
 		/* Check transient, if available display notice */
 		if( get_transient( 'fep-admin-notice-update-user-preferences' ) ) {
-			$message = __( 'Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the "User Preferences" of the Elementor editor!', 'fep' );
+			$message = __( 'Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the "User Preferences" of the Elementor editor!', 'flexible-elementor-panel' );
 
 			echo '<div class="notice notice-info" style="position: relative;"><p>';
 				echo $message;
@@ -380,7 +380,7 @@ final class Elementor_FEP_Extension {
 
 		/* Check transient, if available display notice */
 		if( get_transient( 'fep-admin-notice-update-user-preferences-done' ) ) {
-			$message = __( 'FEP settings are correctly updated in the "User Preferences" of the Elementor editor!', 'fep' );
+			$message = __( 'FEP settings are correctly updated in the "User Preferences" of the Elementor editor!', 'flexible-elementor-panel' );
 
 			printf( '<div class="notice notice-info is-dismissible"><p>%1$s</p></div>', $message );
 
@@ -530,7 +530,7 @@ final class Elementor_FEP_Extension {
 
 		// Localize the script with new data
 		$translation_array = array(
-			'exit_tooltip' => __( 'Exit', 'fep' ),
+			'exit_tooltip' => __( 'Exit', 'flexible-elementor-panel' ),
 		);
 		wp_localize_script( 'flexible-elementor-panel', 'fep', $translation_array );
 

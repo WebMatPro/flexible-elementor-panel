@@ -1,0 +1,129 @@
+# Translation of Plugins - Flexible Elementor Panel - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - Flexible Elementor Panel - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-11-21 11:49:57+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - Flexible Elementor Panel - Stable (latest release)\n"
+
+#: inc/settings/controls.php:79 inc/settings/model_deprecate.php:78
+msgid "Minimize all categories with right click"
+msgstr "Alle Kategorien per Rechtsklick minimieren"
+
+#: flexible-elementor-panel.php:289 flexible-elementor-panel.php:312
+msgid "Elementor"
+msgstr "Elementor"
+
+#: flexible-elementor-panel.php:287
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr "\"%1$s\" erfordert, dass \"%2$s\" installiert und aktiviert ist."
+
+#: inc/settings/controls.php:62 inc/settings/model_deprecate.php:61
+msgid "hold down the left click on title of panel for move it (put it in the corner left and click on the title for back to origin style)"
+msgstr "bei gedrückter linker Maustaste auf den Titel des Panels, kann dieses bewegt werden (lege es in der linken Ecke ab und klicke auf den Titel, um zum originalen Stil zurückzukehren)"
+
+#: inc/settings/controls.php:93 inc/settings/model_deprecate.php:92
+msgid "Dark Orange"
+msgstr "Dunkel: Akzent Orange"
+
+#: inc/settings/controls.php:92 inc/settings/model_deprecate.php:91
+msgid "Dark Pink"
+msgstr "Dunkel: Akzent Pink"
+
+#: inc/settings/controls.php:132 inc/settings/model_deprecate.php:116
+msgid "Exit button options"
+msgstr "Optionen für Ausstiegs-Button"
+
+#: inc/settings/controls.php:70 inc/settings/model_deprecate.php:69
+msgid "Use FLEX GRID for widgets"
+msgstr "FLEX-GRID für Widgets verwenden"
+
+#: inc/settings/controls.php:211 inc/settings/model_deprecate.php:195
+msgid "Accordion widget options"
+msgstr "Optionen für das Akkordeon-Widget"
+
+#: inc/settings/controls.php:150 inc/settings/model_deprecate.php:134
+msgid "Elementor library"
+msgstr "Elementor-Templates"
+
+#: inc/settings/controls.php:61 inc/settings/model_deprecate.php:60
+msgid "Draggable panel"
+msgstr "Bewegliches Panel"
+
+#: inc/settings/controls.php:80 inc/settings/model_deprecate.php:79
+msgid "click the right mouse button on the panel to collapse all categories of widgets"
+msgstr "Klicke die rechte Maustaste über dem Panel, um alle Widgetkategorien einzuklappen"
+
+#: inc/settings/controls.php:58 inc/settings/model_deprecate.php:57
+msgid "Panel settings"
+msgstr "Panel-Einstellungen"
+
+#: inc/settings/controls.php:65 inc/settings/controls.php:74
+#: inc/settings/controls.php:83 inc/settings/controls.php:102
+#: inc/settings/controls.php:110 inc/settings/controls.php:138
+#: inc/settings/controls.php:158 inc/settings/controls.php:177
+#: inc/settings/controls.php:186 inc/settings/controls.php:195
+#: inc/settings/controls.php:204 inc/settings/controls.php:217
+#: inc/settings/model_deprecate.php:64 inc/settings/model_deprecate.php:73
+#: inc/settings/model_deprecate.php:82 inc/settings/model_deprecate.php:101
+#: inc/settings/model_deprecate.php:109 inc/settings/model_deprecate.php:122
+#: inc/settings/model_deprecate.php:142 inc/settings/model_deprecate.php:161
+#: inc/settings/model_deprecate.php:170 inc/settings/model_deprecate.php:179
+#: inc/settings/model_deprecate.php:188 inc/settings/model_deprecate.php:201
+msgid "Off"
+msgstr "Aus"
+
+#: inc/settings/controls.php:64 inc/settings/controls.php:73
+#: inc/settings/controls.php:82 inc/settings/controls.php:101
+#: inc/settings/controls.php:109 inc/settings/controls.php:137
+#: inc/settings/controls.php:157 inc/settings/controls.php:176
+#: inc/settings/controls.php:185 inc/settings/controls.php:194
+#: inc/settings/controls.php:203 inc/settings/controls.php:216
+#: inc/settings/model_deprecate.php:63 inc/settings/model_deprecate.php:72
+#: inc/settings/model_deprecate.php:81 inc/settings/model_deprecate.php:100
+#: inc/settings/model_deprecate.php:108 inc/settings/model_deprecate.php:121
+#: inc/settings/model_deprecate.php:141 inc/settings/model_deprecate.php:160
+#: inc/settings/model_deprecate.php:169 inc/settings/model_deprecate.php:178
+#: inc/settings/model_deprecate.php:187 inc/settings/model_deprecate.php:200
+msgid "On"
+msgstr "An"
+
+#: inc/settings/controls.php:155 inc/settings/model_deprecate.php:139
+msgid "Open in new tab"
+msgstr "Öffnen in neuem Tab"
+
+#: inc/settings/controls.php:149 inc/settings/model_deprecate.php:133
+msgid "Admin dashboard"
+msgstr "Admin-Dashboard"
+
+#: inc/settings/controls.php:143 inc/settings/model_deprecate.php:127
+msgid "Exit point"
+msgstr "Ausstiegspunkt"
+
+#: inc/settings/controls.php:89 inc/settings/model_deprecate.php:88
+msgid "Editor skins"
+msgstr "Editor-Skins"
+
+#: admin/settings.php:39 inc/settings/model_deprecate.php:38
+msgid "FEP Settings"
+msgstr "FEP-Einstellungen"
+
+#: admin/settings.php:54 inc/settings/manager_deprecate.php:46
+msgid "Settings"
+msgstr "Einstellungen"
+
+#. Plugin Name of the plugin
+#: flexible-elementor-panel.php:288 flexible-elementor-panel.php:311
+#: flexible-elementor-panel.php:335 flexible-elementor-panel.php:360
+#: admin/settings.php:38 admin/settings.php:124
+msgid "Flexible Elementor Panel"
+msgstr "Flexible Elementor Panel"
+
+#. Description of the plugin
+msgid "This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities."
+msgstr "Dies ist ein Add-On für den beliebten Page Builder Elementor. Es macht das Elementor Widgets Panel flexibel, beweglich und einklappbar, so dass mehr Platz und Möglichkeiten zur Verfügung stehen."

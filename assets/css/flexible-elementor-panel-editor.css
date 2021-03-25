@@ -42,6 +42,7 @@
 #elementor-preview,
 .e-responsive-bar {
     width: auto;
+    left: 300px;
 }
 .elementor-panel {
     position: fixed;

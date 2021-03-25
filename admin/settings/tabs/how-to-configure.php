@@ -22,8 +22,8 @@ class FEP_HowToConfigure_Tab {
         $section = [];
 
 		$html_fep_how_to_configure = '<div class="content-howtodo">';
-			$html_fep_how_to_configure .= '<p>' . __('The FEP settings can be found in Elementor. Open Elementor and you will find the FEP settings in the User Preferences.','fep') . '</p>';
-			$html_fep_how_to_configure .= '<p>' . __('All options are enabled by default. Take a look!','fep') . '</p>';
+			$html_fep_how_to_configure .= '<p>' . __('The FEP settings can be found in Elementor. Open Elementor and you will find the FEP settings in the User Preferences.','flexible-elementor-panel') . '</p>';
+			$html_fep_how_to_configure .= '<p>' . __('All options are enabled by default. Take a look!','flexible-elementor-panel') . '</p>';
 
 			//if Elementor is version 3.0.0 or more
 			if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {

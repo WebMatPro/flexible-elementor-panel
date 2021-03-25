@@ -26,7 +26,7 @@ class FEP_Divers_Tab {
             'fep_divers' => [
 				[
 					'name'               => 'fep_frontend_accordion_close',
-					'label' 			 => __( 'Check to close the first tab on all Elementor accordions', 'fep' ),
+					'label' 			 => __( 'Check to close the first tab on all Elementor accordions', 'flexible-elementor-panel' ),
 					'class'              => 'fep_frontend_accordion_close',
 					'type'               => 'checkbox',
 				],

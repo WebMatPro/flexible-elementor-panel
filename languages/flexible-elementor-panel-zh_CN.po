@@ -1,0 +1,412 @@
+# Translation of Plugins - Flexible Elementor Panel - Stable (latest release) in Chinese (China)
+# This file is distributed under the same license as the Plugins - Flexible Elementor Panel - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-03-24 01:42:44+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Plugins - Flexible Elementor Panel - Stable (latest release)\n"
+
+#: inc/settings/controls.php:52
+msgid "You can set the option to closed the first tabs accordion in frontend there:"
+msgstr "您可以将选项设置为在前面关闭第一个选项卡手风琴的选项："
+
+#: admin/settings/tabs/divers.php:29
+msgid "Check to close the first tab on all Elementor accordions"
+msgstr "选中可关闭所有Elementor手风琴上的第一个选项卡"
+
+#: admin/settings/tabs/how-to-configure.php:26
+msgid "All options are enabled by default. Take a look!"
+msgstr "默认情况下所有选项都是启用的。看看吧！"
+
+#: admin/settings/tabs/how-to-configure.php:25
+msgid "The FEP settings can be found in Elementor. Open Elementor and you will find the FEP settings in the User Preferences."
+msgstr "FEP 设置可以在 Elementor 找到。打开 Elementor，你会在用户首选项中找到 FEP 设置。"
+
+#: admin/settings/tabs/debug.php:56
+msgid "FEP saves these options with the native saving of the Elementor options. Delete FEP options with this button. <red>Please backup your database before deletion of the FEP options.</red>"
+msgstr "FEP通过本地保存Elementor选项来保存这些选项。使用此按钮删除FEP选项.<red>请先备份数据库，然后再删除FEP选项.</red>"
+
+#: admin/settings/tabs/debug.php:55
+msgid "DELETE THE FEP OPTIONS FROM THE DATABASE."
+msgstr "从数据库中删除 FEP 选项。"
+
+#: admin/settings/tabs/debug.php:47
+msgid "FEP uses the local storage of your navigator to save the position of the Elementor editor panel. Reset to default with this button."
+msgstr "FEP使用导航器的本地存储来保存Elementor编辑器面板的位置。使用此按钮重置为默认值。"
+
+#: admin/settings/tabs/debug.php:46
+msgid "RESET THE POSITION/SIZE OF THE ELEMENTOR EDITOR PANEL."
+msgstr "重置 Elementor 编辑器面板的位置/大小。"
+
+#: admin/settings/tabs/debug.php:45
+msgid "The position/size of the Elementor editor panel has been reset!"
+msgstr "Elementor编辑器面板的位置/大小已重设！"
+
+#: admin/settings/tabs/debug.php:37
+msgid "CHECK THE OPTIONS USED BY FEP FROM THE DATABASE AND LOCAL STORAGE"
+msgstr "从数据库和本地存储检查 FEP 使用的选项"
+
+#: admin/settings/tabs/debug.php:34
+msgid "Check the user preferences"
+msgstr "检查用户偏好"
+
+#: admin/settings/tabs/informations.php:31
+msgid "Give us a positive rating directly in the Wordpress plugin repository. Thanks!"
+msgstr "直接在 WordPress 插件库中给我们一个正面的评价，谢谢！"
+
+#: admin/settings/tabs/informations.php:30
+msgid "Please give us 5 minutes of your time to support us."
+msgstr "请给我们5分钟的时间来支持我们。"
+
+#: admin/settings/tabs/informations.php:29
+msgid "Thanks for using our plugin. It's free for all Wordpress and Elementor users."
+msgstr "谢谢你使用我们的插件，它对所有 WordPress 和 Elementor 用户都是免费的。"
+
+#: flexible-elementor-panel.php:383
+msgid "FEP settings are correctly updated in the \"User Preferences\" of the Elementor editor!"
+msgstr "FEP设置在 Elementor 编辑器的\"用户首选项\"中已正确更新！"
+
+#: flexible-elementor-panel.php:372
+msgid "Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the \"User Preferences\" of the Elementor editor!"
+msgstr "太好了，您使用的是 FEP 2.2 + 和 Elementor 3.0+ ,您现在可以在Elementor编辑器的\"用户首选项\"中使用 FEP 设置！"
+
+#: admin/settings.php:188
+msgid "Do you confirm that action?"
+msgstr "您确认该动作吗？"
+
+#: admin/settings.php:80
+msgid "How to configure"
+msgstr "如何配置"
+
+#: admin/settings.php:94
+msgid "Debug"
+msgstr "调试"
+
+#: admin/settings/tabs/debug.php:153
+msgid "Note: These value save automatically from your navigator after move and resize the editor panel"
+msgstr "注意：移动并调整编辑器面板的大小后，这些值会从导航器自动保存"
+
+#: admin/settings/tabs/debug.php:152
+msgid "Value of \"Move Panel\""
+msgstr "\"移动面板\"的值"
+
+#: admin/settings/tabs/debug.php:151
+msgid "Position of \"Right Panel\""
+msgstr "\"右面板\"的位置"
+
+#: admin/settings/tabs/debug.php:150
+msgid "Position of \"Left Panel\""
+msgstr "\"左面板\"的位置"
+
+#: admin/settings/tabs/debug.php:149
+msgid "Position of \"Top Panel\""
+msgstr "\"顶面板\"的位置"
+
+#: admin/settings/tabs/debug.php:148
+msgid "Size of \"Height Panel\""
+msgstr "\"高度面板\"的大小"
+
+#: admin/settings/tabs/debug.php:147
+msgid "Size of \"Width Panel\""
+msgstr "\"宽度面板\"的大小"
+
+#: admin/settings/tabs/debug.php:133 admin/settings/tabs/debug.php:143
+msgid "Note: all settings saved, will be print above. If the settings not appear, it means it is configured by default"
+msgstr "注意：所有保存的设置将在上方打印。如果未显示该设置，则表示它是默认配置"
+
+#: admin/settings/tabs/debug.php:106 admin/settings/tabs/debug.php:111
+#: admin/settings/tabs/debug.php:128
+msgid "with the value"
+msgstr "有值"
+
+#: admin/settings/tabs/debug.php:76 admin/settings/tabs/debug.php:77
+#: admin/settings/tabs/debug.php:78 admin/settings/tabs/debug.php:79
+#: admin/settings/tabs/debug.php:80 admin/settings/tabs/debug.php:81
+msgid "no value"
+msgstr "无值"
+
+#: admin/settings/tabs/debug.php:54
+msgid "The FEP options have been removed from the database!"
+msgstr "FEP选项已从数据库中删除！"
+
+#: admin/settings/tabs/debug.php:52
+msgid "Reset FEP Options"
+msgstr "重置FEP选项"
+
+#: admin/api.settings.php:129
+msgid "Button"
+msgstr "按钮"
+
+#: inc/settings/controls.php:49 inc/settings/model_deprecate.php:50
+msgid "The pro version is currently development,<br> get more information now on:"
+msgstr "专业版目前正在开发中,<br>现在获取更多信息："
+
+#. Author URI of the plugin
+msgid "https://webmat.pro"
+msgstr "https://webmat.pro"
+
+#. Author of the plugin
+msgid "WebMat"
+msgstr "WebMat"
+
+#: inc/settings/controls.php:201 inc/settings/model_deprecate.php:185
+msgid "Adds an alternative indicator for responsive hidden elements by changing their handle colors."
+msgstr "通过更改其隐藏颜色为响应性隐藏元素添加替代指示器。"
+
+#: inc/settings/controls.php:200 inc/settings/model_deprecate.php:184
+msgid "Alternative Responsive Indicator"
+msgstr "替代响应指示器"
+
+#: inc/settings/controls.php:192 inc/settings/model_deprecate.php:176
+msgid "Remove the grayed out overlay pattern from any responsive hidden element and restore their original colors."
+msgstr "从任何敏感的隐藏元素中删除变灰的覆盖图案，并恢复其原始颜色。"
+
+#: inc/settings/controls.php:191 inc/settings/model_deprecate.php:175
+msgid "Disable Responsive Overlays"
+msgstr "禁用响应式叠加层"
+
+#: inc/settings/controls.php:183 inc/settings/model_deprecate.php:167
+msgid "Allow editing of elements inside responsive hidden Sections or Inner Sections without having to use the Navigator."
+msgstr "允许在响应式隐藏节或内部节中编辑元素，而无需使用导航器。"
+
+#: inc/settings/controls.php:182 inc/settings/model_deprecate.php:166
+msgid "Allow Editing Inside Hidden Sections"
+msgstr "允许在隐藏部分中进行编辑"
+
+#: inc/settings/controls.php:174 inc/settings/model_deprecate.php:158
+msgid "Completely hides elements that are set to hide in responsive modes."
+msgstr "完全隐藏设置为在响应模式下隐藏的元素。"
+
+#: inc/settings/controls.php:173 inc/settings/model_deprecate.php:157
+msgid "Hide Responsive Elements"
+msgstr "隐藏响应元素"
+
+#: inc/settings/controls.php:169 inc/settings/model_deprecate.php:153
+msgid "These options give you control over how responsive hidden elements appear and behave inside the Elementor editor on each responsive view (Desktop, Tablet or Mobile). Use them carefully to avoid misplacing elements while editing."
+msgstr "这些选项使您可以控制响应式隐藏元素在每个响应视图（台式机，平板电脑或移动设备）上的Elementor编辑器中的显示方式和行为。小心使用它们，以避免在编辑时放错元素。"
+
+#: inc/settings/controls.php:228 inc/settings/model_deprecate.php:208
+msgid "Tools & Informations"
+msgstr "工具与资讯"
+
+#: inc/settings/controls.php:165 inc/settings/model_deprecate.php:149
+msgid "Responsive options"
+msgstr "响应选项"
+
+#: inc/settings/controls.php:135 inc/settings/model_deprecate.php:119
+msgid "Display the exit icon in footer panel"
+msgstr "在面板页脚中显示退出图标"
+
+#: inc/settings/controls.php:107 inc/settings/model_deprecate.php:106
+msgid "Display the reset panel icon in header panel"
+msgstr "在面板页眉中显示重置面板图标"
+
+#: inc/settings/controls.php:99 inc/settings/model_deprecate.php:98
+msgid "Display the vertical collaspe icon in header panel"
+msgstr "在面板页眉中显示垂直折叠图标"
+
+#: inc/settings/controls.php:94 inc/settings/model_deprecate.php:93
+msgid "Default"
+msgstr "默认"
+
+#: inc/settings/controls.php:214 inc/settings/model_deprecate.php:198
+msgid "First tab closed (only in editor)"
+msgstr "第一个选项卡已关闭（仅在编辑器中）"
+
+#: inc/settings/controls.php:148 inc/settings/model_deprecate.php:132
+msgid "List Page/Post"
+msgstr "列表 页/文章"
+
+#: inc/settings/controls.php:147 inc/settings/model_deprecate.php:131
+msgid "Edition"
+msgstr "版本"
+
+#: inc/settings/controls.php:146 inc/settings/model_deprecate.php:130
+msgid "View"
+msgstr "查看"
+
+#: admin/settings.php:125
+msgid "Makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities."
+msgstr "使Elementor编辑器面板灵活、可拖动、可调整大小、可折叠以及更多空间。"
+
+#: inc/settings/controls.php:47 inc/settings/model_deprecate.php:48
+msgid "Reset Panel Position/Size"
+msgstr "重置面板位置/大小"
+
+#: admin/settings.php:87
+msgid "Divers"
+msgstr "杂项"
+
+#: admin/settings.php:73
+msgid "Informations"
+msgstr "信息"
+
+#: admin/settings/tabs/debug.php:43
+msgid "Reset Editor Panel"
+msgstr "重置编辑器面板"
+
+#: admin/settings.php:144
+msgid "Your settings have been saved."
+msgstr "您的设置已保存。"
+
+#: admin/settings/tabs/informations.php:32
+msgid "Don't forget, we are open to all helpful suggestions on our <a href=\"https://wordpress.org/support/plugin/flexible-elementor-panel/\" target=\"_blank\">support forum.</a>"
+msgstr "别忘了，我们欢迎所有关于我们的有用建议<a href=\"https://wordpress.org/support/plugin/flexible-elementor-panel/\" target=\"_blank\">支持论坛</a>"
+
+#: admin/settings/tabs/informations.php:31
+msgid "https://wordpress.org/support/plugin/flexible-elementor-panel/reviews/?filter=5/#new-post"
+msgstr "https://wordpress.org/support/plugin/flexible-elementor-panel/reviews/?filter=5/#new-post"
+
+#: admin/api.settings.php:401
+msgid "Choose File"
+msgstr "选择文件"
+
+#: flexible-elementor-panel.php:533
+msgid "Exit"
+msgstr "退出"
+
+#: flexible-elementor-panel.php:361
+msgid "go to the information page for understand how to configure it"
+msgstr "转到信息页面以了解如何配置它"
+
+#: flexible-elementor-panel.php:359
+msgid "Thanks you to use our plugin %1$s, %2$s"
+msgstr "感谢您使用我们的插件%1$s,%2$s"
+
+#: inc/settings/controls.php:71 inc/settings/model_deprecate.php:70
+msgid "This reduce the size of widgets in the editor and styling them"
+msgstr "这样可以减少编辑器中小部件的大小并为其设置样式"
+
+#: flexible-elementor-panel.php:336
+msgid "PHP"
+msgstr "PHP"
+
+#: flexible-elementor-panel.php:310 flexible-elementor-panel.php:334
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr "\"%1$s\"要求的是%3$s或更高版本的%2$s."
+
+#: inc/settings/controls.php:93 inc/settings/model_deprecate.php:92
+msgid "Dark Orange"
+msgstr "深橙色"
+
+#: inc/settings/controls.php:92 inc/settings/model_deprecate.php:91
+msgid "Dark Pink"
+msgstr "深粉红色"
+
+#: inc/settings/controls.php:79 inc/settings/model_deprecate.php:78
+msgid "Minimize all categories with right click"
+msgstr "用鼠标右键最小化所有类别"
+
+#: inc/settings/controls.php:62 inc/settings/model_deprecate.php:61
+msgid "hold down the left click on title of panel for move it (put it in the corner left and click on the title for back to origin style)"
+msgstr "按住面板标题上的左键单击以将其移动（将其放在左角，然后单击标题以返回到原始样式）"
+
+#: flexible-elementor-panel.php:289 flexible-elementor-panel.php:312
+msgid "Elementor"
+msgstr "Elementor"
+
+#: flexible-elementor-panel.php:287
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr "\"%1$s\"要求安装和激活\"%2$s\"."
+
+#: inc/settings/controls.php:132 inc/settings/model_deprecate.php:116
+msgid "Exit button options"
+msgstr "退出按钮选项"
+
+#: inc/settings/controls.php:70 inc/settings/model_deprecate.php:69
+msgid "Use FLEX GRID for widgets"
+msgstr "对小部件使用 FLEX GRID"
+
+#: inc/settings/controls.php:211 inc/settings/model_deprecate.php:195
+msgid "Accordion widget options"
+msgstr "手风琴小部件选项"
+
+#: inc/settings/controls.php:150 inc/settings/model_deprecate.php:134
+msgid "Elementor library"
+msgstr "Elementor库"
+
+#: inc/settings/controls.php:80 inc/settings/model_deprecate.php:79
+msgid "click the right mouse button on the panel to collapse all categories of widgets"
+msgstr "在面板上单击鼠标右键可折叠所有类别的小部件"
+
+#: inc/settings/controls.php:61 inc/settings/model_deprecate.php:60
+msgid "Draggable panel"
+msgstr "可拖动面板"
+
+#: inc/settings/controls.php:58 inc/settings/model_deprecate.php:57
+msgid "Panel settings"
+msgstr "面板设置"
+
+#: inc/settings/controls.php:65 inc/settings/controls.php:74
+#: inc/settings/controls.php:83 inc/settings/controls.php:102
+#: inc/settings/controls.php:110 inc/settings/controls.php:138
+#: inc/settings/controls.php:158 inc/settings/controls.php:177
+#: inc/settings/controls.php:186 inc/settings/controls.php:195
+#: inc/settings/controls.php:204 inc/settings/controls.php:217
+#: inc/settings/model_deprecate.php:64 inc/settings/model_deprecate.php:73
+#: inc/settings/model_deprecate.php:82 inc/settings/model_deprecate.php:101
+#: inc/settings/model_deprecate.php:109 inc/settings/model_deprecate.php:122
+#: inc/settings/model_deprecate.php:142 inc/settings/model_deprecate.php:161
+#: inc/settings/model_deprecate.php:170 inc/settings/model_deprecate.php:179
+#: inc/settings/model_deprecate.php:188 inc/settings/model_deprecate.php:201
+msgid "Off"
+msgstr "关闭"
+
+#: inc/settings/controls.php:64 inc/settings/controls.php:73
+#: inc/settings/controls.php:82 inc/settings/controls.php:101
+#: inc/settings/controls.php:109 inc/settings/controls.php:137
+#: inc/settings/controls.php:157 inc/settings/controls.php:176
+#: inc/settings/controls.php:185 inc/settings/controls.php:194
+#: inc/settings/controls.php:203 inc/settings/controls.php:216
+#: inc/settings/model_deprecate.php:63 inc/settings/model_deprecate.php:72
+#: inc/settings/model_deprecate.php:81 inc/settings/model_deprecate.php:100
+#: inc/settings/model_deprecate.php:108 inc/settings/model_deprecate.php:121
+#: inc/settings/model_deprecate.php:141 inc/settings/model_deprecate.php:160
+#: inc/settings/model_deprecate.php:169 inc/settings/model_deprecate.php:178
+#: inc/settings/model_deprecate.php:187 inc/settings/model_deprecate.php:200
+msgid "On"
+msgstr "开启"
+
+#: inc/settings/controls.php:155 inc/settings/model_deprecate.php:139
+msgid "Open in new tab"
+msgstr "在新选项卡中打开"
+
+#: inc/settings/controls.php:149 inc/settings/model_deprecate.php:133
+msgid "Admin dashboard"
+msgstr "管理控制台"
+
+#: inc/settings/controls.php:143 inc/settings/model_deprecate.php:127
+msgid "Exit point"
+msgstr "出口点"
+
+#: inc/settings/controls.php:89 inc/settings/model_deprecate.php:88
+msgid "Editor skins"
+msgstr "编辑器皮肤"
+
+#: admin/settings.php:39 inc/settings/model_deprecate.php:38
+msgid "FEP Settings"
+msgstr "FEP 设置"
+
+#: admin/settings.php:54 inc/settings/manager_deprecate.php:46
+msgid "Settings"
+msgstr "设置"
+
+#. Description of the plugin
+msgid "This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities."
+msgstr "【灵活元素面板】这是流行的页面构建器Elementor的附加组件。使Elementor 小部件面板更灵活，可拖动和折叠，从而提供更多的空间和有利环境。"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/flexible-elementor-panel/"
+msgstr "https://wordpress.org/plugins/flexible-elementor-panel/"
+
+#. Plugin Name of the plugin
+#: flexible-elementor-panel.php:288 flexible-elementor-panel.php:311
+#: flexible-elementor-panel.php:335 flexible-elementor-panel.php:360
+#: admin/settings.php:38 admin/settings.php:124
+msgid "Flexible Elementor Panel"
+msgstr "Flexible Elementor Panel"

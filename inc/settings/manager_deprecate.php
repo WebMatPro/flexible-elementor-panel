@@ -43,7 +43,7 @@ class Manager extends BaseManager {
 
 	// add the FEP settings to editor panel
 	private function add_panel_tabs() {
-		Controls_Manager::add_tab( 'fep_settings', __( 'Settings', 'fep' ) );
+		Controls_Manager::add_tab( 'fep_settings', __( 'Settings', 'flexible-elementor-panel' ) );
 	}
 
 	// get saved settings for apply it to load

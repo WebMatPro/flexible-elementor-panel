@@ -1,0 +1,209 @@
+# Translation of Plugins - Flexible Elementor Panel - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Flexible Elementor Panel - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-27 14:38:40+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Flexible Elementor Panel - Stable (latest release)\n"
+
+#: inc/settings/controls.php:214 inc/settings/model_deprecate.php:198
+msgid "First tab closed (only in editor)"
+msgstr "Primera pestaña cerrada (solamente en el editor)"
+
+#: inc/settings/controls.php:148 inc/settings/model_deprecate.php:132
+msgid "List Page/Post"
+msgstr "Lista de páginas/entradas"
+
+#: inc/settings/controls.php:147 inc/settings/model_deprecate.php:131
+msgid "Edition"
+msgstr "Edición"
+
+#: inc/settings/controls.php:146 inc/settings/model_deprecate.php:130
+msgid "View"
+msgstr "Vista"
+
+#: admin/settings.php:125
+msgid "Makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities."
+msgstr "Haz el panel de edición de Elementor flexible, arrastable, redimensionable, plegable y más opciones."
+
+#: inc/settings/controls.php:47 inc/settings/model_deprecate.php:48
+msgid "Reset Panel Position/Size"
+msgstr "Restablece la posición/tamaño del panel"
+
+#: admin/settings.php:87
+msgid "Divers"
+msgstr "Diversos"
+
+#: admin/settings.php:73
+msgid "Informations"
+msgstr "Informaciones"
+
+#: admin/settings/tabs/debug.php:43
+msgid "Reset Editor Panel"
+msgstr "Restablecer el panel de edición"
+
+#: admin/settings.php:144
+msgid "Your settings have been saved."
+msgstr "Tus ajustes han sido guardados."
+
+#: admin/settings/tabs/informations.php:31
+msgid "https://wordpress.org/support/plugin/flexible-elementor-panel/reviews/?filter=5/#new-post"
+msgstr "https://wordpress.org/support/plugin/flexible-elementor-panel/reviews/?filter=5/#new-post"
+
+#: flexible-elementor-panel.php:533
+msgid "Exit"
+msgstr "Salir"
+
+#: flexible-elementor-panel.php:361
+msgid "go to the information page for understand how to configure it"
+msgstr "ve a la página de información para entender cómo configurarlo."
+
+#: flexible-elementor-panel.php:359
+msgid "Thanks you to use our plugin %1$s, %2$s"
+msgstr "Gracias por utilizar nuestro plugin %1$s, %2$s"
+
+#: admin/api.settings.php:401
+msgid "Choose File"
+msgstr "Seleccionar archivo "
+
+#: admin/settings/tabs/informations.php:32
+msgid "Don't forget, we are open to all helpful suggestions on our <a href=\"https://wordpress.org/support/plugin/flexible-elementor-panel/\" target=\"_blank\">support forum.</a>"
+msgstr "No olvides que estamos abiertos a cualquier sugerencia útil en nuestro <a href=\"https://wordpress.org/support/plugin/flexible-elementor-panel/\" target=\"_blank\">foro de soporte.</a>"
+
+#: inc/settings/controls.php:71 inc/settings/model_deprecate.php:70
+msgid "This reduce the size of widgets in the editor and styling them"
+msgstr "Esto reduce el tamaño y estiliza los widgets en el editor."
+
+#: flexible-elementor-panel.php:336
+msgid "PHP"
+msgstr "PHP"
+
+#: flexible-elementor-panel.php:310 flexible-elementor-panel.php:334
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr "«%1$s» necesita «%2$s» versión %3$s o superior."
+
+#: inc/settings/controls.php:93 inc/settings/model_deprecate.php:92
+msgid "Dark Orange"
+msgstr "Naranja oscuro"
+
+#: inc/settings/controls.php:92 inc/settings/model_deprecate.php:91
+msgid "Dark Pink"
+msgstr "Rosa oscuro"
+
+#: inc/settings/controls.php:79 inc/settings/model_deprecate.php:78
+msgid "Minimize all categories with right click"
+msgstr "Minimiza todas las categorías con clic derecho"
+
+#: flexible-elementor-panel.php:289 flexible-elementor-panel.php:312
+msgid "Elementor"
+msgstr "Elementor"
+
+#: flexible-elementor-panel.php:287
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr "«%1$s» necesita que «%2$s» sea instalado y activado."
+
+#: inc/settings/controls.php:62 inc/settings/model_deprecate.php:61
+msgid "hold down the left click on title of panel for move it (put it in the corner left and click on the title for back to origin style)"
+msgstr "mantén pulsado el botón izquierdo del ratón en el título del panel para moverlo (puedes colocarlo en la esquina izquierda y hacer clic en el título para devolverlo al estilo original)."
+
+#: inc/settings/controls.php:132 inc/settings/model_deprecate.php:116
+msgid "Exit button options"
+msgstr "Opciones del botón de salida"
+
+#: inc/settings/controls.php:70 inc/settings/model_deprecate.php:69
+msgid "Use FLEX GRID for widgets"
+msgstr "Utiliza cuadrícula flexible para los widgets"
+
+#: inc/settings/controls.php:211 inc/settings/model_deprecate.php:195
+msgid "Accordion widget options"
+msgstr "Opciones del widget acordeón"
+
+#: inc/settings/controls.php:150 inc/settings/model_deprecate.php:134
+msgid "Elementor library"
+msgstr "Biblioteca de Elementor"
+
+#: inc/settings/controls.php:61 inc/settings/model_deprecate.php:60
+msgid "Draggable panel"
+msgstr "Panel arrastrable"
+
+#: inc/settings/controls.php:58 inc/settings/model_deprecate.php:57
+msgid "Panel settings"
+msgstr "Ajustes del panel"
+
+#: inc/settings/controls.php:80 inc/settings/model_deprecate.php:79
+msgid "click the right mouse button on the panel to collapse all categories of widgets"
+msgstr "haz clic con el botón derecho del ratón en el panel para cerrar todas las categorías de widgets"
+
+#: inc/settings/controls.php:65 inc/settings/controls.php:74
+#: inc/settings/controls.php:83 inc/settings/controls.php:102
+#: inc/settings/controls.php:110 inc/settings/controls.php:138
+#: inc/settings/controls.php:158 inc/settings/controls.php:177
+#: inc/settings/controls.php:186 inc/settings/controls.php:195
+#: inc/settings/controls.php:204 inc/settings/controls.php:217
+#: inc/settings/model_deprecate.php:64 inc/settings/model_deprecate.php:73
+#: inc/settings/model_deprecate.php:82 inc/settings/model_deprecate.php:101
+#: inc/settings/model_deprecate.php:109 inc/settings/model_deprecate.php:122
+#: inc/settings/model_deprecate.php:142 inc/settings/model_deprecate.php:161
+#: inc/settings/model_deprecate.php:170 inc/settings/model_deprecate.php:179
+#: inc/settings/model_deprecate.php:188 inc/settings/model_deprecate.php:201
+msgid "Off"
+msgstr "Desactivado"
+
+#: inc/settings/controls.php:64 inc/settings/controls.php:73
+#: inc/settings/controls.php:82 inc/settings/controls.php:101
+#: inc/settings/controls.php:109 inc/settings/controls.php:137
+#: inc/settings/controls.php:157 inc/settings/controls.php:176
+#: inc/settings/controls.php:185 inc/settings/controls.php:194
+#: inc/settings/controls.php:203 inc/settings/controls.php:216
+#: inc/settings/model_deprecate.php:63 inc/settings/model_deprecate.php:72
+#: inc/settings/model_deprecate.php:81 inc/settings/model_deprecate.php:100
+#: inc/settings/model_deprecate.php:108 inc/settings/model_deprecate.php:121
+#: inc/settings/model_deprecate.php:141 inc/settings/model_deprecate.php:160
+#: inc/settings/model_deprecate.php:169 inc/settings/model_deprecate.php:178
+#: inc/settings/model_deprecate.php:187 inc/settings/model_deprecate.php:200
+msgid "On"
+msgstr "Activado"
+
+#: inc/settings/controls.php:155 inc/settings/model_deprecate.php:139
+msgid "Open in new tab"
+msgstr "Abrir en una nueva pestaña"
+
+#: inc/settings/controls.php:149 inc/settings/model_deprecate.php:133
+msgid "Admin dashboard"
+msgstr "Escritorio de administración"
+
+#: inc/settings/controls.php:143 inc/settings/model_deprecate.php:127
+msgid "Exit point"
+msgstr "Punto de salida"
+
+#: admin/settings.php:39 inc/settings/model_deprecate.php:38
+msgid "FEP Settings"
+msgstr "Ajustes de FEP"
+
+#: admin/settings.php:54 inc/settings/manager_deprecate.php:46
+msgid "Settings"
+msgstr "Ajustes"
+
+#: inc/settings/controls.php:89 inc/settings/model_deprecate.php:88
+msgid "Editor skins"
+msgstr "Editor de estilos"
+
+#. Description of the plugin
+msgid "This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities."
+msgstr "Esto es una extensión para el popular maquetador de páginas Elementor. Transforma el panel de widgets de Elementor para hacerlo flexible, arrastrable y plegable, para tener más espacio y oportunidades."
+
+#. Plugin Name of the plugin
+#: flexible-elementor-panel.php:288 flexible-elementor-panel.php:311
+#: flexible-elementor-panel.php:335 flexible-elementor-panel.php:360
+#: admin/settings.php:38 admin/settings.php:124
+msgid "Flexible Elementor Panel"
+msgstr "Flexible Elementor Panel"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/flexible-elementor-panel/"
+msgstr "https://es.wordpress.org/plugins/flexible-elementor-panel/"

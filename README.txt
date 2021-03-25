@@ -5,7 +5,7 @@ Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 2.3.4
+Stable tag: 2.3.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,11 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.3.5 =
+* Improve: Change Text Domain "fep" to "flexible-elementor-panel" (thanks @liyulin)
+* Localization: Make compatibility with Translating WordPress - https://translate.wordpress.org/projects/wp-plugins/flexible-elementor-panel/
+* Localization: Update POT/PO language
 
 = 2.3.4 =
 * Add: Compatibility with Elementor 3.2+ (3.2.0-beta1)
