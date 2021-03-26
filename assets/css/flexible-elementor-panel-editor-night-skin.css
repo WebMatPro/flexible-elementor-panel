@@ -53,6 +53,9 @@
     background-color: #383838;
     color: white;
 }
+.nightmode #elementor-panel-elements-search-area {
+    background-color: #535353;
+}
 
 /*--------------------------------------------------------------------------------------
 2 - Header
@@ -145,6 +148,11 @@
     background: #383838;
 }
 
+.nightmode .elementor-control-responsive-switchers__holder,
+.nightmode .elementor-control-dynamic-switcher {
+    background-color: transparent;
+}
+
 .nightmode.nightmode-pink .elementor-control-responsive-switchers .elementor-responsive-switcher:hover {
     background: #d30c5c;
 }
@@ -153,10 +161,6 @@
     background: #ff7800;
 }
 
-.nightmode.elementor-device-mobile .elementor-responsive-switcher-mobile,
-.nightmode.elementor-device-tablet .elementor-responsive-switcher-tablet {
-    background: #212121;
-}
 
 .nightmode .wp-picker-container.wp-picker-active,
 .nightmode .wp-picker-container .iris-picker {
@@ -281,10 +285,6 @@
 .nightmode #elementor-navigator #elementor-navigator__header {
     background-color: #212121;
     color: #e4e4e4;
-}
-
-#elementor-navigator__inner {
-    background-color: #929292;
 }
 
 .nightmode #elementor-navigator .elementor-navigator__element-section {

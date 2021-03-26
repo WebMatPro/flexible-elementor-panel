@@ -5,7 +5,7 @@ Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 2.3.5
+Stable tag: 2.3.5.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 == Changelog ==
 
+= 2.3.5.1 =
+* Fix: Issues CSS (thanks @liyulin)
+
 = 2.3.5 =
 * Improve: Change Text Domain "fep" to "flexible-elementor-panel" (thanks @liyulin)
 * Localization: Make compatibility with Translating WordPress - https://translate.wordpress.org/projects/wp-plugins/flexible-elementor-panel/
@@ -92,14 +95,13 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Localization: Update POT/PO language
 * Localization: Update French language
 
+
 = 2.2.2 =
 * Fix: Issue with load saved settings FEP
-
 
 = 2.2.1 =
 * Improve: Add Controls FEP with correct action (thanks @Pixify)
 * Localization: Update French language
-
 
 = 2.2.O =
 * Add: Compatibility with Elementor 3.0+
@@ -110,10 +112,10 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Localization: Update POT/PO language
 * Localization: Update French language
 
+
 = 2.1.3 =
 * HOTFIX: remove deprecated Manager::add_settings_manager();
 * working on the issue for add the settings FEP
-
 
 = 2.1.2 =
 * Add: Compatibility any plugins with use the namespace php for admin
@@ -142,6 +144,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Remove: Divers tab in FEP admin settings
 * Localization: Update POT/PO language
 * Localization: Update French language
+
 
 = 2.0.3 =
 * Localization: Update POT/PO language
@@ -173,6 +176,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Note: FEP come on Github https://github.com/WebMatPro/flexible-elementor-panel
 * Localization: Update POT/PO language
 * Localization: Update French language
+
 
 = 1.9.7 =
 * Fix: Use static function of activation fep
@@ -214,6 +218,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 = 1.9.1 =
 * Mistake upload
 
+
 = 1.9.0 =
 * Add: Settings page FEP in Admin
 * Add: Information page in Admin
@@ -254,6 +259,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Improve: Clean code of css files
 * Improve: Full compatibility with Elementor 2.3.1
 
+
 = 1.8.0 =
 * Add: Translation French ready by a native French
 * Add: Now the enqueues files will use the version of plugin
@@ -266,14 +272,17 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Improve: Clean code of JavaScript file
 * Improve: Full compatibility with Elementor 2.3.0
 
+
 = 1.7.0 =
 * Fix: Compatibility with Elementor 2.1
 * Add: Minimized UX
 * Add: Exit point to Elementor library
 * Fix: Small bugs
 
+
 = 1.6.0 =
 * Add: Plugin settings in editor
+
 
 = 1.5.1 =
 * Fix: Fix bug with Theme Builder
@@ -285,19 +294,23 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Add: New logical function
 * Fix: Small bugs
 
+
 = 1.4.1 =
 * Fix: Bug with 'Dynamic Content'
 
 = 1.4.0 =
 * Add: Sortable and collapsible widgets category in Elementor Panel
 
+
 = 1.3.0 =
 * Add: Night/Day skin switcher for Elementor Panel
 * Add: Remember your last selected skin
 * More compatibility with Elementor 2.0
 
+
 = 1.2.0 =
 * Add: 'Exit to Dashboard' button in Elementor Panel footer
+
 
 = 1.1.1 =
 * Fix: change stylesheet in custom CSS editor
@@ -306,6 +319,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * New: Added resizable function
 * New: Added night skin for Elementor Panel
 * Fix: small bugs
+
 
 = 1.0.0 =
 * Initial release.
