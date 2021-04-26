@@ -74,7 +74,7 @@ function LoadPanelPosition() {
             $("#elementor-panel").css({
                 'top': panel_pos_top + 'px',
                 'left': panel_pos_left + 'px',
-                'right': 0,
+                'right': 'auto', // change to auto for help the rtl mode
             }); // move the panel at the save position
 
             // set var panel size
@@ -378,6 +378,13 @@ function DraggablePanel() {
                 'left': 0,
                 'right': 0,
             }, 150);
+
+            if (FEP.rtl) {
+                // force right:auto with <html dir="rtl">
+                $('#elementor-panel').css({
+                    'right': 'auto',
+                });
+            }
 
 
         },
