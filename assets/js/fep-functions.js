@@ -12,6 +12,7 @@ Sommary functions:
 7 - Collaspe Horizontal Panel
 8 - Reset Panel
 9 - Collaspe Horizontal Panel Key
+10 - RTL Mode
 
 */
 
@@ -115,8 +116,11 @@ function LoadPanelPosition() {
             }, 150);
 
             $('#elementor-preview, .e-responsive-bar').css('right', 0); // full preview size when panel is in drag to load
-            $("#elementor-preview-iframe").contents().find("html").attr('dir', ''); // move the scroll bar to right side
+
+            rtl_mode(false); // run normal mode
+
             elementor_switcher_display_block('left'); // show button right side resize preview
+
             $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-e").removeClass("ui-resizable-w"); // resize right side
 
             $("#elementor-panel").css({
@@ -136,7 +140,9 @@ function LoadPanelPosition() {
             }, 150);
 
             $('#elementor-preview, .e-responsive-bar').css('left', 0); // full preview size when panel is in drag to load
-            $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // move the scroll bar to left side
+
+            rtl_mode(true); // run rtl mode
+
             elementor_switcher_display_block('right'); // show button left side resize preview
             $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-w").removeClass("ui-resizable-e"); // resize left side
 
@@ -198,6 +204,7 @@ function LoadFepSettings() {
     if (fepConfig.display_reset_icon == 'no' || fepConfig.display_reset_icon == '') {
         $("#fep-reset-panel").remove();
     }
+
 
     if (fepConfig.draggable_panel == 'yes' || !fepConfig.draggable_panel) {
         $("#elementor-panel").draggable("enable");
@@ -500,8 +507,7 @@ function mouseupHeaderTitle() {
     // reset position panel to origin when click on title if he is on corner top left
     if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-        // make scroll bar right side
-        $("#elementor-preview-iframe").contents().find("html").attr('dir', '');
+        rtl_mode(false); // run normal mode
 
         $("#elementor-preview-iframe").contents().find("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
         $("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
@@ -528,8 +534,7 @@ function mouseupHeaderTitle() {
 
     } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-        // make scroll bar left side
-        $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // disable preview
+        rtl_mode(true); // run rtl mode
 
         $("#elementor-preview-iframe").contents().find("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
         $("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
@@ -592,8 +597,6 @@ function vertical_elementor_panel_toggle() {
             // reset position panel to origin when click on title if he is on corner top left
             if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
-                $("#elementor-preview-iframe").contents().find("html").attr('dir', ''); // move the scroll bar to left side
-
                 elementor_switcher_display_block('left'); // show switcher
 
                 $('#elementor-preview, .e-responsive-bar').animate({
@@ -602,9 +605,6 @@ function vertical_elementor_panel_toggle() {
                 }, 150);
 
             } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
-
-
-                $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // move the scroll bar to left side
 
                 elementor_switcher_display_block('right'); // show switcher
 
@@ -916,11 +916,11 @@ function reset_fep_panel() {
     if (FEP.rtl) {
         $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-w"); // add resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-e"); // remove resizable all panel editor
-        $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // move the scroll bar to left side
+        rtl_mode(true); // set rtl mode
     } else {
         $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-e"); // add resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-w"); // remove resizable all panel editor
-        $("#elementor-preview-iframe").contents().find("html").attr('dir', ''); // move the scroll bar to right side
+        rtl_mode(false); // set norml mode
     }
 
     $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-all"); // remove resizable all panel editor
@@ -1114,5 +1114,55 @@ function elementor_horizontal_panel_key() {
         $("#elementor-preview-iframe").contents().find("#elementor").removeClass('elementor-edit-area-preview').addClass('elementor-edit-area-active'); // disable preview
 
     }
+
+}
+
+
+/*--------------------------------------------------------------------------------------
+
+10 - RTL Mode
+
+--------------------------------------------------------------------------------------*/
+
+function rtl_mode(mode) {
+
+    // var = true/false
+
+    //console.log(mode); // debug
+    //console.log(fepConfig.rtl_force_mode);
+
+    if ( mode == true ) {
+
+        $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // set the global direction for scroll bar
+
+        if ( fepConfig.rtl_force_mode == 'yes' || fepConfig.rtl_force_mode == null ) {
+            $('#elementor-preview-iframe').contents().find('body').addClass('rtl').removeClass('ltr');
+            $('#elementor-preview-iframe').contents().find('header').css('direction', 'rtl');
+            $('#elementor-preview-iframe').contents().find('main').css('direction', 'rtl');
+        } else {
+            $('#elementor-preview-iframe').contents().find('body').addClass('ltr').removeClass('rtl');
+            $('#elementor-preview-iframe').contents().find('header').css('direction', 'ltr');
+            $('#elementor-preview-iframe').contents().find('main').css('direction', 'ltr');
+        }
+
+    } else {
+
+        // // core wodpress rtl
+        //if ( FEP.rtl ) {
+        $("#elementor-preview-iframe").contents().find("html").attr('dir', 'ltr');
+
+        if ( FEP.rtl ) {
+            $('#elementor-preview-iframe').contents().find('body').addClass('rtl').removeClass('ltr');
+            $('#elementor-preview-iframe').contents().find('header').css('direction', 'rtl');
+            $('#elementor-preview-iframe').contents().find('main').css('direction', 'rtl');
+        } else {
+            $('#elementor-preview-iframe').contents().find('body').addClass('ltr').removeClass('rtl');
+            $('#elementor-preview-iframe').contents().find('header').css('direction', 'ltr');
+            $('#elementor-preview-iframe').contents().find('main').css('direction', 'ltr');
+        }
+
+
+    }
+
 
 }

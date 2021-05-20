@@ -65,6 +65,9 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 = 2.3.6 =
 * Fix: Issues with draggle panel in rtl mode (thanks @ariya76)
+* Improve: Notice admin message better display and dismissible
+* Add: Option "Force RTL Mode" when the editor is on the right side (actived by default)
+* Localization: Update POT/PO language
 
 = 2.3.5.1 =
 * Fix: Issues CSS (thanks @liyulin)

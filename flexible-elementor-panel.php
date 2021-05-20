@@ -255,7 +255,7 @@ final class Elementor_FEP_Extension {
 	 */
 	public static function fep_activation() {
 
-		set_transient( 'fep-admin-notice-activation', true, 5 );
+		set_transient( 'fep-admin-notice-activation', true, 3 );
 
 		//if Elementor is version 3.0.0 or more
 		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
@@ -355,13 +355,18 @@ final class Elementor_FEP_Extension {
 
 		/* Check transient, if available display notice */
 		if( get_transient( 'fep-admin-notice-activation' ) ) {
+
 			$message = sprintf(
 				esc_html__( 'Thanks you to use our plugin %1$s, %2$s', 'flexible-elementor-panel' ),
 				'<strong>' . esc_html__( 'Flexible Elementor Panel', 'flexible-elementor-panel' ) . '</strong>',
-				'<a href="'. get_admin_url() . '/admin.php?page=fep-options">' . esc_html__( 'go to the information page for understand how to configure it', 'flexible-elementor-panel' ) . '</a>'
+				'<a href="'. get_admin_url() . 'admin.php?page=fep-options">' . esc_html__( 'go to the information page for understand how to configure it', 'flexible-elementor-panel' ) . '</a>'
 			);
 
-			printf( '<div class="notice notice-info is-dismissible"><p>%1$s</p></div>', $message );
+			?>
+			<div class="notice notice-info is-dismissible">
+				<p><?php echo $message; ?></p>
+			</div>
+			<?php
 
 			/* Delete transient, only display this notice once. */
 			delete_transient( 'fep-admin-notice-activation' );
@@ -369,12 +374,18 @@ final class Elementor_FEP_Extension {
 
 		/* Check transient, if available display notice */
 		if( get_transient( 'fep-admin-notice-update-user-preferences' ) ) {
+
 			$message = __( 'Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the "User Preferences" of the Elementor editor!', 'flexible-elementor-panel' );
 
-			echo '<div class="notice notice-info" style="position: relative;"><p>';
-				echo $message;
-				echo '</p><a class="notice-dismiss" style="text-decoration: unset;" href="'.get_admin_url().'?fep-admin-notice-update-user-preferences-dismissed"></a>';
-			echo '</div>';
+			$arr_params = array( 'fep-admin-notice-update-user-preferences-dismissed' => 'true' );
+
+			?>
+			<div class="notice notice-success" style="position: relative;">
+				<p><?php echo $message; ?></p>
+				<a class="notice-dismiss" style="text-decoration: unset;" href="<?php echo esc_url( add_query_arg( $arr_params ) ); ?>">
+				</a>
+			</div>
+			<?php
 
 		}
 
@@ -571,53 +582,3 @@ Elementor_FEP_Extension::instance();
 
 // Plugin Activation
 register_activation_hook( __FILE__, [ 'Elementor_FEP_Extension', 'fep_activation' ] );
-
-
-/**
- * Wrappers for default l10n functions to include in your theme or plugin.
- */
- if ( ! function_exists( 'e_l10n__' ) ) {
- 	/**
- 	 * Wrapper for __() gettext function.
- 	 * @param  string $string     Translatable text string
- 	 * @param  string $textdomain Text domain, default: woocommerce
- 	 * @return void
- 	 */
- 	function e_l10n__( $string, $textdomain = 'elementor' ) {
- 		return __( $string, $textdomain );
- 	}
- }
- if ( ! function_exists( 'e_l10n_e' ) ) {
- 	/**
- 	 * Wrapper for _e() gettext function.
- 	 * @param  string $string     Translatable text string
- 	 * @param  string $textdomain Text domain, default: woocommerce
- 	 * @return void
- 	 */
- 	function e_l10n_e( $string, $textdomain = 'elementor' ) {
- 		return _e( $string, $textdomain );
- 	}
- }
-if ( ! function_exists( 'epro_l10n__' ) ) {
-	/**
-	 * Wrapper for __() gettext function.
-	 * @param  string $string     Translatable text string
-	 * @param  string $textdomain Text domain, default: woocommerce
-	 * @return void
-	 */
-	function epro_l10n__( $string, $textdomain = 'elementor-pro' ) {
-		return __( $string, $textdomain );
-	}
-}
-if ( ! function_exists( 'epro_l10n_e' ) ) {
-	/**
-	 * Wrapper for _e() gettext function.
-	 * @param  string $string     Translatable text string
-	 * @param  string $textdomain Text domain, default: woocommerce
-	 * @return void
-	 */
-	function epro_l10n_e( $string, $textdomain = 'elementor-pro' ) {
-		return _e( $string, $textdomain );
-	}
-}
-/* repeat for other l10n function, see wp-includes/l10n.php */

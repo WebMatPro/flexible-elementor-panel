@@ -51,6 +51,12 @@ class FEP_Controls {
 
 		$html_accordion_frontend = __( 'You can set the option to closed the first tabs accordion in frontend there:') . '<br><br><a href="' . get_admin_url() . 'admin.php?page=fep-options" target="_blank">' . get_admin_url() . 'admin.php?page=fep-options</a>';
 
+		if ( is_rtl() ) {
+			$rtl_force_mode = '<br>' . __('Note: if you disable this option when you are in RTL mode, this will set the LTR mode when the editor is on the right side', 'flexible-elementor-panel');
+		} else {
+			$rtl_force_mode = '';
+		}
+
         return [
 
             Controls_Manager::TAB_SETTINGS => [
@@ -111,6 +117,15 @@ class FEP_Controls {
                             'return_value' 		=> 'yes',
                             'default' 			=> 'yes',
                         ],
+						'rtl_force_mode' => [
+							'label' 			=> __('Force RTL Mode', 'flexible-elementor-panel'),
+							'description' 		=> __( 'Will force the RTL mode when the editor is on right side', 'flexible-elementor-panel' ) . $rtl_force_mode,
+							'type'  			=> Controls_Manager::SWITCHER,
+							'label_on' 			=> __('On', 'flexible-elementor-panel'),
+							'label_off' 		=> __('Off', 'flexible-elementor-panel'),
+							'return_value' 		=> 'yes',
+							'default' 			=> 'yes',
+						],
 						/*'opacity_editor_panel' => [
                             'label' 			=> __('Opacity of Editor Panel', 'flexible-elementor-panel'),
                             'type'  			=> Controls_Manager::SLIDER,

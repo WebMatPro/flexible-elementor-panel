@@ -157,6 +157,10 @@ $( window ).on( "elementor:init", () => {
            fepConfig.display_reset_icon = $(this).is(':checked') ? 'yes' : 'no';
            LoadFepSettings();
        });
+	   $(document).on('change', "input[data-setting='rtl_force_mode']", function() {
+           fepConfig.rtl_force_mode = $(this).is(':checked') ? 'yes' : 'no';
+           LoadFepSettings();
+       });
        $(document).on('change', "input[data-setting='display_exit_icon']", function() {
            fepConfig.display_exit_icon = $(this).is(':checked') ? 'yes' : 'no';
            LoadFepSettings();
