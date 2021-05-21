@@ -62,6 +62,8 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 == Changelog ==
 
+= 2.3.6.1 =
+* Improve: The Navigator when fixed to the right side
 
 = 2.3.6 =
 * Fix: Issues with draggle panel in rtl mode (thanks @ariya76)

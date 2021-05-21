@@ -1,6 +1,6 @@
 /*
 
-Sommary functions:
+Summary functions:
 
 0 - Load Panel Position
 1 - Load Settings FEP
@@ -13,6 +13,7 @@ Sommary functions:
 8 - Reset Panel
 9 - Collaspe Horizontal Panel Key
 10 - RTL Mode
+11 - Navigator action when Mouse Up
 
 */
 
@@ -155,8 +156,8 @@ function LoadPanelPosition() {
         }
     }
 
-
-
+    setTimeout("MouseUpHeaderNavigator()", 1000); // load after 1 second for prevent issue position preview
+    //MouseUpHeaderNavigator(); // run
 }
 
 /*--------------------------------------------------------------------------------------
@@ -298,6 +299,9 @@ function LoadFepSettings() {
     } else {
         $("#elementor-preview-iframe").contents().find("body").removeClass("alternative-responsive-indicator-enabled");
     }
+
+    //$("#elementor-navigator__header").on('touchstart mousedown', mousedownHeaderTitleNavigator);
+    $(document).on('touchend mouseup', MouseUpHeaderNavigator); // load
 }
 
 
@@ -1164,5 +1168,31 @@ function rtl_mode(mode) {
 
     }
 
+
+}
+
+
+
+
+
+/*--------------------------------------------------------------------------------------
+
+11 - Navigator action when Mouse Up
+
+--------------------------------------------------------------------------------------*/
+// MOUSEUP (at leave the click mouse)
+function MouseUpHeaderNavigator() {
+
+    var $element_navigator  = $('#elementor-navigator');
+    var navigator_right     = ($(window).width() - ($element_navigator.offset().left + $element_navigator.outerWidth()));
+
+    //console.log( navigator_right );
+
+    if ( navigator_right <= 0 ) {
+        //console.log($element_navigator.outerWidth());
+        $('#elementor-preview').css('right', $element_navigator.outerWidth());
+    } else {
+        $('#elementor-preview').css('right', 0);
+    }
 
 }
