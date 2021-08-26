@@ -3,9 +3,9 @@ Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
 Tags: elementor, elementor addons, fep
 Requires at least: 4.6
-Tested up to: 5.7
+Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 2.3.6
+Stable tag: 2.3.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,12 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.3.7 =
+* Add: Compatibility with Elementor 3.4+ and Elementor Pro
+* Add: Compatibility with Wordpress 5.8
+* Fix: Replace all icon font awesome per native icon elementor (eicon)
+
 
 = 2.3.6.1 =
 * Improve: The Navigator when fixed to the right side

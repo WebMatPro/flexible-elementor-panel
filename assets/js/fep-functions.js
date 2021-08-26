@@ -174,7 +174,7 @@ function LoadFepSettings() {
     //add exit icon
     if (fepConfig.display_exit_icon == 'yes' || !fepConfig.display_exit_icon) {
         if ($("#fep-exit").length == 0) {
-            exit_panel = '<a id="fep-exit" target="_self" href="#" title="' + fep.exit_tooltip + '" class="fep-exit-link elementor-panel-footer-tool elementor-leave-open fep-tooltip"><i class="fa fa-sign-out"></i></a>';
+            exit_panel = '<a id="fep-exit" target="_self" href="#" title="' + fep.exit_tooltip + '" class="fep-exit-link elementor-panel-footer-tool elementor-leave-open fep-tooltip"><i class="eicon-editor-external-link" aria-hidden="true"></i></a>';
             $("#elementor-panel-footer-saver-preview").after(exit_panel);
         }
     }
@@ -186,7 +186,7 @@ function LoadFepSettings() {
     //add collapse icon
     if (fepConfig.display_vertical_collaspe_icon == 'yes' || !fepConfig.display_vertical_collaspe_icon ) {
         if ($("#fep-collapse-vertical").length == 0) {
-            collapse_vertical_panel = '<div id="fep-collapse-vertical"><i class="fa fa-arrows-v fep-toggle-panel-icon"></i></div>';
+            collapse_vertical_panel = '<div id="fep-collapse-vertical"><i class="eicon-v-align-middle" aria-hidden="true"></i></div>';
             $("#elementor-panel-header-menu-button").after(collapse_vertical_panel);
         }
     }
@@ -198,7 +198,7 @@ function LoadFepSettings() {
     //add reset panel icon
     if (fepConfig.display_reset_icon == 'yes' || !fepConfig.display_reset_icon ) {
         if ($("#fep-reset-panel").length == 0) {
-            fep_reset_panel = '<div id="fep-reset-panel" class="reset-fep"><i class="fa fa-arrows-alt tooltip-target"></i></div>';
+            fep_reset_panel = '<div id="fep-reset-panel" class="reset-fep"><i class="eicon-undo" aria-hidden="true"></i></div>';
             $("#elementor-panel-header-title").after(fep_reset_panel);
         }
     }
