@@ -689,53 +689,35 @@ function vertical_elementor_panel_toggle() {
 // Close all categories in panel with the right click
 function collapseCategories() {
 
-    delay = 300; // add delay for smoothing
-
-    //alert(localStorage.getItem("cat-closed")); // for debugging
-
     // remove window click right chrome
     $(".elementor-panel-category-title").on("contextmenu", function() {
         return false;
     });
 
-    $(document).on( 'mousedown', '.elementor-panel-category-title', function(event) {
-        event.preventDefault();
+    //alert(localStorage.getItem("cat-closed")); // for debugging
 
+    // load conditionnal if the save collapse is "closed"
+    if ( localStorage.getItem('cat-closed') == '1' ) {
+        $(".elementor-panel-category-items").slideUp(280);
+        $(".elementor-panel-category").removeClass("elementor-active");
+    } else {
+        $(".elementor-panel-category").addClass("elementor-active");
+        $(".elementor-panel-category-items").slideDown(280);
+    }
+
+    $('.elementor-panel-category-title').mousedown(function(event) {
         if (event.which == 3) { // right click
-
-            if (localStorage.getItem('cat-closed') == 0) {
-
+            if ( $('.elementor-panel-category').hasClass('elementor-active') ) {
                 $(".elementor-panel-category-items").slideUp(280);
                 $(".elementor-panel-category").removeClass("elementor-active");
-
-
                 localStorage.setItem('cat-closed', '1');
-                //console.log(localStorage.getItem("cat-closed")); // for debugging
-
             } else {
                 $(".elementor-panel-category").addClass("elementor-active");
                 $(".elementor-panel-category-items").slideDown(280);
-
                 localStorage.setItem('cat-closed', '0');
-                //console.log(localStorage.getItem("cat-closed")); // for debugging
             }
-
         }
-
     });
-
-
-    // load conditionnal if the save collapse is "closed"
-    if (localStorage.getItem('cat-closed') == 1) {
-        $(".elementor-panel-category-items").slideUp(delay);
-        $(".elementor-panel-category").removeClass("elementor-active");
-        $('.elementor-panel-category-items')
-            .delay(delay)
-            .queue(function(next) {
-                $(this).css('display', 'none');
-                next();
-            });
-    }
 
 }
 
