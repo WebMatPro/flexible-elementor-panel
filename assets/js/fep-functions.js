@@ -694,11 +694,12 @@ function collapseCategories() {
     //alert(localStorage.getItem("cat-closed")); // for debugging
 
     // remove window click right chrome
-    $("#elementor-panel-elements-categories").on("contextmenu", function() {
+    $(".elementor-panel-category-title").on("contextmenu", function() {
         return false;
     });
 
-    $('#elementor-panel-elements-categories').mousedown(function(event) {
+    $(document).on( 'mousedown', '.elementor-panel-category-title', function(event) {
+        event.preventDefault();
 
         if (event.which == 3) { // right click
 
@@ -706,12 +707,7 @@ function collapseCategories() {
 
                 $(".elementor-panel-category-items").slideUp(280);
                 $(".elementor-panel-category").removeClass("elementor-active");
-                $('.elementor-panel-category-items')
-                    .delay(280)
-                    .queue(function(next) {
-                        $(this).css('display', 'none');
-                        next();
-                    });
+
 
                 localStorage.setItem('cat-closed', '1');
                 //console.log(localStorage.getItem("cat-closed")); // for debugging
@@ -719,12 +715,13 @@ function collapseCategories() {
             } else {
                 $(".elementor-panel-category").addClass("elementor-active");
                 $(".elementor-panel-category-items").slideDown(280);
-                $(".elementor-panel-category-items").css("display", "block");
 
                 localStorage.setItem('cat-closed', '0');
                 //console.log(localStorage.getItem("cat-closed")); // for debugging
             }
+
         }
+
     });
 
 

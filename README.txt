@@ -5,7 +5,7 @@ Tags: elementor, elementor addons, fep
 Requires at least: 4.6
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 2.3.7
+Stable tag: 2.3.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,12 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.3.8 =
+* Add: Compatibility with Elementor 3.5+ and Elementor Pro
+* Improve: The right click for collapse categories only work on title cats
+* Improve: CSS on categories / elements grid
+
 
 = 2.3.7 =
 * Add: Compatibility with Elementor 3.4+ and Elementor Pro
