@@ -63,16 +63,17 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 == Changelog ==
 
 = 2.3.8 =
-* Add: Compatibility with Elementor 3.5+ and Elementor Pro
+* Note: The update of FEP is back, sorry communauty for the delay
+* Add: Compatibility with Wordpress 6.0+
+* Add: Compatibility with Elementor 3.7+ and Elementor Pro
+* Add: Compatibility FEP Options Responsive with the news breakpoints (thanks @momo-fr)
 * Improve: The right click for collapse categories only work on title cats
 * Improve: CSS on categories / elements grid
-
 
 = 2.3.7 =
 * Add: Compatibility with Elementor 3.4+ and Elementor Pro
 * Add: Compatibility with Wordpress 5.8
 * Fix: Replace all icon font awesome per native icon elementor (eicon)
-
 
 = 2.3.6.1 =
 * Improve: The Navigator when fixed to the right side
