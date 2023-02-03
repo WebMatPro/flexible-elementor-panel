@@ -5,7 +5,7 @@
  * Plugin Name: 		Flexible Elementor Panel
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
- * Version: 			2.3.8
+ * Version: 			2.3.9
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
@@ -170,7 +170,7 @@ final class Elementor_FEP_Extension {
 		//add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'fep_scripts_editor' ], 8); // old priority
 
 		// Register Scripts Frontend
-		add_action( 'elementor/frontend/before_enqueue_scripts', [ $this, 'fep_scripts_frontend' ]);
+		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'fep_scripts_frontend' ]);
 
 
 		// Include plugin files
@@ -377,7 +377,7 @@ final class Elementor_FEP_Extension {
 
 			$message = __( 'Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now available in the "User Preferences" of the Elementor editor!', 'flexible-elementor-panel' );
 
-			$arr_params = array( 'fep-admin-notice-update-user-preferences-dismissed' => 'true' );
+			$arr_params = array( 'fep-admin-notice-update-user-preferences-dismissed' => 'true', 'fep_notice_nonce' => wp_create_nonce( 'fep_notice_preferences_nonce' ) );
 
 			?>
 			<div class="notice notice-success" style="position: relative;">
@@ -419,7 +419,9 @@ final class Elementor_FEP_Extension {
 	 */
 	public function admin_init_fep() {
 
-		if ( isset( $_GET['fep-admin-notice-update-user-preferences-dismissed'] ) ) {
+		$nonse = isset($_GET['fep_notice_nonce']) ? $_GET['fep_notice_nonce'] : false;
+
+		if ( wp_verify_nonce($nonse, 'fep_notice_preferences_nonce') && isset( $_GET['fep-admin-notice-update-user-preferences-dismissed'] ) ) {
 			delete_transient( 'fep-admin-notice-update-user-preferences' );
 		}
 
@@ -564,12 +566,9 @@ final class Elementor_FEP_Extension {
 			$fep_frondent_accordion_close = get_option('fep_divers')['fep_frontend_accordion_close'];
 			if ( $fep_frondent_accordion_close ) {
 				if ( $fep_frondent_accordion_close == 'on' ) {
-
 					// load with localize in future for others options
-
-					wp_register_script( 'fep-frontend', FEP_URL . 'assets/js/fep-frontend.js', array('elementor-frontend'), FEP_VERSION, true );
+					wp_register_script( 'fep-frontend', FEP_URL . 'assets/js/fep-frontend.js', array(), FEP_VERSION, true );
 					wp_enqueue_script( 'fep-frontend' );
-
 				}
 			}
 		}

@@ -3,9 +3,9 @@ Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
 Tags: elementor, elementor addons, fep
 Requires at least: 4.6
-Tested up to: 6.0
+Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 2.3.8
+Stable tag: 2.3.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,10 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.3.9 =
+* Improve: Add nonce key for security when close the notice in admin area (thanks @Maxcom)
+* Fix: Close first tab option of accordion is now working again in frontend (thanks @kv1953 / @medieskolen)
 
 = 2.3.8 =
 * Note: The update of FEP is back, sorry communauty for the delay
