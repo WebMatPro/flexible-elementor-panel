@@ -179,6 +179,9 @@
     left: 0;
     right: 0;
 }
+.elementor-editor-preview .elementor-panel.vertical_elementor_panel_toggle-on #elementor-panel-footer {
+    display: none!important;
+}
 
 
 /*--------------------------------------------------------------------------------------

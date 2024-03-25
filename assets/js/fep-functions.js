@@ -578,6 +578,7 @@ function vertical_elementor_panel_toggle() {
     // if has class vertical_elementor_panel_toggle-on, dont resize
     if ($('#elementor-panel').hasClass('vertical_elementor_panel_toggle-on')) {
 
+
         $("#elementor-preview-iframe").contents().find("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
         $("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
         $("#elementor-preview-iframe").contents().find("#elementor").removeClass('elementor-edit-area-preview').addClass('elementor-edit-area-active'); // disable preview
