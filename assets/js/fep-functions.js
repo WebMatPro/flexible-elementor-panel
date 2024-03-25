@@ -188,6 +188,10 @@ function LoadFepSettings() {
         if ($("#fep-collapse-vertical").length == 0) {
             collapse_vertical_panel = '<div id="fep-collapse-vertical"><i class="eicon-v-align-middle" aria-hidden="true"></i></div>';
             $("#elementor-panel-header-menu-button").after(collapse_vertical_panel);
+
+            // new header bar // beta
+            collapse_vertical_panel_new = '<div id="fep-collapse-vertical" style="font-size: 16px;height:unset;width:34px;text-align:center"><i class="eicon-v-align-middle" aria-hidden="true"></i></div>';
+            $("button[value=Notes]").parent().after(collapse_vertical_panel_new);
         }
     }
     if (fepConfig.display_vertical_collaspe_icon == 'no' || fepConfig.display_vertical_collaspe_icon == '') {
@@ -200,6 +204,10 @@ function LoadFepSettings() {
         if ($("#fep-reset-panel").length == 0) {
             fep_reset_panel = '<div id="fep-reset-panel" class="reset-fep"><i class="eicon-undo" aria-hidden="true"></i></div>';
             $("#elementor-panel-header-title").after(fep_reset_panel);
+
+            // new header bar // beta
+            fep_reset_panel_new = '<div id="fep-reset-panel" class="reset-fep" style="font-size: 16px;height:unset;width:34px;bottom:unset;text-align:center"><i class="eicon-undo" aria-hidden="true"></i></div>';
+            $("button[value=Notes]").parent().after(fep_reset_panel_new);
         }
     }
     if (fepConfig.display_reset_icon == 'no' || fepConfig.display_reset_icon == '') {

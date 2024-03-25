@@ -66,7 +66,9 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Add: Compatibility with Wordpress 6.6
 * Add: Compatibility tag with Elementor 3.20
 * Add: Compatibility tag with Elementor Pro 3.20
-
+* Fix: Issue with the collapse vertical function
+* Improve : Add icon collapse vertical after "notes" to the new Editor powered by React
+* Improve : Add icon reset panel after "notes" to the new Editor powered by React
 
 = 2.3.9 =
 * Improve: Add nonce key for security when close the notice in admin area (thanks @Maxcom)
