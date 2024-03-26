@@ -259,14 +259,16 @@ final class Elementor_FEP_Extension {
 
 		set_transient( 'fep-admin-notice-activation', true, 3 );
 
-		//if Elementor is version 3.0.0 or more
-		if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
-			set_transient( 'fep-admin-notice-update-user-preferences', true, 0 );
-			$options = get_option( '_elementor_fep_settings' );
-			if ( $options !== false ) {
-				set_transient( 'fep-admin-notice-update-user-preferences-run', true, 0 );
-			}
+		if ( did_action( 'elementor/loaded' ) ) {
+			//if Elementor is version 3.0.0 or more
+			if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
+				set_transient( 'fep-admin-notice-update-user-preferences', true, 0 );
+				$options = get_option( '_elementor_fep_settings' );
+				if ( $options !== false ) {
+					set_transient( 'fep-admin-notice-update-user-preferences-run', true, 0 );
+				}
 
+			}
 		}
 
     }

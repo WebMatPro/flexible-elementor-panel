@@ -3,7 +3,7 @@ Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
 Tags: elementor, elementor addons, fep
 Requires at least: 4.6
-Tested up to: 6.6
+Tested up to: 6.5
 Requires PHP: 5.6
 Stable tag: 2.4.0
 License: GPLv2 or later
@@ -63,7 +63,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 == Changelog ==
 
 = 2.4.0 =
-* Add: Compatibility with Wordpress 6.6
+* Add: Compatibility with Wordpress 6.5
 * Add: Compatibility tag with Elementor 3.20
 * Add: Compatibility tag with Elementor Pro 3.20
 * Fix: Issue with the collapse vertical function
