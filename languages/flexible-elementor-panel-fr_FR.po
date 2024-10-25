@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2021-05-20 10:11+0200\n"
-"PO-Revision-Date: 2021-05-20 10:11+0200\n"
+"POT-Creation-Date: 2024-10-25 13:34+0200\n"
+"PO-Revision-Date: 2024-10-25 13:35+0200\n"
 "Last-Translator: WebMat <contact@webmat.pro>\n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
 "Language: fr_FR\n"
@@ -31,8 +31,8 @@ msgstr "Choisissez un fichier"
 
 #. Plugin Name of the plugin/theme
 #: admin/settings.php:38 admin/settings.php:124
-#: flexible-elementor-panel.php:288 flexible-elementor-panel.php:311
-#: flexible-elementor-panel.php:335 flexible-elementor-panel.php:361
+#: flexible-elementor-panel.php:292 flexible-elementor-panel.php:315
+#: flexible-elementor-panel.php:339 flexible-elementor-panel.php:365
 msgid "Flexible Elementor Panel"
 msgstr "Flexible Elementor Panel"
 
@@ -234,35 +234,35 @@ msgstr ""
 "<a href=\"https://fr.wordpress.org/support/plugin/flexible-elementor-panel/"
 "\" target=\"_blank\">forum de soutien.</a>"
 
-#: flexible-elementor-panel.php:287
+#: flexible-elementor-panel.php:291
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
 msgstr "\"%1$s\" nécessite \"%2$s\" pour être installé et activé."
 
-#: flexible-elementor-panel.php:289 flexible-elementor-panel.php:312
+#: flexible-elementor-panel.php:293 flexible-elementor-panel.php:316
 msgid "Elementor"
 msgstr "Elementor"
 
-#: flexible-elementor-panel.php:310 flexible-elementor-panel.php:334
+#: flexible-elementor-panel.php:314 flexible-elementor-panel.php:338
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr "\"%1$s\" requis \"%2$s\" en version %3$s ou supérieure."
 
-#: flexible-elementor-panel.php:336
+#: flexible-elementor-panel.php:340
 msgid "PHP"
 msgstr "PHP"
 
-#: flexible-elementor-panel.php:360
+#: flexible-elementor-panel.php:364
 #, php-format
 msgid "Thanks you to use our plugin %1$s, %2$s"
 msgstr "Merci d'utiliser notre plugin %1$s, %2$s"
 
-#: flexible-elementor-panel.php:362
+#: flexible-elementor-panel.php:366
 msgid "go to the information page for understand how to configure it"
 msgstr ""
 "rendez-vous sur la page d'informations pour comprendre comment le configurer"
 
-#: flexible-elementor-panel.php:378
+#: flexible-elementor-panel.php:382
 msgid ""
 "Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now "
 "available in the \"User Preferences\" of the Elementor editor!"
@@ -271,7 +271,7 @@ msgstr ""
 "maintenant disponibles dans les « préférences d'utilisateur » de l’éditeur "
 "Elementor !"
 
-#: flexible-elementor-panel.php:394
+#: flexible-elementor-panel.php:398
 msgid ""
 "FEP settings are correctly updated in the \"User Preferences\" of the "
 "Elementor editor!"
@@ -279,7 +279,7 @@ msgstr ""
 "Les paramètres FEP sont correctement mis à jour dans les « Préférences "
 "utilisateur » de l’éditeur Elementor !"
 
-#: flexible-elementor-panel.php:544
+#: flexible-elementor-panel.php:550
 msgid "Exit"
 msgstr "Quitter"
 
@@ -306,6 +306,8 @@ msgid ""
 "Note: if you disable this option when you are in RTL mode, this will set the "
 "LTR mode when the editor is on the right side"
 msgstr ""
+"Remarque : si vous désactivez cette option lorsque vous êtes en mode RTL, "
+"cela définira le mode LTR lorsque l’éditeur se trouve sur le côté droit"
 
 #: inc/settings/controls.php:64 inc/settings/model_deprecate.php:57
 msgid "Panel settings"

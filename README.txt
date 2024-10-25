@@ -66,6 +66,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 * Add: Compatibility with Wordpress 6.7
 * Add: Compatibility tag with Elementor 3.24.7
 * Add: Compatibility tag with Elementor Pro 3.24.4
+* Localization: Update POT/PO language
 
 = 2.4.0 =
 * Add: Compatibility with Wordpress 6.5
