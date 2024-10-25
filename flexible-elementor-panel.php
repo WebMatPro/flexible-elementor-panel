@@ -5,15 +5,15 @@
  * Plugin Name: 		Flexible Elementor Panel
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
- * Version: 			2.4.0
+ * Version: 			2.4.1
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
  * License URI: 		http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: 		flexible-elementor-panel
  * Domain Path: 		/languages
- * Elementor tested up to: 3.20.0
- * Elementor Pro tested up to: 3.20.0
+ * Elementor tested up to: 3.24.4
+ * Elementor Pro tested up to: 3.24.4
 **/
 
 if ( ! defined( 'ABSPATH' ) ) {

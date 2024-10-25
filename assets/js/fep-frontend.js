@@ -15,4 +15,11 @@ jQuery(document).ready(function($) {
         }, wait);
     })
 
+    // new version
+    /*$(".e-n-accordion").init( function() {
+        var wait = 300; setTimeout(function() {
+            $('.e-n-accordion-item').removeAttr('open');
+        }, wait);
+    })*/
+
 });
