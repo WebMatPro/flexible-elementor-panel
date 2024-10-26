@@ -1,13 +1,15 @@
 === Flexible Elementor Panel ===
 Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
-Tags: elementor, elementor addons, fep
-Requires at least: 4.6
-Tested up to: 6.8
+Tags: elementor, elementor addon, elementor addons, elementor widget, elementor editor, flexible elementor
+Requires at least: 4.7
+Tested up to: 6.7
 Requires PHP: 5.6
 Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+The plugin "Flexible Elementor Panel" makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.
 
 == Description ==
 
