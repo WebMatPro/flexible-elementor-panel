@@ -50,6 +50,7 @@ Manually via FTP:
 6. Flex and Sortable widgets category
 7. First tab accordion closed
 8. Simple settings in editor panel
+9. User settings in editor panel v2
 
 == Frequently Asked Questions ==
 
@@ -65,12 +66,13 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 == Changelog ==
 
 = 2.5.0 =
-* Improve : The moving of FEP will work again in the new editor elementor
-* Improve : Add exit button to the new Editor powered by React
-* Add: Compatibility with Wordpress 6.8
-* Add: Compatibility tag with Elementor 3.27.1
-* Add: Compatibility tag with Elementor Pro 3.27.0
-* Localization: Update POT/PO language
+* The moving of FEP will work again in the new editor elementor
+* Add exit button to the new Editor powered by React
+* Add compatibility with Wordpress 6.8
+* Add compatibility tag with Elementor 3.27.1
+* Add compatibility tag with Elementor Pro 3.27.0
+* Update POT/PO language
+* Update the screenshots on the plugin page Wordpress
 
 = 2.4.1 =
 * Add: Compatibility with Wordpress 6.7

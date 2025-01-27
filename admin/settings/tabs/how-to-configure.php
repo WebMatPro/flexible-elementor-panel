@@ -27,7 +27,15 @@ class FEP_HowToConfigure_Tab {
 
 			//if Elementor is version 3.0.0 or more
 			if ( version_compare( ELEMENTOR_VERSION, '3.0.0', '>=' ) ) {
-				$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings-2.2.gif" style="max-height: 500px;">';
+				$elementor_experiment_editor_v2 = get_option('elementor_experiment-editor_v2');
+
+				// Check if the option is not set to 'default' or 'active'
+				if (!in_array($elementor_experiment_editor_v2, ['default', 'active'], true)) {
+				    $html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings-2.2.gif" style="max-height: 500px;">';
+				} else {
+					$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings-v2.gif" style="max-height: 500px;">';
+				}
+
 			} else {
 				$html_fep_how_to_configure .= '<img class="fep-gif" src="'. FEP_URL .'admin/assets/images/fep-go-to-settings.gif" style="max-height: 500px;">';
 			}
