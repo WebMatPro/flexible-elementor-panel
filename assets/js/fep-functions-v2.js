@@ -859,6 +859,16 @@ function elementor_horizontal_panel() {
                 'left': '-' + panelWidth + 'px',
             }, 150);
 
+        } else if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '48px') { // new editor
+
+            $('#elementor-preview, .e-responsive-bar').animate({
+                'left': 0,
+            }, 150);
+
+            $('#elementor-panel').animate({
+                'left': '-' + panelWidth + 'px',
+            }, 150);
+
         } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
 
             $('#elementor-preview, .e-responsive-bar').animate({
@@ -882,6 +892,15 @@ function elementor_horizontal_panel() {
 
         // reset position panel to origin when click on title if he is on corner top left
         if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
+
+            $('#elementor-preview, .e-responsive-bar').animate({
+                'left': panelWidth + 'px',
+            }, 150);
+            $('#elementor-panel').animate({
+                'left': 0,
+            }, 150);
+
+        } else if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '48px') { // new editor
 
             $('#elementor-preview, .e-responsive-bar').animate({
                 'left': panelWidth + 'px',
