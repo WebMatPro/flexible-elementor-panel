@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2024-10-25 13:36+0200\n"
+"POT-Creation-Date: 2025-01-27 13:56+0100\n"
 "PO-Revision-Date: 2018-11-10 10:12+0700\n"
 "Last-Translator: \n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
@@ -31,8 +31,8 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 #: admin/settings.php:38 admin/settings.php:124
-#: flexible-elementor-panel.php:292 flexible-elementor-panel.php:315
-#: flexible-elementor-panel.php:339 flexible-elementor-panel.php:365
+#: flexible-elementor-panel.php:293 flexible-elementor-panel.php:316
+#: flexible-elementor-panel.php:340 flexible-elementor-panel.php:366
 msgid "Flexible Elementor Panel"
 msgstr ""
 
@@ -208,47 +208,55 @@ msgid ""
 "\"_blank\">support forum.</a>"
 msgstr ""
 
-#: flexible-elementor-panel.php:291
+#: flexible-elementor-panel.php:292
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
 msgstr ""
 
-#: flexible-elementor-panel.php:293 flexible-elementor-panel.php:316
+#: flexible-elementor-panel.php:294 flexible-elementor-panel.php:317
 msgid "Elementor"
 msgstr ""
 
-#: flexible-elementor-panel.php:314 flexible-elementor-panel.php:338
+#: flexible-elementor-panel.php:315 flexible-elementor-panel.php:339
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
 
-#: flexible-elementor-panel.php:340
+#: flexible-elementor-panel.php:341
 msgid "PHP"
 msgstr ""
 
-#: flexible-elementor-panel.php:364
+#: flexible-elementor-panel.php:365
 #, php-format
 msgid "Thanks you to use our plugin %1$s, %2$s"
 msgstr ""
 
-#: flexible-elementor-panel.php:366
+#: flexible-elementor-panel.php:367
 msgid "go to the information page for understand how to configure it"
 msgstr ""
 
-#: flexible-elementor-panel.php:382
+#: flexible-elementor-panel.php:383
 msgid ""
 "Great, you are using FEP 2.2+ and Elementor 3.0+, your FEP settings are now "
 "available in the \"User Preferences\" of the Elementor editor!"
 msgstr ""
 
-#: flexible-elementor-panel.php:398
+#: flexible-elementor-panel.php:399
 msgid ""
 "FEP settings are correctly updated in the \"User Preferences\" of the "
 "Elementor editor!"
 msgstr ""
 
-#: flexible-elementor-panel.php:550
+#: flexible-elementor-panel.php:551
 msgid "Exit"
+msgstr ""
+
+#: flexible-elementor-panel.php:552
+msgid "Reset Panel"
+msgstr ""
+
+#: flexible-elementor-panel.php:553
+msgid "Collapse Vertical"
 msgstr ""
 
 #: inc/settings/controls.php:47 inc/settings/model_deprecate.php:48

@@ -113,7 +113,7 @@ Breakpoints Elementor 3.7 :
     background-color: unset;
 }
 
-.disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-mobile>.elementor-widget-container,
+/*.disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-mobile>.elementor-widget-container,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile_extra"] .elementor-hidden-mobile_extra>.elementor-widget-container,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-widget-container,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet_extra"] .elementor-hidden-tablet_extra>.elementor-widget-container,
@@ -122,9 +122,9 @@ Breakpoints Elementor 3.7 :
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-widget-container {
     -webkit-filter: opacity(1) saturate(1);
     filter: opacity(1) saturate(1);
-}
+}*/
 
-.disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-mobile>.elementor-column-wrap,
+/*.disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile"] .elementor-hidden-mobile>.elementor-column-wrap,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="mobile_extra"] .elementor-hidden-mobile_extra>.elementor-column-wrap,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet"] .elementor-hidden-tablet>.elementor-column-wrap,
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="tablet_extra"] .elementor-hidden-tablet_extra>.elementor-column-wrap,
@@ -133,7 +133,7 @@ Breakpoints Elementor 3.7 :
 .disable-obscured-elements-responsive.elementor-editor-active[data-elementor-device-mode="desktop"] .elementor-hidden-desktop>.elementor-column-wrap {
     -webkit-filter: opacity(1) saturate(1);
     filter: opacity(1) saturate(1);
-}
+}*/
 
 
 /**

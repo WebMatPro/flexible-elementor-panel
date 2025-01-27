@@ -5,7 +5,7 @@ Tags: elementor, elementor addon, elementor addons, elementor widget, elementor 
 Requires at least: 4.7
 Tested up to: 6.7
 Requires PHP: 5.6
-Stable tag: 2.4.1
+Stable tag: 2.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,14 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.5.0 =
+* Improve : The moving of FEP will work again in the new editor elementor
+* Improve : Add exit button to the new Editor powered by React
+* Add: Compatibility with Wordpress 6.8
+* Add: Compatibility tag with Elementor 3.27.1
+* Add: Compatibility tag with Elementor Pro 3.27.0
+* Localization: Update POT/PO language
 
 = 2.4.1 =
 * Add: Compatibility with Wordpress 6.7

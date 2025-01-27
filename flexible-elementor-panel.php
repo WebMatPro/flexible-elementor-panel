@@ -6,15 +6,15 @@
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
  * Short Description:   The plugin “Flexible Elementor Panel” makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.
- * Version: 			2.4.1
+ * Version: 			2.5.0
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
  * License URI: 		http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: 		flexible-elementor-panel
  * Domain Path: 		/languages
- * Elementor tested up to: 3.24.4
- * Elementor Pro tested up to: 3.24.4
+ * Elementor tested up to: 3.27.1
+ * Elementor Pro tested up to: 3.27.0
 **/
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -474,7 +474,16 @@ final class Elementor_FEP_Extension {
 	 */
 	public function fep_styles_editor() {
 
-		wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . 'assets/css/flexible-elementor-panel-editor.css', false, FEP_VERSION, 'all' );
+		$elementor_experiment_editor_v2 = get_option('elementor_experiment-editor_v2');
+
+		// Check if the option is not set to 'default' or 'active'
+		if (!in_array($elementor_experiment_editor_v2, ['default', 'active'], true)) {
+			wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . 'assets/css/flexible-elementor-panel-editor.css', false, FEP_VERSION, 'all' );
+		} else {
+			wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . 'assets/css/flexible-elementor-panel-editor-v2.css', false, FEP_VERSION, 'all' );
+		}
+
+
 		wp_enqueue_style( 'flexible-elementor-panel-editor-night-skin', FEP_URL . 'assets/css/flexible-elementor-panel-editor-night-skin.css', false, FEP_VERSION, 'all' );
 
 	}
@@ -527,7 +536,17 @@ final class Elementor_FEP_Extension {
 		}
 
 		//wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions.js', array('elementor-editor'), FEP_VERSION, true );
-		wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions.js', false, FEP_VERSION, true );
+
+
+		$elementor_experiment_editor_v2 = get_option('elementor_experiment-editor_v2');
+
+		// Check if the option is not set to 'default' or 'active'
+		if (!in_array($elementor_experiment_editor_v2, ['default', 'active'], true)) {
+		    wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions.js', false, FEP_VERSION, true );
+		} else {
+			wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions-v2.js', false, FEP_VERSION, true );
+		}
+
 
 		wp_localize_script( 'fep-functions', 'FEP', array(
 			'Permalink' => get_permalink(),
@@ -549,6 +568,8 @@ final class Elementor_FEP_Extension {
 		// Localize the script with new data
 		$translation_array = array(
 			'exit_tooltip' => __( 'Exit', 'flexible-elementor-panel' ),
+			'reset_panel' => __( 'Reset Panel', 'flexible-elementor-panel' ),
+			'collapse_vertical' => __( 'Collapse Vertical', 'flexible-elementor-panel' ),
 		);
 		wp_localize_script( 'flexible-elementor-panel', 'fep', $translation_array );
 
