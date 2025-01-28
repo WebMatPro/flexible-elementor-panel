@@ -735,7 +735,7 @@ function collapseCategories() {
         $(".elementor-panel-category-items").slideDown(280);
     }
 
-    $('.elementor-panel-category-title').mousedown(function(event) {
+    $('.elementor-panel-category-title').on('mousedown', function(event) {
         if (event.which == 3) { // right click
             if ( $('.elementor-panel-category').hasClass('elementor-active') ) {
                 $(".elementor-panel-category-items").slideUp(280);
