@@ -1,7 +1,7 @@
 === Flexible Elementor Panel ===
 Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
-Tags: elementor, elementor addon, elementor addons, elementor widget, elementor editor, flexible elementor
+Tags: elementor, elementor addon, elementor addons, elementor widget, elementor editor
 Requires at least: 4.7
 Tested up to: 6.7.2
 Requires PHP: 5.6
