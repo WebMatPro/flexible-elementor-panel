@@ -6,15 +6,15 @@
  * Plugin URI: 			https://wordpress.org/plugins/flexible-elementor-panel/
  * Description: 		This is an add-on for popular page builder Elementor. Makes Elementor Widgets Panel flexible, draggable and folding that more space and opportunities.
  * Short Description:   The plugin “Flexible Elementor Panel” makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.
- * Version: 			2.5.0
+ * Version: 			2.5.1
  * Author: 				WebMat
  * Author URI: 			https://webmat.pro
  * License: 			GPL-2.0+
  * License URI: 		http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: 		flexible-elementor-panel
  * Domain Path: 		/languages
- * Elementor tested up to: 3.27.1
- * Elementor Pro tested up to: 3.27.0
+ * Elementor tested up to: 3.27.3
+ * Elementor Pro tested up to: 3.27.3
 **/
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -476,11 +476,14 @@ final class Elementor_FEP_Extension {
 
 		$elementor_experiment_editor_v2 = get_option('elementor_experiment-editor_v2');
 
+		//echo var_dump($elementor_experiment_editor_v2);
+		//exit;
+
 		// Check if the option is not set to 'default' or 'active'
-		if (!in_array($elementor_experiment_editor_v2, ['default', 'active'], true)) {
-			wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . 'assets/css/flexible-elementor-panel-editor.css', false, FEP_VERSION, 'all' );
-		} else {
+		if ( in_array($elementor_experiment_editor_v2, ['default', 'active', false], true) ) {
 			wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . 'assets/css/flexible-elementor-panel-editor-v2.css', false, FEP_VERSION, 'all' );
+		} else {
+			wp_enqueue_style( 'flexible-elementor-panel-editor', FEP_URL . 'assets/css/flexible-elementor-panel-editor.css', false, FEP_VERSION, 'all' );
 		}
 
 
@@ -541,10 +544,10 @@ final class Elementor_FEP_Extension {
 		$elementor_experiment_editor_v2 = get_option('elementor_experiment-editor_v2');
 
 		// Check if the option is not set to 'default' or 'active'
-		if (!in_array($elementor_experiment_editor_v2, ['default', 'active'], true)) {
-		    wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions.js', false, FEP_VERSION, true );
+		if ( in_array($elementor_experiment_editor_v2, ['default', 'active', false], true) ) {
+		    wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions-v2.js', false, FEP_VERSION, true );
 		} else {
-			wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions-v2.js', false, FEP_VERSION, true );
+			wp_register_script( 'fep-functions', FEP_URL . 'assets/js/fep-functions.js', false, FEP_VERSION, true );
 		}
 
 

@@ -3,9 +3,9 @@ Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
 Tags: elementor, elementor addon, elementor addons, elementor widget, elementor editor, flexible elementor
 Requires at least: 4.7
-Tested up to: 6.7
+Tested up to: 6.7.2
 Requires PHP: 5.6
-Stable tag: 2.5.0
+Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,10 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.5.1 =
+* Fix mousedown jQuery fonction - thanks @neo2k23
+* Fix issue to load correct files css/js for the new editor elementor
 
 = 2.5.0 =
 * The moving of FEP will work again in the new editor elementor
