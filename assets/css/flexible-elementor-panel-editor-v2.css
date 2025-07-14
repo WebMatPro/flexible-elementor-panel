@@ -50,6 +50,7 @@
     top: 48px; /* new editor */
     bottom: 0;
     margin: 0;
+    z-index: 2;
 }
 /* new editor */
 body:not(.e-routes-has-history) #elementor-panel-header-kit-back {
