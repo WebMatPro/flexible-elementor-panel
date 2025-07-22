@@ -2,8 +2,8 @@
 Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
 Tags: elementor, elementor addon, elementor addons, elementor widget, elementor editor
-Requires at least: 4.7
-Tested up to: 6.7.2
+Requires at least: 5.3
+Tested up to: 6.8.2
 Requires PHP: 5.6
 Stable tag: 2.5.2
 License: GPLv2 or later
@@ -67,6 +67,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 = 2.5.2 =
 * Add css z-index to the edit panel for override the top bar - thanks @tiri17
+* Fix load js/css for the editor v2 correctly with Elementor 3.30.0+
 * Add compatibility tag with Elementor 3.30.0
 * Add compatibility tag with Elementor Pro 3.30.0
 

@@ -476,6 +476,10 @@ final class Elementor_FEP_Extension {
 
 		$elementor_experiment_editor_v2 = get_option('elementor_experiment-editor_v2');
 
+		if ( version_compare( ELEMENTOR_VERSION, '3.30.0', '>=' ) ) {
+			$elementor_experiment_editor_v2 = 'active'; // default value for new Elementor versions
+		}
+
 		//echo var_dump($elementor_experiment_editor_v2);
 		//exit;
 
@@ -542,6 +546,11 @@ final class Elementor_FEP_Extension {
 
 
 		$elementor_experiment_editor_v2 = get_option('elementor_experiment-editor_v2');
+
+		if ( version_compare( ELEMENTOR_VERSION, '3.30.0', '>=' ) ) {
+			$elementor_experiment_editor_v2 = 'active'; // default value for new Elementor versions
+		}
+			
 
 		// Check if the option is not set to 'default' or 'active'
 		if ( in_array($elementor_experiment_editor_v2, ['default', 'active', false], true) ) {
