@@ -66,7 +66,7 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 == Changelog ==
 
 = 2.5.3 =
-* Remove z-index css not needed on the editor panel - thanks @medieskolen
+* Remove z-index css not needed on the editor panel - thanks @medieskolen & @robstyrrell
 
 = 2.5.2 =
 * Add css z-index to the edit panel for override the top bar - thanks @tiri17
