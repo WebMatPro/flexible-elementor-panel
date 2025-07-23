@@ -5,7 +5,7 @@ Tags: elementor, elementor addon, elementor addons, elementor widget, elementor 
 Requires at least: 5.3
 Tested up to: 6.8.2
 Requires PHP: 5.6
-Stable tag: 2.5.2
+Stable tag: 2.5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,9 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.5.3 =
+* Remove z-index css not needed on the editor panel - thanks @medieskolen
 
 = 2.5.2 =
 * Add css z-index to the edit panel for override the top bar - thanks @tiri17
