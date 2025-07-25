@@ -147,7 +147,7 @@ class FEP_Controls {
                     'label'     => __('Exit button options', 'flexible-elementor-panel'),
                     'controls'  => [
                         'display_exit_icon' => [
-                            'label' 			=> __('Display the exit icon in footer panel', 'flexible-elementor-panel'),
+                            'label' 			=> __('Display the exit icon in header panel', 'flexible-elementor-panel'),
                             'type'  			=> Controls_Manager::SWITCHER,
                             'label_on' 			=> __('On', 'flexible-elementor-panel'),
                             'label_off' 		=> __('Off', 'flexible-elementor-panel'),
@@ -173,6 +173,14 @@ class FEP_Controls {
                             'label_off' 		=> __('Off', 'flexible-elementor-panel'),
                             'return_value' 		=> 'yes',
                             'default' 			=> 'yes',
+                        ],
+                        'exit_save' =>	[
+                            'label' 			=> __('Save when use the exit button', 'flexible-elementor-panel'),
+                            'type'  			=> Controls_Manager::SWITCHER,
+                            'label_on' 			=> __('On', 'flexible-elementor-panel'),
+                            'label_off' 		=> __('Off', 'flexible-elementor-panel'),
+                            'return_value' 		=> 'yes',
+                            'default' 			=> 'no',
                         ],
                     ]
                 ],

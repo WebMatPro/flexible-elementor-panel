@@ -5,7 +5,7 @@ Tags: elementor, elementor addon, elementor addons, elementor widget, elementor 
 Requires at least: 5.3
 Tested up to: 6.8.2
 Requires PHP: 5.6
-Stable tag: 2.5.3
+Stable tag: 2.5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,11 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.5.4 =
+* Fix multiples issues with icon FEP in header - thanks @Lars
+* Add option for save the editor panel before use exit button - thanks the request from @Lars
+* Update POT/PO language
 
 = 2.5.3 =
 * Remove z-index css not needed on the editor panel - thanks @medieskolen & @robstyrrell

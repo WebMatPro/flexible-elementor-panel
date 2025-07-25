@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexible Elementor Panel\n"
-"POT-Creation-Date: 2025-01-27 13:56+0100\n"
-"PO-Revision-Date: 2025-01-27 13:56+0100\n"
+"POT-Creation-Date: 2025-07-25 11:34+0200\n"
+"PO-Revision-Date: 2025-07-25 11:34+0200\n"
 "Last-Translator: WebMat <contact@webmat.pro>\n"
 "Language-Team: WebMat <contact@webmat.pro>\n"
 "Language: fr_FR\n"
@@ -279,15 +279,15 @@ msgstr ""
 "Les paramètres FEP sont correctement mis à jour dans les « Préférences "
 "utilisateur » de l’éditeur Elementor !"
 
-#: flexible-elementor-panel.php:551
+#: flexible-elementor-panel.php:580
 msgid "Exit"
 msgstr "Quitter"
 
-#: flexible-elementor-panel.php:552
+#: flexible-elementor-panel.php:581
 msgid "Reset Panel"
 msgstr "Réinitialiser le panneau"
 
-#: flexible-elementor-panel.php:553
+#: flexible-elementor-panel.php:582
 msgid "Collapse Vertical"
 msgstr "Réduire Verticalement"
 
@@ -338,15 +338,15 @@ msgstr ""
 #: inc/settings/controls.php:88 inc/settings/controls.php:107
 #: inc/settings/controls.php:115 inc/settings/controls.php:124
 #: inc/settings/controls.php:152 inc/settings/controls.php:172
-#: inc/settings/controls.php:191 inc/settings/controls.php:200
-#: inc/settings/controls.php:209 inc/settings/controls.php:218
-#: inc/settings/controls.php:231 inc/settings/model_deprecate.php:63
-#: inc/settings/model_deprecate.php:72 inc/settings/model_deprecate.php:81
-#: inc/settings/model_deprecate.php:100 inc/settings/model_deprecate.php:108
-#: inc/settings/model_deprecate.php:121 inc/settings/model_deprecate.php:141
-#: inc/settings/model_deprecate.php:160 inc/settings/model_deprecate.php:169
-#: inc/settings/model_deprecate.php:178 inc/settings/model_deprecate.php:187
-#: inc/settings/model_deprecate.php:200
+#: inc/settings/controls.php:180 inc/settings/controls.php:199
+#: inc/settings/controls.php:208 inc/settings/controls.php:217
+#: inc/settings/controls.php:226 inc/settings/controls.php:239
+#: inc/settings/model_deprecate.php:63 inc/settings/model_deprecate.php:72
+#: inc/settings/model_deprecate.php:81 inc/settings/model_deprecate.php:100
+#: inc/settings/model_deprecate.php:108 inc/settings/model_deprecate.php:121
+#: inc/settings/model_deprecate.php:141 inc/settings/model_deprecate.php:160
+#: inc/settings/model_deprecate.php:169 inc/settings/model_deprecate.php:178
+#: inc/settings/model_deprecate.php:187 inc/settings/model_deprecate.php:200
 msgid "On"
 msgstr "Oui"
 
@@ -354,15 +354,15 @@ msgstr "Oui"
 #: inc/settings/controls.php:89 inc/settings/controls.php:108
 #: inc/settings/controls.php:116 inc/settings/controls.php:125
 #: inc/settings/controls.php:153 inc/settings/controls.php:173
-#: inc/settings/controls.php:192 inc/settings/controls.php:201
-#: inc/settings/controls.php:210 inc/settings/controls.php:219
-#: inc/settings/controls.php:232 inc/settings/model_deprecate.php:64
-#: inc/settings/model_deprecate.php:73 inc/settings/model_deprecate.php:82
-#: inc/settings/model_deprecate.php:101 inc/settings/model_deprecate.php:109
-#: inc/settings/model_deprecate.php:122 inc/settings/model_deprecate.php:142
-#: inc/settings/model_deprecate.php:161 inc/settings/model_deprecate.php:170
-#: inc/settings/model_deprecate.php:179 inc/settings/model_deprecate.php:188
-#: inc/settings/model_deprecate.php:201
+#: inc/settings/controls.php:181 inc/settings/controls.php:200
+#: inc/settings/controls.php:209 inc/settings/controls.php:218
+#: inc/settings/controls.php:227 inc/settings/controls.php:240
+#: inc/settings/model_deprecate.php:64 inc/settings/model_deprecate.php:73
+#: inc/settings/model_deprecate.php:82 inc/settings/model_deprecate.php:101
+#: inc/settings/model_deprecate.php:109 inc/settings/model_deprecate.php:122
+#: inc/settings/model_deprecate.php:142 inc/settings/model_deprecate.php:161
+#: inc/settings/model_deprecate.php:170 inc/settings/model_deprecate.php:179
+#: inc/settings/model_deprecate.php:188 inc/settings/model_deprecate.php:201
 msgid "Off"
 msgstr "Non"
 
@@ -404,12 +404,12 @@ msgstr "Défaut"
 
 #: inc/settings/controls.php:105 inc/settings/model_deprecate.php:98
 msgid "Display the vertical collaspe icon in header panel"
-msgstr "Afficher l'icône verticale de collaspe dans le panneau d'en-tête"
+msgstr "Afficher l'icône verticale de collaspe dans l'en-tête du panneau"
 
 #: inc/settings/controls.php:113 inc/settings/model_deprecate.php:106
 msgid "Display the reset panel icon in header panel"
 msgstr ""
-"Afficher l'icône du panneau de réinitialisation dans le panneau d'en-tête"
+"Afficher l'icône du panneau de réinitialisation dans l'en-tête du panneau"
 
 #: inc/settings/controls.php:121
 msgid "Force RTL Mode"
@@ -423,9 +423,9 @@ msgstr "Forcera le mode RTL lorsque l’éditeur est sur le côté droit"
 msgid "Exit button options"
 msgstr "Options du bouton quitter"
 
-#: inc/settings/controls.php:150 inc/settings/model_deprecate.php:119
-msgid "Display the exit icon in footer panel"
-msgstr "Afficher l'icône de sortie dans le pied du panneau"
+#: inc/settings/controls.php:150
+msgid "Display the exit icon in header panel"
+msgstr "Afficher l'icône de sortie dans l'en-tête du panneau"
 
 #: inc/settings/controls.php:158 inc/settings/model_deprecate.php:127
 msgid "Exit point"
@@ -455,11 +455,15 @@ msgstr "Bibliothèque d'éléments"
 msgid "Open in new tab"
 msgstr "Ouvrir dans un nouvel onglet"
 
-#: inc/settings/controls.php:180 inc/settings/model_deprecate.php:149
+#: inc/settings/controls.php:178
+msgid "Save when use the exit button"
+msgstr "Enregistrer en utilisant le bouton de sortie"
+
+#: inc/settings/controls.php:188 inc/settings/model_deprecate.php:149
 msgid "Responsive options"
 msgstr "Options Responsive"
 
-#: inc/settings/controls.php:184 inc/settings/model_deprecate.php:153
+#: inc/settings/controls.php:192 inc/settings/model_deprecate.php:153
 msgid ""
 "These options give you control over how responsive hidden elements appear "
 "and behave inside the Elementor editor on each responsive view (Desktop, "
@@ -471,21 +475,21 @@ msgstr ""
 "réactive (bureau, tablette ou mobile). Utilisez-les soigneusement pour "
 "éviter de perdre des éléments lors de l'édition."
 
-#: inc/settings/controls.php:188 inc/settings/model_deprecate.php:157
+#: inc/settings/controls.php:196 inc/settings/model_deprecate.php:157
 msgid "Hide Responsive Elements"
 msgstr "Masquer Éléments Responsive"
 
-#: inc/settings/controls.php:189 inc/settings/model_deprecate.php:158
+#: inc/settings/controls.php:197 inc/settings/model_deprecate.php:158
 msgid "Completely hides elements that are set to hide in responsive modes."
 msgstr ""
 "Masque complètement les éléments définis pour se cacher dans les modes "
 "responsive."
 
-#: inc/settings/controls.php:197 inc/settings/model_deprecate.php:166
+#: inc/settings/controls.php:205 inc/settings/model_deprecate.php:166
 msgid "Allow Editing Inside Hidden Sections"
 msgstr "Autoriser la modification à l'intérieur des sections masquées"
 
-#: inc/settings/controls.php:198 inc/settings/model_deprecate.php:167
+#: inc/settings/controls.php:206 inc/settings/model_deprecate.php:167
 msgid ""
 "Allow editing of elements inside responsive hidden Sections or Inner "
 "Sections without having to use the Navigator."
@@ -493,11 +497,11 @@ msgstr ""
 "Permet de modifier des éléments dans des sections masquées ou des sections "
 "internes sans avoir à utiliser le navigateur."
 
-#: inc/settings/controls.php:206 inc/settings/model_deprecate.php:175
+#: inc/settings/controls.php:214 inc/settings/model_deprecate.php:175
 msgid "Disable Responsive Overlays"
 msgstr "Désactiver Superpositions Responsive"
 
-#: inc/settings/controls.php:207 inc/settings/model_deprecate.php:176
+#: inc/settings/controls.php:215 inc/settings/model_deprecate.php:176
 msgid ""
 "Remove the grayed out overlay pattern from any responsive hidden element and "
 "restore their original colors."
@@ -505,11 +509,11 @@ msgstr ""
 "Supprimez le motif de superposition grisé de tous les éléments responsive "
 "masqués et restaurer leurs couleurs d'origine."
 
-#: inc/settings/controls.php:215 inc/settings/model_deprecate.php:184
+#: inc/settings/controls.php:223 inc/settings/model_deprecate.php:184
 msgid "Alternative Responsive Indicator"
 msgstr "Indicateur Responsive Alternatif"
 
-#: inc/settings/controls.php:216 inc/settings/model_deprecate.php:185
+#: inc/settings/controls.php:224 inc/settings/model_deprecate.php:185
 msgid ""
 "Adds an alternative indicator for responsive hidden elements by changing "
 "their handle colors."
@@ -517,17 +521,21 @@ msgstr ""
 "Ajoute un indicateur alternatif pour les éléments responsive cachés en "
 "changeant leur couleur de bordure."
 
-#: inc/settings/controls.php:226 inc/settings/model_deprecate.php:195
+#: inc/settings/controls.php:234 inc/settings/model_deprecate.php:195
 msgid "Accordion widget options"
 msgstr "Options de widget Accordéon"
 
-#: inc/settings/controls.php:229 inc/settings/model_deprecate.php:198
+#: inc/settings/controls.php:237 inc/settings/model_deprecate.php:198
 msgid "First tab closed (only in editor)"
 msgstr "Premier onglet fermé (uniquement dans l'éditeur)"
 
-#: inc/settings/controls.php:243 inc/settings/model_deprecate.php:208
+#: inc/settings/controls.php:251 inc/settings/model_deprecate.php:208
 msgid "Tools & Informations"
 msgstr "Outils et informations"
+
+#: inc/settings/model_deprecate.php:119
+msgid "Display the exit icon in footer panel"
+msgstr "Afficher l'icône de sortie dans le pied du panneau"
 
 #. Plugin URI of the plugin/theme
 msgid "https://wordpress.org/plugins/flexible-elementor-panel/"

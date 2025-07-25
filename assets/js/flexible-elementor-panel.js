@@ -77,12 +77,39 @@ $( window ).on( "elementor:init", () => {
        });
 
        // reset panel
-       $(document).on('click touchstart', '.reset-fep', function(event) {
+       $(document).on('click touchstart', '#fep-reset-panel', function(event) {
            event.preventDefault(); // cancel other actions
            reset_fep_panel(); // run function
        });
 
+       $(document).on('click touchstart', '#fep-exit-link', function(event) {
+            event.preventDefault(); // Prevent default navigation
 
+            const $link = jQuery(this);
+            const shouldSave = $link.attr('data-save') === 'yes';
+            const href = $link.attr('href');
+            const target = $link.attr('target') || '_self';
+
+            function redirect() {
+                if (target === '_blank') {
+                    window.open(href, '_blank');
+                } else {
+                    window.location.href = href;
+                }
+            }
+
+            if (shouldSave && typeof $e !== 'undefined') {
+                $e.run('document/save/update').then(function () {
+                    //console.log('Elementor page saved. Redirecting...');
+                    redirect();
+                }).catch(function (err) {
+                    console.error('Save failed:', err);
+                    redirect(); // Still redirect even if save fails
+                });
+            } else {
+                redirect();
+            }
+       });
 
 
        // when widget accordion is add
@@ -171,6 +198,10 @@ $( window ).on( "elementor:init", () => {
        });
        $(document).on('change', "input[data-setting='exit_link_new_tab']", function() {
            fepConfig.exit_link_new_tab = $(this).is(':checked') ? 'yes' : 'no';
+           LoadFepSettings();
+       });
+       $(document).on('change', "input[data-setting='exit_save']", function() {
+           fepConfig.exit_save = $(this).is(':checked') ? 'yes' : 'no';
            LoadFepSettings();
        });
        $(document).on('change', "input[data-setting='accordion_options']", function() {

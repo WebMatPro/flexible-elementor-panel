@@ -173,28 +173,27 @@ function LoadFepSettings() {
 
     //add exit icon
     if (fepConfig.display_exit_icon == 'yes' || !fepConfig.display_exit_icon) {
-        if ($("#fep-exit").length == 0) {
-            exit_panel = '<a id="fep-exit" target="_self" href="#" title="' + fep.exit_tooltip + '" class="fep-exit-link elementor-panel-footer-tool elementor-leave-open fep-tooltip"><i class="eicon-editor-external-link" aria-hidden="true"></i></a>';
-            $("#elementor-panel-footer-saver-preview").after(exit_panel);
-
-            // new header bar // beta
-            exit_panel_new = '<a id="fep-exit-link" target="_self" href="#" title="' + fep.exit_tooltip + '" class="fep-exit-link elementor-panel-footer-tool elementor-leave-open fep-tooltip" style="font-size: 25px;height: unset;width: 34px;text-align: center;color: white;"><i class="eicon-editor-external-link" aria-hidden="true"></i></div>';
+        if ($("#fep-exit-link").length == 0) {
+            exit_panel_new = '<div id="fep-exit-link" target="_self" href="#" title="' + fep.exit_tooltip + '" data-save="no"><i class="eicon-editor-external-link" aria-hidden="true"></i></div>';
             $("button[value=Notes]").parent().after(exit_panel_new);
+        }
+
+        // add attr save when use the exit button
+        if (fepConfig.exit_save === 'yes') {
+            $("#fep-exit-link").attr("data-save", "yes");
+        } else {
+            $("#fep-exit-link").attr("data-save", "no");
         }
     }
     if (fepConfig.display_exit_icon == 'no' || fepConfig.display_exit_icon == '') {
-        $("#fep-exit").remove();
+        $("#fep-exit-link").remove();
     }
 
 
     //add collapse icon
     if (fepConfig.display_vertical_collaspe_icon == 'yes' || !fepConfig.display_vertical_collaspe_icon ) {
         if ($("#fep-collapse-vertical").length == 0) {
-            collapse_vertical_panel = '<div id="fep-collapse-vertical" title="' + fep.collapse_vertical + '"><i class="eicon-v-align-middle" aria-hidden="true"></i></div>';
-            $("#elementor-panel-header-menu-button").after(collapse_vertical_panel);
-
-            // new header bar // beta
-            collapse_vertical_panel_new = '<div id="fep-collapse-vertical" title="' + fep.collapse_vertical + '" style="font-size: 16px;height:unset;width:34px;text-align:center"><i class="eicon-v-align-middle" aria-hidden="true"></i></div>';
+            collapse_vertical_panel_new = '<div id="fep-collapse-vertical" title="' + fep.collapse_vertical + '"><i class="eicon-v-align-middle" aria-hidden="true"></i></div>';
             $("button[value=Notes]").parent().after(collapse_vertical_panel_new);
         }
     }
@@ -206,11 +205,7 @@ function LoadFepSettings() {
     //add reset panel icon
     if (fepConfig.display_reset_icon == 'yes' || !fepConfig.display_reset_icon ) {
         if ($("#fep-reset-panel").length == 0) {
-            fep_reset_panel = '<div id="fep-reset-panel" class="reset-fep" title="' + fep.reset_panel + '"><i class="eicon-undo" aria-hidden="true"></i></div>';
-            $("#elementor-panel-header-title").after(fep_reset_panel);
-
-            // new header bar // beta
-            fep_reset_panel_new = '<div id="fep-reset-panel" title="' + fep.reset_panel + '" class="reset-fep" style="font-size: 16px;height:unset;width:34px;bottom:unset;text-align:center"><i class="eicon-undo" aria-hidden="true"></i></div>';
+            fep_reset_panel_new = '<div id="fep-reset-panel" title="' + fep.reset_panel + '"><i class="eicon-undo" aria-hidden="true"></i></div>';
             $("button[value=Notes]").parent().after(fep_reset_panel_new);
         }
     }
@@ -255,26 +250,30 @@ function LoadFepSettings() {
         $('body').removeClass("nightmode nightmode-pink nightmode-orange");
     }
     if (fepConfig.exit_link_new_tab == 'yes' || !fepConfig.exit_link_new_tab) {
-        $(".fep-exit-link").attr("target", "_blank");
+        $("#fep-exit-link").attr("target", "_blank");
     }
     if (fepConfig.exit_link_new_tab == 'no' || fepConfig.exit_link_new_tab == '') {
-        $(".fep-exit-link").attr("target", "_self");
+        $("#fep-exit-link").attr("target", "_self");
     }
     if (fepConfig.exit_link_point == 'front' || !fepConfig.exit_link_point) {
-        $(".fep-exit-link").attr("href", FEP.Permalink);
+        $("#fep-exit-link").attr("href", FEP.Permalink);
     }
     if (fepConfig.exit_link_point == 'edit') {
-        $(".fep-exit-link").attr("href", window.location.href.replace("&action=elementor", "&action=edit"));
+        $("#fep-exit-link").attr("href", window.location.href.replace("&action=elementor", "&action=edit"));
     }
     if (fepConfig.exit_link_point == 'list') {
-        $(".fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/edit.php?post_type=' + FEP.PostType);
+        $("#fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/edit.php?post_type=' + FEP.PostType);
     }
     if (fepConfig.exit_link_point == 'elementor_library') {
-        $(".fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/edit.php?post_type=elementor_library');
+        $("#fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/edit.php?post_type=elementor_library');
     }
     if (fepConfig.exit_link_point == 'admin_dashboard') {
-        $(".fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/');
+        $("#fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/');
     }
+    if (fepConfig.exit_save === 'yes' ) {
+        $("#fep-exit-link").attr("data-save", "yes");
+    }
+
     if (fepConfig.accordion_options == 'yes' || !fepConfig.accordion_options) {
         $("#elementor-preview-iframe").contents().find('.elementor-tab-title[data-tab="1"]').removeClass('elementor-active');
         $("#elementor-preview-iframe").contents().find('.elementor-tab-content[data-tab="1"]').css('display', 'none').removeClass('elementor-active');
@@ -938,8 +937,6 @@ function elementor_horizontal_panel() {
 
 --------------------------------------------------------------------------------------*/
 function reset_fep_panel() {
-
-    //console.log('ok');
 
     $("#elementor-preview").css("pointer-events", "auto"); // active pointer on the preview elementor
 
