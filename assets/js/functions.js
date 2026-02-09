@@ -148,18 +148,46 @@ function isPanelDockedRight() {
 }
 
 function getHistoryInsertTarget() {
-    var $header = $("header.MuiAppBar-root");
+    var $header = $("header.MuiAppBar-root").first();
     if ($header.length) {
-        var $historyButton = $header.find('button[aria-label="History"]').first();
-        if ($historyButton.length) {
-            return $historyButton.closest('.MuiBox-root');
+        var $toolbar = $header.find(".MuiToolbar-root").first();
+        var $leftGrid = $toolbar.find(".MuiGrid-root.MuiGrid-container").first();
+        var $leftStacks = $leftGrid.find(".MuiStack-root");
+        var $toggleStack = $leftStacks.filter(function () {
+            var $stack = $(this);
+            return $stack.find("button.MuiToggleButton-root").length > 1
+                || $stack.find("button.MuiToggleButton-sizeSmall").length > 0;
+        }).first();
+
+        if ($toggleStack.length) {
+            var $lastToggleWrapper = $toggleStack.find("button").last().closest(".MuiBox-root");
+            if ($lastToggleWrapper.length) {
+                return $lastToggleWrapper;
+            }
+
+            return $toggleStack;
         }
 
-        var $toolbar = $header.find(".MuiToolbar-root").first();
-        var $grid = $toolbar.find(".MuiGrid-root.MuiGrid-container").first();
-        var $stack = $grid.find(".MuiStack-root").first();
-        if ($stack.length) {
-            return $stack;
+        var $stacks = $toolbar.find(".MuiStack-root");
+        var $actionStack = $stacks.filter(function () {
+            return $(this).find("button").length > 0;
+        }).last();
+
+        if ($actionStack.length) {
+            var $buttonWrapper = $actionStack.find("button").last().closest(".MuiBox-root");
+            if ($buttonWrapper.length) {
+                return $buttonWrapper;
+            }
+
+            var $fallbackChild = $actionStack.children().last();
+            if ($fallbackChild.length) {
+                return $fallbackChild;
+            }
+        }
+
+        var $anyButtonWrapper = $header.find("button").last().closest(".MuiBox-root");
+        if ($anyButtonWrapper.length) {
+            return $anyButtonWrapper;
         }
     }
 

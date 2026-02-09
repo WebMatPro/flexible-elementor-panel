@@ -1,11 +1,11 @@
-=== Flexible Editor Panel ===
+=== Flexible Editor Panel for Elementor ===
 Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
 Tags: elementor, elementor addon, elementor editor, elementor panel, editor
 Requires at least: 5.9
 Tested up to: 6.9.1
 Requires PHP: 7.4
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,9 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.6.1 =
+* Fix: Corrected FEP header icon injection placement across Elementor header variants
 
 = 2.6.0 =
 * Major: Renamed plugin from "Flexible Elementor Panel" to "Flexible Editor Panel"
