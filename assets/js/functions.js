@@ -18,6 +18,269 @@ Summary functions:
 */
 
 var $ = jQuery.noConflict();
+var panel_size;
+var panelWidth;
+var panelHeight;
+var switcher_checkbox;
+var fepResizeRafId;
+var fepResizePending;
+var fepDomCache = {
+    panel: null,
+    preview: null,
+    responsiveBar: null,
+    headerTitle: null,
+    panelContent: null,
+    panelFooter: null,
+    modeSwitcher: null
+};
+
+function getPanel() {
+    if (!fepDomCache.panel || !fepDomCache.panel.length) {
+        fepDomCache.panel = $("#elementor-panel");
+    }
+    return fepDomCache.panel;
+}
+
+function getPreview() {
+    if (!fepDomCache.preview || !fepDomCache.preview.length) {
+        fepDomCache.preview = $("#elementor-preview");
+    }
+    return fepDomCache.preview;
+}
+
+function getResponsiveBar() {
+    if (!fepDomCache.responsiveBar || !fepDomCache.responsiveBar.length) {
+        fepDomCache.responsiveBar = $(".e-responsive-bar");
+    }
+    return fepDomCache.responsiveBar;
+}
+
+function getPreviewElements() {
+    return getPreview().add(getResponsiveBar());
+}
+
+function getPanelHeaderTitle() {
+    if (!fepDomCache.headerTitle || !fepDomCache.headerTitle.length) {
+        fepDomCache.headerTitle = $("#elementor-panel-header-title");
+    }
+    return fepDomCache.headerTitle;
+}
+
+function getPanelContentWrapper() {
+    if (!fepDomCache.panelContent || !fepDomCache.panelContent.length) {
+        fepDomCache.panelContent = $("#elementor-panel-content-wrapper");
+    }
+    return fepDomCache.panelContent;
+}
+
+function getPanelFooter() {
+    if (!fepDomCache.panelFooter || !fepDomCache.panelFooter.length) {
+        fepDomCache.panelFooter = $("#elementor-panel-footer");
+    }
+    return fepDomCache.panelFooter;
+}
+
+function getModeSwitcher() {
+    if (!fepDomCache.modeSwitcher || !fepDomCache.modeSwitcher.length) {
+        fepDomCache.modeSwitcher = $("#elementor-mode-switcher");
+    }
+    return fepDomCache.modeSwitcher;
+}
+
+function setPreviewOffsets(left, right, animate) {
+    var $targets = getPreviewElements();
+    var offsets = {
+        left: left,
+        right: right
+    };
+
+    if (animate) {
+        $targets.stop(true, true).animate(offsets, 150);
+        return;
+    }
+
+    $targets.css(offsets);
+}
+
+function getPreviewContents() {
+    var $iframe = $("#elementor-preview-iframe");
+    return $iframe.length ? $iframe.contents() : null;
+}
+
+function getPreviewBody() {
+    var $contents = getPreviewContents();
+    return $contents ? $contents.find("body") : null;
+}
+
+function getEditorHeaderOffset() {
+    var $header = $("header.MuiAppBar-root").first();
+    if (!$header.length) {
+        return 0;
+    }
+
+    return Math.max(0, $header.outerHeight() || 0);
+}
+
+function getDockedTop() {
+    return getEditorHeaderOffset();
+}
+
+function getDockedPanelHeight() {
+    return Math.max(0, $(window).height() - getEditorHeaderOffset());
+}
+
+function getPanelTopValue() {
+    return parseInt($("#elementor-panel").css('top'), 10) || 0;
+}
+
+function isPanelDockedTop() {
+    var top = getPanelTopValue();
+    var dockedTop = getDockedTop();
+    return top === 0 || top === dockedTop;
+}
+
+function isPanelDockedLeft() {
+    return $("#elementor-panel").css('left') === '0px' && isPanelDockedTop();
+}
+
+function isPanelDockedRight() {
+    return $("#elementor-panel").css('right') === '0px' && isPanelDockedTop();
+}
+
+function getHistoryInsertTarget() {
+    var $header = $("header.MuiAppBar-root");
+    if ($header.length) {
+        var $historyButton = $header.find('button[aria-label="History"]').first();
+        if ($historyButton.length) {
+            return $historyButton.closest('.MuiBox-root');
+        }
+
+        var $toolbar = $header.find(".MuiToolbar-root").first();
+        var $grid = $toolbar.find(".MuiGrid-root.MuiGrid-container").first();
+        var $stack = $grid.find(".MuiStack-root").first();
+        if ($stack.length) {
+            return $stack;
+        }
+    }
+
+    return $("button[value=Notes]").parent();
+}
+
+function getDividerTemplate() {
+    var $header = $("header.MuiAppBar-root");
+    var $divider = $header.find("hr.MuiDivider-root.MuiDivider-vertical").first();
+    if ($divider.length) {
+        return $divider;
+    }
+
+    return $('<hr class="MuiDivider-root MuiDivider-fullWidth MuiDivider-vertical">');
+}
+
+function getFepHeaderGroup() {
+    var $group = $('.fep-header-group').first();
+    if ($group.length) {
+        return $group;
+    }
+
+    var $anchor = getHistoryInsertTarget();
+    if (!$anchor.length) {
+        return $();
+    }
+
+    var $dividerBefore = getDividerTemplate().clone(false, false)
+        .addClass('fep-header-divider fep-header-divider-before');
+    var $dividerAfter = getDividerTemplate().clone(false, false)
+        .addClass('fep-header-divider fep-header-divider-after');
+
+    $group = $('<span class="MuiBox-root eui-0 fep-header-group"></span>');
+
+    $anchor.after($dividerBefore);
+    $dividerBefore.after($group);
+    $group.after($dividerAfter);
+
+    return $group;
+}
+
+function cleanupFepHeaderGroup() {
+    var $group = $('.fep-header-group').first();
+    if (!$group.length) {
+        return;
+    }
+
+    if ($group.find('.fep-header-item').length) {
+        return;
+    }
+
+    $group.prev('.fep-header-divider').remove();
+    $group.next('.fep-header-divider').remove();
+    $group.remove();
+}
+
+function ensureExitLast() {
+    var $group = $('.fep-header-group').first();
+    if (!$group.length) {
+        return;
+    }
+
+    var $exit = $group.find('#fep-exit-link').closest('.fep-header-item');
+    if ($exit.length) {
+        $group.append($exit);
+    }
+}
+
+function addHeaderButton($button) {
+    var $group = getFepHeaderGroup();
+    if (!$group.length) {
+        return;
+    }
+
+    $group.append($button);
+}
+
+function buildHeaderButton(id, title, iconClass, extraAttrs) {
+    var $template = getHistoryInsertTarget();
+    var $wrapper = $template.length
+        ? $template.clone(false, false)
+        : $('<span class="MuiBox-root eui-0"></span>');
+
+    $wrapper.addClass('fep-header-item');
+
+    var $button = $wrapper.find('button').first();
+    if (!$button.length) {
+        $button = $('<button type="button"></button>');
+        $wrapper.empty().append($button);
+    }
+
+    var tooltipPlacement = $button.attr('data-tooltip-placement') || 'bottom';
+
+    $button
+        .attr('id', id)
+        .attr('type', 'button')
+        .attr('title', title)
+        .attr('aria-label', title)
+        .attr('aria-pressed', 'false')
+        .attr('data-tooltip', title)
+        .attr('data-tooltip-placement', tooltipPlacement)
+        .addClass('fep-header-button')
+        .removeAttr('value');
+
+    if (extraAttrs) {
+        Object.keys(extraAttrs).forEach(function (key) {
+            $button.attr(key, extraAttrs[key]);
+        });
+    }
+
+    $button.empty().append(
+        $('<i>')
+            .addClass('MuiSvgIcon-root')
+            .addClass('MuiSvgIcon-fontSizeMedium')
+            .addClass('fep-header-icon')
+            .addClass(iconClass)
+    );
+
+    return $wrapper;
+}
+
 
 /*--------------------------------------------------------------------------------------
 
@@ -55,20 +318,23 @@ function LoadPanelPosition() {
         //console.log('do it');
 
 
+        var dockedHeight = getDockedPanelHeight();
+        var dockedTop = getDockedTop();
+
         // check if the panel is oversize of windows height and panel more up of top windows
-        if (panel_size_height >= $(window).height() || panel_pos_top < 0) {
+        if (panel_size_height >= dockedHeight || panel_pos_top < 0) {
 
             $("#elementor-panel").css({
-                'top': 0,
+                'top': dockedTop,
                 'left': panel_pos_left + 'px',
                 'right': 0, //unset
             }); // move the panel at the save position but force top 0
-            $("#elementor-panel").css("height", $(window).height() - parseInt($("#elementor-panel").css("top"))); // remove the force height
+            $("#elementor-panel").css("height", dockedHeight); // remove the force height
 
             // set var panel size with special height
             panel_size = {
                 width: panel_size_width + 'px',
-                height: $(window).height() + 'px'
+                height: dockedHeight + 'px'
             };
 
         } else {
@@ -109,6 +375,7 @@ function LoadPanelPosition() {
 
         //check if the panel is in the corner left side to load
         if (panel_pos_left == 0) {
+            var dockedTop = getDockedTop();
 
             //console.log('left side')
 
@@ -125,7 +392,7 @@ function LoadPanelPosition() {
             $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-e").removeClass("ui-resizable-w"); // resize right side
 
             $("#elementor-panel").css({
-                'top': 0,
+                'top': dockedTop,
                 'left': 0,
                 'right': 'auto',
             }); // move the panel at the save position
@@ -133,6 +400,7 @@ function LoadPanelPosition() {
 
             // like 1920 === 1920, this is right side
         } else if (panel_pos_right == window.innerWidth) {
+            var dockedTop = getDockedTop();
 
             //console.log('right side')
 
@@ -148,7 +416,7 @@ function LoadPanelPosition() {
             $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-w").removeClass("ui-resizable-e"); // resize left side
 
             $("#elementor-panel").css({
-                'top': 0,
+                'top': dockedTop,
                 'left': 'auto',
                 'right': 0,
             }); // move the panel at the save position
@@ -156,7 +424,7 @@ function LoadPanelPosition() {
         }
     }
 
-    setTimeout("MouseUpHeaderNavigator()", 1000); // load after 1 second for prevent issue position preview
+    setTimeout(MouseUpHeaderNavigator, 1000); // load after 1 second for prevent issue position preview
     //MouseUpHeaderNavigator(); // run
 }
 
@@ -169,55 +437,84 @@ function LoadPanelPosition() {
 // Load the settings FEP
 function LoadFepSettings() {
 
+    if (typeof fepConfig === 'undefined') {
+        return;
+    }
+
     //console.log(fepConfig); // for debugging
 
     //add exit icon
     if (fepConfig.display_exit_icon == 'yes' || !fepConfig.display_exit_icon) {
-        if ($("#fep-exit").length == 0) {
-            exit_panel = '<a id="fep-exit" target="_self" href="#" title="' + fep.exit_tooltip + '" class="fep-exit-link elementor-panel-footer-tool elementor-leave-open fep-tooltip"><i class="eicon-editor-external-link" aria-hidden="true"></i></a>';
-            $("#elementor-panel-footer-saver-preview").after(exit_panel);
-        }        
+        if ($("#fep-exit-link").length == 0) {
+            exit_panel_new = buildHeaderButton(
+                'fep-exit-link',
+                fep.exit_tooltip,
+                'eicon-editor-external-link',
+                {
+                    'data-save': 'no'
+                }
+            );
+            addHeaderButton(exit_panel_new);
+        }
+
+        // add attr save when use the exit button
+        if (fepConfig.exit_save === 'yes') {
+            $("#fep-exit-link").attr("data-save", "yes");
+        } else {
+            $("#fep-exit-link").attr("data-save", "no");
+        }
     }
     if (fepConfig.display_exit_icon == 'no' || fepConfig.display_exit_icon == '') {
-        $("#fep-exit").remove();
+        $("#fep-exit-link").remove();
+        cleanupFepHeaderGroup();
     }
 
 
     //add collapse icon
-    if (fepConfig.display_vertical_collaspe_icon == 'yes' || !fepConfig.display_vertical_collaspe_icon ) {
+    if (fepConfig.display_vertical_collaspe_icon == 'yes' || !fepConfig.display_vertical_collaspe_icon) {
         if ($("#fep-collapse-vertical").length == 0) {
-            collapse_vertical_panel = '<div id="fep-collapse-vertical"><i class="eicon-v-align-middle" aria-hidden="true"></i></div>';
-            $("#elementor-panel-header-menu-button").after(collapse_vertical_panel);
+            collapse_vertical_panel_new = buildHeaderButton(
+                'fep-collapse-vertical',
+                fep.collapse_vertical,
+                'eicon-v-align-middle'
+            );
+            addHeaderButton(collapse_vertical_panel_new);
         }
     }
     if (fepConfig.display_vertical_collaspe_icon == 'no' || fepConfig.display_vertical_collaspe_icon == '') {
         $("#fep-collapse-vertical").remove();
+        cleanupFepHeaderGroup();
     }
 
 
     //add reset panel icon
-    if (fepConfig.display_reset_icon == 'yes' || !fepConfig.display_reset_icon ) {
+    if (fepConfig.display_reset_icon == 'yes' || !fepConfig.display_reset_icon) {
         if ($("#fep-reset-panel").length == 0) {
-            fep_reset_panel = '<div id="fep-reset-panel" class="reset-fep"><i class="eicon-undo" aria-hidden="true"></i></div>';
-            $("#elementor-panel-header-title").after(fep_reset_panel);
+            fep_reset_panel_new = buildHeaderButton(
+                'fep-reset-panel',
+                fep.reset_panel,
+                'eicon-undo'
+            );
+            addHeaderButton(fep_reset_panel_new);
         }
     }
     if (fepConfig.display_reset_icon == 'no' || fepConfig.display_reset_icon == '') {
         $("#fep-reset-panel").remove();
+        cleanupFepHeaderGroup();
     }
 
 
     if (fepConfig.draggable_panel == 'yes' || !fepConfig.draggable_panel) {
-        $("#elementor-panel").draggable("enable");
-        $("#elementor-panel-header-title").on('touchstart mousedown', mousedownHeaderTitle);
+        getPanel().draggable("enable");
+        getPanelHeaderTitle().on('touchstart mousedown', mousedownHeaderTitle);
         $(document).on('touchend mouseup', mouseupHeaderTitle);
-        $("#elementor-panel-header-title").css("cursor", "move"); // add cursor to the title editor panel
+        getPanelHeaderTitle().css("cursor", "move"); // add cursor to the title editor panel
     }
     if (fepConfig.draggable_panel == 'no' || fepConfig.draggable_panel == '') {
-        $("#elementor-panel").draggable("disable");
-        $("#elementor-panel-header-title").off('touchstart mousedown', mousedownHeaderTitle);
+        getPanel().draggable("disable");
+        getPanelHeaderTitle().off('touchstart mousedown', mousedownHeaderTitle);
         //$("#elementor-panel-header-title").off('touchend mouseup', mouseupHeaderTitle); //useless
-        $("#elementor-panel-header-title").css("cursor", ""); // remove special cursor to the title editor panel
+        getPanelHeaderTitle().css("cursor", ""); // remove special cursor to the title editor panel
     }
     if (fepConfig.minimize_category_space == 'yes' || !fepConfig.minimize_category_space) {
         $('body').addClass("fep-minimize-category");
@@ -243,65 +540,83 @@ function LoadFepSettings() {
         $('body').removeClass("nightmode nightmode-pink nightmode-orange");
     }
     if (fepConfig.exit_link_new_tab == 'yes' || !fepConfig.exit_link_new_tab) {
-        $(".fep-exit-link").attr("target", "_blank");
+        $("#fep-exit-link").attr("target", "_blank").attr("data-target", "_blank");
     }
     if (fepConfig.exit_link_new_tab == 'no' || fepConfig.exit_link_new_tab == '') {
-        $(".fep-exit-link").attr("target", "_self");
+        $("#fep-exit-link").attr("target", "_self").attr("data-target", "_self");
     }
     if (fepConfig.exit_link_point == 'front' || !fepConfig.exit_link_point) {
-        $(".fep-exit-link").attr("href", FEP.Permalink);
+        $("#fep-exit-link").attr("href", FEP.Permalink).attr("data-href", FEP.Permalink);
     }
     if (fepConfig.exit_link_point == 'edit') {
-        $(".fep-exit-link").attr("href", window.location.href.replace("&action=elementor", "&action=edit"));
+        var editHref = window.location.href.replace("&action=elementor", "&action=edit");
+        $("#fep-exit-link").attr("href", editHref).attr("data-href", editHref);
     }
     if (fepConfig.exit_link_point == 'list') {
-        $(".fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/edit.php?post_type=' + FEP.PostType);
+        var listHref = window.location.href.split('wp-admin')[0] + 'wp-admin/edit.php?post_type=' + FEP.PostType;
+        $("#fep-exit-link").attr("href", listHref).attr("data-href", listHref);
     }
     if (fepConfig.exit_link_point == 'elementor_library') {
-        $(".fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/edit.php?post_type=elementor_library');
+        var libraryHref = window.location.href.split('wp-admin')[0] + 'wp-admin/edit.php?post_type=elementor_library';
+        $("#fep-exit-link").attr("href", libraryHref).attr("data-href", libraryHref);
     }
     if (fepConfig.exit_link_point == 'admin_dashboard') {
-        $(".fep-exit-link").attr("href", window.location.href.split('wp-admin')[0] + 'wp-admin/');
+        var adminHref = window.location.href.split('wp-admin')[0] + 'wp-admin/';
+        $("#fep-exit-link").attr("href", adminHref).attr("data-href", adminHref);
     }
-    if (fepConfig.accordion_options == 'yes' || !fepConfig.accordion_options) {
-        $("#elementor-preview-iframe").contents().find('.elementor-tab-title[data-tab="1"]').removeClass('elementor-active');
-        $("#elementor-preview-iframe").contents().find('.elementor-tab-content[data-tab="1"]').css('display', 'none').removeClass('elementor-active');
-    } else {
-        $("#elementor-preview-iframe").contents().find('.elementor-tab-title[data-tab="1"]').addClass('elementor-active');
-        $("#elementor-preview-iframe").contents().find('.elementor-tab-content[data-tab="1"]').css('display', 'block').removeClass('elementor-active');
+    if (fepConfig.exit_save === 'yes') {
+        $("#fep-exit-link").attr("data-save", "yes");
     }
+
+    ensureExitLast();
+
+    var $previewContents = getPreviewContents();
+    var $previewBody = getPreviewBody();
+
     if (fepConfig.hide_elements_responsive == 'yes') {
-        $("#elementor-preview-iframe").contents().find("body").addClass("hide-elements-responsive");
+        if ($previewBody) {
+            $previewBody.addClass("hide-elements-responsive");
+        }
 
         $("body").addClass("disable-option-fep-disable_obscured_elements_responsive");
         $("body").addClass("disable-option-fep-maintain_obscured_elements_responsive");
         $("body").addClass("disable-option-fep-alternative_responsive_indicator");
 
     } else {
-        $("#elementor-preview-iframe").contents().find("body").removeClass("hide-elements-responsive");
+        if ($previewBody) {
+            $previewBody.removeClass("hide-elements-responsive");
+        }
 
         $("body").removeClass("disable-option-fep-disable_obscured_elements_responsive");
         $("body").removeClass("disable-option-fep-maintain_obscured_elements_responsive");
         $("body").removeClass("disable-option-fep-alternative_responsive_indicator");
     }
     if (fepConfig.disable_obscured_elements_responsive == 'yes') {
-        $("#elementor-preview-iframe").contents().find("body").addClass("disable-obscured-elements-responsive");
-    } else {
-        $("#elementor-preview-iframe").contents().find("body").removeClass("disable-obscured-elements-responsive");
+        if ($previewBody) {
+            $previewBody.addClass("disable-obscured-elements-responsive");
+        }
+    } else if ($previewBody) {
+        $previewBody.removeClass("disable-obscured-elements-responsive");
     }
     if (fepConfig.maintain_obscured_elements_responsive == 'yes') {
-        $("#elementor-preview-iframe").contents().find("body").addClass("maintain-obscured-elements-responsive");
-    } else {
-        $("#elementor-preview-iframe").contents().find("body").removeClass("maintain-obscured-elements-responsive");
+        if ($previewBody) {
+            $previewBody.addClass("maintain-obscured-elements-responsive");
+        }
+    } else if ($previewBody) {
+        $previewBody.removeClass("maintain-obscured-elements-responsive");
     }
     if (fepConfig.alternative_responsive_indicator == 'yes') {
-        $("#elementor-preview-iframe").contents().find("body").addClass("alternative-responsive-indicator-enabled");
-    } else {
-        $("#elementor-preview-iframe").contents().find("body").removeClass("alternative-responsive-indicator-enabled");
+        if ($previewBody) {
+            $previewBody.addClass("alternative-responsive-indicator-enabled");
+        }
+    } else if ($previewBody) {
+        $previewBody.removeClass("alternative-responsive-indicator-enabled");
     }
 
     //$("#elementor-navigator__header").on('touchstart mousedown', mousedownHeaderTitleNavigator);
-    $(document).on('touchend mouseup', MouseUpHeaderNavigator); // load
+    $(document)
+        .off('touchend.fep mouseup.fep')
+        .on('touchend.fep mouseup.fep', MouseUpHeaderNavigator); // load
 }
 
 
@@ -313,53 +628,71 @@ function LoadFepSettings() {
 // Make Elementor Panel draggable
 function DraggablePanel() {
 
-    $("#elementor-panel").resizable({
+    getPanel().resizable({
         minWidth: 300,
         minHeight: 360,
         //delay: 0,
         //handles: "all",
-        resize: function(event, ui) {
+        resize: function (event, ui) {
             event.preventDefault();
 
-            $("#elementor-preview").css("pointer-events", "none"); // disable pointer on the preview elementor
+            getPreview().css("pointer-events", "none"); // disable pointer on the preview elementor
 
-            //if panel is in not in move
-            if (!$("#elementor-panel").hasClass("in-move")) {
-                panelWidth = $("#elementor-panel").width();
-
-                //check if the panel is in the corner left / top
-                if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
-
-                    $("#elementor-preview").css('left', panelWidth); // set
-
-                } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
-
-                    $("#elementor-preview").css('right', panelWidth); // set
-
-                }
-
+            if (getPanel().hasClass("in-move")) {
+                return;
             }
 
+            if (fepResizeRafId) {
+                fepResizePending = {
+                    width: ui.size.width,
+                    dockedLeft: isPanelDockedLeft(),
+                    dockedRight: isPanelDockedRight()
+                };
+                return;
+            }
+
+            fepResizePending = {
+                width: ui.size.width,
+                dockedLeft: isPanelDockedLeft(),
+                dockedRight: isPanelDockedRight()
+            };
+
+            fepResizeRafId = window.requestAnimationFrame(function () {
+                var data = fepResizePending;
+                fepResizePending = null;
+                fepResizeRafId = null;
+
+                if (!data) {
+                    return;
+                }
+
+                if (data.dockedLeft) {
+                    getPreview().css('left', data.width);
+                } else if (data.dockedRight) {
+                    getPreview().css('right', data.width);
+                }
+            });
+
         },
-        stop: function(event, ui) {
+        stop: function (event, ui) {
             event.preventDefault();
 
-            $("#elementor-preview").css("pointer-events", "auto"); // active pointer on the preview elementor
+            getPreview().css("pointer-events", "auto"); // active pointer on the preview elementor
 
-            panelWidth = $("#elementor-panel").width();
-            panelHeight = $("#elementor-panel").height();
+            panelWidth = ui.size.width;
+            panelHeight = ui.size.height;
 
             //if panel is in not in move
-            if (!$("#elementor-panel").hasClass("in-move")) {
+            if (!getPanel().hasClass("in-move")) {
 
                 //check if the panel is in the corner left / top
-                if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
+                if (isPanelDockedLeft()) {
 
-                    $("#elementor-preview").css('left', panelWidth); // set
+                    getPreview().css('left', panelWidth); // set
 
-                } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
+                } else if (isPanelDockedRight()) {
 
-                    $("#elementor-preview").css('right', panelWidth); // set
+                    getPreview().css('right', panelWidth); // set
 
                 }
 
@@ -374,7 +707,7 @@ function DraggablePanel() {
     //console.log( panel_size_height + '-' + $(window).height() ); // for debugging
 
     // draggable panel !! al right ;)
-    $("#elementor-panel").draggable({
+    getPanel().draggable({
         handle: "#elementor-panel-header-title",
         snap: "#elementor-preview",
         opacity: 0.7,
@@ -383,46 +716,43 @@ function DraggablePanel() {
         containment: "window",
         snapMode: "inner",
         snapTolerance: 25,
-        start: function() {
+        start: function () {
 
-            $('#elementor-preview, .e-responsive-bar').animate({
-                'left': 0,
-                'right': 0,
-            }, 150);
+            setPreviewOffsets(0, 0, true);
 
             if (FEP.rtl) {
                 // force right:auto with <html dir="rtl">
-                $('#elementor-panel').css({
+                getPanel().css({
                     'right': 'auto',
                 });
             }
 
 
         },
-        stop: function(event, ui) {
+        stop: function (event, ui) {
 
 
             //check if the panel is in the corner left / top
-            if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
+            if (isPanelDockedLeft()) {
 
                 // remove class "in-move" when panel back in origine position
-                $("#elementor-panel").removeClass("in-move"); // remove
+                getPanel().removeClass("in-move"); // remove
                 localStorage.setItem('in-move', 0); //save
 
-                $("#elementor-panel").css({
-                    'top': 0,
+                getPanel().css({
+                    'top': getDockedTop(),
                     'left': 0,
                     'right': 'auto',
                 }); // move the panel at the save position
 
-            } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
+            } else if (isPanelDockedRight()) {
 
                 // remove class "in-move" when panel back in origine position
-                $("#elementor-panel").removeClass("in-move"); // remove
+                getPanel().removeClass("in-move"); // remove
                 localStorage.setItem('in-move', 0); //save
 
-                $("#elementor-panel").css({
-                    'top': 0,
+                getPanel().css({
+                    'top': getDockedTop(),
                     'left': 'auto',
                     'right': 0,
                 }); // move the panel at the save position
@@ -430,7 +760,7 @@ function DraggablePanel() {
             } else {
 
                 // add class "in-move" when panel is in move
-                $("#elementor-panel").addClass("in-move");
+                getPanel().addClass("in-move");
                 localStorage.setItem('in-move', 1);
 
             }
@@ -438,14 +768,14 @@ function DraggablePanel() {
             localStorage.setItem('elementor-panel-pos-top', ui.position.top);
             localStorage.setItem('elementor-panel-pos-left', ui.position.left);
 
-            var panelWidth = $("#elementor-panel").width();
+            var panelWidth = getPanel().width();
             var UiPositionRight = ui.position.left + panelWidth;
 
             localStorage.setItem('elementor-panel-pos-right', UiPositionRight);
 
             // save the width and height size
-            localStorage.setItem('elementor-panel-size-width', $("#elementor-panel").width()); //save
-            localStorage.setItem('elementor-panel-size-height', $("#elementor-panel").height()); //save
+            localStorage.setItem('elementor-panel-size-width', panelWidth); //save
+            localStorage.setItem('elementor-panel-size-height', getPanel().height()); //save
 
             //alert(UiPositionRight);
 
@@ -462,31 +792,14 @@ function DraggablePanel() {
 // MOUSEDOWN (at the click mouse)
 function mousedownHeaderTitle() {
 
-    $("#elementor-preview").css("pointer-events", "none"); // disable pointer on the preview elementor
+    getPreview().css("pointer-events", "none"); // disable pointer on the preview elementor
 
     // when start to draggable, do it if the panel still in corner top left
-    if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
+    if (isPanelDockedLeft()) {
 
-        $("#elementor-panel").css("height", "65%"); // set panel height 65% of windows
-        $("#elementor-panel-content-wrapper").slideDown(150); // transition
-        $("#elementor-panel-footer").slideDown(150); // transition
-
-        $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-e"); // remove resizable the right side of panel editor
-        $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-w"); // remove resizable the left side of panel editor
-        $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-all"); // add resizable all panel editor
-
-        elementor_switcher_display_none(); // remove switcher preview mode
-
-        // clean height size for exclude conflict with vertical callapse
-        var panelHeight = $("#elementor-panel").height(); // get
-        localStorage.setItem('elementor-panel-size-height', panelHeight); //save
-        $('#elementor-panel').removeClass('vertical_elementor_panel_toggle-on'); // collapse is off
-
-    } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
-
-        $("#elementor-panel").css("height", "65%"); // set panel height 65% of windows
-        $("#elementor-panel-content-wrapper").slideDown(150); // transition
-        $("#elementor-panel-footer").slideDown(150); // transition
+        getPanel().css("height", "65%"); // set panel height 65% of windows
+        getPanelContentWrapper().slideDown(150); // transition
+        getPanelFooter().slideDown(150); // transition
 
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-e"); // remove resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-w"); // remove resizable the left side of panel editor
@@ -495,9 +808,26 @@ function mousedownHeaderTitle() {
         elementor_switcher_display_none(); // remove switcher preview mode
 
         // clean height size for exclude conflict with vertical callapse
-        var panelHeight = $("#elementor-panel").height(); // get
+        var panelHeight = getPanel().height(); // get
         localStorage.setItem('elementor-panel-size-height', panelHeight); //save
-        $('#elementor-panel').removeClass('vertical_elementor_panel_toggle-on'); // collapse is off
+        getPanel().removeClass('vertical_elementor_panel_toggle-on'); // collapse is off
+
+    } else if (isPanelDockedRight()) {
+
+        getPanel().css("height", "65%"); // set panel height 65% of windows
+        getPanelContentWrapper().slideDown(150); // transition
+        getPanelFooter().slideDown(150); // transition
+
+        $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-e"); // remove resizable the right side of panel editor
+        $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-w"); // remove resizable the left side of panel editor
+        $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-all"); // add resizable all panel editor
+
+        elementor_switcher_display_none(); // remove switcher preview mode
+
+        // clean height size for exclude conflict with vertical callapse
+        var panelHeight = getPanel().height(); // get
+        localStorage.setItem('elementor-panel-size-height', panelHeight); //save
+        getPanel().removeClass('vertical_elementor_panel_toggle-on'); // collapse is off
 
     }
 
@@ -506,20 +836,23 @@ function mousedownHeaderTitle() {
 // MOUSEUP (at leave the click mouse)
 function mouseupHeaderTitle() {
 
-    $("#elementor-preview").css("pointer-events", "auto"); // active pointer on the preview elementor
+    getPreview().css("pointer-events", "auto"); // active pointer on the preview elementor
 
     // reset position panel to origin when click on title if he is on corner top left
-    if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
+    if (isPanelDockedLeft()) {
 
         rtl_mode(false); // run normal mode
 
         $("#elementor-preview-iframe").contents().find("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
         $("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
 
-        $("#elementor-panel").css("height", $(window).height() + 'px'); // resize full height panel
+        getPanel().css({
+            'top': getDockedTop(),
+            'height': getDockedPanelHeight() + 'px'
+        }); // resize full height panel
 
-        $("#elementor-panel-content-wrapper").slideDown(150); // transiton
-        $("#elementor-panel-footer").slideDown(150); // transiton
+        getPanelContentWrapper().slideDown(150); // transiton
+        getPanelFooter().slideDown(150); // transiton
 
         $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-e"); // add resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-all"); // remove resizable all panel editor
@@ -527,26 +860,27 @@ function mouseupHeaderTitle() {
         elementor_switcher_display_block('left'); // show button resize preview
 
         // remove class "in-move" when panel back in origine position
-        $("#elementor-panel").removeClass("in-move");
+        getPanel().removeClass("in-move");
         localStorage.setItem('in-move', 0);
 
         // replace the preview
-        panelWidth = $("#elementor-panel").width(); // get size panel
-        $('#elementor-preview, .e-responsive-bar').animate({
-            'left': panelWidth + 'px',
-        }, 150);
+        panelWidth = getPanel().width(); // get size panel
+        setPreviewOffsets(panelWidth + 'px', 0, true);
 
-    } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
+    } else if (isPanelDockedRight()) {
 
         rtl_mode(true); // run rtl mode
 
         $("#elementor-preview-iframe").contents().find("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
         $("body").removeClass('elementor-editor-preview').addClass('elementor-editor-active'); // disable preview
 
-        $("#elementor-panel").css("height", $(window).height() + 'px'); // resize full height panel
+        getPanel().css({
+            'top': getDockedTop(),
+            'height': getDockedPanelHeight() + 'px'
+        }); // resize full height panel
 
-        $("#elementor-panel-content-wrapper").slideDown(150); // transiton
-        $("#elementor-panel-footer").slideDown(150); // transiton
+        getPanelContentWrapper().slideDown(150); // transiton
+        getPanelFooter().slideDown(150); // transiton
 
         $(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-w"); // add resizable the right side of panel editor
         $(".elementor-panel > .ui-resizable-handle").removeClass("ui-resizable-all"); // remove resizable all panel editor
@@ -554,14 +888,12 @@ function mouseupHeaderTitle() {
         elementor_switcher_display_block('right'); // show button resize preview
 
         // remove class "in-move" when panel back in origine position
-        $("#elementor-panel").removeClass("in-move");
+        getPanel().removeClass("in-move");
         localStorage.setItem('in-move', 0);
 
         // replace the preview
-        panelWidth = $("#elementor-panel").width(); // get size panel
-        $('#elementor-preview, .e-responsive-bar').animate({
-            'right': panelWidth + 'px',
-        }, 150);
+        panelWidth = getPanel().width(); // get size panel
+        setPreviewOffsets(0, panelWidth + 'px', true);
 
     }
 
@@ -590,7 +922,7 @@ function vertical_elementor_panel_toggle() {
         if (!$('#elementor-panel').hasClass('in-move')) {
 
             $("#elementor-panel").animate({
-                height: $(window).height() + 'px'
+                height: getDockedPanelHeight() + 'px'
             }, 0); // add the height px minus the top px
 
             //$(".elementor-panel > .ui-resizable-handle").addClass("ui-resizable-e"); // add resizable the right side of panel editor
@@ -600,23 +932,17 @@ function vertical_elementor_panel_toggle() {
             panelWidth = $("#elementor-panel").width(); // get size panel
 
             // reset position panel to origin when click on title if he is on corner top left
-            if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
+            if (isPanelDockedLeft()) {
 
                 elementor_switcher_display_block('left'); // show switcher
 
-                $('#elementor-preview, .e-responsive-bar').animate({
-                    'left': panelWidth + 'px',
-                    'right': 0,
-                }, 150);
+                setPreviewOffsets(panelWidth + 'px', 0, true);
 
-            } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
+            } else if (isPanelDockedRight()) {
 
                 elementor_switcher_display_block('right'); // show switcher
 
-                $('#elementor-preview, .e-responsive-bar').animate({
-                    'left': 0,
-                    'right': panelWidth + 'px',
-                }, 150);
+                setPreviewOffsets(0, panelWidth + 'px', true);
 
             }
 
@@ -670,10 +996,7 @@ function vertical_elementor_panel_toggle() {
 
 
         // set full preview
-        $('#elementor-preview, .e-responsive-bar').animate({
-            'left': 0,
-            'right': 0,
-        }, 150);
+        setPreviewOffsets(0, 0, true);
 
 
         //alert('resize on');
@@ -687,38 +1010,57 @@ function vertical_elementor_panel_toggle() {
 4 - Collaspe Categories
 
 --------------------------------------------------------------------------------------*/
-// Close all categories in panel with the right click
+// Toggle all categories with a dedicated button (no right-click conflict)
 function collapseCategories() {
-
-    // remove window click right chrome
-    $(".elementor-panel-category-title").on("contextmenu", function() {
-        return false;
-    });
-
-    //alert(localStorage.getItem("cat-closed")); // for debugging
-
-    // load conditionnal if the save collapse is "closed"
-    if ( localStorage.getItem('cat-closed') == '1' ) {
-        $(".elementor-panel-category-items").slideUp(280);
-        $(".elementor-panel-category").removeClass("elementor-active");
-    } else {
-        $(".elementor-panel-category").addClass("elementor-active");
-        $(".elementor-panel-category-items").slideDown(280);
+    var $categories = $("#elementor-panel-categories").first();
+    if (!$categories.length) {
+        return;
     }
 
-    $('.elementor-panel-category-title').mousedown(function(event) {
-        if (event.which == 3) { // right click
-            if ( $('.elementor-panel-category').hasClass('elementor-active') ) {
-                $(".elementor-panel-category-items").slideUp(280);
-                $(".elementor-panel-category").removeClass("elementor-active");
-                localStorage.setItem('cat-closed', '1');
-            } else {
-                $(".elementor-panel-category").addClass("elementor-active");
-                $(".elementor-panel-category-items").slideDown(280);
-                localStorage.setItem('cat-closed', '0');
-            }
+    var labelText = (window.fep && fep.collapse_categories) ? fep.collapse_categories : 'Collapse categories';
+    var $toggle = $('.fep-categories-toggle').first();
+
+    if (!$toggle.length) {
+        var $button = $('<button type="button" class="fep-categories-toggle-button elementor-button elementor-button-default" aria-pressed="false"></button>');
+        $button.append(
+            $('<span class="fep-categories-toggle-text"></span>').text(labelText)
+        );
+
+        $toggle = $('<div class="fep-categories-toggle"></div>').append($button);
+        $categories.before($toggle);
+    } else {
+        $toggle.find('.fep-categories-toggle-text').text(labelText);
+    }
+
+    function applyCategoriesState(isCollapsed) {
+        var $items = $(".elementor-panel-category-items");
+        var $categories = $(".elementor-panel-category");
+
+        if (isCollapsed) {
+            $items.stop(true, true).slideUp(280);
+            $categories.removeClass("elementor-active");
+            localStorage.setItem('cat-closed', '1');
+        } else {
+            $categories.addClass("elementor-active");
+            $items.stop(true, true).slideDown(280);
+            localStorage.setItem('cat-closed', '0');
         }
-    });
+
+        var $button = $('.fep-categories-toggle-button');
+        $button
+            .toggleClass('is-collapsed', isCollapsed)
+            .attr('aria-pressed', isCollapsed ? 'true' : 'false');
+    }
+
+    applyCategoriesState(localStorage.getItem('cat-closed') === '1');
+
+    $(document)
+        .off('click.fep', '.fep-categories-toggle-button')
+        .on('click.fep', '.fep-categories-toggle-button', function (event) {
+            event.preventDefault();
+            var shouldCollapse = localStorage.getItem('cat-closed') !== '1';
+            applyCategoriesState(shouldCollapse);
+        });
 
 }
 
@@ -745,7 +1087,7 @@ function draggableCategories() {
 function refreshPositionsCategories() {
 
     // refresh tabindex number by order categorie
-    $('.elementor-panel-category').each(function(i) {
+    $('.elementor-panel-category').each(function (i) {
 
         $(this).attr('tabindex', i + 1); // reload tabindex to all single category
 
@@ -763,7 +1105,7 @@ function refreshPositionsCategories() {
 function createPositionsCategories() {
 
     // did action by number of category
-    $(".elementor-panel-category").each(function(i) {
+    $(".elementor-panel-category").each(function (i) {
         var i = i + 1;
 
         if (localStorage.getItem('cat-position-' + i)) {
@@ -784,19 +1126,21 @@ function createPositionsCategories() {
 function elementor_switcher_display_block(side) {
 
     //alert(side);
+    var $modeSwitcher = getModeSwitcher();
+
     if (side == 'left') {
-        $("#elementor-mode-switcher").addClass('right').removeClass('left'); // make switcher mode to right side
+        $modeSwitcher.addClass('right').removeClass('left'); // make switcher mode to right side
     } else if (side == 'right') {
-        $("#elementor-mode-switcher").addClass('left').removeClass('right'); // make switcher mode to left side
+        $modeSwitcher.addClass('left').removeClass('right'); // make switcher mode to left side
     }
 
-    $("#elementor-mode-switcher").css("display", "block"); // all side
+    $modeSwitcher.css("display", "block"); // all side
 
 }
 // Hide the arrow of switcher elementor editor
 function elementor_switcher_display_none() {
 
-    $("#elementor-mode-switcher").css("display", "none"); // all side
+    getModeSwitcher().css("display", "none"); // all side
 
 }
 
@@ -820,21 +1164,17 @@ function elementor_horizontal_panel() {
     if (switcher_checkbox == false) {
 
         // reset position panel to origin when click on title if he is on corner top left
-        if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
+        if ($('#elementor-panel').css('left') === '0px' && isPanelDockedTop()) {
 
-            $('#elementor-preview, .e-responsive-bar').animate({
-                'left': 0,
-            }, 150);
+            setPreviewOffsets(0, 0, true);
 
             $('#elementor-panel').animate({
                 'left': '-' + panelWidth + 'px',
             }, 150);
 
-        } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
+        } else if ($('#elementor-panel').css('right') === '0px' && isPanelDockedTop()) {
 
-            $('#elementor-preview, .e-responsive-bar').animate({
-                'right': 0,
-            }, 150);
+            setPreviewOffsets(0, 0, true);
 
             $('#elementor-panel').animate({
                 'right': '-' + panelWidth + 'px',
@@ -852,20 +1192,16 @@ function elementor_horizontal_panel() {
     } else {
 
         // reset position panel to origin when click on title if he is on corner top left
-        if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
+        if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && isPanelDockedTop()) {
 
-            $('#elementor-preview, .e-responsive-bar').animate({
-                'left': panelWidth + 'px',
-            }, 150);
+            setPreviewOffsets(panelWidth + 'px', 0, true);
             $('#elementor-panel').animate({
                 'left': 0,
             }, 150);
 
-        } else if ($('#elementor-panel').css('right') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
+        } else if ($('#elementor-panel').css('right') === '-' + panelWidth + 'px' && isPanelDockedTop()) {
 
-            $('#elementor-preview, .e-responsive-bar').animate({
-                'right': panelWidth + 'px',
-            }, 150);
+            setPreviewOffsets(0, panelWidth + 'px', true);
             $('#elementor-panel').animate({
                 'right': 0,
             }, 150);
@@ -890,8 +1226,6 @@ function elementor_horizontal_panel() {
 
 --------------------------------------------------------------------------------------*/
 function reset_fep_panel() {
-
-    //console.log('ok');
 
     $("#elementor-preview").css("pointer-events", "auto"); // active pointer on the preview elementor
 
@@ -939,16 +1273,10 @@ function reset_fep_panel() {
 
     // mode rtl
     if (FEP.rtl) {
-        $('#elementor-preview, .e-responsive-bar').animate({
-            'right': panelWidth + 'px',
-            'left': 0,
-        }, 150);
+        setPreviewOffsets(0, panelWidth + 'px', true);
         // of normal
     } else {
-        $('#elementor-preview, .e-responsive-bar').animate({
-            'left': panelWidth + 'px',
-            'right': 0,
-        }, 150);
+        setPreviewOffsets(panelWidth + 'px', 0, true);
 
     }
 
@@ -1004,20 +1332,17 @@ function elementor_horizontal_panel_key() {
 
         // if panel is not in drag
         if (!$('#elementor-panel').hasClass('in-move')) {
-            $('#elementor-preview, .e-responsive-bar').animate({
-                'left': 0,
-                'right': 0,
-            }, 150);
+            setPreviewOffsets(0, 0, true);
 
             // reset position panel to origin when click on title if he is on corner top left
-            if ($('#elementor-panel').css('left') === '0px' && $('#elementor-panel').css('top') === '0px') {
+            if ($('#elementor-panel').css('left') === '0px' && isPanelDockedTop()) {
 
                 $('#elementor-panel').animate({
                     'left': '-' + panelWidth + 'px',
                     'width': panelWidth + 'px',
                 }, 150);
 
-            } else if ($('#elementor-panel').css('right') === '0px' && $('#elementor-panel').css('top') === '0px') {
+            } else if ($('#elementor-panel').css('right') === '0px' && isPanelDockedTop()) {
 
                 $('#elementor-panel').animate({
                     'right': '-' + panelWidth + 'px',
@@ -1050,21 +1375,17 @@ function elementor_horizontal_panel_key() {
 
 
             // reset position panel to origin when click on title if he is on corner top left
-            if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
+            if ($('#elementor-panel').css('left') === '-' + panelWidth + 'px' && isPanelDockedTop()) {
 
-                $('#elementor-preview, .e-responsive-bar').animate({
-                    'left': panelWidth + 'px',
-                }, 150);
+                setPreviewOffsets(panelWidth + 'px', 0, true);
                 $('#elementor-panel').animate({
                     'left': 0,
                     'width': panelWidth + 'px',
                 }, 150);
 
-            } else if ($('#elementor-panel').css('right') === '-' + panelWidth + 'px' && $('#elementor-panel').css('top') === '0px') {
+            } else if ($('#elementor-panel').css('right') === '-' + panelWidth + 'px' && isPanelDockedTop()) {
 
-                $('#elementor-preview, .e-responsive-bar').animate({
-                    'right': panelWidth + 'px',
-                }, 150);
+                setPreviewOffsets(0, panelWidth + 'px', true);
                 $('#elementor-panel').animate({
                     'right': 0,
                     'width': panelWidth + 'px',
@@ -1078,10 +1399,7 @@ function elementor_horizontal_panel_key() {
 
         } else {
 
-            $('#elementor-preview, .e-responsive-bar').animate({
-                'left': 0,
-                'right': 0,
-            }, 150);
+            setPreviewOffsets(0, 0, true);
 
             $('#elementor-panel').animate({
                 'width': panelWidth + 'px',
@@ -1115,11 +1433,13 @@ function rtl_mode(mode) {
     //console.log(mode); // debug
     //console.log(fepConfig.rtl_force_mode);
 
-    if ( mode == true ) {
+    if (mode == true) {
+        var forceRtl = (fepConfig.rtl_force_mode == 'yes' || fepConfig.rtl_force_mode == null);
+        var targetDir = forceRtl ? 'rtl' : (FEP.rtl ? 'rtl' : 'ltr');
 
-        $("#elementor-preview-iframe").contents().find("html").attr('dir', 'rtl'); // set the global direction for scroll bar
+        $("#elementor-preview-iframe").contents().find("html").attr('dir', targetDir); // set the global direction for scroll bar
 
-        if ( fepConfig.rtl_force_mode == 'yes' || fepConfig.rtl_force_mode == null ) {
+        if (targetDir === 'rtl') {
             $('#elementor-preview-iframe').contents().find('body').addClass('rtl').removeClass('ltr');
             $('#elementor-preview-iframe').contents().find('header').css('direction', 'rtl');
             $('#elementor-preview-iframe').contents().find('main').css('direction', 'rtl');
@@ -1135,7 +1455,7 @@ function rtl_mode(mode) {
         //if ( FEP.rtl ) {
         $("#elementor-preview-iframe").contents().find("html").attr('dir', 'ltr');
 
-        if ( FEP.rtl ) {
+        if (FEP.rtl) {
             $('#elementor-preview-iframe').contents().find('body').addClass('rtl').removeClass('ltr');
             $('#elementor-preview-iframe').contents().find('header').css('direction', 'rtl');
             $('#elementor-preview-iframe').contents().find('main').css('direction', 'rtl');
@@ -1163,12 +1483,12 @@ function rtl_mode(mode) {
 // MOUSEUP (at leave the click mouse)
 function MouseUpHeaderNavigator() {
 
-    var $element_navigator  = $('#elementor-navigator');
-    var navigator_right     = ($(window).width() - ($element_navigator.offset().left + $element_navigator.outerWidth()));
+    var $element_navigator = $('#elementor-navigator');
+    var navigator_right = ($(window).width() - ($element_navigator.offset().left + $element_navigator.outerWidth()));
 
     //console.log( navigator_right );
 
-    if ( navigator_right <= 0 ) {
+    if (navigator_right <= 0) {
         //console.log($element_navigator.outerWidth());
         $('#elementor-preview').css('right', $element_navigator.outerWidth());
     } else {

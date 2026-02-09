@@ -1,3 +1,312 @@
+/* ==========================================================================
+   Flexible Editor Panel — Editor Stylesheet
+   Merged: Editor V2 & Night Skins
+   Version: 2.6.0
+   ========================================================================== */
+
+/*-----------------------------------------------------------------------------------
+1 - Panel
+2 - Flex Grid element
+3 - Vertical toggle
+4 - Exit button
+5 - Tooltip FEP
+-----------------------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------------------------
+
+1 - Panel
+
+--------------------------------------------------------------------------------------*/
+
+.elementor-device-desktop #elementor-preview-responsive-wrapper {
+    min-width: auto;
+    /* cancel min screen if you use on computer under the default 1024 */
+}
+
+#elementor-panel:not(.ui-resizable-resizing),
+#elementor-preview:not(.ui-resizable-resizing),
+#elementor-panel,
+#elementor-preview {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    min-width: 300px;
+}
+
+
+/* For Elementor 3.2 */
+/* Since FEP 2.3.4 */
+#elementor-preview {
+    background-color: #333;
+    position: absolute;
+    height: 100%;
+    /*top: 0;*/
+    right: 0;
+    border: 0;
+}
+
+#elementor-preview,
+.e-responsive-bar {
+    width: auto;
+    left: 300px;
+}
+
+.elementor-panel {
+    position: fixed;
+    height: 100%;
+    top: 48px;
+    /* new editor */
+    bottom: 0;
+    margin: 0;
+}
+
+/* new editor */
+body:not(.e-routes-has-history) #elementor-panel-header-kit-back {
+    display: none !important;
+}
+
+#elementor-preview-responsive-wrapper .ui-resizable-e,
+#elementor-preview-responsive-wrapper .ui-resizable-s,
+#elementor-preview-responsive-wrapper .ui-resizable-w,
+#elementor-responsive-bar {
+    z-index: 0 !important;
+    /* change z-index for display the editor panel on it (z-index 1) */
+}
+
+/* End Elementor 3.2 */
+
+#elementor-editor-wrapper-v2 {
+    z-index: 1;
+    position: relative;
+}
+
+.e-responsive-bar,
+.e-responsive-bar:not(.ui-resizable-resizing) {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.elementor-editor-preview .elementor-panel {
+    left: -300px;
+}
+
+.elementor-panel .ui-resizable-all {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    right: 0;
+    left: 100%;
+    cursor: nwse-resize;
+    background-color: transparent;
+    border-right: 2px solid deeppink;
+    border-bottom: 2px solid deeppink;
+    margin-left: -20px;
+    margin-top: -20px;
+}
+
+#elementor-panel-saver-button-save-options {
+    position: relative;
+}
+
+.ui-resizable-resizing {
+    pointer-events: unset;
+}
+
+.disable-option-fep-disable_obscured_elements_responsive .elementor-control-disable_obscured_elements_responsive .elementor-control-content,
+.disable-option-fep-maintain_obscured_elements_responsive .elementor-control-maintain_obscured_elements_responsive .elementor-control-content,
+.disable-option-fep-alternative_responsive_indicator .elementor-control-alternative_responsive_indicator .elementor-control-content {
+    display: none !important;
+}
+
+/*css for stop conflict with css elenentor 2.9.0, why it ?*/
+#elementor-panel-fep-settings label {
+    flex-shrink: unset;
+    line-height: 1.4;
+}
+
+/*css for stop conflict with css elenentor 3.0.0, why it ?*/
+#elementor-panel-editorPreferences-settings label {
+    flex-shrink: unset;
+    line-height: 1.4;
+}
+
+.desc-pro-version {
+    line-height: 1.4;
+}
+
+/*--------------------------------------------------------------------------------------
+
+2 - Flex Grid element
+
+--------------------------------------------------------------------------------------*/
+.fep-elementor-grid-ruler .elementor-panel .elementor-responsive-panel {
+    display: inline-block;
+}
+
+.fep-elementor-grid-ruler .elementor-panel .elementor-element-wrapper {
+    width: 90px;
+    padding: 3px;
+    float: left;
+}
+
+.fep-elementor-grid-ruler .elementor-panel .elementor-element .icon {
+    font-size: 26px;
+    padding-top: 10px;
+}
+
+.fep-elementor-grid-ruler .elementor-panel .elementor-element .elementor-element-title-wrapper {
+    padding: 0px 2px;
+}
+
+
+/*--------------------------------------------------------------------------------------
+
+2.5 - Collapse Categories Button
+
+--------------------------------------------------------------------------------------*/
+
+.fep-categories-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.fep-categories-toggle-button:hover {
+    text-decoration: none;
+}
+
+
+/*--------------------------------------------------------------------------------------
+
+3 - Vertical toggle
+
+--------------------------------------------------------------------------------------*/
+
+#elementor-panel-header-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+#fep-collapse-vertical,
+#fep-reset-panel {
+    position: relative;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+
+    font-size: 16px;
+    height: unset;
+    width: 34px;
+    text-align: center;
+}
+
+
+#fep-collapse-vertical {
+    order: 2;
+}
+
+#fep-reset-panel {
+    order: 1;
+}
+
+#fep-collapse-vertical:hover,
+#fep-reset-panel:hover {
+    color: #d5dadf;
+    cursor: pointer;
+}
+
+#fep-collapse-vertical .fep-toggle-panel-icon {
+    font-size: 18px;
+}
+
+.elementor-editor-preview .elementor-panel.vertical_elementor_panel_toggle-on {
+    left: 0;
+    right: 0;
+}
+
+.elementor-editor-preview .elementor-panel.vertical_elementor_panel_toggle-on #elementor-panel-footer {
+    display: none !important;
+}
+
+/* new editor */
+#elementor-panel-footer {
+    display: none !important;
+}
+
+
+/*--------------------------------------------------------------------------------------
+
+4 - Exit button
+
+--------------------------------------------------------------------------------------*/
+
+
+#fep-exit-link {
+    font-size: 25px;
+    height: unset;
+    width: 34px;
+    text-align: center;
+    color: white;
+    order: 3;
+    cursor: pointer;
+}
+
+
+/* Normal override */
+
+#elementor-mode-switcher.right {
+    left: 100%;
+    right: unset;
+    -webkit-box-shadow: 3px 1px 5px rgba(0, 0, 0, .1);
+    box-shadow: 3px 1px 5px rgba(0, 0, 0, .1);
+}
+
+
+/* RTL */
+
+#elementor-mode-switcher.left {
+    right: 100%;
+    left: unset;
+    -webkit-box-shadow: -3px 1px 5px rgba(0, 0, 0, .1);
+    box-shadow: -3px 1px 5px rgba(0, 0, 0, .1);
+}
+
+body.elementor-editor-active #elementor-mode-switcher.left #elementor-mode-switcher-preview .eicon:before {
+    content: ""
+}
+
+body.elementor-editor-preview #elementor-mode-switcher.left #elementor-mode-switcher-preview .eicon:before {
+    content: ""
+}
+
+
+/*--------------------------------------------------------------------------------------
+
+5 - Tooltip FEP
+
+--------------------------------------------------------------------------------------*/
+
+fep-t {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+/*
+.tipsy.fep-content-tooltip .tipsy-inner,
+.tipsy.fep-pro-content-tooltip .tipsy-inner {
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(236, 0, 140, 0.7);
+          box-shadow: 0 0 5px 0 rgba(236, 0, 140, 0.7);
+}
+*/
+
+
 /*-----------------------------------------------------------------------------------
 1 - Panel
 2 - Header
@@ -21,7 +330,8 @@
 /*--------------------------------------------------------------------------------------
 1 - Panel
 --------------------------------------------------------------------------------------*/
-.nightmode .elementor-panel#elementor-panel, .nightmode .elementor-panel .elementor-control {
+.nightmode .elementor-panel#elementor-panel,
+.nightmode .elementor-panel .elementor-control {
     background: #535353;
     color: #e4e4e4;
 }
@@ -34,25 +344,32 @@
     color: #a4afb7;
 }
 
-.nightmode .elementor-panel .fep-exit-wrapper a, .nightmode .elementor-panel .fep-exit-wrapper a:hover {
+.nightmode .elementor-panel .fep-exit-wrapper a,
+.nightmode .elementor-panel .fep-exit-wrapper a:hover {
     color: inherit;
 }
+
 .nightmode .elementor-panel-heading {
     border-bottom: 1px solid #e6e9ec33;
 }
+
 .nightmode .elementor-control.elementor-control-separator-before:before {
     background-color: #d5dadf33;
 }
+
 .nightmode .elementor-panel-heading-title {
     font-weight: 400;
 }
+
 .nightmode .elementor-control.elementor-control-type-heading .elementor-control-title {
     font-weight: 500;
 }
+
 .nightmode .elementor-panel .elementor-panel-alert {
     background-color: #383838;
     color: white;
 }
+
 .nightmode #elementor-panel-elements-search-area {
     background-color: #535353;
 }
@@ -88,6 +405,7 @@
 .nightmode .elementor-control-type-switcher .elementor-switch {
     background-color: transparent;
 }
+
 .nightmode .elementor-control-type-switcher .elementor-switch-label {
     background: #383838;
 }
@@ -167,19 +485,24 @@
     background-color: #383838;
     border-color: #383838;
 }
+
 .nightmode .select2-selection__rendered li {
     list-style: none;
     color: #535353;
 }
+
 .nightmode .select2-container--default .select2-results__option[aria-selected=true] {
     background-color: #212121;
 }
+
 .nightmode .ace-tm .ace_constant {
     color: rgb(241, 148, 148);
 }
+
 .nightmode.nightmode-pink .elementor-control-type-popover_toggle .elementor-control-popover-toggle-toggle:checked+.elementor-control-popover-toggle-toggle-label {
     color: #d30c5c;
 }
+
 .nightmode.nightmode-orange .elementor-control-type-popover_toggle .elementor-control-popover-toggle-toggle:checked+.elementor-control-popover-toggle-toggle-label {
     color: #ff7800;
 }
@@ -200,11 +523,13 @@
     box-shadow: 0 2px 6px rgba(255, 255, 255, .2);
 }
 
-.nightmode .elementor-panel .elementor-element .icon, .nightmode .elementor-panel .elementor-element .title {
+.nightmode .elementor-panel .elementor-element .icon,
+.nightmode .elementor-panel .elementor-element .title {
     color: #a4afb7;
 }
 
-.nightmode .elementor-panel .elementor-element:hover .icon, .nightmode .elementor-panel .elementor-element:hover .title {
+.nightmode .elementor-panel .elementor-element:hover .icon,
+.nightmode .elementor-panel .elementor-element:hover .title {
     color: #e4e4e4;
 }
 
@@ -236,7 +561,8 @@
 /*--------------------------------------------------------------------------------------
 7 - Options
 --------------------------------------------------------------------------------------*/
-.nightmode .elementor-panel .elementor-panel-heading-title, .nightmode .elementor-panel .elementor-panel-heading-toggle {
+.nightmode .elementor-panel .elementor-panel-heading-title,
+.nightmode .elementor-panel .elementor-panel-heading-toggle {
     color: #e4e4e4;
 }
 
@@ -267,7 +593,8 @@
 /*--------------------------------------------------------------------------------------
 8 - History / Revision
 --------------------------------------------------------------------------------------*/
-.nightmode .elementor-panel .elementor-panel-scheme-buttons, .nightmode .elementor-panel .elementor-panel-box {
+.nightmode .elementor-panel .elementor-panel-scheme-buttons,
+.nightmode .elementor-panel .elementor-panel-box {
     background: #383838;
 }
 
@@ -275,7 +602,8 @@
     color: #ff7800;
 }
 
-.nightmode .elementor-panel .elementor-history-item-current, .nightmode .elementor-panel .elementor-revision-current-preview {
+.nightmode .elementor-panel .elementor-history-item-current,
+.nightmode .elementor-panel .elementor-revision-current-preview {
     background: #212121;
 }
 
@@ -326,10 +654,11 @@
 .nightmode #elementor-theme-builder-conditions .elementor-theme-builder-conditions-repeater-row-controls .elementor-control:not(:first-child) select {
     background-color: #383838;
 }
+
 .nightmode #elementor-theme-builder-conditions .elementor-control-type-select .elementor-control-input-wrapper:after {
     color: #e4e4e4;
 }
 
-.nightmode  #elementor-theme-builder-conditions .select2-selection__placeholder {
+.nightmode #elementor-theme-builder-conditions .select2-selection__placeholder {
     color: #e4e4e4;
 }

@@ -1,38 +1,42 @@
-=== Flexible Elementor Panel ===
+=== Flexible Editor Panel ===
 Contributors: webmatpro
 Donate link: https://www.paypal.me/webmatpro
-Tags: elementor, elementor addon, elementor addons, elementor widget, elementor editor
-Requires at least: 5.3
-Tested up to: 6.8.2
-Requires PHP: 5.6
-Stable tag: 2.5.4
+Tags: elementor, elementor addon, elementor editor, elementor panel, editor
+Requires at least: 5.9
+Tested up to: 6.9.1
+Requires PHP: 7.4
+Stable tag: 2.6.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The plugin "Flexible Elementor Panel" makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.
+The plugin "Flexible Editor Panel" makes the Elementor editor panel flexible, draggable, resizable, foldable and adds many productivity features.
 
 == Description ==
 
-The plugin "Flexible Elementor Panel" makes the Elementor editor panel flexible, draggable, resizable, folding and more opportunities.
+The plugin "Flexible Editor Panel" makes the Elementor editor panel flexible, draggable, resizable, foldable and adds many productivity features.
 
+= Requirements =
+* PHP 7.4 or higher
+* WordPress 5.9 or higher
+* Elementor 3.21.0 or higher (tested up to 3.50.0)
+* Elementor Pro (optional — tested up to 3.50.0)
 
 = Features =
-* Draggable Elementor panel and save position
-* Move to right side and switch in RTL mode
+* Draggable Elementor panel with saved position
+* Move to right side with automatic RTL switching
 * Vertical collapsible Elementor panel
-* Resize Elementor panel and save size
-* Multiple dark skin for Elementor editor
-* Collapsible all widgets category
-* Sortable widgets category and save position
-* Add exit button in the footer of panel editor
-* Option to close the first tab in Accordion widget
-* Add more options for responsive mode
+* Resizable Elementor panel with saved size
+* Multiple dark skins for the editor (Pink / Orange)
+* Collapsible all widget categories (right-click)
+* Sortable widget categories with saved order
+* Configurable exit button in the panel header
+* Additional options for responsive editing mode
 
 == Installation ==
 From within WordPress' dashboard:
 
 1. Go to Plugins -> Add New
-2. Search for "Flexible Elementor Panel"
+2. Search for "Flexible Editor Panel"
 3. Click "Install"
 4. Click "Activate"
 
@@ -43,14 +47,7 @@ Manually via FTP:
 
 == Screenshots ==
 1. Draggable Elementor panel anywhere
-2. Exit button in editor footer
-3. More skin for Elementor editor
-4. Collapsible Elementor panel
-5. More options for responsive mode
-6. Flex and Sortable widgets category
-7. First tab accordion closed
-8. Simple settings in editor panel
-9. User settings in editor panel v2
+2. User settings in editor panel v2
 
 == Frequently Asked Questions ==
 
@@ -64,6 +61,27 @@ You can reset position / size in the settings FEP, side editor Elementor and in 
 
 
 == Changelog ==
+
+= 2.6.0 =
+* Major: Renamed plugin from "Flexible Elementor Panel" to "Flexible Editor Panel"
+* Major: Dropped support for Elementor < 3.0 — minimum version is now 3.21.0
+* Major: Minimum PHP version raised to 7.4 (typed properties, return types, arrow functions)
+* Major: Removed all legacy editor v1 code and assets
+* Fix: Cleaned up FEP header icon injection to match the new Elementor editor header
+* Improve: Rewrote main plugin class with modern PHP 7.4 architecture
+* Improve: Merged editor CSS into single stylesheet for fewer HTTP requests
+* Improve: Fixed deprecated `create_function()` call in Settings API (PHP 8.0+ compatible)
+* Improve: Cleaner Elementor controls registration with typed methods
+* Improve: Simplified admin settings tab (removed old editor detection logic)
+* Improve: Updated text-domain to `flexible-editor-panel`
+* Improve: Removed accordion first-tab option (now native in Elementor)
+* Improve: Replaced right-click collapse with a centered "Collapse categories" button to avoid Elementor favorites conflict
+* Fix: Docked panel height now accounts for the Elementor header when snapped to top corners
+* Fix: Resolved preview switcher icon display issue
+* Improve: Optimized drag/resize performance with DOM caching and animation throttling
+* Compatibility: Tested with Elementor 3.50.0
+* Compatibility: Tested with Elementor Pro 3.50.0
+* Compatibility: Tested with WordPress 6.9.1
 
 = 2.5.4 =
 * Fix multiples issues with icon FEP in header - thanks @Lars

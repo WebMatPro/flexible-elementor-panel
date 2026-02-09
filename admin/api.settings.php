@@ -1,4 +1,5 @@
 <?php
+
 namespace FEP\Admin\Settings;
 
 /**
@@ -11,11 +12,12 @@ namespace FEP\Admin\Settings;
  * @example example/oop-example.php How to use the class
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (! defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 
-class FEP_Settings_API {
+class FEP_Settings_API
+{
 
     /**
      * settings sections array
@@ -32,18 +34,20 @@ class FEP_Settings_API {
     protected $settings_fields = array();
 
 
-    public function __construct() {
-        add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+    public function __construct()
+    {
+        add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
     }
 
     /**
      * Enqueue scripts and styles
      */
-    function admin_enqueue_scripts() {
-		wp_enqueue_style( 'wp-color-picker' );
+    function admin_enqueue_scripts()
+    {
+        wp_enqueue_style('wp-color-picker');
         wp_enqueue_media();
-        wp_enqueue_script( 'wp-color-picker' );
-        wp_enqueue_script( 'jquery' );
+        wp_enqueue_script('wp-color-picker');
+        wp_enqueue_script('jquery');
     }
 
 
@@ -52,7 +56,8 @@ class FEP_Settings_API {
      *
      * @param array   $sections setting sections array
      */
-    function set_sections( $sections ) {
+    function set_sections($sections)
+    {
         $this->settings_sections = $sections;
 
         return $this;
@@ -63,7 +68,8 @@ class FEP_Settings_API {
      *
      * @param array   $section
      */
-    function add_section( $section ) {
+    function add_section($section)
+    {
         $this->settings_sections[] = $section;
 
         return $this;
@@ -74,13 +80,15 @@ class FEP_Settings_API {
      *
      * @param array   $fields settings fields array
      */
-    function set_fields( $fields ) {
+    function set_fields($fields)
+    {
         $this->settings_fields = $fields;
 
         return $this;
     }
 
-    function add_field( $section, $field ) {
+    function add_field($section, $field)
+    {
         $defaults = array(
             'name'  => '',
             'label' => '',
@@ -88,7 +96,7 @@ class FEP_Settings_API {
             'type'  => 'text'
         );
 
-        $arg = wp_parse_args( $field, $defaults );
+        $arg = wp_parse_args($field, $defaults);
         $this->settings_fields[$section][] = $arg;
 
         return $this;
@@ -102,64 +110,68 @@ class FEP_Settings_API {
      * This function gets the initiated settings sections and fields. Then
      * registers them to WordPress and ready for use.
      */
-    function admin_init() {
+    function admin_init()
+    {
         //register settings sections
-        foreach ( $this->settings_sections as $section ) {
-            if ( false == get_option( $section['id'] ) ) {
+        foreach ($this->settings_sections as $section) {
+            if (false == get_option($section['id'])) {
                 //add_option( $section['id'] ); //not use it for the moment
             }
 
-            if ( isset($section['desc']) && !empty($section['desc']) ) {
+            if (isset($section['desc']) && !empty($section['desc'])) {
                 $section['desc'] = '<div class="inside">' . $section['desc'] . '</div>';
-                $callback = create_function('', 'echo "' . str_replace( '"', '\"', $section['desc'] ) . '";');
-            } else if ( isset( $section['callback'] ) ) {
+                $desc     = $section['desc'];
+                $callback = static function () use ($desc) {
+                    echo $desc;
+                };
+            } else if (isset($section['callback'])) {
                 $callback = $section['callback'];
             } else {
                 $callback = null;
             }
 
-            add_settings_section( $section['id'], $section['title'], $callback, $section['id'] );
+            add_settings_section($section['id'], $section['title'], $callback, $section['id']);
         }
 
         //register settings fields
-        foreach ( $this->settings_fields as $section => $field ) {
-            foreach ( $field as $option ) {
+        foreach ($this->settings_fields as $section => $field) {
+            foreach ($field as $option) {
 
                 $name = $option['name'];
-				$label_button = isset( $option['label_button'] ) ? $option['label_button'] : __('Button', 'flexible-elementor-panel');
-				$after = isset( $option['after'] ) ? $option['after'] : '';
-                $type = isset( $option['type'] ) ? $option['type'] : 'text';
-                $label = isset( $option['label'] ) ? $option['label'] : '';
-                $callback = isset( $option['callback'] ) ? $option['callback'] : array( $this, 'callback_' . $type );
+                $label_button = isset($option['label_button']) ? $option['label_button'] : __('Button', 'flexible-editor-panel');
+                $after = isset($option['after']) ? $option['after'] : '';
+                $type = isset($option['type']) ? $option['type'] : 'text';
+                $label = isset($option['label']) ? $option['label'] : '';
+                $callback = isset($option['callback']) ? $option['callback'] : array($this, 'callback_' . $type);
 
                 $args = array(
                     'id'                => $name,
-                    'class'             => isset( $option['class'] ) ? $option['class'] : $name,
+                    'class'             => isset($option['class']) ? $option['class'] : $name,
                     'label_for'         => "{$section}[{$name}]",
-                    'desc'              => isset( $option['desc'] ) ? $option['desc'] : '',
+                    'desc'              => isset($option['desc']) ? $option['desc'] : '',
                     'name'              => $label,
-					'label_button'      => $label_button,
-					'after'             => $after,
+                    'label_button'      => $label_button,
+                    'after'             => $after,
                     'section'           => $section,
-                    'size'              => isset( $option['size'] ) ? $option['size'] : null,
-                    'options'           => isset( $option['options'] ) ? $option['options'] : '',
-                    'std'               => isset( $option['default'] ) ? $option['default'] : '',
-                    'sanitize_callback' => isset( $option['sanitize_callback'] ) ? $option['sanitize_callback'] : '',
+                    'size'              => isset($option['size']) ? $option['size'] : null,
+                    'options'           => isset($option['options']) ? $option['options'] : '',
+                    'std'               => isset($option['default']) ? $option['default'] : '',
+                    'sanitize_callback' => isset($option['sanitize_callback']) ? $option['sanitize_callback'] : '',
                     'type'              => $type,
-                    'placeholder'       => isset( $option['placeholder'] ) ? $option['placeholder'] : '',
-                    'min'               => isset( $option['min'] ) ? $option['min'] : '',
-                    'max'               => isset( $option['max'] ) ? $option['max'] : '',
-                    'step'              => isset( $option['step'] ) ? $option['step'] : '',
-                    'disabled'          => !empty( $option['disabled'] ) ? 'disabled title="Plugin Not Installed!"' : null,
+                    'placeholder'       => isset($option['placeholder']) ? $option['placeholder'] : '',
+                    'min'               => isset($option['min']) ? $option['min'] : '',
+                    'max'               => isset($option['max']) ? $option['max'] : '',
+                    'step'              => isset($option['step']) ? $option['step'] : '',
+                    'disabled'          => !empty($option['disabled']) ? 'disabled title="Plugin Not Installed!"' : null,
                 );
 
-                add_settings_field( "{$section}[{$name}]", $label, $callback, $section, $section, $args );
+                add_settings_field("{$section}[{$name}]", $label, $callback, $section, $section, $args);
             }
         }
 
         // creates our settings in the options table
-        foreach ( $this->settings_sections as $section ) {
-            register_setting( $section['id'], $section['id'], array( $this, 'sanitize_options' ) );
+        foreach ($this->settings_sections as $section) {
+            register_setting($section['id'], $section['id'], array($this, 'sanitize_options'));
         }
     }
 
@@ -168,9 +180,10 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    public function get_field_description( $args ) {
-        if ( ! empty( $args['desc'] ) ) {
-            $desc = sprintf( '<p class="description">%s</p>', $args['desc'] );
+    public function get_field_description($args)
+    {
+        if (! empty($args['desc'])) {
+            $desc = sprintf('<p class="description">%s</p>', $args['desc']);
         } else {
             $desc = '';
         }
@@ -183,15 +196,16 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_text( $args ) {
+    function callback_text($args)
+    {
 
-        $value       = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-        $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-        $type        = isset( $args['type'] ) ? $args['type'] : 'text';
-        $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
+        $value       = esc_attr($this->get_option($args['id'], $args['section'], $args['std']));
+        $size        = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
+        $type        = isset($args['type']) ? $args['type'] : 'text';
+        $placeholder = empty($args['placeholder']) ? '' : ' placeholder="' . $args['placeholder'] . '"';
 
-        $html        = sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder );
-        $html       .= $this->get_field_description( $args );
+        $html        = sprintf('<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder);
+        $html       .= $this->get_field_description($args);
 
         echo $html;
     }
@@ -201,8 +215,9 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_url( $args ) {
-        $this->callback_text( $args );
+    function callback_url($args)
+    {
+        $this->callback_text($args);
     }
 
     /**
@@ -210,17 +225,18 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_number( $args ) {
-        $value       = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-        $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-        $type        = isset( $args['type'] ) ? $args['type'] : 'number';
-        $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
-        $min         = ( $args['min'] == '' ) ? '' : ' min="' . $args['min'] . '"';
-        $max         = ( $args['max'] == '' ) ? '' : ' max="' . $args['max'] . '"';
-        $step        = ( $args['step'] == '' ) ? '' : ' step="' . $args['step'] . '"';
+    function callback_number($args)
+    {
+        $value       = esc_attr($this->get_option($args['id'], $args['section'], $args['std']));
+        $size        = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
+        $type        = isset($args['type']) ? $args['type'] : 'number';
+        $placeholder = empty($args['placeholder']) ? '' : ' placeholder="' . $args['placeholder'] . '"';
+        $min         = ($args['min'] == '') ? '' : ' min="' . $args['min'] . '"';
+        $max         = ($args['max'] == '') ? '' : ' max="' . $args['max'] . '"';
+        $step        = ($args['step'] == '') ? '' : ' step="' . $args['step'] . '"';
 
-        $html        = sprintf( '<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step );
-        $html       .= $this->get_field_description( $args );
+        $html        = sprintf('<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step);
+        $html       .= $this->get_field_description($args);
 
         echo $html;
     }
@@ -230,15 +246,16 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_checkbox( $args ) {
+    function callback_checkbox($args)
+    {
 
-        $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
+        $value = esc_attr($this->get_option($args['id'], $args['section'], $args['std']));
 
         $html  = '<fieldset>';
-        $html  .= sprintf( '<label for="%1$s[%2$s]">', $args['section'], $args['id'] );
-        $html  .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id'] );
-        $html  .= sprintf( '<input type="checkbox" class="checkbox" id="%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s %4$s />', $args['section'], $args['id'], checked( $value, 'on', false ), isset($args['disabled']) ? $args['disabled'] : '' );
-        $html  .= sprintf( '%1$s</label>', $args['desc'] );
+        $html  .= sprintf('<label for="%1$s[%2$s]">', $args['section'], $args['id']);
+        $html  .= sprintf('<input type="hidden" name="%1$s[%2$s]" value="off" />', $args['section'], $args['id']);
+        $html  .= sprintf('<input type="checkbox" class="checkbox" id="%1$s[%2$s]" name="%1$s[%2$s]" value="on" %3$s %4$s />', $args['section'], $args['id'], checked($value, 'on', false), isset($args['disabled']) ? $args['disabled'] : '');
+        $html  .= sprintf('%1$s</label>', $args['desc']);
         $html  .= '</fieldset>';
 
         echo $html;
@@ -249,19 +266,20 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_multicheck( $args ) {
+    function callback_multicheck($args)
+    {
 
-        $value = $this->get_option( $args['id'], $args['section'], $args['std'] );
+        $value = $this->get_option($args['id'], $args['section'], $args['std']);
         $html  = '<fieldset>';
-        $html .= sprintf( '<input type="hidden" name="%1$s[%2$s]" value="" />', $args['section'], $args['id'] );
-        foreach ( $args['options'] as $key => $label ) {
-            $checked = isset( $value[$key] ) ? $value[$key] : '0';
-            $html    .= sprintf( '<label for="%1$s[%2$s][%3$s]">', $args['section'], $args['id'], $key );
-            $html    .= sprintf( '<input type="checkbox" class="checkbox" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $checked, $key, false ) );
-            $html    .= sprintf( '%1$s</label><br>',  $label );
+        $html .= sprintf('<input type="hidden" name="%1$s[%2$s]" value="" />', $args['section'], $args['id']);
+        foreach ($args['options'] as $key => $label) {
+            $checked = isset($value[$key]) ? $value[$key] : '0';
+            $html    .= sprintf('<label for="%1$s[%2$s][%3$s]">', $args['section'], $args['id'], $key);
+            $html    .= sprintf('<input type="checkbox" class="checkbox" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s][%3$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked($checked, $key, false));
+            $html    .= sprintf('%1$s</label><br>',  $label);
         }
 
-        $html .= $this->get_field_description( $args );
+        $html .= $this->get_field_description($args);
         $html .= '</fieldset>';
 
         echo $html;
@@ -272,18 +290,19 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_radio( $args ) {
+    function callback_radio($args)
+    {
 
-        $value = $this->get_option( $args['id'], $args['section'], $args['std'] );
+        $value = $this->get_option($args['id'], $args['section'], $args['std']);
         $html  = '<fieldset>';
 
-        foreach ( $args['options'] as $key => $label ) {
-            $html .= sprintf( '<label for="%1$s[%2$s][%3$s]">',  $args['section'], $args['id'], $key );
-            $html .= sprintf( '<input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked( $value, $key, false ) );
-            $html .= sprintf( '%1$s</label><br>', $label );
+        foreach ($args['options'] as $key => $label) {
+            $html .= sprintf('<label for="%1$s[%2$s][%3$s]">',  $args['section'], $args['id'], $key);
+            $html .= sprintf('<input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s" %4$s />', $args['section'], $args['id'], $key, checked($value, $key, false));
+            $html .= sprintf('%1$s</label><br>', $label);
         }
 
-        $html .= $this->get_field_description( $args );
+        $html .= $this->get_field_description($args);
         $html .= '</fieldset>';
 
         echo $html;
@@ -294,38 +313,40 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_select( $args ) {
+    function callback_select($args)
+    {
 
-        $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-        $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-        $html  = sprintf( '<select class="%1$s" name="%2$s[%3$s]" id="%2$s[%3$s]">', $size, $args['section'], $args['id'] );
+        $value = esc_attr($this->get_option($args['id'], $args['section'], $args['std']));
+        $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
+        $html  = sprintf('<select class="%1$s" name="%2$s[%3$s]" id="%2$s[%3$s]">', $size, $args['section'], $args['id']);
 
-        foreach ( $args['options'] as $key => $label ) {
-            $html .= sprintf( '<option value="%s"%s>%s</option>', $key, selected( $value, $key, false ), $label );
+        foreach ($args['options'] as $key => $label) {
+            $html .= sprintf('<option value="%s"%s>%s</option>', $key, selected($value, $key, false), $label);
         }
 
-        $html .= sprintf( '</select>' );
-        $html .= $this->get_field_description( $args );
+        $html .= sprintf('</select>');
+        $html .= $this->get_field_description($args);
 
         echo $html;
     }
 
 
-	/**
+    /**
      * Displays a button for a settings field
      *
      * @param array   $args settings field args
      */
-    function callback_button( $args ) {
+    function callback_button($args)
+    {
 
-		$value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
+        $value = esc_attr($this->get_option($args['id'], $args['section'], $args['std']));
 
         $html  = '<fieldset>';
-        $html  .= sprintf( '<label for="%1$s">',$args['id'] );
-        $html  .= sprintf( '<button type="button" class="%1$s">%2$s</button>', $args['class'], $args['label_button'] );
-		$html  .= $args['after'];
-    	$html  .= '</label>';
-		$html  .= $this->get_field_description( $args );
+        $html  .= sprintf('<label for="%1$s">', $args['id']);
+        $html  .= sprintf('<button type="button" class="%1$s">%2$s</button>', $args['class'], $args['label_button']);
+        $html  .= $args['after'];
+        $html  .= '</label>';
+        $html  .= $this->get_field_description($args);
         $html  .= '</fieldset>';
 
         echo $html;
@@ -337,14 +358,15 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_textarea( $args ) {
+    function callback_textarea($args)
+    {
 
-        $value       = esc_textarea( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-        $size        = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-        $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="'.$args['placeholder'].'"';
+        $value       = esc_textarea($this->get_option($args['id'], $args['section'], $args['std']));
+        $size        = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
+        $placeholder = empty($args['placeholder']) ? '' : ' placeholder="' . $args['placeholder'] . '"';
 
-        $html        = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]"%4$s>%5$s</textarea>', $size, $args['section'], $args['id'], $placeholder, $value );
-        $html        .= $this->get_field_description( $args );
+        $html        = sprintf('<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]"%4$s>%5$s</textarea>', $size, $args['section'], $args['id'], $placeholder, $value);
+        $html        .= $this->get_field_description($args);
 
         echo $html;
     }
@@ -355,8 +377,9 @@ class FEP_Settings_API {
      * @param array   $args settings field args
      * @return string
      */
-    function callback_html( $args ) {
-        echo $this->get_field_description( $args );
+    function callback_html($args)
+    {
+        echo $this->get_field_description($args);
     }
 
     /**
@@ -364,10 +387,11 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_wysiwyg( $args ) {
+    function callback_wysiwyg($args)
+    {
 
-        $value = $this->get_option( $args['id'], $args['section'], $args['std'] );
-        $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : '500px';
+        $value = $this->get_option($args['id'], $args['section'], $args['std']);
+        $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : '500px';
 
         echo '<div style="max-width: ' . $size . ';">';
 
@@ -377,15 +401,15 @@ class FEP_Settings_API {
             'textarea_rows' => 10
         );
 
-        if ( isset( $args['options'] ) && is_array( $args['options'] ) ) {
-            $editor_settings = array_merge( $editor_settings, $args['options'] );
+        if (isset($args['options']) && is_array($args['options'])) {
+            $editor_settings = array_merge($editor_settings, $args['options']);
         }
 
-        wp_editor( $value, $args['section'] . '-' . $args['id'], $editor_settings );
+        wp_editor($value, $args['section'] . '-' . $args['id'], $editor_settings);
 
         echo '</div>';
 
-        echo $this->get_field_description( $args );
+        echo $this->get_field_description($args);
     }
 
     /**
@@ -393,16 +417,17 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_file( $args ) {
+    function callback_file($args)
+    {
 
-        $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-        $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $value = esc_attr($this->get_option($args['id'], $args['section'], $args['std']));
+        $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
         $id    = $args['section']  . '[' . $args['id'] . ']';
-        $label = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose File' );
+        $label = isset($args['options']['button_label']) ? $args['options']['button_label'] : __('Choose File');
 
-        $html  = sprintf( '<input type="text" class="%1$s-text wpsa-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
+        $html  = sprintf('<input type="text" class="%1$s-text wpsa-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value);
         $html  .= '<input type="button" class="button wpsa-browse" value="' . $label . '" />';
-        $html  .= $this->get_field_description( $args );
+        $html  .= $this->get_field_description($args);
 
         echo $html;
     }
@@ -412,13 +437,14 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_password( $args ) {
+    function callback_password($args)
+    {
 
-        $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-        $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $value = esc_attr($this->get_option($args['id'], $args['section'], $args['std']));
+        $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
 
-        $html  = sprintf( '<input type="password" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
-        $html  .= $this->get_field_description( $args );
+        $html  = sprintf('<input type="password" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value);
+        $html  .= $this->get_field_description($args);
 
         echo $html;
     }
@@ -428,13 +454,14 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_color( $args ) {
+    function callback_color($args)
+    {
 
-        $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
-        $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $value = esc_attr($this->get_option($args['id'], $args['section'], $args['std']));
+        $size  = isset($args['size']) && !is_null($args['size']) ? $args['size'] : 'regular';
 
-        $html  = sprintf( '<input type="text" class="%1$s-text wp-color-picker-field" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" />', $size, $args['section'], $args['id'], $value, $args['std'] );
-        $html  .= $this->get_field_description( $args );
+        $html  = sprintf('<input type="text" class="%1$s-text wp-color-picker-field" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" />', $size, $args['section'], $args['id'], $value, $args['std']);
+        $html  .= $this->get_field_description($args);
 
         echo $html;
     }
@@ -445,15 +472,16 @@ class FEP_Settings_API {
      *
      * @param array   $args settings field args
      */
-    function callback_pages( $args ) {
+    function callback_pages($args)
+    {
 
         $dropdown_args = array(
-            'selected' => esc_attr($this->get_option($args['id'], $args['section'], $args['std'] ) ),
+            'selected' => esc_attr($this->get_option($args['id'], $args['section'], $args['std'])),
             'name'     => $args['section'] . '[' . $args['id'] . ']',
             'id'       => $args['section'] . '[' . $args['id'] . ']',
             'echo'     => 0
         );
-        $html = wp_dropdown_pages( $dropdown_args );
+        $html = wp_dropdown_pages($dropdown_args);
         echo $html;
     }
 
@@ -462,18 +490,19 @@ class FEP_Settings_API {
      *
      * @return mixed
      */
-    function sanitize_options( $options ) {
+    function sanitize_options($options)
+    {
 
-        if ( !$options ) {
+        if (!$options) {
             return $options;
         }
 
-        foreach( $options as $option_slug => $option_value ) {
-            $sanitize_callback = $this->get_sanitize_callback( $option_slug );
+        foreach ($options as $option_slug => $option_value) {
+            $sanitize_callback = $this->get_sanitize_callback($option_slug);
 
             // If callback is set, call it
-            if ( $sanitize_callback ) {
-                $options[ $option_slug ] = call_user_func( $sanitize_callback, $option_value );
+            if ($sanitize_callback) {
+                $options[$option_slug] = call_user_func($sanitize_callback, $option_value);
                 continue;
             }
         }
@@ -488,20 +517,21 @@ class FEP_Settings_API {
      *
      * @return mixed string or bool false
      */
-    function get_sanitize_callback( $slug = '' ) {
-        if ( empty( $slug ) ) {
+    function get_sanitize_callback($slug = '')
+    {
+        if (empty($slug)) {
             return false;
         }
 
         // Iterate over registered fields and see if we can find proper callback
-        foreach( $this->settings_fields as $section => $options ) {
-            foreach ( $options as $option ) {
-                if ( $option['name'] != $slug ) {
+        foreach ($this->settings_fields as $section => $options) {
+            foreach ($options as $option) {
+                if ($option['name'] != $slug) {
                     continue;
                 }
 
                 // Return the callback name
-                return isset( $option['sanitize_callback'] ) && is_callable( $option['sanitize_callback'] ) ? $option['sanitize_callback'] : false;
+                return isset($option['sanitize_callback']) && is_callable($option['sanitize_callback']) ? $option['sanitize_callback'] : false;
             }
         }
 
@@ -516,11 +546,12 @@ class FEP_Settings_API {
      * @param string  $default default text if it's not found
      * @return string
      */
-    function get_option( $option, $section, $default = '' ) {
+    function get_option($option, $section, $default = '')
+    {
 
-        $options = get_option( $section );
+        $options = get_option($section);
 
-        if ( isset( $options[$option] ) ) {
+        if (isset($options[$option])) {
             return $options[$option];
         }
 
@@ -532,18 +563,19 @@ class FEP_Settings_API {
      *
      * Shows all the settings section labels as tab
      */
-    function show_navigation() {
+    function show_navigation()
+    {
         $html = '<h2 class="nav-tab-wrapper">';
 
-        $count = count( $this->settings_sections );
+        $count = count($this->settings_sections);
 
         // don't show the navigation if only one section exists
-        if ( $count === 1 ) {
+        if ($count === 1) {
             return;
         }
 
-        foreach ( $this->settings_sections as $tab ) {
-            $html .= sprintf( '<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s</a>', $tab['id'], $tab['title'] );
+        foreach ($this->settings_sections as $tab) {
+            $html .= sprintf('<a href="#%1$s" class="nav-tab" id="%1$s-tab">%2$s</a>', $tab['id'], $tab['title']);
         }
 
         $html .= '</h2>';
@@ -556,30 +588,31 @@ class FEP_Settings_API {
      *
      * This function displays every sections in a different form
      */
-    function show_forms() {
-        ?>
+    function show_forms()
+    {
+?>
         <div class="metabox-holder">
-            <?php foreach ( $this->settings_sections as $form ) { ?>
+            <?php foreach ($this->settings_sections as $form) { ?>
                 <div id="<?php echo $form['id']; ?>" class="group" style="display: none;">
                     <form method="post" action="options.php">
 
 
-                        <?php settings_fields( $form['id'] ); ?>
+                        <?php settings_fields($form['id']); ?>
 
-                        <?php do_settings_sections( $form['id'] ); ?>
+                        <?php do_settings_sections($form['id']); ?>
 
-                        <?php if ( $form['submit'] == true ) { ?>
+                        <?php if ($form['submit'] == true) { ?>
 
-	                        <div style="padding-left: 10px">
-	                            <?php submit_button(); ?>
-	                        </div>
+                            <div style="padding-left: 10px">
+                                <?php submit_button(); ?>
+                            </div>
 
                         <?php } ?>
                     </form>
                 </div>
             <?php } ?>
         </div>
-        <?php
+    <?php
         $this->script();
     }
 
@@ -588,8 +621,9 @@ class FEP_Settings_API {
      *
      * This code uses localstorage for displaying active tabs
      */
-    function script() {
-        ?>
+    function script()
+    {
+    ?>
         <script>
             jQuery(document).ready(function($) {
                 //Initiate Color Picker
@@ -598,45 +632,44 @@ class FEP_Settings_API {
                 // Switches option sections
                 $('.group').hide();
                 var activetab = '';
-                if (typeof(localStorage) != 'undefined' ) {
+                if (typeof(localStorage) != 'undefined') {
                     activetab = localStorage.getItem("activetab");
                 }
 
                 //if url has section id as hash then set it as active or override the current local storage value
-                if(window.location.hash){
+                if (window.location.hash) {
                     activetab = window.location.hash;
-                    if (typeof(localStorage) != 'undefined' ) {
+                    if (typeof(localStorage) != 'undefined') {
                         localStorage.setItem("activetab", activetab);
                     }
                 }
 
-                if (activetab != '' && $(activetab).length ) {
+                if (activetab != '' && $(activetab).length) {
                     $(activetab).fadeIn();
                 } else {
                     $('.group:first').fadeIn();
                 }
-                $('.group .collapsed').each(function(){
+                $('.group .collapsed').each(function() {
                     $(this).find('input:checked').parent().parent().parent().nextAll().each(
-                    function(){
-                        if ($(this).hasClass('last')) {
-                            $(this).removeClass('hidden');
-                            return false;
-                        }
-                        $(this).filter('.hidden').removeClass('hidden');
-                    });
+                        function() {
+                            if ($(this).hasClass('last')) {
+                                $(this).removeClass('hidden');
+                                return false;
+                            }
+                            $(this).filter('.hidden').removeClass('hidden');
+                        });
                 });
 
-                if (activetab != '' && $(activetab + '-tab').length ) {
+                if (activetab != '' && $(activetab + '-tab').length) {
                     $(activetab + '-tab').addClass('nav-tab-active');
-                }
-                else {
+                } else {
                     $('.nav-tab-wrapper a:first').addClass('nav-tab-active');
                 }
                 $('.nav-tab-wrapper a').click(function(evt) {
                     $('.nav-tab-wrapper a').removeClass('nav-tab-active');
                     $(this).addClass('nav-tab-active').blur();
                     var clicked_group = $(this).attr('href');
-                    if (typeof(localStorage) != 'undefined' ) {
+                    if (typeof(localStorage) != 'undefined') {
                         localStorage.setItem("activetab", $(this).attr('href'));
                     }
                     $('.group').hide();
@@ -644,7 +677,7 @@ class FEP_Settings_API {
                     evt.preventDefault();
                 });
 
-                $('.wpsa-browse').on('click', function (event) {
+                $('.wpsa-browse').on('click', function(event) {
                     event.preventDefault();
 
                     var self = $(this);
@@ -658,7 +691,7 @@ class FEP_Settings_API {
                         multiple: false
                     });
 
-                    file_frame.on('select', function () {
+                    file_frame.on('select', function() {
                         attachment = file_frame.state().get('selection').first().toJSON();
                         self.prev('.wpsa-url').val(attachment.url).change();
                     });
@@ -666,9 +699,8 @@ class FEP_Settings_API {
                     // Finally, open the modal
                     file_frame.open();
                 });
-        });
+            });
         </script>
-        <?php
+<?php
     }
-
 }
