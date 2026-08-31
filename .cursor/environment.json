@@ -1,0 +1,19 @@
+{
+  "name": "Flexible Editor Panel (WordPress + Elementor)",
+  "user": "ubuntu",
+  "install": "./.cursor/install.sh",
+  "start": "./.cursor/start.sh",
+  "terminals": [
+    {
+      "name": "wordpress",
+      "command": "php -S 0.0.0.0:8080 -t \"$HOME/wordpress\" \"$HOME/wordpress/router.php\"",
+      "description": "WordPress dev server (http://localhost:8080). Admin: /wp-admin (admin / admin). The plugin is symlinked into wp-content/plugins/flexible-elementor-panel and activated alongside Elementor."
+    }
+  ],
+  "ports": [
+    {
+      "name": "wordpress",
+      "port": 8080
+    }
+  ]
+}
