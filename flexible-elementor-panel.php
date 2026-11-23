@@ -24,7 +24,7 @@ if (! defined('ABSPATH')) {
 }
 
 // ─── Plugin Constants ────────────────────────────────────────────────
-define('FEP_VERSION', '2.6.0');
+define('FEP_VERSION', '2.6.1');
 define('FEP_FILE', __FILE__);
 define('FEP_URL', plugins_url('/', __FILE__));
 define('FEP_PATH', plugin_dir_path(__FILE__));
