@@ -24,7 +24,7 @@ if (! defined('ABSPATH')) {
 }
 
 // ─── Plugin Constants ────────────────────────────────────────────────
-define('FEP_VERSION', '2.6.0');
+define('FEP_VERSION', '2.6.1');
 define('FEP_FILE', __FILE__);
 define('FEP_URL', plugins_url('/', __FILE__));
 define('FEP_PATH', plugin_dir_path(__FILE__));
@@ -128,27 +128,9 @@ final class Flexible_Editor_Panel
 
 	// ─── Legacy migration (from pre-3.0 option to user meta) ─────────
 
-	private function maybe_migrate_legacy_options(): void
-	{
-		$options = get_option('_elementor_fep_settings');
-		if ($options !== false) {
-			$this->migrate_user_preferences(get_current_user_id());
-		}
-	}
+	private function maybe_migrate_legacy_options(): void 	{ 		$user_id = get_current_user_id(); 		if ($user_id <= 0 || get_user_meta($user_id, '_fep_legacy_settings_migrated', true)) { 			return; 		}  		$options = get_option('_elementor_fep_settings'); 		if (is_array($options) && $options !== []) { 			$this->migrate_user_preferences($user_id); 		} 	}
 
-	public function migrate_user_preferences(int $user_id): void
-	{
-		$options = get_option('_elementor_fep_settings');
-		if ($options === false) {
-			return;
-		}
-
-		delete_user_meta($user_id, 'elementor_preferences');
-		update_user_meta($user_id, 'elementor_preferences', $options);
-		delete_option('_elementor_fep_settings');
-
-		set_transient('fep-admin-notice-migration-done', true, 0);
-	}
+	public function migrate_user_preferences(int $user_id): void 	{ 		if ($user_id <= 0) { 			return; 		}  		$options = get_option('_elementor_fep_settings'); 		if (! is_array($options) || $options === []) { 			return; 		}  		$preferences = get_user_meta($user_id, 'elementor_preferences', true); 		if (! is_array($preferences)) { 			$preferences = []; 		}  		update_user_meta($user_id, 'elementor_preferences', array_merge($options, $preferences)); 		update_user_meta($user_id, '_fep_legacy_settings_migrated', true);  		set_transient('fep-admin-notice-migration-done', true, 0); 	}
 
 	// ─── Activation ──────────────────────────────────────────────────
 
